@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
   const [accessToken, setAccessToken] = useState('');
+  const audioRef = useRef(null);
 
   useEffect(() => {
     refreshAccessToken();
@@ -57,6 +59,7 @@ const SpotifySearch = () => {
         const randomTrack = data.tracks.items[0];
 
         setTrack(randomTrack);
+        resetAudio();
       } else {
         console.error('Error retrieving random track:', response.status);
       }
@@ -65,6 +68,13 @@ const SpotifySearch = () => {
     }
   };
 
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      audioRef.current.load();
+    }
+  };
 
   return (
     <div className='text-center my-12'>
@@ -75,16 +85,13 @@ const SpotifySearch = () => {
         <div>
           <h2>{track.name}</h2>
           <p>By {track.artists[0].name}</p>
-          <iframe
-            className='mx-auto'
-            src={`https://open.spotify.com/embed/track/${track.id}`}
-            width="300"
-            height="380"
-            allowtransparency="true"
-            allow="encrypted-media"
-            title="Spotify Player"
-            style={{ background: "transparent", border: "none" }}
-          ></iframe>
+          <div className='custom-player'>
+            <img src={track.album.images[0].url} alt='Album Art' />
+            <audio ref={audioRef} controls>
+              <source src={track.preview_url} type='audio/mpeg' />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         </div>
       )}
     </div>
