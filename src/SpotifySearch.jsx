@@ -42,7 +42,11 @@ const SpotifySearch = () => {
         return;
       }
 
-      const response = await fetch('https://api.spotify.com/v1/search?q=random&type=track', {
+      const searchTerm = await fetch('https://random-word-api.vercel.app/api?words=1')
+        .then((response) => response.json())
+        .then((data) => data[0]);
+
+      const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchTerm)}&type=track`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -60,6 +64,7 @@ const SpotifySearch = () => {
       console.error('Error retrieving random track:', error);
     }
   };
+
 
   return (
     <div>
