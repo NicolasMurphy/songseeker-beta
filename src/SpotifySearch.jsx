@@ -67,22 +67,23 @@ const SpotifySearch = () => {
 
 
   return (
-    <div>
-      <h1>Spotify Random Track</h1>
-      <button onClick={getRandomTrack}>Get Random Track</button>
+    <div className='text-center my-12'>
+      <h1 className='my-12'>Spotify Random Track</h1>
+      <button className='btn btn-primary' onClick={getRandomTrack}>Get Random Track</button>
 
       {track && (
         <div>
           <h2>{track.name}</h2>
           <p>By {track.artists[0].name}</p>
           <iframe
+            className='mx-auto'
             src={`https://open.spotify.com/embed/track/${track.id}`}
             width="300"
             height="380"
-            frameBorder="0"
             allowtransparency="true"
             allow="encrypted-media"
             title="Spotify Player"
+            style={{ background: "transparent", border: "none" }}
           ></iframe>
         </div>
       )}
