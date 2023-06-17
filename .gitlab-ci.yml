@@ -1,8 +1,7 @@
-image: node:latest
+image: node:lts
 
 stages:
   - build
-  - deploy
 
 build:
   stage: build
@@ -11,14 +10,4 @@ build:
     - npm run build
   artifacts:
     paths:
-      - build
-
-deploy:
-  stage: deploy
-  script:
-    - mv build public
-  artifacts:
-    paths:
       - public
-  only:
-    - main
