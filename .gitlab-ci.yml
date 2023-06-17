@@ -26,7 +26,7 @@ deploy:
 pages:
   stage: deploy
   script:
-    - mv build/* public/
+    - echo "Deploying to GitLab Pages"
   artifacts:
     paths:
       - public

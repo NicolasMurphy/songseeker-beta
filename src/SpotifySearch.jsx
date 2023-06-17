@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import SpotifyIcon from "./SpotifyIcon";
-import { refreshAccessToken, getRandomTrack } from "./api";
+import React, { useEffect, useState, useRef } from 'react';
+import SpotifyIcon from './SpotifyIcon';
+import { refreshAccessToken, getRandomTrack } from './api';
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
-  const [accessToken, setAccessToken] = useState("");
+  const [accessToken, setAccessToken] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const audioRef = useRef(null);
@@ -31,12 +31,7 @@ const SpotifySearch = () => {
   return (
     <div className="text-center my-12">
       <h1 className="my-12">Spotify Random Track</h1>
-      <button
-        className="btn btn-primary"
-        onClick={() =>
-          getRandomTrack(accessToken, setTrack, setIsLoading, resetAudio)
-        }
-      >
+      <button className="btn btn-primary" onClick={() => getRandomTrack(accessToken, setTrack, setIsLoading, resetAudio)}>
         Get Random Track
       </button>
 
@@ -52,13 +47,7 @@ const SpotifySearch = () => {
               <source src={track.preview_url} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
-          </div>
-          <div className="">
-            <a
-              href={track.external_urls.spotify}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
               <SpotifyIcon />
             </a>
           </div>
