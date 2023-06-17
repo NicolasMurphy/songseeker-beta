@@ -2,6 +2,7 @@ image: node:latest
 
 stages:
   - build
+  - deploy
 
 build:
   stage: build
@@ -12,7 +13,7 @@ build:
     paths:
       - build
 
-pages:
+deploy:
   stage: deploy
   script:
     - mv build public
