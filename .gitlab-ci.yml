@@ -11,19 +11,9 @@ build:
     - npm run build
   artifacts:
     paths:
-      - build
+      - public
 
 deploy:
-  stage: deploy
-  script:
-    - mv build public
-  artifacts:
-    paths:
-      - public
-  only:
-    - main
-
-pages:
   stage: deploy
   script:
     - echo "Deploying to GitLab Pages"
