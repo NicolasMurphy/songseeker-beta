@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
+import SpotifyIcon from "./Images/pngegg.png";
+
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
@@ -103,6 +105,13 @@ const SpotifySearch = () => {
               <source src={track.preview_url} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
+            <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+              <img
+                src={SpotifyIcon}
+                alt="Spotify Icon"
+                style={{ width: '24px', height: '24px', marginLeft: '8px' }}
+              />
+            </a>
           </div>
         </div>
       )}
