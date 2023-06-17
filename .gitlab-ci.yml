@@ -26,7 +26,7 @@ deploy:
 pages:
   stage: deploy
   script:
-    - mv public/* public/
+    - mv build/* public/
   artifacts:
     paths:
       - public
