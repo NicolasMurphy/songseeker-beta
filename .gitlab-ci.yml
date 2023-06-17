@@ -22,3 +22,10 @@ deploy:
       - public
   only:
     - main
+
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying to GitLab Pages"
+  only:
+    - main
