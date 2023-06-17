@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+iframe {
+  background-color: none transparent !important;
+}
+
+.custom-player {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.custom-player img {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.custom-player audio {
+  width: 300px;
+  margin-top: 10px;
+}
