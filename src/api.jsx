@@ -1,7 +1,6 @@
 export const refreshAccessToken = async (setAccessToken) => {
   try {
-    const clientId = process.env.REACT_APP_CLIENT_ID;
-    const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
+
     const credentials = `${clientId}:${clientSecret}`;
     const encodedCredentials = btoa(credentials);
 
@@ -27,45 +26,73 @@ export const refreshAccessToken = async (setAccessToken) => {
   }
 };
 
-
-export const getRandomTrack = async (accessToken, setTrack, setIsLoading, resetAudio, setLocation) => {
+export const getRandomTrack = async (
+  accessToken,
+  prevTrack,
+  setTrack,
+  setIsLoading,
+  resetAudio,
+  setLocation,
+  setShowTrackInfo
+) => {
   try {
     setIsLoading(true);
 
-    const playlistId = '34fCtmB1IBXo6gZmxAJi2l'; // Replace with the actual playlist ID
+    const playlistId = "34fCtmB1IBXo6gZmxAJi2l";
 
-    const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=100`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    const response = await fetch(
+      `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=100`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
       const tracks = data.items.map((item) => item.track);
-      const randomIndex = Math.floor(Math.random() * tracks.length);
-      const randomTrack = tracks[randomIndex];
+      let randomTrack = null;
 
-      // Define a list of locations matching the playlist index
-      const locations = [
-        "Nigeria",
-        "Romania",
-        // Add more locations as needed
-      ];
+      do {
+        randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+      } while (prevTrack && (randomTrack.id === prevTrack.id || !randomTrack.preview_url));
 
-      const randomLocationIndex = randomIndex % locations.length;
-      const location = locations[randomLocationIndex];
+      if (!randomTrack.preview_url) {
+        // Handle case when the selected track has no preview
+        console.warn("Selected track has no preview.");
+        setTrack(null);
+        setIsLoading(false);
+        return;
+      }
 
-      setTrack({ ...randomTrack, location }); // Include the location with the track data
+      const index = tracks.indexOf(randomTrack);
+      const locations = getLocationOptions();
+      const location = locations[index % locations.length];
+
+      setTrack({ ...randomTrack, location });
       resetAudio();
-      setLocation(location); // Update the location state
+      setLocation(location);
     } else {
-      console.error('Error retrieving random track:', response.status);
+      console.error("Error retrieving random track:", response.status);
     }
 
     setIsLoading(false);
+    setShowTrackInfo(false);
   } catch (error) {
-    console.error('Error retrieving random track:', error);
+    console.error("Error retrieving random track:", error);
     setIsLoading(false);
   }
+};
+
+
+export const getLocationOptions = () => {
+  return [
+    "Nigeria",
+    "Romania",
+    "Indonesia",
+    "Thailand",
+    "Mexico",
+    // Add more locations as needed
+  ];
 };
