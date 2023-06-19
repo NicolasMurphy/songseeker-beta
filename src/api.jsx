@@ -85,7 +85,6 @@ export const getRandomTrack = async (
   }
 };
 
-
 export const getLocationOptions = () => {
   return [
     "Nigeria",

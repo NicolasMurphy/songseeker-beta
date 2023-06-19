@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { refreshAccessToken, getRandomTrack, getLocationOptions } from "./api";
+import TrackInfo from "./TrackInfo";
+import AudioPlayer from "./AudioPlayer";
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
-  const [accessToken, setAccessToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState("");
   const [showTrackInfo, setShowTrackInfo] = useState(false);
@@ -12,7 +13,7 @@ const SpotifySearch = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await refreshAccessToken(setAccessToken); // Refresh the access token
+      await refreshAccessToken(setTrack);
       handleGetRandomTrack();
     };
 
@@ -20,7 +21,7 @@ const SpotifySearch = () => {
   }, []);
 
   const handleGetRandomTrack = async () => {
-    setShowTrackInfo(false); // Hide the track info
+    setShowTrackInfo(false);
     setIsLoading(true);
 
     try {
@@ -42,9 +43,7 @@ const SpotifySearch = () => {
 
   const resetAudio = () => {
     if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      audioRef.current.load();
+      audioRef.current.reset();
     }
   };
 
@@ -81,61 +80,42 @@ const SpotifySearch = () => {
         Get Random Track
       </button>
 
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <><br></br><div className="loading loading-ring loading-lg my-8"></div></>}
 
       {!isLoading && track && (
-        <div>
-          <div className="custom-player">
-            <audio ref={audioRef} controls>
-              <source src={track.preview_url} type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio>
-          </div>
+        <>
+          <AudioPlayer ref={audioRef} track={track} />
+
           {!showTrackInfo && (
-            <>
-              <div>
-                <p>Choose a Country:</p>
-                {locationOptions.map((option) => (
-                  <div key={option}>
-                    <input
-                      type="radio"
-                      id={option}
-                      name="location"
-                      value={option}
-                      onChange={handleLocationChange}
-                    />
-                    <label htmlFor={option}>{option}</label>
-                  </div>
-                ))}
-              </div>
+            <div>
+              <p>Choose a Country:</p>
+              {locationOptions.map((option) => (
+                <div key={option}>
+                  <input
+                    type="radio"
+                    id={option}
+                    name="location"
+                    value={option}
+                    onChange={handleLocationChange}
+                  />
+                  <label htmlFor={option}>{option}</label>
+                </div>
+              ))}
               <button className="btn btn-secondary mt-4" onClick={handleEnterChoice}>
                 Enter Choice
               </button>
-            </>
+            </div>
           )}
-          {showTrackInfo && (
-            <>
-              <div className="custom-player">
-                <img src={track.album.images[0].url} alt="Album Art" />
-              </div>
-              <p>Track: {track.name}</p>
-              <p>Artist: {track.artists[0].name}</p>
-              <p>Album: {track.album.name}</p>
-              <p>Location: {track.location}</p>
-              {isCorrectGuess ? (
-                <p className="text-success">You guessed correctly!</p>
-              ) : (
-                <p className="text-danger">You guessed wrong.</p>
-              )}
-              <button className="btn btn-primary" onClick={handleGetRandomTrack}>
-                Play Again
-              </button>
-            </>
-          )}
-        </div>
-      )}
 
-      {!isLoading && !track && <div>No track available</div>}
+          {showTrackInfo && (
+            <TrackInfo
+              track={track}
+              isCorrectGuess={isCorrectGuess}
+              locationOptions={locationOptions}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };
