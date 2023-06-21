@@ -1,15 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
-import { refreshAccessToken, getRandomTrack, getLocationOptions } from "./api";
-import TrackInfo from "./TrackInfo";
-import AudioPlayer from "./AudioPlayer";
+import React, { useEffect, useRef, useState } from 'react';
+import { refreshAccessToken, getRandomTrack, getLocationOptions } from './api';
+import TrackInfo from './TrackInfo';
+import AudioPlayer from './AudioPlayer';
+import Map from './Map';
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState('');
   const [showTrackInfo, setShowTrackInfo] = useState(false);
   const [isCorrectGuess, setIsCorrectGuess] = useState(false);
   const audioRef = useRef(null);
+  const [selectedCountry, setSelectedCountry] = useState('');
+  const [guessResult, setGuessResult] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +28,7 @@ const SpotifySearch = () => {
     setIsLoading(true);
 
     try {
-      const token = localStorage.getItem("accessToken");
+      const token = localStorage.getItem('accessToken');
       await getRandomTrack(
         token,
         track,
@@ -36,7 +39,7 @@ const SpotifySearch = () => {
         setShowTrackInfo
       );
     } catch (error) {
-      console.error("Error retrieving random track:", error);
+      console.error('Error retrieving random track:', error);
       setIsLoading(false);
     }
   };
@@ -47,75 +50,41 @@ const SpotifySearch = () => {
     }
   };
 
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
-  };
+  const handleCountrySelection = (country) => {
+    setLocation(country);
 
-  const handleEnterChoice = () => {
-    const selectedLocation = locationOptions.find(
-      (option) => document.getElementById(option).checked
-    );
-
-    if (!selectedLocation) {
-      alert("Please select a location before clicking Enter Choice.");
-      return;
-    }
-
-    setLocation(selectedLocation);
-
-    if (selectedLocation === track.location) {
+    if (track && country.toLowerCase() === track.location.toLowerCase()) {
       setIsCorrectGuess(true);
     } else {
       setIsCorrectGuess(false);
     }
-    setShowTrackInfo(true);
+
+    setSelectedCountry(country);
   };
 
-  const locationOptions = getLocationOptions();
+  const handleSubmit = () => {
+    if (selectedCountry.toLowerCase() === track.location.toLowerCase()) {
+      setGuessResult('Your guess is correct!');
+    } else {
+      setGuessResult(`Your guess is wrong. The location is ${track.location}.`);
+    }
+  };
 
   return (
-    <div className="text-center my-12">
-      <h1 className="my-12">Spotify Random Track</h1>
-      <button className="btn btn-primary" onClick={handleGetRandomTrack}>
-        Get Random Track
+    <div>
+      <h1>Guess the Track Location</h1>
+      <button onClick={handleGetRandomTrack} disabled={isLoading}>
+        {isLoading ? 'Loading...' : 'Get Random Track'}
       </button>
-
-      {isLoading && <><br></br><div className="loading loading-ring loading-lg my-8"></div></>}
-
-      {!isLoading && track && (
-        <>
-          <AudioPlayer ref={audioRef} track={track} />
-
-          {!showTrackInfo && (
-            <div>
-              <p>Choose a Country:</p>
-              {locationOptions.map((option) => (
-                <div key={option}>
-                  <input
-                    type="radio"
-                    id={option}
-                    name="location"
-                    value={option}
-                    onChange={handleLocationChange}
-                  />
-                  <label htmlFor={option}>{option}</label>
-                </div>
-              ))}
-              <button className="btn btn-secondary mt-4" onClick={handleEnterChoice}>
-                Enter Choice
-              </button>
-            </div>
-          )}
-
-          {showTrackInfo && (
-            <TrackInfo
-              track={track}
-              isCorrectGuess={isCorrectGuess}
-              locationOptions={locationOptions}
-            />
-          )}
-        </>
-      )}
+      {showTrackInfo && <TrackInfo track={track} isCorrect={isCorrectGuess} />}
+      <Map
+        handleCountrySelection={handleCountrySelection}
+        selectedCountry={selectedCountry}
+      />
+      <p>Selected Country: {selectedCountry}</p>
+      <AudioPlayer ref={audioRef} track={track} />
+      <button onClick={handleSubmit}>Submit</button>
+      {guessResult && <p>{guessResult}</p>}
     </div>
   );
 };
