@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { refreshAccessToken, getRandomTrack } from './api';
-import TrackInfo from './TrackInfo';
 import AudioPlayer from './AudioPlayer';
 import Map from './Map';
 import { haversineDistance } from './utils';
+import { handleGeocoding } from './helpers';
+import TrackLoader from './TrackLoader';
+import LocationGuess from './LocationGuess';
+import TrackDetails from './TrackDetails';
+
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
@@ -26,6 +30,13 @@ const SpotifySearch = () => {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (shouldResetMap) {
+      setSelectedCountry('');
+      setShouldResetMap(false);
+    }
+  }, [shouldResetMap]);
 
   const handleGetRandomTrack = async () => {
     setShouldResetMap(true);
@@ -63,20 +74,6 @@ const SpotifySearch = () => {
     setMarkerLocation(location);
   };
 
-  const handleGeocoding = async (address) => {
-    const geocoder = new window.google.maps.Geocoder();
-    return new Promise((resolve, reject) => {
-      geocoder.geocode({ address }, (results, status) => {
-        if (status === 'OK') {
-          const { location } = results[0].geometry;
-          resolve([location.lat(), location.lng()]);
-        } else {
-          reject('Geocode was not successful for the following reason: ' + status);
-        }
-      });
-    });
-  };
-
   const handleSubmit = async () => {
     if (selectedCountry) {
       const isGuessCorrect = selectedCountry.toLowerCase() === track.location.toLowerCase();
@@ -100,14 +97,6 @@ const SpotifySearch = () => {
     }
   };
 
-
-  useEffect(() => {
-    if (shouldResetMap) {
-      setSelectedCountry('');
-      setShouldResetMap(false);
-    }
-  }, [shouldResetMap]);
-
   return (
     <div className="container mx-auto py-8 text-center">
       <h1 className="text-4xl font-bold mb-4">Guess the Track Location</h1>
@@ -116,42 +105,9 @@ const SpotifySearch = () => {
         <p>Selected Country: {selectedCountry}</p>
         <p>{distanceMessage}</p>
       </div>
-      {isSubmitted && (
-        <div className="flex justify-center mb-6">
-          <button
-            className="px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
-            onClick={handleGetRandomTrack}
-            disabled={isLoading}
-          >
-            {isLoading ? 'Loading...' : 'Get Random Track'}
-          </button>
-        </div>
-      )}
+      {isSubmitted ? <TrackLoader isLoading={isLoading} handleGetRandomTrack={handleGetRandomTrack} /> : null}
       <AudioPlayer ref={audioRef} track={track} />
-      {isSubmitted ? (
-        <div className="m-6 text-center">
-          {isCorrectGuess && <p className="text-success">Your guess is correct!</p>}
-          {!isCorrectGuess && (
-            <p className="text-error">
-              You guessed wrong. The correct country is
-              <span className="text-gray-300"> {track.location}</span>
-            </p>
-          )}
-          {showTrackInfo && <TrackInfo track={track} />}
-        </div>
-      ) : (
-        <div className="flex justify-center p-6">
-          <button
-            className={`px-4 py-2 text-white rounded ${
-              selectedCountry ? 'bg-accent hover:bg-accent-focus transition-colors' : 'bg-gray-500 opacity-50 cursor-not-allowed'
-            }`}
-            onClick={handleSubmit}
-            disabled={!selectedCountry}
-          >
-            Submit
-          </button>
-        </div>
-      )}
+      {isSubmitted ? <TrackDetails isCorrectGuess={isCorrectGuess} track={track} /> : <LocationGuess selectedCountry={selectedCountry} handleSubmit={handleSubmit} />}
     </div>
   );
 };

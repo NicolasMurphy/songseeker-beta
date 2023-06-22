@@ -11,6 +11,15 @@ const Map = ({ handleCountrySelection, shouldReset }) => {
         center: { lat: 0, lng: 0 },
         zoom: 2,
         gestureHandling: 'greedy',
+        restriction: {
+          latLngBounds: {
+            north: 85,
+            south: -85,
+            west: -180,
+            east: 180,
+          },
+          strictBounds: true,
+        },
       };
 
       const map = new window.google.maps.Map(mapRef.current, mapOptions);
