@@ -24,9 +24,8 @@ const TrackInfo = ({ track, isCorrectGuess }) => {
       <div className="custom-player">
         <img src={track.album.images[0].url} alt="Album Art" />
       </div>
-      <p>Track: {track.name}</p>
-      <p>Artist: {track.artists[0].name}</p>
-      <p>Album: {track.album.name}</p>
+      <p>{track.name}</p>
+      <p>By {track.artists[0].name}</p>
       <p>Location: {track.location}</p>
       <div className="spotify-link">
         <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">

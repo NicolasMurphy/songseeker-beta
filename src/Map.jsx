@@ -36,9 +36,9 @@ const Map = ({ handleCountrySelection, shouldReset }) => {
 
             if (countryResult) {
               const country = getCountryFromResult(countryResult);
-              handleCountrySelection(country);
+              handleCountrySelection(country, clickedLocation);
             } else {
-              handleCountrySelection('Not a valid country');
+              handleCountrySelection('Not a valid country', clickedLocation);
             }
 
             const newMarker = new window.google.maps.Marker({
@@ -49,7 +49,7 @@ const Map = ({ handleCountrySelection, shouldReset }) => {
 
             markerRef.current = newMarker;
           } else {
-            handleCountrySelection('Geocoding request failed');
+            handleCountrySelection('Geocoding request failed', clickedLocation);
           }
         });
       });
