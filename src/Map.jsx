@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-const Map = ({ handleCountrySelection, selectedCountry }) => {
+const Map = ({ handleCountrySelection }) => {
   const mapRef = useRef(null);
   const markerRef = useRef(null);
 
@@ -8,6 +8,7 @@ const Map = ({ handleCountrySelection, selectedCountry }) => {
     const mapOptions = {
       center: { lat: 0, lng: 0 },
       zoom: 2,
+      gestureHandling: 'greedy', // Allow zooming without pressing Ctrl
     };
 
     // Create a new Google Map instance

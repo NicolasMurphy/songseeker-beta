@@ -1,10 +1,7 @@
-import React from "react";
-import SpotifyIcon from "./SpotifyIcon";
+import React from 'react';
+import SpotifyIcon from './SpotifyIcon';
 
-const TrackInfo = ({
-  track,
-  isCorrectGuess,
-}) => {
+const TrackInfo = ({ track, isCorrectGuess }) => {
   if (!track) {
     return null;
   }
@@ -23,7 +20,7 @@ const TrackInfo = ({
   }
 
   return (
-    <div>
+    <div className="text-center">
       <div className="custom-player">
         <img src={track.album.images[0].url} alt="Album Art" />
       </div>
@@ -31,11 +28,6 @@ const TrackInfo = ({
       <p>Artist: {track.artists[0].name}</p>
       <p>Album: {track.album.name}</p>
       <p>Location: {track.location}</p>
-      {isCorrectGuess ? (
-        <p className="text-success">You guessed correctly!</p>
-      ) : (
-        <p className="text-error">You guessed wrong. The correct country is {track.location}.</p>
-      )}
       <div className="spotify-link">
         <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
           <SpotifyIcon />
