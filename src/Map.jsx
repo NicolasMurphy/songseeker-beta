@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const Map = ({ handleCountrySelection }) => {
+const Map = ({ handleCountrySelection, shouldReset }) => {
   const mapRef = useRef(null);
   const markerRef = useRef(null);
 
@@ -62,7 +62,17 @@ const Map = ({ handleCountrySelection }) => {
         }
       });
     });
-  }, []);
+
+    // Reset the map and marker if shouldReset is true
+    if (shouldReset) {
+      map.setCenter(mapOptions.center);
+      map.setZoom(mapOptions.zoom);
+      if (markerRef.current) {
+        markerRef.current.setMap(null);
+        markerRef.current = null;
+      }
+    }
+  }, [shouldReset]);
 
   const getCountryFromResult = (result) => {
     // Find the country component in the address components of the result

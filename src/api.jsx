@@ -92,6 +92,17 @@ export const getLocationOptions = () => {
     "Indonesia",
     "Thailand",
     "Mexico",
+    "Australia",
+    "Argentina",
+    "Ireland",
+    "Germany",
+    "Egypt",
+    "Russia",
+    "India",
+    "China",
+    "Türkiye",
+    "Tanzania",
+    "Japan",
     // Add more locations as needed
   ];
 };

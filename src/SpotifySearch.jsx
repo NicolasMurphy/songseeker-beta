@@ -13,6 +13,7 @@ const SpotifySearch = () => {
   const audioRef = useRef(null);
   const [selectedCountry, setSelectedCountry] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false); // Track if the guess has been submitted
+  const [shouldResetMap, setShouldResetMap] = useState(false); // Track if the map and marker should reset
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +40,7 @@ const SpotifySearch = () => {
         setLocation,
         setShowTrackInfo
       );
+      setShouldResetMap(true); // Set shouldResetMap to true to trigger the map and marker reset
     } catch (error) {
       console.error('Error retrieving random track:', error);
       setIsLoading(false);
@@ -63,37 +65,47 @@ const SpotifySearch = () => {
     setShowTrackInfo(true);
   };
 
+  useEffect(() => {
+    if (shouldResetMap) {
+      setSelectedCountry('');
+      setShouldResetMap(false); // Reset shouldResetMap to false after resetting the map and marker
+    }
+  }, [shouldResetMap]);
+
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 text-center">
       <h1 className="text-4xl font-bold mb-4">Guess the Track Location</h1>
-      <div className="flex justify-center mb-6">
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-          onClick={handleGetRandomTrack}
-          disabled={isLoading}
-        >
-          {isLoading ? 'Loading...' : 'Get Random Track'}
-        </button>
-      </div>
       <div className="mb-6">
-        <Map handleCountrySelection={handleCountrySelection} selectedCountry={selectedCountry} />
+        <Map handleCountrySelection={handleCountrySelection} selectedCountry={selectedCountry} shouldReset={shouldResetMap} />
         <p>Selected Country: {selectedCountry}</p>
       </div>
+      {isSubmitted && (
+        <div className="flex justify-center mb-6">
+          <button
+            className="px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+            onClick={handleGetRandomTrack}
+            disabled={isLoading}
+          >
+            {isLoading ? 'Loading...' : 'Get Random Track'}
+          </button>
+        </div>
+      )}
       <AudioPlayer ref={audioRef} track={track} />
       {isSubmitted ? (
-        <div className="mb-6 text-center">
-          {showTrackInfo && <TrackInfo track={track} />}
-          {isCorrectGuess && <p className="text-green-500">Your guess is correct!</p>}
+        <div className="m-6 text-center">
+          {isCorrectGuess && <p className="text-success">Your guess is correct!</p>}
           {!isCorrectGuess && (
-            <p className="text-red-500">
-              You guessed wrong. The correct country is {track.location}.
+            <p className="text-error">
+              You guessed wrong. The correct country is
+              <span className="text-gray-300"> {track.location}</span>
             </p>
           )}
+          {showTrackInfo && <TrackInfo track={track} />}
         </div>
       ) : (
         <div className="flex justify-center p-6">
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            className="px-4 py-2 bg-accent hover:bg-accent-focus text-white rounded transition-colors"
             onClick={handleSubmit}
           >
             Submit
