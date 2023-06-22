@@ -16,6 +16,11 @@ const getLocationOptions = () => {
       "Türkiye",
       "Tanzania",
       "Japan",
+      "Iraq",
+      "Morocco",
+      "Madagascar",
+      "South Korea",
+      "Philippines"
       // Add more locations as needed
     ];
   };
