@@ -1,88 +1,79 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Map = ({ handleCountrySelection, shouldReset }) => {
   const mapRef = useRef(null);
   const markerRef = useRef(null);
+  const [mapInstance, setMapInstance] = useState(null);
 
   useEffect(() => {
-    const mapOptions = {
-      center: { lat: 0, lng: 0 },
-      zoom: 2,
-      gestureHandling: 'greedy', // Allow zooming without pressing Ctrl
-    };
-
-    // Create a new Google Map instance
-    const map = new window.google.maps.Map(mapRef.current, mapOptions);
-
-    // Add click event listener to the map
-    window.google.maps.event.addListener(map, 'click', (event) => {
-      // Remove previous marker if it exists
-      if (markerRef.current) {
-        markerRef.current.setMap(null);
-      }
-
-      // Get the clicked coordinates
-      const clickedLocation = {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
+    const initializeMap = () => {
+      const mapOptions = {
+        center: { lat: 0, lng: 0 },
+        zoom: 2,
+        gestureHandling: 'greedy',
       };
 
-      // Reverse geocode the clicked location to get the country information
-      const geocoder = new window.google.maps.Geocoder();
-      geocoder.geocode({ location: clickedLocation }, (results, status) => {
-        if (status === 'OK') {
-          // Find the country result
-          const countryResult = results.find((result) =>
-            result.types.includes('country')
-          );
+      const map = new window.google.maps.Map(mapRef.current, mapOptions);
 
-          if (countryResult) {
-            // Get the country from the country result
-            const country = getCountryFromResult(countryResult);
+      setMapInstance(map);
 
-            // Set the selected country state
-            handleCountrySelection(country);
-          } else {
-            // No country result found
-            handleCountrySelection('Not a valid country');
-          }
-
-          // Set the position of the new marker to the clicked location
-          const newMarker = new window.google.maps.Marker({
-            position: clickedLocation,
-            map: map,
-            clickable: false, // Make the marker non-clickable
-          });
-
-          // Store the new marker instance in the markerRef
-          markerRef.current = newMarker;
-        } else {
-          // Geocoding request failed
-          handleCountrySelection('Geocoding request failed');
+      window.google.maps.event.addListener(map, 'click', (event) => {
+        if (markerRef.current) {
+          markerRef.current.setMap(null);
         }
-      });
-    });
 
-    // Reset the map and marker if shouldReset is true
-    if (shouldReset) {
-      map.setCenter(mapOptions.center);
-      map.setZoom(mapOptions.zoom);
+        const clickedLocation = {
+          lat: event.latLng.lat(),
+          lng: event.latLng.lng(),
+        };
+
+        const geocoder = new window.google.maps.Geocoder();
+        geocoder.geocode({ location: clickedLocation }, (results, status) => {
+          if (status === 'OK') {
+            const countryResult = results.find((result) =>
+              result.types.includes('country')
+            );
+
+            if (countryResult) {
+              const country = getCountryFromResult(countryResult);
+              handleCountrySelection(country);
+            } else {
+              handleCountrySelection('Not a valid country');
+            }
+
+            const newMarker = new window.google.maps.Marker({
+              position: clickedLocation,
+              map: map,
+              clickable: false,
+            });
+
+            markerRef.current = newMarker;
+          } else {
+            handleCountrySelection('Geocoding request failed');
+          }
+        });
+      });
+    };
+
+    if (!mapInstance) {
+      initializeMap();
+    } else if (shouldReset) {
+      mapInstance.setCenter({ lat: 0, lng: 0 });
+      mapInstance.setZoom(2);
+
       if (markerRef.current) {
         markerRef.current.setMap(null);
         markerRef.current = null;
       }
     }
-  }, [shouldReset]);
+  }, [shouldReset, mapInstance]);
 
   const getCountryFromResult = (result) => {
-    // Find the country component in the address components of the result
     const countryComponent = result.address_components.find((component) =>
       component.types.includes('country')
     );
 
-    // Extract the country name
     const country = countryComponent ? countryComponent.long_name : '';
-
     return country;
   };
 

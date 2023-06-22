@@ -1,3 +1,6 @@
+import getLocationOptions from './LocationOptions';
+
+
 export const refreshAccessToken = async (setAccessToken) => {
   try {
 
@@ -83,26 +86,4 @@ export const getRandomTrack = async (
     console.error("Error retrieving random track:", error);
     setIsLoading(false);
   }
-};
-
-export const getLocationOptions = () => {
-  return [
-    "Nigeria",
-    "Romania",
-    "Indonesia",
-    "Thailand",
-    "Mexico",
-    "Australia",
-    "Argentina",
-    "Ireland",
-    "Germany",
-    "Egypt",
-    "Russia",
-    "India",
-    "China",
-    "Türkiye",
-    "Tanzania",
-    "Japan",
-    // Add more locations as needed
-  ];
 };

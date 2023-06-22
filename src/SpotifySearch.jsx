@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { refreshAccessToken, getRandomTrack, getLocationOptions } from './api';
+import { refreshAccessToken, getRandomTrack } from './api';
 import TrackInfo from './TrackInfo';
 import AudioPlayer from './AudioPlayer';
 import Map from './Map';
@@ -12,8 +12,8 @@ const SpotifySearch = () => {
   const [isCorrectGuess, setIsCorrectGuess] = useState(false);
   const audioRef = useRef(null);
   const [selectedCountry, setSelectedCountry] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false); // Track if the guess has been submitted
-  const [shouldResetMap, setShouldResetMap] = useState(false); // Track if the map and marker should reset
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [shouldResetMap, setShouldResetMap] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,9 +25,10 @@ const SpotifySearch = () => {
   }, []);
 
   const handleGetRandomTrack = async () => {
+    setShouldResetMap(true); // Move this line up
     setShowTrackInfo(false);
     setIsLoading(true);
-    setIsSubmitted(false); // Reset the isSubmitted state to false
+    setIsSubmitted(false);
 
     try {
       const token = localStorage.getItem('accessToken');
@@ -40,7 +41,6 @@ const SpotifySearch = () => {
         setLocation,
         setShowTrackInfo
       );
-      setShouldResetMap(true); // Set shouldResetMap to true to trigger the map and marker reset
     } catch (error) {
       console.error('Error retrieving random track:', error);
       setIsLoading(false);
@@ -59,16 +59,18 @@ const SpotifySearch = () => {
   };
 
   const handleSubmit = () => {
-    const isGuessCorrect = selectedCountry.toLowerCase() === track.location.toLowerCase();
-    setIsCorrectGuess(isGuessCorrect);
-    setIsSubmitted(true);
-    setShowTrackInfo(true);
+    if (selectedCountry) {
+      const isGuessCorrect = selectedCountry.toLowerCase() === track.location.toLowerCase();
+      setIsCorrectGuess(isGuessCorrect);
+      setIsSubmitted(true);
+      setShowTrackInfo(true);
+    }
   };
 
   useEffect(() => {
     if (shouldResetMap) {
       setSelectedCountry('');
-      setShouldResetMap(false); // Reset shouldResetMap to false after resetting the map and marker
+      setShouldResetMap(false);
     }
   }, [shouldResetMap]);
 
@@ -105,8 +107,11 @@ const SpotifySearch = () => {
       ) : (
         <div className="flex justify-center p-6">
           <button
-            className="px-4 py-2 bg-accent hover:bg-accent-focus text-white rounded transition-colors"
+            className={`px-4 py-2 text-white rounded transition-colors ${
+              selectedCountry ? 'bg-accent hover:bg-accent-focus' : 'bg-accent cursor-not-allowed opacity-50'
+            }`}
             onClick={handleSubmit}
+            disabled={!selectedCountry}
           >
             Submit
           </button>
