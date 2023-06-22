@@ -7,6 +7,9 @@ import { handleGeocoding } from './helpers';
 import TrackLoader from './TrackLoader';
 import LocationGuess from './LocationGuess';
 import TrackDetails from './TrackDetails';
+import { registerLocale, getAlpha2Code } from 'i18n-iso-countries';
+import en from 'i18n-iso-countries/langs/en.json';
+registerLocale(en);
 
 
 const SpotifySearch = () => {
@@ -42,7 +45,7 @@ const SpotifySearch = () => {
     setShouldResetMap(true);
     setShowTrackInfo(false);
     setIsLoading(true);
-    setIsSubmitted(false);
+    setIsSubmitted(false); // set isSubmitted back to false here
     setDistanceMessage(''); // Clear distance message
 
     try {
@@ -62,23 +65,11 @@ const SpotifySearch = () => {
     }
   };
 
-  const resetAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.reset();
-    }
-  };
-
-  const handleCountrySelection = (country, location) => {
-    setLocation(country);
-    setSelectedCountry(country);
-    setMarkerLocation(location);
-  };
-
   const handleSubmit = async () => {
     if (selectedCountry) {
       const isGuessCorrect = selectedCountry.toLowerCase() === track.location.toLowerCase();
       setIsCorrectGuess(isGuessCorrect);
-      setIsSubmitted(true);
+      setIsSubmitted(true); // set isSubmitted to true only here
       setShowTrackInfo(true);
 
       // Check the distance only if the guess is incorrect
@@ -97,6 +88,34 @@ const SpotifySearch = () => {
     }
   };
 
+  const getFlagUrl = (countryName) => {
+    if (!countryName) return ''; // return empty string if no country name
+
+    // Convert the country name to its ISO 3166-1-alpha-2 code
+    let countryCode = getAlpha2Code(countryName, 'en');
+
+    // if countryCode is null (no match found), return an empty string
+    if (!countryCode) return '';
+
+    // Construct the flag URL
+    let flagUrl = `https://flagcdn.com/w320/${countryCode.toLowerCase()}.png`;
+
+    return flagUrl;
+  };
+
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.reset();
+    }
+  };
+
+  const handleCountrySelection = (country, location) => {
+    setLocation(country);
+    setSelectedCountry(country);
+    setMarkerLocation(location);
+  };
+
+
   return (
     <div className="container mx-auto py-8 text-center">
       <h1 className="text-4xl font-bold mb-4">Guess the Track Location</h1>
@@ -107,7 +126,7 @@ const SpotifySearch = () => {
       </div>
       {isSubmitted ? <TrackLoader isLoading={isLoading} handleGetRandomTrack={handleGetRandomTrack} /> : null}
       <AudioPlayer ref={audioRef} track={track} />
-      {isSubmitted ? <TrackDetails isCorrectGuess={isCorrectGuess} track={track} /> : <LocationGuess selectedCountry={selectedCountry} handleSubmit={handleSubmit} />}
+      {isSubmitted ? <TrackDetails isCorrectGuess={isCorrectGuess} track={track} getFlagUrl={getFlagUrl} trackLocation={track.location}/> : <LocationGuess selectedCountry={selectedCountry} handleSubmit={handleSubmit} />}
     </div>
   );
 };

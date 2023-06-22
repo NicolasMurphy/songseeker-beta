@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@math.gl/geospatial": "^3.6.3",
     "@react-google-maps/api": "^2.18.1",
     "btoa": "^1.2.1",
     "haversine": "^1.1.1",
+    "i18n-iso-countries": "^7.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
