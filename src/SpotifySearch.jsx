@@ -24,6 +24,7 @@ const SpotifySearch = () => {
   const [shouldResetMap, setShouldResetMap] = useState(false);
   const [markerLocation, setMarkerLocation] = useState([0, 0]);
   const [distanceMessage, setDistanceMessage] = useState('');
+  const [correctLocation, setCorrectLocation] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,6 +44,7 @@ const SpotifySearch = () => {
 
   const handleGetRandomTrack = async () => {
     setShouldResetMap(true);
+    setCorrectLocation(null); // Add this line
     setShowTrackInfo(false);
     setIsLoading(true);
     setIsSubmitted(false); // set isSubmitted back to false here
@@ -69,13 +71,13 @@ const SpotifySearch = () => {
     if (selectedCountry) {
       const isGuessCorrect = selectedCountry.toLowerCase() === track.location.toLowerCase();
       setIsCorrectGuess(isGuessCorrect);
-      setIsSubmitted(true); // set isSubmitted to true only here
+      setIsSubmitted(true);
       setShowTrackInfo(true);
 
-      // Check the distance only if the guess is incorrect
       if (!isGuessCorrect) {
         try {
-          const trackLocationCoords = await handleGeocoding(track.location); // convert track location name to coordinates
+          const trackLocationCoords = await handleGeocoding(track.location);
+          setCorrectLocation({lat: trackLocationCoords[0], lng: trackLocationCoords[1]});
           const markerLocationCoords = Object.values(markerLocation); // convert marker location to coordinates array
           const distance = haversineDistance(trackLocationCoords, markerLocationCoords);
           if (distance) {
@@ -84,6 +86,9 @@ const SpotifySearch = () => {
         } catch (error) {
           console.error('Error in geocoding:', error);
         }
+      } else {
+        setCorrectLocation(null);  // Reset correct location if guess is correct
+        setShouldResetMap(true); // Add this line
       }
     }
   };
@@ -118,9 +123,9 @@ const SpotifySearch = () => {
 
   return (
     <div className="container mx-auto py-8 text-center">
-      <h1 className="text-4xl font-bold mb-4">Guess the Track Location</h1>
+      <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
       <div className="mb-6">
-        <Map handleCountrySelection={handleCountrySelection} selectedCountry={selectedCountry} shouldReset={shouldResetMap} />
+        <Map handleCountrySelection={handleCountrySelection} selectedCountry={selectedCountry} correctLocation={correctLocation} shouldReset={shouldResetMap} />
         <p>Selected Country: {selectedCountry}</p>
         <p>{distanceMessage}</p>
       </div>
