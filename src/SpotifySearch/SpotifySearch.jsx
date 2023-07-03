@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import refreshAccessToken from "../api/refreshAccessToken";
-import getRandomTrack from "../api/getRandomTrack";
 import AudioPlayer from "./AudioPlayer";
 import Map from "../Map/Map";
 import { haversineDistance } from "../utils/utils";
-import { handleGeocoding } from "../utils/helpers";
 import TrackLoader from "./TrackLoader";
 import LocationGuess from "./LocationGuess";
 import TrackDetails from "./TrackDetails";
@@ -25,6 +23,10 @@ const SpotifySearch = () => {
   const [markerLocation, setMarkerLocation] = useState([0, 0]);
   const [distanceMessage, setDistanceMessage] = useState("");
   const [correctLocation, setCorrectLocation] = useState(null);
+  const [score, setScore] = useState(0);
+  const [trackCount, setTrackCount] = useState(0);
+  const [isGameEnded, setIsGameEnded] = useState(false);
+  const [playedTracks, setPlayedTracks] = useState(new Set());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,10 +44,24 @@ const SpotifySearch = () => {
     }
   }, [shouldResetMap]);
 
+  useEffect(() => {
+    if (trackCount === 6) {
+      setIsGameEnded(true);
+    }
+  }, [trackCount]);
+
   const resetAudio = () => {
     if (audioRef.current) {
       audioRef.current.reset();
     }
+  };
+
+  const handleStartNewGame = () => {
+    setScore(0);
+    setTrackCount(0);
+    setPlayedTracks(new Set());
+    setIsGameEnded(false);
+    handleGetRandomTrack();
   };
 
   const handleGetRandomTrack = useGetRandomTrack(
@@ -58,7 +74,9 @@ const SpotifySearch = () => {
     setTrack,
     track,
     setCorrectLocation,
-    setShouldResetMap
+    setShouldResetMap,
+    playedTracks,
+    setPlayedTracks
   );
 
   const handleSubmit = useSubmitGuess(
@@ -70,7 +88,9 @@ const SpotifySearch = () => {
     setCorrectLocation,
     setShouldResetMap,
     markerLocation,
-    setDistanceMessage
+    setDistanceMessage,
+    setScore,
+    setTrackCount
   );
 
   const handleCountrySelection = (country, location) => {
@@ -82,35 +102,44 @@ const SpotifySearch = () => {
   return (
     <div className="container mx-auto py-8 text-center">
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
-      <div className="mb-6">
-        <Map
-          handleCountrySelection={handleCountrySelection}
-          selectedCountry={selectedCountry}
-          correctLocation={correctLocation}
-          shouldReset={shouldResetMap}
-        />
-        <p>Selected Country: {selectedCountry}</p>
-        <p>{distanceMessage}</p>
-      </div>
-      {isSubmitted && (
-        <TrackLoader
-          isLoading={isLoading}
-          handleGetRandomTrack={handleGetRandomTrack}
-        />
-      )}
-      <AudioPlayer ref={audioRef} track={track} />
-      {isSubmitted ? (
-        <TrackDetails
-          isCorrectGuess={isCorrectGuess}
-          track={track}
-          getFlagUrl={getFlagUrl}
-          trackLocation={track.location}
-        />
+      {isGameEnded ? (
+        <div>
+          <p>Your final score is: {score}</p>
+          <button onClick={handleStartNewGame}>Play Again?</button>
+        </div>
       ) : (
-        <LocationGuess
-          selectedCountry={selectedCountry}
-          handleSubmit={handleSubmit}
-        />
+        <div>
+          <div className="mb-6">
+            <Map
+              handleCountrySelection={handleCountrySelection}
+              selectedCountry={selectedCountry}
+              correctLocation={correctLocation}
+              shouldReset={shouldResetMap}
+            />
+            <p>Selected Country: {selectedCountry}</p>
+            <p>{distanceMessage}</p>
+          </div>
+          {isSubmitted && (
+            <TrackLoader
+              isLoading={isLoading}
+              handleGetRandomTrack={handleGetRandomTrack}
+            />
+          )}
+          <AudioPlayer ref={audioRef} track={track} />
+          {isSubmitted ? (
+            <TrackDetails
+              isCorrectGuess={isCorrectGuess}
+              track={track}
+              getFlagUrl={getFlagUrl}
+              trackLocation={track.location}
+            />
+          ) : (
+            <LocationGuess
+              selectedCountry={selectedCountry}
+              handleSubmit={handleSubmit}
+            />
+          )}
+        </div>
       )}
     </div>
   );
