@@ -1,4 +1,7 @@
-import { getAlpha2Code } from "i18n-iso-countries";
+import { registerLocale, getAlpha2Code } from 'i18n-iso-countries';
+import en from 'i18n-iso-countries/langs/en.json';
+registerLocale(en);
+
 
 export default function getFlagUrl(countryName) {
   if (!countryName) return "";
