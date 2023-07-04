@@ -8,7 +8,7 @@ import LocationGuess from "./LocationGuess";
 import TrackDetails from "./TrackDetails";
 import useGetRandomTrack from "../hooks/useGetRandomTrack";
 import useSubmitGuess from "../hooks/useSubmitGuess";
-import getFlagUrl from '../utils/getFlagUrl';
+import getFlagUrl from "../utils/getFlagUrl";
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
@@ -104,13 +104,8 @@ const SpotifySearch = () => {
   return (
     <div className="container mx-auto py-8 text-center">
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
-      {!isGameStarted ? ( // Display start button if game not started
+      {!isGameStarted ? (
         <button onClick={handleStartNewGame}>Start Game</button>
-      ) : isGameEnded ? (
-        <div>
-          <p>Your final score is: {score}</p>
-          <button onClick={handleStartNewGame}>Play Again?</button>
-        </div>
       ) : (
         <div>
           <div className="mb-6">
@@ -121,17 +116,23 @@ const SpotifySearch = () => {
               shouldReset={shouldResetMap}
             />
             <p>Selected Country: {selectedCountry}</p>
-            <p>Round {trackCount + 1}/6</p> {/* Add Round indicator */}
+            <p>Round {isGameEnded ? 6 : trackCount + 1}/6</p>
             <p>{distanceMessage}</p>
           </div>
-          {isSubmitted && (
+          {!isGameEnded && isSubmitted && (
             <TrackLoader
               isLoading={isLoading}
               handleGetRandomTrack={handleGetRandomTrack}
             />
           )}
+          {isGameEnded && (
+            <div>
+              <p>Your final score is: {score}</p>
+              <button onClick={handleStartNewGame}>Play Again?</button>
+            </div>
+          )}
           <AudioPlayer ref={audioRef} track={track} />
-          {isSubmitted ? (
+          {isSubmitted || isGameEnded ? (
             <TrackDetails
               isCorrectGuess={isCorrectGuess}
               track={track}
