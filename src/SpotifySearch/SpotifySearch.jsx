@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import refreshAccessToken from "../api/refreshAccessToken";
 import AudioPlayer from "./AudioPlayer";
 import Map from "../Map/Map";
-import { haversineDistance } from "../utils/utils";
 import TrackLoader from "./TrackLoader";
 import LocationGuess from "./LocationGuess";
-import TrackDetails from "./TrackDetails";
+import TrackInfo from './TrackInfo';
 import useGetRandomTrack from "../hooks/useGetRandomTrack";
 import useSubmitGuess from "../hooks/useSubmitGuess";
 import getFlagUrl from "../utils/getFlagUrl";
@@ -195,7 +194,7 @@ const SpotifySearch = () => {
           )}
           <AudioPlayer ref={audioRef} track={track} />
           {isSubmitted || isGameEnded ? (
-            <TrackDetails track={track} />
+            <TrackInfo track={track} />
           ) : (
             <LocationGuess
               selectedCountry={selectedCountry}

@@ -24,6 +24,7 @@ const TrackInfo = ({ track, isCorrectGuess }) => {
   }
 
   return (
+    <div className="m-6 text-center">
     <div className="text-center">
       <div className="custom-player">
         <img src={track.album.images[0].url} alt="Album Art" />
@@ -72,6 +73,7 @@ const TrackInfo = ({ track, isCorrectGuess }) => {
           <SpotifyIcon />
         </a>
       </div>
+    </div>
     </div>
   );
 };
