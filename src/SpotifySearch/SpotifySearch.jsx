@@ -21,7 +21,7 @@ const SpotifySearch = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [shouldResetMap, setShouldResetMap] = useState(false);
   const [markerLocation, setMarkerLocation] = useState([0, 0]);
-  const [distanceMessage, setDistanceMessage] = useState("");
+  const [distanceMessage, setDistanceMessage] = useState([]);
   const [correctLocation, setCorrectLocation] = useState(null);
   const [score, setScore] = useState(0);
   const [trackCount, setTrackCount] = useState(0);
@@ -105,19 +105,76 @@ const SpotifySearch = () => {
     <div className="container mx-auto py-8 text-center">
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
       {!isGameStarted ? (
-        <button onClick={handleStartNewGame}>Start Game</button>
+        <button
+          className="px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+          onClick={handleStartNewGame}
+        >
+          Start Game
+        </button>
       ) : (
         <div>
           <div className="mb-6">
+            <p>Round {isGameEnded ? 6 : trackCount + 1}/6</p>
             <Map
               handleCountrySelection={handleCountrySelection}
               selectedCountry={selectedCountry}
               correctLocation={correctLocation}
               shouldReset={shouldResetMap}
             />
+
             <p>Selected Country: {selectedCountry}</p>
-            <p>Round {isGameEnded ? 6 : trackCount + 1}/6</p>
-            <p>{distanceMessage}</p>
+
+            {isCorrectGuess ? (
+              <>
+                {isSubmitted && (
+                  <>
+                    {
+                      <img
+                        className="mx-auto my-4"
+                        width="96px"
+                        src={getFlagUrl(track.location)}
+                        alt={`${track.location} flag`}
+                      />
+                    }
+                    <p>
+                      The correct country is{" "}
+                      <span className="font-bold">{track.location}</span>!{" "}
+                      That is <span className="font-bold">6000 points</span>!!!
+                    </p>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                {isSubmitted && (
+                  <>
+                    {
+                      <img
+                        className="mx-auto my-4"
+                        width="96px"
+                        src={getFlagUrl(track.location)}
+                        alt={`${track.location} flag`}
+                      />
+                    }
+                    <p>
+                      The correct country is{" "}
+                      <span className="font-bold">{track.location}</span>
+                    </p>
+                    <p>
+                      You were{" "}
+                      <span className="font-bold">
+                        {distanceMessage[0]} miles
+                      </span>{" "}
+                      away. That is{" "}
+                      <span className="font-bold">
+                        {distanceMessage[1]} points
+                      </span>
+                      .
+                    </p>
+                  </>
+                )}
+              </>
+            )}
           </div>
           {!isGameEnded && isSubmitted && (
             <TrackLoader
@@ -127,18 +184,18 @@ const SpotifySearch = () => {
           )}
           {isGameEnded && (
             <div>
-              <p>Your final score is: {score}</p>
-              <button onClick={handleStartNewGame}>Play Again?</button>
+              <p className="text-3xl">Your final score is: {score}</p>
+              <button
+                className="px-4 py-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+                onClick={handleStartNewGame}
+              >
+                Play Again?
+              </button>
             </div>
           )}
           <AudioPlayer ref={audioRef} track={track} />
           {isSubmitted || isGameEnded ? (
-            <TrackDetails
-              isCorrectGuess={isCorrectGuess}
-              track={track}
-              getFlagUrl={getFlagUrl}
-              trackLocation={track.location}
-            />
+            <TrackDetails track={track} />
           ) : (
             <LocationGuess
               selectedCountry={selectedCountry}
