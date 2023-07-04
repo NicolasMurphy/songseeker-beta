@@ -26,7 +26,7 @@ const SpotifySearch = () => {
   const [trackCount, setTrackCount] = useState(0);
   const [isGameEnded, setIsGameEnded] = useState(false);
   const [playedTracks, setPlayedTracks] = useState(new Set());
-  const [isGameStarted, setIsGameStarted] = useState(false); // New state for game start
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +61,7 @@ const SpotifySearch = () => {
     setTrackCount(0);
     setPlayedTracks(new Set());
     setIsGameEnded(false);
-    setIsGameStarted(true); // Set game started when "Play Again" is clicked
+    setIsGameStarted(true);
     handleGetRandomTrack();
   };
 
