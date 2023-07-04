@@ -184,7 +184,7 @@ const SpotifySearch = () => {
           )}
           {isGameEnded && (
             <div>
-              <p className="text-3xl">Your final score is: {score}</p>
+              <p className="text-3xl">Your final score is: <span className="font-bold">{score}</span></p>
               <button
                 className="px-4 py-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
                 onClick={handleStartNewGame}

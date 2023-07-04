@@ -22,5 +22,5 @@ export function haversineDistance(coords1, coords2) {
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   var d = R * c;
 
-  return d.toFixed(3);
+  return d.toFixed(0);
 }
