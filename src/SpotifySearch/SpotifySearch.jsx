@@ -27,6 +27,7 @@ const SpotifySearch = () => {
   const [trackCount, setTrackCount] = useState(0);
   const [isGameEnded, setIsGameEnded] = useState(false);
   const [playedTracks, setPlayedTracks] = useState(new Set());
+  const [isGameStarted, setIsGameStarted] = useState(false); // New state for game start
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,6 +62,7 @@ const SpotifySearch = () => {
     setTrackCount(0);
     setPlayedTracks(new Set());
     setIsGameEnded(false);
+    setIsGameStarted(true); // Set game started when "Play Again" is clicked
     handleGetRandomTrack();
   };
 
@@ -102,7 +104,9 @@ const SpotifySearch = () => {
   return (
     <div className="container mx-auto py-8 text-center">
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
-      {isGameEnded ? (
+      {!isGameStarted ? ( // Display start button if game not started
+        <button onClick={handleStartNewGame}>Start Game</button>
+      ) : isGameEnded ? (
         <div>
           <p>Your final score is: {score}</p>
           <button onClick={handleStartNewGame}>Play Again?</button>
@@ -117,6 +121,7 @@ const SpotifySearch = () => {
               shouldReset={shouldResetMap}
             />
             <p>Selected Country: {selectedCountry}</p>
+            <p>Round {trackCount + 1}/6</p> {/* Add Round indicator */}
             <p>{distanceMessage}</p>
           </div>
           {isSubmitted && (
