@@ -1,4 +1,4 @@
-import getLocationOptions from '../utils/LocationOptions';
+import getDescriptionOptions from '../utils/DescriptionOptions';
 
 const getRandomTrack = async (
   accessToken,
@@ -52,12 +52,13 @@ const getRandomTrack = async (
       });
 
       const index = tracks.indexOf(randomTrack);
-      const locations = getLocationOptions();
-      const location = locations[index % locations.length];
+      const descriptions = getDescriptionOptions();
+      const descriptionObject = descriptions[index % descriptions.length];
 
-      setTrack({ ...randomTrack, location });
+      setTrack({ ...randomTrack, location: descriptionObject.country, description: descriptionObject });
+
       resetAudio();
-      setLocation(location);
+      setLocation(descriptionObject.country);
     } else {
       console.error("Error retrieving random track:", response.status);
     }

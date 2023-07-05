@@ -194,7 +194,7 @@ const SpotifySearch = () => {
           )}
           <AudioPlayer ref={audioRef} track={track} />
           {isSubmitted || isGameEnded ? (
-            <TrackInfo track={track} />
+            <TrackInfo track={track}/>
           ) : (
             <LocationGuess
               selectedCountry={selectedCountry}
