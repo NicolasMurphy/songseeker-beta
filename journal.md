@@ -1,14 +1,19 @@
-# 7/6
+# 7/7
     Goals:
         -
+    Notes:
+        -
+
+# 7/6
+    Goals:
+        - Finish adding track descriptions
+        - Overlay result over map? Fit everything on screen
     Notes:
         -
 # 7/5
     Goals:
         - Finish adding track descriptions
         - Show all guesses and flags at end of game, like GeoGuessr
-    Notes:
-        -
 # 7/4
     Goals:
         - Make the "selected country:" country stay on correct guess

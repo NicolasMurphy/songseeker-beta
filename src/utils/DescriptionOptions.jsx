@@ -6,18 +6,14 @@ const getDescriptionOptions = () => {
       link: "https://en.wikipedia.org/wiki/Gamelan",
     },
     {
-      country: "Thailand",
-      description: `Piphat is the most common and iconic Thai classical music style. It symbolizes the dancing of the Thailand's legendary dragons, and consists of a midsized orchestra including two xylophones (ranat), an oboe (pi), barrel drums (klong) and two circular sets of tuned horizontal gong-chimes (khong wong lek and khong wong yai). Piphat can be performed in either a loud outdoor style using hard mallets (Piphat mai khaeng; ปี่พาทย์ไม้แข็ง) or in an indoor style using padded hammers (Piphat mai nuam; ปี่พาทย์ไม้นวม).`,
-      link: "https://en.wikipedia.org/wiki/Music_of_Thailand",
-    },
-    {
       country: "Mexico",
       description: `"La Llorona" (lit. "The weeping woman") is a Mexican folk song derived from the legend of La Llorona. There are many versions of the song. Its origins are obscure, but, around 1941, composer Andres Henestrosa mentioned hearing the song in the Isthmus of Tehuantepec. He popularized the song and may have added to the existing verses \n The La Llorona of the song drowned her children in a river in a rage at her unfaithful husband. As a spirit, she was condemned to wander the shores of the river forever searching for her dead children. In Latin America the song is associated with the Day of the Dead \n The late Chavela Vargas is known throughout the Americas for her songs of struggle, defiance, and triumph. When Vargas recorded the song back in the 1990s, she remained loyal to the ranchera genre by making the guitar the primary instrument in the song. Although Vargas did remain true to the typical ranchera sound, she also created her own unique sound in the process. Carlos Gutierrez of Cinema Tropical explains "she took ranchero music and made the music her own. She stripped the music from the trumpet and other arrangements."`,
       link: "https://en.wikipedia.org/wiki/La_Llorona_(song)",
     },
     {
       country: "Australia",
-      description: "A didgeridoo is a type of musical instrument that, according to western musicological classification, falls into the category of aerophone. It is one of the oldest instruments to date. It consists of a long tube, without finger holes, through which the player blows. It is sometimes fitted with a mouthpiece of beeswax. Didgeridoos are traditionally made of eucalyptus, but contemporary materials such as PVC piping are used. In traditional situations it is played only by men, usually as an accompaniment to ceremonial or recreational singing, or, much more rarely, as a solo instrument. Skilled players use the technique of circular breathing to achieve a continuous sound, and also employ techniques for inducing multiple harmonic resonances. Although traditionally the instrument was not widespread around the country - it was only used by Aboriginal groups in the most northerly areas - today it is commonly considered the national instrument of Aboriginal Australians and is world-renowned as a unique and iconic instrument.",
+      description:
+        "A didgeridoo is a type of musical instrument that, according to western musicological classification, falls into the category of aerophone. It is one of the oldest instruments to date. It consists of a long tube, without finger holes, through which the player blows. It is sometimes fitted with a mouthpiece of beeswax. Didgeridoos are traditionally made of eucalyptus, but contemporary materials such as PVC piping are used. In traditional situations it is played only by men, usually as an accompaniment to ceremonial or recreational singing, or, much more rarely, as a solo instrument. Skilled players use the technique of circular breathing to achieve a continuous sound, and also employ techniques for inducing multiple harmonic resonances. Although traditionally the instrument was not widespread around the country - it was only used by Aboriginal groups in the most northerly areas - today it is commonly considered the national instrument of Aboriginal Australians and is world-renowned as a unique and iconic instrument.",
       link: "https://en.wikipedia.org/wiki/Indigenous_music_of_Australia",
     },
     {
@@ -37,7 +33,8 @@ const getDescriptionOptions = () => {
     },
     {
       country: "India",
-      description: "Ravi Shankar, was an Indian sitarist and composer. A sitar virtuoso, he became the world's best-known expert of North Indian classical music in the second half of the 20th century, and influenced many musicians in India and throughout the world. Shankar was awarded India's highest civilian honour, the Bharat Ratna, in 1999.",
+      description:
+        "Ravi Shankar, was an Indian sitarist and composer. A sitar virtuoso, he became the world's best-known expert of North Indian classical music in the second half of the 20th century, and influenced many musicians in India and throughout the world. Shankar was awarded India's highest civilian honour, the Bharat Ratna, in 1999.",
       link: "https://en.wikipedia.org/wiki/Ravi_Shankar",
     },
     {
@@ -57,7 +54,8 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Madagascar",
-      description: "Malagasy music is highly melodic and distinguishes itself from many traditions of mainland Africa by the predominance of chordophone relative to percussion instruments.[4] Musical instruments and vocal styles found in Madagascar represent a blend of widespread commonalities and highly localized traditions. A common vocal style among the Merina and Betsileo of the Highlands, for instance, does not preclude differences in the prevalence of particular instrument types (the valiha among the Merina, and the marovany and kabosy among the Betsileo). Similarly, the practice of tromba (entering a trance state, typically induced by music) is present on both the western and eastern coasts of the island but the vocal styles or instruments used in the ceremony will vary regionally. Music in Madagascar tends toward major keys and diatonic scales, although coastal music makes frequent use of minor keys, most likely due to early Arab influences at coastal ports of call. Malagasy music has served a wide range of social, spiritual and mundane functions across the centuries.",
+      description:
+        "Malagasy music is highly melodic and distinguishes itself from many traditions of mainland Africa by the predominance of chordophone relative to percussion instruments.[4] Musical instruments and vocal styles found in Madagascar represent a blend of widespread commonalities and highly localized traditions. A common vocal style among the Merina and Betsileo of the Highlands, for instance, does not preclude differences in the prevalence of particular instrument types (the valiha among the Merina, and the marovany and kabosy among the Betsileo). Similarly, the practice of tromba (entering a trance state, typically induced by music) is present on both the western and eastern coasts of the island but the vocal styles or instruments used in the ceremony will vary regionally. Music in Madagascar tends toward major keys and diatonic scales, although coastal music makes frequent use of minor keys, most likely due to early Arab influences at coastal ports of call. Malagasy music has served a wide range of social, spiritual and mundane functions across the centuries.",
       link: "https://en.wikipedia.org/wiki/Music_of_Madagascar",
     },
     {
@@ -67,68 +65,29 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Afghanistan",
-      description: "The Ensemble Kaboul explores the Persian music of Afghanistan, an unrecognized or even forgotten repertoire. In this country, rich with several musical cultures, the traditional and sacred Persian heritage testifies to a remote past and of a particular poetry.\nTo bring this repertoire back to life, the Ensemble Kaboul needs to work like archeologists in order to rediscover the buried musical themes, the missing ornements and the lost motifs of a formely flourishing musical corpus. To make this desert soil bloom again, the fragmentary melodies are completed and the instrumentations and compositions are developed.",
+      description:
+        "The Ensemble Kaboul explores the Persian music of Afghanistan, an unrecognized or even forgotten repertoire. In this country, rich with several musical cultures, the traditional and sacred Persian heritage testifies to a remote past and of a particular poetry.\nTo bring this repertoire back to life, the Ensemble Kaboul needs to work like archeologists in order to rediscover the buried musical themes, the missing ornements and the lost motifs of a formely flourishing musical corpus. To make this desert soil bloom again, the fragmentary melodies are completed and the instrumentations and compositions are developed.",
       link: "https://www.womex.com/virtual/sound_of_world/ensemble_kaboul",
     },
     {
-      country: "Vietnam",
-      description: "Vietnam description",
-      link: "Vietnam link",
-    },
-    {
-      country: "Kazakhstan",
-      description: "Kazakhstan description",
-      link: "Kazakhstan link",
-    },
-    {
       country: "Mongolia",
-      description: "Mongolia description",
-      link: "Mongolia link",
-    },
-    {
-      country: "Bulgaria",
-      description: "Bulgaria description",
-      link: "Bulgaria link",
-    },
-    {
-      country: "Iceland",
-      description: "Iceland description",
-      link: "Iceland link",
-    },
-    {
-      country: "Spain",
-      description: "Spain description",
-      link: "Spain link",
+      description: "Khöömei is a form of singing originating in western Mongolia, in the Altai mountains. The performer imitates sounds of nature, simultaneously emitting two distinct vocal sounds: along with a continuous drone, the singer produces a melody of harmonics. Khöömei literally means pharynx, and it is believed to have been learned from birds, whose spirits are central to shamanic practices. The multitude of Khöömei techniques in Mongolia are grouped within two main styles: the kharkhiraa (deep Khöömei) and isgeree Khöömei (whistled Khöömei). In kharkhiraa the singer sings a drone in a normal voice, while emphasizing the undertone or subharmonic one octave below. In isgeree Khöömei, it is the overtones above the fundamental note of the drone that are emphasized, creating a higher-pitched whistle. In both cases, the drone is produced with very taut vocal cords, and the melody is created by modulating the size and shape of the mouth cavity, opening and closing the lips and moving the tongue. Khöömei is performed by Mongolian nomads in a variety of social occasions, from grand state ceremonies to festive household events. Khöömei is also sung during herding, and inside the yurt to lull babies to sleep. Traditionally, Khöömei is transmitted orally from bearer to learner, or via master-to-apprentice.",
+      link: "https://ich.unesco.org/en/RL/mongolian-traditional-art-of-khoomei-00396",
     },
     {
       country: "France",
-      description: "France description",
+      description: `"Parlez-moi d'amour" is a song written by Jean Lenoir in 1930. An English translation was written by Bruce Sievier (1894, Paris – 1953) and is known as "Speak to Me of Love" or "Tell Me About Love". Lucienne Boyer was the first singer to record the song and she made it very popular in France, America, and the rest of the world.\nThe song is sung by Constance Bennett on a film set in What Price Hollywood? (1932). It is heard in one of the early scenes of Casablanca (1942), played on Sam's piano when Ingrid Bergman first appears in Rick's Cafe. It also appears in One Way Passage (1932) as an orchestration on the soundtrack as a steward brings drinks to Frank McHugh and Aileen McMahon in their cabin.`,
       link: "France link",
     },
     {
       country: "Poland",
-      description: "Poland description",
-      link: "Poland link",
-    },
-    {
-      country: "Colombia",
-      description: "Colombia description",
-      link: "Colombia link",
-    },
-    {
-      country: "Georgia",
-      description: "Georgia description",
-      link: "Georgia link",
+      description: `[Translated by ChatGPT, with some corrections]\nHighlander, are you sorry? - a song composed to the words of a poem by the Krakow poet Michał Bałucki. The poem was written in the second half of the 19th century in prison, where the companion of the author imprisoned there "for troublemaking" was a highlander longing for his homeland.`,
+      link: "https://pl.wikipedia.org/wiki/G%C3%B3ralu,_czy_ci_nie_%C5%BCal%3F",
     },
     {
       country: "Italy",
-      description: "Italy description",
-      link: "Italy link",
-    },
-    {
-      country: "Peru",
-      description: "Peru description",
-      link: "Peru link",
+      description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
+      link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
     },
     {
       country: "Norway",
@@ -157,7 +116,8 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Philippines",
-      description: "Tinikling is a traditional Philippine folk dance which originated during the Spanish colonial era. The dance involves at least two people beating, tapping, and sliding bamboo poles on the ground and against each other in coordination with one or more dancers who step over and in between the poles in a dance. It is traditionally danced to rondalla music, a sort of serenade played by an ensemble of stringed instruments which originated in Spain during the Middle Ages; that is why unlike other bamboo dances found around the world, Tinikling is the only bamboo dance that has a Spanish influence. The locomotor movements used in this dance are hopping, jumping, and turning.",
+      description:
+        "Tinikling is a traditional Philippine folk dance which originated during the Spanish colonial era. The dance involves at least two people beating, tapping, and sliding bamboo poles on the ground and against each other in coordination with one or more dancers who step over and in between the poles in a dance. It is traditionally danced to rondalla music, a sort of serenade played by an ensemble of stringed instruments which originated in Spain during the Middle Ages; that is why unlike other bamboo dances found around the world, Tinikling is the only bamboo dance that has a Spanish influence. The locomotor movements used in this dance are hopping, jumping, and turning.",
       link: "https://en.wikipedia.org/wiki/Tinikling",
     },
     {
@@ -174,6 +134,46 @@ const getDescriptionOptions = () => {
       country: "Egypt",
       description: `"Echoes of Ancient Egypt" - this improvisation on the lyre, uses a genuine pentatonic ancient Egyptian scale...last heard, some 3000 years ago! Although tragically no actual written music from ancient Egypt has survived, we do know from many ancient illustrations, that the ancient Egyptians did use a form of musical notation, whereby specific gestures of the hand represented specific changes in pitch in a given musical scale - this is ancient form of musical notation is known as "Chironomy". We also know some of the specific scales once used in ancient Egypt, thanks to the discovery of serveral ancient Egyptian flutes, still in playable condition!`,
       link: "https://michaellevy.bandcamp.com/track/echoes-of-ancient-egypt-improvisation-on-an-ancient-egyptian-scale",
+    },
+    {
+      country: "Thailand",
+      description: `A piphat (Thai: วงปี่พาทย์) is a kind of ensemble in the classical music of Thailand, which features wind and percussion instruments. It is considered the primary form of ensemble for the interpretation of the most sacred and "high-class" compositions of the Thai classical repertoire, including the Buddhist invocation entitled sathukan (Thai: สาธุการ) as well as the suites called phleng rueang. It is also used to accompany traditional Thai theatrical and dance forms including khon (Thai: โขน) (masked dance-drama), lakhon (classical dance), and shadow puppet theater.\nPiphat in the earlier time was called phinphat.[1][2][3] It is analogous to its Cambodian musical ensemble of pinpeat and Laotian ensemble of pinphat.`,
+      link: "https://en.wikipedia.org/wiki/Piphat",
+    },
+    {
+      country: "Vietnam",
+      description: "The music presented in this collection is considered to be “entertainment” music, similar to that played in private concerts or on the radio, rather than for religious and ceremonial occasions. The South designation—of historical note, this music was recorded before the political unification of North and South Vietnam into the Socialist Republic of Vietnam in 1975—refers not only to the tradition’s possible geographic origin, but also to the musical modes used.\nThis recording features the dàn tranh, a 17-string zither with movable frets, and the ty bà lute, as well as a small block of hardwood in the shape of a short cylinder called song lang.Nguy?n Vinh B?o, considered by many to be the finest dàn tranh player of the mid- to late 20th century, performs solo on four tracks and is joined by Tr?n Van Khê on the ty bà for the final two tracks on the recording. The liner notes are written by Tr?n Van Khê, who is both a musician and a musicologist.",
+      link: "https://folkways.si.edu/viet-nam-tradition-of-the-south/world/music/album/smithsonian",
+    },
+    {
+      country: "Kazakhstan",
+      description: `The Kazakh dombyra has frets and is played by strumming with the hand or plucking each string individually, with an occasional tap on the main surface of the instrument. While the strings are traditionally made of sinew, modern dombras are usually produced using nylon strings. One of the greatest dombra players was the Kazakh folk musician and composer Kurmangazy Sagyrbayuly, who had a major influence on the development of Kazakh musical culture, including music for the dombra; his musical composition "Adai" is popular in Kazakhstan and abroad.`,
+      link: "https://en.wikipedia.org/wiki/Dombra",
+    },
+    {
+      country: "Bulgaria",
+      description: "Filip Kutev (Bulgarian: Филип Кутев), often anglicized Philip Koutev (13 June 1903 – 27 November 1982), was a Bulgarian composer, arranger and founder, with his wife Maria Kuteva, in 1951, of Bulgaria's first professional, state supported ensemble, the State Ensemble for Folk Song and Dance, also known as the Filip Kutev Ensemble. With his ensemble he pioneered a style of arranging folk songs by fusing folk elements with western classical forms and harmonies, and established a new Bulgarian choral tradition.",
+      link: "https://en.wikipedia.org/wiki/Filip_Kutev",
+    },
+    {
+      country: "Iceland",
+      description: "Ólafur Liljurós is the fourth piece in the Icelandic Folk music album, released in 1996 by Magnús Þór Sigmundsson.s Þór Sigmundsson. However, Liljurós is a traditional Viking folk story dating back to the 9th century. Storyline and musical aspects were combined in the early 14th century to compose Ólafur Liljurós. The piece recounts the classic tale of a man travelling to visit his mother. Whilst on his journey, he encounters an elf who: seduces, kisses and kills the traveler. The piece utilizes the six main musical elements to convey the story. Duration, pitch and timbre are most prominently used to express the story line and characteristics of the folk song. Folk music gives an insight into the historical and personal events of the time period. Passed down from generation to generation, folk music has survived through to modern day Iceland, and still gives a strong depiction of the country. Ólafur Liljurós is a perfect example of Icelandic music, the simplistic melody carries the classic storyline. ",
+      link: "https://icelandicmusic11.weebly.com/oacutelafur-liljuroacutes.html",
+    },
+    {
+      country: "Spain",
+      description: "Isaac Manuel Francisco Albéniz y Pascual was a Spanish virtuoso pianist, composer, and conductor. He is one of the foremost composers of the Post-Romantic era who also had a significant influence on his contemporaries and younger composers. He is best known for his piano works based on Spanish folk music idioms. Transcriptions of many of his pieces, such as Asturias (Leyenda), Granada, Sevilla, Cadiz, Córdoba, Cataluña, Mallorca, and Tango in D, are important pieces for classical guitar, though he never composed for the guitar. The personal papers of Albéniz are preserved in, among other institutions, the Library of Catalonia.",
+      link: "https://en.wikipedia.org/wiki/Isaac_Alb%C3%A9niz",
+    },
+    {
+      country: "Colombia",
+      description: `"Colombia Tierra Querida" (translation "Colombia dear land") is a song written by Lucho Bermúdez in the Colombian cumbia genre. It is also the name of the 1970 album by Bermúdez, released on CBS Records, that introduced the song. The song was popularized in 1970 with a version of the song recorded by Bermúdez and his orchestra with vocals by Matilde Diaz. Since its release, the song has been covered by many artists and is one of the most widely recognizes songs of Colombian folk music. It has been described as a "second national anthem" by multiple Colombian media.`,
+      link: "https://en.wikipedia.org/wiki/Colombia_Tierra_Querida",
+    },
+    {
+      country: "Peru",
+      description: `"El Cóndor Pasa" is an orchestral musical piece from the zarzuela El Cóndor Pasa by the Peruvian composer Daniel Alomía Robles, written in 1913 and based on traditional Andean music, specifically folk music from Peru.\nSince then, it has been estimated that, around the world, more than 4,000 versions of the melody have been produced, along with 300 sets of lyrics. In 2004, Peru declared this song to be a part of their national cultural heritage. This song is now considered the second national anthem of Peru.\nIt is the best-known Peruvian song in the English-speaking world, due to a 1970 cover by Simon & Garfunkel on their Bridge over Troubled Water album. Their version is called "El Cóndor Pasa (If I Could)".`,
+      link: "https://en.wikipedia.org/wiki/El_C%C3%B3ndor_Pasa_(song)",
     },
     // Add more locations as needed
   ];
