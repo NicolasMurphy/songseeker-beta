@@ -6,6 +6,10 @@ registerLocale(en);
 export default function getFlagUrl(countryName) {
   if (!countryName) return "";
 
+  if (countryName === "Myanmar (Burma)") {
+    countryName = "Myanmar"
+  }
+
   let countryCode = getAlpha2Code(countryName, "en");
 
   if (!countryCode) return "";

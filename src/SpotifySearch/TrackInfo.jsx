@@ -31,7 +31,7 @@ const TrackInfo = ({ track }) => {
           <img src={track.album.images[0].url} alt="Album Art" />
         </div>
         <div className="font-bold">
-          {(track.name.length > 35) ? track.name.slice(0, 32) + "..." : track.name}
+          {(track.name.length > 40) ? track.name.slice(0, 37) + "..." : track.name}
           <div className="dropdown dropdown-left lg:dropdown-right lg:dropdown-top">
             <label
               tabIndex={0}
