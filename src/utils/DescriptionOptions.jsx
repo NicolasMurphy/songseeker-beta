@@ -196,11 +196,6 @@ const getDescriptionOptions = () => {
       link: "https://en.wikipedia.org/wiki/Solomon_Linda",
     },
     {
-      country: "Democratic Republic of the Congo",
-      description: `"Indépendance Cha Cha" (French; "Independence cha cha") was a song performed by Joseph Kabasele (best known by his stage name Le Grand Kallé) from the group L'African Jazz in the popular African Rumba style. The song has been described as "Kabasele's most memorable song" and one of the first Pan-African hits.\nThe song was composed and first performed in 1960, the so-called Year of Africa, to celebrate the imminent independence of the Belgian Congo (the modern-day Democratic Republic of the Congo). The song achieved considerable successes and remains the most internationally best-known examples of Congolese Rumba.`,
-      link: "https://en.wikipedia.org/wiki/Solomon_Linda",
-    },
-    {
       country: "Zimbabwe",
       description: `Stella Chiweshe (also Stella Rambisai Chiweshe, Stella Rambisai Chiweshe Nekati, Mbuya Stella Chiweshe, or Stella Nekati Chiweshe; 8 July 1946 – 20 January 2023) was a Zimbabwean musician. She was known internationally for her singing and playing of the mbira dzavadzimu, a traditional instrument of the Shona people of Zimbabwe. She was one of few female players, and learned to play from 1966 to 1969, when other women did not.`,
       link: "https://en.wikipedia.org/wiki/Stella_Chiweshe",
@@ -209,6 +204,11 @@ const getDescriptionOptions = () => {
       country: "Iran",
       description: `"Ey Irân" (Persian: ای ایران, pronounced [ʔej ʔiːˈɾɒːn] | lit. O Iran!) is an Iranian patriotic song that serves as the country's unofficial national anthem. The music was composed by Ruhollâh Xâleqi, and the lyrics were written by Hossein Gol-e-Golâb. This anthem was first performed by Qolâm-Hossein Banân.`,
       link: "https://en.wikipedia.org/wiki/Ey_Iran",
+    },
+    {
+      country: "Democratic Republic of the Congo",
+      description: `"Indépendance Cha Cha" (French; "Independence cha cha") was a song performed by Joseph Kabasele (best known by his stage name Le Grand Kallé) from the group L'African Jazz in the popular African Rumba style. The song has been described as "Kabasele's most memorable song" and one of the first Pan-African hits.\nThe song was composed and first performed in 1960, the so-called Year of Africa, to celebrate the imminent independence of the Belgian Congo (the modern-day Democratic Republic of the Congo). The song achieved considerable successes and remains the most internationally best-known examples of Congolese Rumba.`,
+      link: "https://en.wikipedia.org/wiki/Ind%C3%A9pendance_Cha_Cha",
     },
     // Add more locations as needed
   ];
