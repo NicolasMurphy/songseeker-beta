@@ -192,7 +192,7 @@ const getDescriptionOptions = () => {
     },
     {
       country: "South Africa",
-      description: `Solomon Popoli Linda (1909[1] – 8 September 1962), also known as Solomon Ntsele ("Linda" was his clan name),[2] was a South African musician, singer and composer best known as the composer of the song "Mbube", which later became the pop music success "The Lion Sleeps Tonight", and gave its name to the Mbube style of isicathamiya a cappella later popularized by Ladysmith Black Mambazo.`,
+      description: `Solomon Popoli Linda (1909 – 8 September 1962), also known as Solomon Ntsele ("Linda" was his clan name), was a South African musician, singer and composer best known as the composer of the song "Mbube", which later became the pop music success "The Lion Sleeps Tonight", and gave its name to the Mbube style of isicathamiya a cappella later popularized by Ladysmith Black Mambazo.`,
       link: "https://en.wikipedia.org/wiki/Solomon_Linda",
     },
     {
@@ -204,6 +204,11 @@ const getDescriptionOptions = () => {
       country: "Zimbabwe",
       description: `Stella Chiweshe (also Stella Rambisai Chiweshe, Stella Rambisai Chiweshe Nekati, Mbuya Stella Chiweshe, or Stella Nekati Chiweshe; 8 July 1946 – 20 January 2023) was a Zimbabwean musician. She was known internationally for her singing and playing of the mbira dzavadzimu, a traditional instrument of the Shona people of Zimbabwe. She was one of few female players, and learned to play from 1966 to 1969, when other women did not.`,
       link: "https://en.wikipedia.org/wiki/Stella_Chiweshe",
+    },
+    {
+      country: "Iran",
+      description: `"Ey Irân" (Persian: ای ایران, pronounced [ʔej ʔiːˈɾɒːn] | lit. O Iran!) is an Iranian patriotic song that serves as the country's unofficial national anthem. The music was composed by Ruhollâh Xâleqi, and the lyrics were written by Hossein Gol-e-Golâb. This anthem was first performed by Qolâm-Hossein Banân.`,
+      link: "https://en.wikipedia.org/wiki/Ey_Iran",
     },
     // Add more locations as needed
   ];

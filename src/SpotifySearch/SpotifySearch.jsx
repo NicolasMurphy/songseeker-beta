@@ -4,10 +4,11 @@ import AudioPlayer from "./AudioPlayer";
 import Map from "../Map/Map";
 import TrackLoader from "./TrackLoader";
 import LocationGuess from "./LocationGuess";
-import TrackInfo from './TrackInfo';
+import TrackInfo from "./TrackInfo";
 import useGetRandomTrack from "../hooks/useGetRandomTrack";
 import useSubmitGuess from "../hooks/useSubmitGuess";
 import getFlagUrl from "../utils/getFlagUrl";
+
 
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
@@ -27,7 +28,9 @@ const SpotifySearch = () => {
   const [isGameEnded, setIsGameEnded] = useState(false);
   const [playedTracks, setPlayedTracks] = useState(new Set());
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [isFinalRound, setIsFinalRound] = useState(false);
 
+  // Fetch access token and get a random track when component mounts
   useEffect(() => {
     const fetchData = async () => {
       await refreshAccessToken(setTrack);
@@ -37,6 +40,7 @@ const SpotifySearch = () => {
     fetchData();
   }, []);
 
+  // Reset map when user submits a guess
   useEffect(() => {
     if (shouldResetMap) {
       setSelectedCountry("");
@@ -44,27 +48,41 @@ const SpotifySearch = () => {
     }
   }, [shouldResetMap]);
 
+  // Handle game progress, checking if the game has ended or if it's the final round
   useEffect(() => {
     if (trackCount === 6) {
+      setIsFinalRound(true);
+    } else if (trackCount > 6) {
       setIsGameEnded(true);
     }
   }, [trackCount]);
 
+  // Reset audio player
   const resetAudio = () => {
     if (audioRef.current) {
       audioRef.current.reset();
     }
   };
 
+  // Start a new game
   const handleStartNewGame = () => {
+    // Reset game states
     setScore(0);
-    setTrackCount(0);
+    setTrackCount(1);
     setPlayedTracks(new Set());
     setIsGameEnded(false);
     setIsGameStarted(true);
+    setIsFinalRound(false);
     handleGetRandomTrack();
   };
 
+  // Increment track count and fetch a new random track
+  const handleGetRandomTrackClick = () => {
+    setTrackCount((prevCount) => prevCount + 1);
+    handleGetRandomTrack();
+  };
+
+  // Custom hook to get a random track
   const handleGetRandomTrack = useGetRandomTrack(
     setShowTrackInfo,
     setIsLoading,
@@ -77,9 +95,11 @@ const SpotifySearch = () => {
     setCorrectLocation,
     setShouldResetMap,
     playedTracks,
-    setPlayedTracks
+    setPlayedTracks,
+    setTrackCount
   );
 
+  // Custom hook to handle guess submission
   const handleSubmit = useSubmitGuess(
     setIsCorrectGuess,
     setIsSubmitted,
@@ -91,13 +111,20 @@ const SpotifySearch = () => {
     markerLocation,
     setDistanceMessage,
     setScore,
-    setTrackCount
+    isFinalRound,
+    setIsGameEnded
   );
 
+  // Handle user's country selection on map
   const handleCountrySelection = (country, location) => {
     setLocation(country);
     setSelectedCountry(country);
     setMarkerLocation(location);
+  };
+
+  // End the game
+  const handleEndGame = () => {
+    setIsGameEnded(true);
   };
 
   return (
@@ -113,7 +140,7 @@ const SpotifySearch = () => {
       ) : (
         <div>
           <div className="mb-6">
-            <p>Round {isGameEnded ? 6 : trackCount + 1}/6</p>
+            <p>Round {isGameEnded ? 6 : trackCount}/6</p>
             <Map
               handleCountrySelection={handleCountrySelection}
               selectedCountry={selectedCountry}
@@ -137,8 +164,8 @@ const SpotifySearch = () => {
                     }
                     <p>
                       The correct country is{" "}
-                      <span className="font-bold">{track.location}</span>!{" "}
-                      That is <span className="font-bold">6000 points</span>!!!
+                      <span className="font-bold">{track.location}</span>! That
+                      is <span className="font-bold">6000 points</span>!!!
                     </p>
                   </>
                 )}
@@ -178,12 +205,16 @@ const SpotifySearch = () => {
           {!isGameEnded && isSubmitted && (
             <TrackLoader
               isLoading={isLoading}
-              handleGetRandomTrack={handleGetRandomTrack}
+              handleGetRandomTrack={handleGetRandomTrackClick}
+              handleEndGame={handleEndGame}
+              isFinalRound={isFinalRound}
             />
           )}
           {isGameEnded && (
             <div>
-              <p className="text-3xl">Your final score is: <span className="font-bold">{score}</span></p>
+              <p className="text-3xl">
+                Your final score is: <span className="font-bold">{score}</span>
+              </p>
               <button
                 className="px-4 py-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
                 onClick={handleStartNewGame}
@@ -194,7 +225,7 @@ const SpotifySearch = () => {
           )}
           <AudioPlayer ref={audioRef} track={track} />
           {isSubmitted || isGameEnded ? (
-            <TrackInfo track={track}/>
+            <TrackInfo track={track} />
           ) : (
             <LocationGuess
               selectedCountry={selectedCountry}

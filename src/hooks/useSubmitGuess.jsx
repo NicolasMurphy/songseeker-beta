@@ -12,7 +12,8 @@ const useSubmitGuess = (
   markerLocation,
   setDistanceMessage,
   setScore,
-  setTrackCount
+  isFinalRound,
+  setIsGameEnded
 ) => {
   const calculateScore = (distance) => {
     // Formula: score = 6000 - distance, but at least 0
@@ -42,9 +43,7 @@ const useSubmitGuess = (
           if (distance) {
             const score = calculateScore(distance);
             setScore((prevScore) => prevScore + score);
-            setDistanceMessage(
-              [distance, score]
-            );
+            setDistanceMessage([distance, score]);
           }
         } catch (error) {
           console.error("Error in geocoding:", error);
@@ -54,7 +53,6 @@ const useSubmitGuess = (
         setShouldResetMap(true);
         setScore((prevScore) => prevScore + 6000);
       }
-      setTrackCount((prevCount) => prevCount + 1);
     }
   };
 
