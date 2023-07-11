@@ -1,8 +1,22 @@
-# 7/7
+# 7/12
     Goals:
         -
     Notes:
         -
+
+# 7/11
+    Goals:
+        - Add hints for all tracks
+            - each game has 3 hints
+        - Ensure tracks are unique through multiple games
+            - Randomize the playlist?
+    Notes:
+        -
+
+# 7/10
+    Notes:
+        - Finished track descriptions (for now)
+        - Fixed round incrementing issue
 
 # 7/6
     Goals:
