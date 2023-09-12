@@ -9,7 +9,6 @@ import useGetRandomTrack from "../hooks/useGetRandomTrack";
 import useSubmitGuess from "../hooks/useSubmitGuess";
 import getFlagUrl from "../utils/getFlagUrl";
 
-
 const SpotifySearch = () => {
   const [track, setTrack] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -140,7 +139,10 @@ const SpotifySearch = () => {
       ) : (
         <div>
           <div className="mb-6">
-            <p>Round {isGameEnded ? 6 : trackCount}/6</p>
+            <div className="grid grid-cols-3">
+              <p>Current score: {score}</p>
+              <p>Round {isGameEnded ? 6 : trackCount}/6</p>
+            </div>
             <Map
               handleCountrySelection={handleCountrySelection}
               selectedCountry={selectedCountry}
