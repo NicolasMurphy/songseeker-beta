@@ -1,4 +1,3 @@
-// src/components/HighScoreList.jsx
 import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 
