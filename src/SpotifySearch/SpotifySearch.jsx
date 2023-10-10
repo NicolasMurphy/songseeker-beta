@@ -8,8 +8,10 @@ import TrackInfo from "./TrackInfo";
 import useGetRandomTrack from "../hooks/useGetRandomTrack";
 import useSubmitGuess from "../hooks/useSubmitGuess";
 import getFlagUrl from "../utils/getFlagUrl";
+import { ref, push } from 'firebase/database';
 
-const SpotifySearch = () => {
+
+const SpotifySearch = ({database}) => {
   const [track, setTrack] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState("");
@@ -124,6 +126,16 @@ const SpotifySearch = () => {
   // End the game
   const handleEndGame = () => {
     setIsGameEnded(true);
+    submitScoreToFirebase("user", score); // user is temporary
+  };
+
+  // Submit score
+  const submitScoreToFirebase = (username, score) => {
+    const scoresRef = ref(database, 'scores');
+    push(scoresRef, {
+      username: username,
+      score: score,
+    });
   };
 
   return (
