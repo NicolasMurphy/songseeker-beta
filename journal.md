@@ -1,8 +1,21 @@
-# 7/12
+# 10/11
     Goals:
         -
     Notes:
         -
+
+# 10/10
+    Goals:
+        - add navbar
+            - homepage, description of the game, how to play, donate button
+            - leader board
+        - add correct username functionality to high score submission, perhaps with a modal
+    Notes:
+        - added high score list using firebase's realtime database
+
+# 9/12
+    Notes:
+        - added current score
 
 # 7/11
     Goals:
