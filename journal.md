@@ -2,6 +2,9 @@
     Goals:
         - make map unclickable between rounds
         - make map unclickable until next track is loaded (slow wi-fi)
+        - use smaller spotify img
+        - move next round button
+        -
     Notes:
         -
 
@@ -11,7 +14,7 @@
     Notes:
         - bg-info does not have focus
         - added press enter for buttons
-        -
+        - added nav
 
 # 10/10
     Goals:

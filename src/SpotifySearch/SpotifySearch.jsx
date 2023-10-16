@@ -161,7 +161,7 @@ const SpotifySearch = ({ database }) => {
   };
 
   return (
-    <div className="container mx-auto py-8 text-center">
+    <div className="container mx-auto text-center">
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
       {!isGameStarted ? (
         <button
