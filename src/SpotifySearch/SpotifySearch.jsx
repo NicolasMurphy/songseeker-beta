@@ -8,10 +8,9 @@ import TrackInfo from "./TrackInfo";
 import useGetRandomTrack from "../hooks/useGetRandomTrack";
 import useSubmitGuess from "../hooks/useSubmitGuess";
 import getFlagUrl from "../utils/getFlagUrl";
-import { ref, push } from 'firebase/database';
+import { ref, push } from "firebase/database";
 
-
-const SpotifySearch = ({database}) => {
+const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState("");
@@ -30,6 +29,8 @@ const SpotifySearch = ({database}) => {
   const [playedTracks, setPlayedTracks] = useState(new Set());
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isFinalRound, setIsFinalRound] = useState(false);
+  const [submittingScore, setSubmittingScore] = useState(false);
+  const [username, setUsername] = useState("");
 
   // Fetch access token and get a random track when component mounts
   useEffect(() => {
@@ -41,7 +42,7 @@ const SpotifySearch = ({database}) => {
     fetchData();
   }, []);
 
-  // Reset map when user submits a guess
+  // Reset map when the user submits a guess
   useEffect(() => {
     if (shouldResetMap) {
       setSelectedCountry("");
@@ -116,7 +117,7 @@ const SpotifySearch = ({database}) => {
     setIsGameEnded
   );
 
-  // Handle user's country selection on map
+  // Handle user's country selection on the map
   const handleCountrySelection = (country, location) => {
     setLocation(country);
     setSelectedCountry(country);
@@ -126,16 +127,27 @@ const SpotifySearch = ({database}) => {
   // End the game
   const handleEndGame = () => {
     setIsGameEnded(true);
-    submitScoreToFirebase("user", score); // user is temporary
+    setSubmittingScore(true);
   };
 
   // Submit score
   const submitScoreToFirebase = (username, score) => {
-    const scoresRef = ref(database, 'scores');
+    const scoresRef = ref(database, "scores");
     push(scoresRef, {
       username: username,
       score: score,
     });
+  };
+
+  // Handle score submission to leaderboard
+  const handleSubmitScoreToLeaderboard = () => {
+    if (username.trim() === "") {
+      alert("Please enter a username before submitting your score.");
+      return; // Do not submit the score if the username is empty
+    }
+
+    submitScoreToFirebase(username, score);
+    setSubmittingScore(false);
   };
 
   return (
@@ -143,7 +155,7 @@ const SpotifySearch = ({database}) => {
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
       {!isGameStarted ? (
         <button
-          className="px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+          className="px-4 py-2 bg-primary hover.bg-primary-focus text-white rounded transition-colors"
           onClick={handleStartNewGame}
         >
           Start Game
@@ -229,12 +241,36 @@ const SpotifySearch = ({database}) => {
               <p className="text-3xl">
                 Your final score is: <span className="font-bold">{score}</span>
               </p>
-              <button
-                className="px-4 py-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
-                onClick={handleStartNewGame}
-              >
-                Play Again?
-              </button>
+              {submittingScore ? (
+                <div>
+                  <p>Submit your score to the leaderboard:</p>
+                  <input
+                    type="text"
+                    placeholder="Enter your username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                  <button
+                    className="px-4 py-2 bg-info hover:bg-info-focus text-white rounded transition-colors"
+                    onClick={handleSubmitScoreToLeaderboard}
+                  >
+                    Submit Score to Leaderboard
+                  </button>
+                  <button
+                    className="px-4 py-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+                    onClick={handleStartNewGame}
+                  >
+                    Play Again
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="px-4 py-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+                  onClick={handleStartNewGame}
+                >
+                  Play Again
+                </button>
+              )}
             </div>
           )}
           <AudioPlayer ref={audioRef} track={track} />
