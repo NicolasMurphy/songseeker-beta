@@ -1,7 +1,16 @@
-# 10/11
+# 10/17
     Goals:
-        -
+        - make map unclickable between rounds
+        - make map unclickable until next track is loaded (slow wi-fi)
     Notes:
+        -
+
+# 10/16
+    Goals:
+        - add navbar
+    Notes:
+        - bg-info does not have focus
+        - added press enter for buttons
         -
 
 # 10/10
