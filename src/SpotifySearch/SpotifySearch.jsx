@@ -141,9 +141,19 @@ const SpotifySearch = ({ database }) => {
 
   // Handle score submission to leaderboard
   const handleSubmitScoreToLeaderboard = () => {
-    if (username.trim() === "") {
+    if (!username) {
       alert("Please enter a username before submitting your score.");
       return; // Do not submit the score if the username is empty
+    }
+
+    if (username.length > 30) {
+      alert("Username should not exceed 30 characters.");
+      return; // Do not submit the score if the username is too long
+    }
+
+    if (username.startsWith(" ") || username.endsWith(" ")) {
+      alert("Username cannot start or end with whitespace.");
+      return; // Do not submit the score if the username starts or ends with whitespace
     }
 
     submitScoreToFirebase(username, score);
