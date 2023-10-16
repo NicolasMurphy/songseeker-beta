@@ -155,7 +155,7 @@ const SpotifySearch = ({ database }) => {
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
       {!isGameStarted ? (
         <button
-          className="px-4 py-2 bg-primary hover.bg-primary-focus text-white rounded transition-colors"
+          className="px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
           onClick={handleStartNewGame}
         >
           Start Game
