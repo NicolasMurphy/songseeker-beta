@@ -1,11 +1,23 @@
+# 10/18
+    Goals:
+        - make marker stay on correct guess
+        -
+    Notes:
+        -
+
 # 10/17
     Goals:
         - make map unclickable between rounds
         - make map unclickable until next track is loaded (slow wi-fi)
         - use smaller spotify img
         - move next round button
+        - add env variables
+        - make logo
         -
     Notes:
+        - map is now unclickable between rounds
+        - made logo
+        - updated favicon.ico
         -
 
 # 10/16
