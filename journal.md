@@ -1,6 +1,7 @@
 # 10/18
     Goals:
         - make marker stay on correct guess
+        - undo marker issue, find new solution
         -
     Notes:
         -
@@ -15,7 +16,7 @@
         - make logo
         -
     Notes:
-        - map is now unclickable between rounds
+        - map is now unclickable between rounds (now just realized that this made the marker not replaceable during rounds, will probably need to revert)
         - made logo
         - updated favicon.ico
         -
