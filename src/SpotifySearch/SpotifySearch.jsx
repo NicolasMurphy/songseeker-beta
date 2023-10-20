@@ -31,7 +31,6 @@ const SpotifySearch = ({ database }) => {
   const [isFinalRound, setIsFinalRound] = useState(false);
   const [submittingScore, setSubmittingScore] = useState(false);
   const [username, setUsername] = useState("");
-  const [isBetweenRounds, setIsBetweenRounds] = useState(true);
 
   // Fetch access token and get a random track when component mounts
   useEffect(() => {
@@ -76,14 +75,12 @@ const SpotifySearch = ({ database }) => {
     setIsGameEnded(false);
     setIsGameStarted(true);
     setIsFinalRound(false);
-    setIsBetweenRounds(true);
     handleGetRandomTrack();
   };
 
   // Increment track count and fetch a new random track
   const handleGetRandomTrackClick = () => {
     setTrackCount((prevCount) => prevCount + 1);
-    setIsBetweenRounds(false);
     handleGetRandomTrack();
   };
 
@@ -101,8 +98,7 @@ const SpotifySearch = ({ database }) => {
     setShouldResetMap,
     playedTracks,
     setPlayedTracks,
-    setTrackCount,
-    isBetweenRounds
+    setTrackCount
   );
 
   // Custom hook to handle guess submission
@@ -186,7 +182,6 @@ const SpotifySearch = ({ database }) => {
               selectedCountry={selectedCountry}
               correctLocation={correctLocation}
               shouldReset={shouldResetMap}
-              isBetweenRounds={isBetweenRounds}
             />
 
             <p>Selected Country: {selectedCountry}</p>
