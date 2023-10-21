@@ -1,10 +1,17 @@
-# 10/18
+# 10/21
+    Goals:
+        - move next round button
+    Notes:
+        -
+
+# 10/20
     Goals:
         - make marker stay on correct guess
         - undo marker issue, find new solution
         -
     Notes:
-        -
+        - useRef rules
+        - marker issue is resolved
 
 # 10/17
     Goals:
