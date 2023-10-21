@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const LocationGuess = ({ selectedCountry, handleSubmit }) => {
+const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick }) => {
   // click enter instead of clicking button
   const buttonRef = useRef();
   useEffect(() => {
@@ -24,7 +24,10 @@ const LocationGuess = ({ selectedCountry, handleSubmit }) => {
             ? "bg-accent hover:bg-accent-focus transition-colors"
             : "bg-gray-500 opacity-50 cursor-not-allowed"
         }`}
-        onClick={handleSubmit}
+        onClick={() => {
+          onSubmitButtonClick(); // Call the callback function when "Submit" is clicked
+          handleSubmit(); // Continue with the submit logic
+        }}
         disabled={!selectedCountry}
       >
         Submit

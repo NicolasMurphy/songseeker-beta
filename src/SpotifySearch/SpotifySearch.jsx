@@ -31,6 +31,7 @@ const SpotifySearch = ({ database }) => {
   const [isFinalRound, setIsFinalRound] = useState(false);
   const [submittingScore, setSubmittingScore] = useState(false);
   const [username, setUsername] = useState("");
+  const [isMarkerPlacementAllowed, setIsMarkerPlacementAllowed] = useState(true);
 
   // Fetch access token and get a random track when component mounts
   useEffect(() => {
@@ -66,8 +67,14 @@ const SpotifySearch = ({ database }) => {
     }
   };
 
+  const handleSubmitButtonClick = () => {
+    // Disable marker placement on the map
+    setIsMarkerPlacementAllowed(false);
+  };
+
   // Start a new game
   const handleStartNewGame = () => {
+    setIsMarkerPlacementAllowed(true);
     // Reset game states
     setScore(0);
     setTrackCount(1);
@@ -80,6 +87,7 @@ const SpotifySearch = ({ database }) => {
 
   // Increment track count and fetch a new random track
   const handleGetRandomTrackClick = () => {
+    setIsMarkerPlacementAllowed(true);
     setTrackCount((prevCount) => prevCount + 1);
     handleGetRandomTrack();
   };
@@ -182,6 +190,7 @@ const SpotifySearch = ({ database }) => {
               selectedCountry={selectedCountry}
               correctLocation={correctLocation}
               shouldReset={shouldResetMap}
+              isMarkerPlacementAllowed={isMarkerPlacementAllowed}
             />
 
             <p>Selected Country: {selectedCountry}</p>
@@ -297,6 +306,7 @@ const SpotifySearch = ({ database }) => {
             <LocationGuess
               selectedCountry={selectedCountry}
               handleSubmit={handleSubmit}
+              onSubmitButtonClick={handleSubmitButtonClick}
             />
           )}
         </div>
