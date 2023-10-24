@@ -11,7 +11,7 @@ To run this on your local machine, follow these steps.
 3. Create a spotify developer account and add your client id and secret to src/api/credentials.jsx
     - `const clientId="{YOUR_CLIENT_ID}";`
     - `const clientSecret="{YOUR_CLIENT_SECRET}";`
-4. Create a Google Maps Developer account, get an API key and add it as a script tag to public/index.html
+4. Create a Google Maps Developer account, get an API key and add it as a script tag to src/Map/Map.jsx
     - `<script src="https://maps.googleapis.com/maps/api/js?key={YOUR_API_KEY}&libraries=geometry,drawing,places"></script>`
 5. Create a Firebase account, add a project, and create a realtime database with these rules:
 ```

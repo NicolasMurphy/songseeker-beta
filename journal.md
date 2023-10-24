@@ -1,3 +1,9 @@
+# 10/24
+    Goals:
+        -
+    Notes:
+        - Made env variables for all keys, ids, secrets, etc.
+
 # 10/21
     Goals:
         - move next round button
