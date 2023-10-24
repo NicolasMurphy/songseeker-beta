@@ -1,4 +1,4 @@
-const clientId="{YOUR_CLIENT_ID}";
-const clientSecret="{YOUR_CLIENT_SECRET}";
+const clientId=process.env.REACT_APP_CLIENT_ID;
+const clientSecret=process.env.REACT_APP_CLIENT_SECRET;
 const credentials = `${clientId}:${clientSecret}`;
 export const encodedCredentials = btoa(credentials);
