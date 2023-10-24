@@ -19,28 +19,30 @@ const Map = ({
     isMarkerPlacementAllowedRef.current = isMarkerPlacementAllowed;
   }, [isMarkerPlacementAllowed]);
 
-  useEffect(() => {
-    const initializeMap = () => {
-      const mapOptions = {
-        center: { lat: 0, lng: 0 },
-        zoom: 2,
-        gestureHandling: "greedy",
-        restriction: {
-          latLngBounds: {
-            north: 85,
-            south: -85,
-            west: -180,
-            east: 180,
-          },
-          strictBounds: true,
+  const initializeMap = () => {
+    if (!window.google || !window.google.maps) {
+      return;
+    }
+
+    const mapOptions = {
+      center: { lat: 0, lng: 0 },
+      zoom: 2,
+      gestureHandling: "greedy",
+      restriction: {
+        latLngBounds: {
+          north: 85,
+          south: -85,
+          west: -180,
+          east: 180,
         },
-      };
+        strictBounds: true,
+      },
+    };
 
-      const map = new window.google.maps.Map(mapRef.current, mapOptions);
+    const map = new window.google.maps.Map(mapRef.current, mapOptions);
+    setMapInstance(map);
 
-      setMapInstance(map);
-
-      window.google.maps.event.addListener(map, "click", (event) => {
+    window.google.maps.event.addListener(map, "click", (event) => {
         if (!isMarkerPlacementAllowedRef.current) {
           // If marker placement is not allowed, simply return and do nothing
           return;
@@ -84,10 +86,32 @@ const Map = ({
       });
     };
 
-    if (!mapInstance) {
-      initializeMap();
-    }
-  }, [mapInstance, isMarkerPlacementAllowed]);
+    useEffect(() => {
+      if (!mapInstance) {
+        initializeMap();
+      }
+    }, [mapInstance, isMarkerPlacementAllowed]);
+
+    useEffect(() => {
+      // Check if the Maps API script has already been loaded or is being loaded
+      const existingScript = document.querySelector(`script[src^="https://maps.googleapis.com/maps/api/js?key="]`);
+
+      if (!window.google && !existingScript) {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,drawing,places&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+      } else if (window.google) {
+        initializeMap();
+      }
+
+      // Define the global initMap function that will be called by the Google Maps script
+      window.initMap = () => {
+        initializeMap();
+      };
+
+    }, []);
 
   useEffect(() => {
     if (shouldReset && mapInstance) {
