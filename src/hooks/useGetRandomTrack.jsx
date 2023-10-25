@@ -1,4 +1,5 @@
 import getRandomTrack from '../api/getRandomTrack';
+import refreshAccessToken from '../api/refreshAccessToken';
 
 const useGetRandomTrack = (
   setShowTrackInfo,
@@ -23,7 +24,9 @@ const useGetRandomTrack = (
     setDistanceMessage('');
 
     try {
-      const token = localStorage.getItem('accessToken');
+      const token = await refreshAccessToken(); // <-- Use the function here
+      if (!token) throw new Error("Failed to refresh the access token");
+
       await getRandomTrack(token, track, setTrack, setIsLoading, resetAudio, setLocation, setShowTrackInfo, playedTracks, setPlayedTracks);
     } catch (error) {
       console.error('Error retrieving random track:', error);
