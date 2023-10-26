@@ -57,8 +57,6 @@ const getRandomTrack = async (
 
       setTrack({ ...randomTrack, location: descriptionObject.country, description: descriptionObject });
 
-      console.log(descriptionObject.country) // logs multiple times, should only log once
-
       resetAudio();
       setLocation(descriptionObject.country);
     } else {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import refreshAccessToken from "../api/refreshAccessToken";
 import AudioPlayer from "./AudioPlayer";
 import Map from "../Map/Map";
@@ -39,9 +39,9 @@ const SpotifySearch = ({ database }) => {
     useGameProgress(trackCount);
   const { submitScoreToFirebase } = useScoreSubmission(database);
 
-  // if (track) {
-  //   console.log(track.location) // logs multiple countries, should only log one
-  // }
+  if (track) {
+    console.log(track.location) // logs multiple times, should only log once
+  }
 
   // Fetch access token and get a random track when component mounts
   useEffect(() => {
@@ -94,52 +94,20 @@ const SpotifySearch = ({ database }) => {
   };
 
   // Custom hook to get a random track
-  // const handleGetRandomTrack = useGetRandomTrack(
-  //   setShowTrackInfo,
-  //   setIsLoading,
-  //   setIsSubmitted,
-  //   setDistanceMessage,
-  //   resetAudio,
-  //   setLocation,
-  //   setTrack,
-  //   track,
-  //   setCorrectLocation,
-  //   setShouldResetMap,
-  //   playedTracks,
-  //   setPlayedTracks,
-  //   setTrackCount
-  // );
-  const handleGetRandomTrack = useCallback(
-    useGetRandomTrack(
-      setShowTrackInfo,
-      setIsLoading,
-      setIsSubmitted,
-      setDistanceMessage,
-      resetAudio,
-      setLocation,
-      setTrack,
-      track,
-      setCorrectLocation,
-      setShouldResetMap,
-      playedTracks,
-      setPlayedTracks,
-      setTrackCount
-    ),
-    [
-      setShowTrackInfo,
-      setIsLoading,
-      setIsSubmitted,
-      setDistanceMessage,
-      resetAudio,
-      setLocation,
-      setTrack,
-      track,
-      setCorrectLocation,
-      setShouldResetMap,
-      playedTracks,
-      setPlayedTracks,
-      setTrackCount,
-    ]
+  const handleGetRandomTrack = useGetRandomTrack(
+    setShowTrackInfo,
+    setIsLoading,
+    setIsSubmitted,
+    setDistanceMessage,
+    resetAudio,
+    setLocation,
+    setTrack,
+    track,
+    setCorrectLocation,
+    setShouldResetMap,
+    playedTracks,
+    setPlayedTracks,
+    setTrackCount
   );
 
   // Custom hook to handle guess submission
