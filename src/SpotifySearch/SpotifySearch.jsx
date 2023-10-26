@@ -5,10 +5,14 @@ import Map from "../Map/Map";
 import TrackLoader from "./TrackLoader";
 import LocationGuess from "./LocationGuess";
 import TrackInfo from "./TrackInfo";
+import StartGameButton from "./StartGameButton";
+import Feedback from "./Feedback";
+import GameEnded from "./GameEnded";
+import ScoreAndRoundInfo from "./ScoreAndRoundInfo";
 import useGetRandomTrack from "../hooks/useGetRandomTrack";
 import useSubmitGuess from "../hooks/useSubmitGuess";
-import getFlagUrl from "../utils/getFlagUrl";
-import { ref, push } from "firebase/database";
+import useGameProgress from "../hooks/useGameProgress";
+import useScoreSubmission from "../hooks/useScoreSubmission";
 
 const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
@@ -25,13 +29,19 @@ const SpotifySearch = ({ database }) => {
   const [correctLocation, setCorrectLocation] = useState(null);
   const [score, setScore] = useState(0);
   const [trackCount, setTrackCount] = useState(0);
-  const [isGameEnded, setIsGameEnded] = useState(false);
   const [playedTracks, setPlayedTracks] = useState(new Set());
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [isFinalRound, setIsFinalRound] = useState(false);
   const [submittingScore, setSubmittingScore] = useState(false);
   const [username, setUsername] = useState("");
-  const [isMarkerPlacementAllowed, setIsMarkerPlacementAllowed] = useState(true);
+  const [isMarkerPlacementAllowed, setIsMarkerPlacementAllowed] =
+    useState(true);
+  const { isFinalRound, isGameEnded, setIsFinalRound, setIsGameEnded } =
+    useGameProgress(trackCount);
+  const { submitScoreToFirebase } = useScoreSubmission(database);
+
+  // if (track) {
+  //   console.log(track.location) // logs multiple countries, should only log one
+  // }
 
   // Fetch access token and get a random track when component mounts
   useEffect(() => {
@@ -50,15 +60,6 @@ const SpotifySearch = ({ database }) => {
       setShouldResetMap(false);
     }
   }, [shouldResetMap]);
-
-  // Handle game progress, checking if the game has ended or if it's the final round
-  useEffect(() => {
-    if (trackCount === 6) {
-      setIsFinalRound(true);
-    } else if (trackCount > 6) {
-      setIsGameEnded(true);
-    }
-  }, [trackCount]);
 
   // Reset audio player
   const resetAudio = () => {
@@ -82,7 +83,7 @@ const SpotifySearch = ({ database }) => {
     setIsGameEnded(false);
     setIsGameStarted(true);
     setIsFinalRound(false);
-    handleGetRandomTrack();
+    // handleGetRandomTrack();
   };
 
   // Increment track count and fetch a new random track
@@ -138,15 +139,6 @@ const SpotifySearch = ({ database }) => {
     setSubmittingScore(true);
   };
 
-  // Submit score
-  const submitScoreToFirebase = (username, score) => {
-    const scoresRef = ref(database, "scores");
-    push(scoresRef, {
-      username: username,
-      score: score,
-    });
-  };
-
   // Handle score submission to leaderboard
   const handleSubmitScoreToLeaderboard = () => {
     if (!username) {
@@ -172,19 +164,11 @@ const SpotifySearch = ({ database }) => {
     <div className="container mx-auto text-center">
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
       {!isGameStarted ? (
-        <button
-          className="px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
-          onClick={handleStartNewGame}
-        >
-          Start Game
-        </button>
+        <StartGameButton handleStartNewGame={handleStartNewGame} />
       ) : (
         <div>
           <div className="mb-6">
-            <div className="grid grid-cols-3">
-              <p>Current score: {score}</p>
-              <p>Round {isGameEnded ? 6 : trackCount}/6</p>
-            </div>
+            <ScoreAndRoundInfo score={score} isGameEnded={isGameEnded} trackCount={trackCount} />
             <Map
               handleCountrySelection={handleCountrySelection}
               selectedCountry={selectedCountry}
@@ -195,57 +179,12 @@ const SpotifySearch = ({ database }) => {
 
             <p>Selected Country: {selectedCountry}</p>
 
-            {isCorrectGuess ? (
-              <>
-                {isSubmitted && (
-                  <>
-                    {
-                      <img
-                        className="mx-auto my-4"
-                        width="96px"
-                        src={getFlagUrl(track.location)}
-                        alt={`${track.location} flag`}
-                      />
-                    }
-                    <p>
-                      The correct country is{" "}
-                      <span className="font-bold">{track.location}</span>! That
-                      is <span className="font-bold">6000 points</span>!!!
-                    </p>
-                  </>
-                )}
-              </>
-            ) : (
-              <>
-                {isSubmitted && (
-                  <>
-                    {
-                      <img
-                        className="mx-auto my-4"
-                        width="96px"
-                        src={getFlagUrl(track.location)}
-                        alt={`${track.location} flag`}
-                      />
-                    }
-                    <p>
-                      The correct country is{" "}
-                      <span className="font-bold">{track.location}</span>
-                    </p>
-                    <p>
-                      You were{" "}
-                      <span className="font-bold">
-                        {distanceMessage[0]} miles
-                      </span>{" "}
-                      away. That is{" "}
-                      <span className="font-bold">
-                        {distanceMessage[1]} points
-                      </span>
-                      .
-                    </p>
-                  </>
-                )}
-              </>
-            )}
+            <Feedback
+              isCorrectGuess={isCorrectGuess}
+              isSubmitted={isSubmitted}
+              track={track}
+              distanceMessage={distanceMessage}
+            />
           </div>
           {!isGameEnded && isSubmitted && (
             <TrackLoader
@@ -256,48 +195,14 @@ const SpotifySearch = ({ database }) => {
             />
           )}
           {isGameEnded && (
-            <div>
-              <p className="text-3xl">
-                Your final score is: <span className="font-bold">{score}</span>
-              </p>
-              {submittingScore ? (
-                <div>
-                  <p
-                    className="pt-6"
-                    >
-                    Submit your score to the leaderboard:
-                  </p>
-                  <input
-                    className="my-2 input input-bordered input-info w-full max-w-xs"
-                    type="text"
-                    placeholder="Enter your username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                  <br></br>
-                  <button
-                    className="px-4 py-2 my-2 bg-info hover:bg-[#2c93bf] text-white rounded transition-colors"
-                    onClick={handleSubmitScoreToLeaderboard}
-                  >
-                    Submit Score to Leaderboard
-                  </button>
-                  <br></br>
-                  <button
-                    className="px-4 py-2 my-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
-                    onClick={handleStartNewGame}
-                  >
-                    Play Again
-                  </button>
-                </div>
-              ) : (
-                <button
-                  className="px-4 py-2 my-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
-                  onClick={handleStartNewGame}
-                >
-                  Play Again
-                </button>
-              )}
-            </div>
+            <GameEnded
+              score={score}
+              submittingScore={submittingScore}
+              username={username}
+              setUsername={setUsername}
+              handleSubmitScoreToLeaderboard={handleSubmitScoreToLeaderboard}
+              handleStartNewGame={handleStartNewGame}
+            />
           )}
           <AudioPlayer ref={audioRef} track={track} />
           {isSubmitted || isGameEnded ? (
