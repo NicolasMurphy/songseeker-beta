@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
+import React, { forwardRef, useImperativeHandle, useRef, useEffect } from "react";
 
 const AudioPlayer = forwardRef(({ track }, ref) => {
   const audioRef = useRef(null);
@@ -12,6 +12,16 @@ const AudioPlayer = forwardRef(({ track }, ref) => {
       }
     },
   }));
+
+  useEffect(() => {
+    if (audioRef.current && track && track.preview_url) {
+      audioRef.current.load();
+    }
+  }, [track]);
+
+  if (track) {
+    console.log("AudioPlayer", track.location)
+  }
 
   if (!track || !track.preview_url) {
     return null;

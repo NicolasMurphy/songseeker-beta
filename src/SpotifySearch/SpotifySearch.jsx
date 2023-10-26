@@ -40,7 +40,7 @@ const SpotifySearch = ({ database }) => {
   const { submitScoreToFirebase } = useScoreSubmission(database);
 
   if (track) {
-    console.log(track.location) // logs multiple times, should only log once
+    console.log(track.location)
   }
 
   // Fetch access token and get a random track when component mounts

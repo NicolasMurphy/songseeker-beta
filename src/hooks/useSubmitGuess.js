@@ -15,6 +15,11 @@ const useSubmitGuess = (
   isFinalRound,
   setIsGameEnded
 ) => {
+
+  if (track) {
+    console.log("useSubmitGuess", track.location)
+  }
+
   const calculateScore = (distance) => {
     // Formula: score = 6000 - distance, but at least 0
     return Math.max(6000 - distance, 0);
