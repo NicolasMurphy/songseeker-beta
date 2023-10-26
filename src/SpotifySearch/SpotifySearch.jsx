@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import refreshAccessToken from "../api/refreshAccessToken";
 import AudioPlayer from "./AudioPlayer";
 import Map from "../Map/Map";
@@ -94,20 +94,52 @@ const SpotifySearch = ({ database }) => {
   };
 
   // Custom hook to get a random track
-  const handleGetRandomTrack = useGetRandomTrack(
-    setShowTrackInfo,
-    setIsLoading,
-    setIsSubmitted,
-    setDistanceMessage,
-    resetAudio,
-    setLocation,
-    setTrack,
-    track,
-    setCorrectLocation,
-    setShouldResetMap,
-    playedTracks,
-    setPlayedTracks,
-    setTrackCount
+  // const handleGetRandomTrack = useGetRandomTrack(
+  //   setShowTrackInfo,
+  //   setIsLoading,
+  //   setIsSubmitted,
+  //   setDistanceMessage,
+  //   resetAudio,
+  //   setLocation,
+  //   setTrack,
+  //   track,
+  //   setCorrectLocation,
+  //   setShouldResetMap,
+  //   playedTracks,
+  //   setPlayedTracks,
+  //   setTrackCount
+  // );
+  const handleGetRandomTrack = useCallback(
+    useGetRandomTrack(
+      setShowTrackInfo,
+      setIsLoading,
+      setIsSubmitted,
+      setDistanceMessage,
+      resetAudio,
+      setLocation,
+      setTrack,
+      track,
+      setCorrectLocation,
+      setShouldResetMap,
+      playedTracks,
+      setPlayedTracks,
+      setTrackCount
+    ),
+    [
+      setShowTrackInfo,
+      setIsLoading,
+      setIsSubmitted,
+      setDistanceMessage,
+      resetAudio,
+      setLocation,
+      setTrack,
+      track,
+      setCorrectLocation,
+      setShouldResetMap,
+      playedTracks,
+      setPlayedTracks,
+      setTrackCount,
+    ]
   );
 
   // Custom hook to handle guess submission
@@ -168,7 +200,11 @@ const SpotifySearch = ({ database }) => {
       ) : (
         <div>
           <div className="mb-6">
-            <ScoreAndRoundInfo score={score} isGameEnded={isGameEnded} trackCount={trackCount} />
+            <ScoreAndRoundInfo
+              score={score}
+              isGameEnded={isGameEnded}
+              trackCount={trackCount}
+            />
             <Map
               handleCountrySelection={handleCountrySelection}
               selectedCountry={selectedCountry}
