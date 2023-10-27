@@ -39,10 +39,6 @@ const SpotifySearch = ({ database }) => {
     useGameProgress(trackCount);
   const { submitScoreToFirebase } = useScoreSubmission(database);
 
-  if (track) {
-    console.log(track.location)
-  }
-
   // Fetch access token and get a random track when component mounts
   useEffect(() => {
     const fetchData = async () => {
@@ -83,7 +79,19 @@ const SpotifySearch = ({ database }) => {
     setIsGameEnded(false);
     setIsGameStarted(true);
     setIsFinalRound(false);
-    // handleGetRandomTrack();
+    handleGetRandomTrack();
+  };
+
+  // Start a new game
+  const handleStartFirstGame = () => {
+    setIsMarkerPlacementAllowed(true);
+    // Reset game states
+    setScore(0);
+    setTrackCount(1);
+    setPlayedTracks(new Set());
+    setIsGameEnded(false);
+    setIsGameStarted(true);
+    setIsFinalRound(false);
   };
 
   // Increment track count and fetch a new random track
@@ -118,12 +126,9 @@ const SpotifySearch = ({ database }) => {
     track,
     selectedCountry,
     setCorrectLocation,
-    setShouldResetMap,
     markerLocation,
     setDistanceMessage,
-    setScore,
-    isFinalRound,
-    setIsGameEnded
+    setScore
   );
 
   // Handle user's country selection on the map
@@ -164,7 +169,7 @@ const SpotifySearch = ({ database }) => {
     <div className="container mx-auto text-center">
       <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
       {!isGameStarted ? (
-        <StartGameButton handleStartNewGame={handleStartNewGame} />
+        <StartGameButton handleStartFirstGame={handleStartFirstGame} />
       ) : (
         <div>
           <div className="mb-6">
@@ -208,7 +213,7 @@ const SpotifySearch = ({ database }) => {
               handleStartNewGame={handleStartNewGame}
             />
           )}
-          <AudioPlayer ref={audioRef} track={track} />
+          <AudioPlayer ref={audioRef} track={track} isLoading={isLoading} />
           {isSubmitted || isGameEnded ? (
             <TrackInfo track={track} />
           ) : (

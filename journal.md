@@ -1,5 +1,17 @@
 # 10/24
     Goals:
+        - Optimize fetching random track from playlist
+        - Improve styling on mobile
+        - Move next track button
+        - Add logo to Home
+        -
+    Notes:
+        - Successfully deployed using vercel
+        - fixed issue on mobile
+        -
+
+# 10/24
+    Goals:
         -
     Notes:
         - Made env variables for all keys, ids, secrets, etc.

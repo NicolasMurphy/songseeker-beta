@@ -1,6 +1,11 @@
-import React, { forwardRef, useImperativeHandle, useRef, useEffect } from "react";
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useEffect,
+} from "react";
 
-const AudioPlayer = forwardRef(({ track }, ref) => {
+const AudioPlayer = forwardRef(({ track, isLoading }, ref) => {
   const audioRef = useRef(null);
 
   useImperativeHandle(ref, () => ({
@@ -19,20 +24,23 @@ const AudioPlayer = forwardRef(({ track }, ref) => {
     }
   }, [track]);
 
-  if (track) {
-    console.log("AudioPlayer", track.location)
-  }
-
   if (!track || !track.preview_url) {
     return null;
   }
 
   return (
     <div className="custom-player">
-      <audio ref={audioRef} controls>
-        <source src={track.preview_url} type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+      {isLoading ? (
+        <div className="loading loading-bars loading-lg"></div>
+      ) : (
+        <audio
+          ref={audioRef}
+          controls
+        >
+          <source src={track.preview_url} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      )}
     </div>
   );
 });

@@ -8,17 +8,10 @@ const useSubmitGuess = (
   track,
   selectedCountry,
   setCorrectLocation,
-  setShouldResetMap,
   markerLocation,
   setDistanceMessage,
-  setScore,
-  isFinalRound,
-  setIsGameEnded
+  setScore
 ) => {
-
-  if (track) {
-    console.log("useSubmitGuess", track.location)
-  }
 
   const calculateScore = (distance) => {
     // Formula: score = 6000 - distance, but at least 0
