@@ -1,3 +1,13 @@
+# 10/29
+    Goals:
+        - move GameEnded on mobile
+        - Make better 404 page
+        - Add all guesses for GameEnded
+        - Add more tracks
+        -
+    Notes:
+        -
+
 # 10/28
     Goals:
         - Add logo
@@ -8,6 +18,7 @@
         - Replaced description dropdown with modal
         - Restyled everything below map so now everything fits on screen
         - Changed modal to older DaisyUI version with out dialog tag, for support on older browsers
+        - Fixed console warning about https
         -
 
 # 10/26

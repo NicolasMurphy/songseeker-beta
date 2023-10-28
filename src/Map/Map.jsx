@@ -148,7 +148,7 @@ const Map = ({
         map: mapInstance,
         clickable: false,
         icon: {
-          url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+          url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
         },
       });
 
