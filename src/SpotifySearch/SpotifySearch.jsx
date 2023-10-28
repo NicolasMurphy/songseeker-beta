@@ -168,8 +168,16 @@ const SpotifySearch = ({ database }) => {
 
   return (
     <div className="container mx-auto text-center">
-      {!isGameStarted && <><img src={logo} alt="A logo of a location pin with music notes inside it" className="mx-auto w-32" />
-      <h1 className="text-4xl font-bold mb-4">SongSeeker</h1></>}
+      {!isGameStarted && (
+        <>
+          <img
+            src={logo}
+            alt="A logo of a location pin with music notes inside it"
+            className="mx-auto w-32"
+          />
+          <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
+        </>
+      )}
       {!isGameStarted ? (
         <StartGameButton handleStartFirstGame={handleStartFirstGame} />
       ) : (
@@ -203,31 +211,43 @@ const SpotifySearch = ({ database }) => {
               </div>
               {/* {column 2} */}
               <div className="order-2 md:order-2">
-                {isSubmitted && (
-                  <div className="my-2">
-                    <p>
-                      The correct country is{" "}
-                      <span className="font-bold">{track.location}</span>
-                    </p>
-                    <p>
+                <div className="my-2">
+                  {isSubmitted && (
+                    <div>
                       {isCorrectGuess ? (
-                        "! That is 6000 points!!!"
+                        <>
+                          <p>
+                            The correct country is{" "}
+                            <span className="font-bold">{track.location}</span>!
+                          </p>
+                          <p>
+                            That is{" "}
+                            <span className="font-bold">6000 points</span>
+                            !!!
+                          </p>
+                        </>
                       ) : (
                         <>
-                          You were{" "}
-                          <span className="font-bold">
-                            {distanceMessage[0]} miles
-                          </span>{" "}
-                          away. That is{" "}
-                          <span className="font-bold">
-                            {distanceMessage[1]} points
-                          </span>
-                          .
+                          <p>
+                            The correct country was{" "}
+                            <span className="font-bold">{track.location}</span>.
+                          </p>
+                          <p>
+                            You were{" "}
+                            <span className="font-bold">
+                              {distanceMessage[0]} miles
+                            </span>{" "}
+                            away. That is{" "}
+                            <span className="font-bold">
+                              {distanceMessage[1]} points
+                            </span>
+                            .
+                          </p>
                         </>
                       )}
-                    </p>
-                  </div>
-                )}
+                    </div>
+                  )}
+                </div>
               </div>
               {/* {column 3} */}
               <div className="order-5 md:order-3">
