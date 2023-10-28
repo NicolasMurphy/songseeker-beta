@@ -36,6 +36,7 @@ const AudioPlayer = forwardRef(({ track, isLoading }, ref) => {
         <audio
           ref={audioRef}
           controls
+          autoPlay
         >
           <source src={track.preview_url} type="audio/mpeg" />
           Your browser does not support the audio element.

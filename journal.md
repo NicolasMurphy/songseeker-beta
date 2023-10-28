@@ -2,11 +2,13 @@
     Goals:
         - Add logo
         - Make track auto play
+        - Make better 404 page
         -
     Notes:
         - Replaced description dropdown with modal
         - Restyled everything below map so now everything fits on screen
         - Changed modal to older DaisyUI version with out dialog tag, for support on older browsers
+        -
 
 # 10/26
     Goals:

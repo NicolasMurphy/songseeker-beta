@@ -2,6 +2,7 @@ import React from "react";
 import SpotifySearch from "./SpotifySearch/SpotifySearch";
 import HighScoreList from "./HighScoreList";
 import About from "./About";
+import NotFound from "./NotFound";
 import {
   NavLink,
   BrowserRouter as Router,
@@ -47,6 +48,7 @@ const Nav = () => (
       <Route path="/" element={<SpotifySearch database={database} />} />
       <Route path="scores/" element={<HighScoreList database={database} />} />
       <Route path="about/" element={<About />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
 );

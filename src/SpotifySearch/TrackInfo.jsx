@@ -1,6 +1,4 @@
 import React from "react";
-import SpotifyIcon from "./SpotifyIcon";
-import getDescriptionOptions from "../utils/DescriptionOptions";
 
 const TrackInfo = ({ track }) => {
   if (!track) {
@@ -17,7 +15,6 @@ const TrackInfo = ({ track }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SpotifyIcon />
           </a>
         </div>
       </div>
