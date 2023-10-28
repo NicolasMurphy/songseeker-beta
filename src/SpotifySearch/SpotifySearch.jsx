@@ -197,7 +197,7 @@ const SpotifySearch = ({ database }) => {
               isMarkerPlacementAllowed={isMarkerPlacementAllowed}
             />
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto_2fr_1fr]">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto_2fr_1fr]">
               {/* {column 1} */}
               <div className="order-3 md:order-1 mx-auto">
                 {isSubmitted && (
