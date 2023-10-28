@@ -27,7 +27,7 @@ const TrackLoader = ({
   return (
     <button
       ref={buttonRef}
-      className={buttonClass}
+      className={`${buttonClass} my-4`}
       onClick={isFinalRound ? handleEndGame : handleGetRandomTrack}
       disabled={isLoading}
     >

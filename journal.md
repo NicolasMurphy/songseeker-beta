@@ -1,4 +1,13 @@
-# 10/24
+# 10/28
+    Goals:
+        - Add logo
+        - Make track auto play
+    Notes:
+        - Replaced description dropdown with modal
+        - Restyled everything below map so now everything fits on screen
+        -
+
+# 10/26
     Goals:
         - Optimize fetching random track from playlist
         - Improve styling on mobile
@@ -7,7 +16,9 @@
         -
     Notes:
         - Successfully deployed using vercel
-        - fixed issue on mobile
+        - fixed off by one issue on mobile
+        - added spinner
+        - fixed play again glitch
         -
 
 # 10/24

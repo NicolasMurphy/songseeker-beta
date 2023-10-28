@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick }) => {
+const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isLoading }) => {
   // click enter instead of clicking button
   const buttonRef = useRef();
   useEffect(() => {
@@ -16,11 +16,11 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick }) =
   }, []);
 
   return (
-    <div className="flex justify-center p-6">
+    <div className="flex justify-center my-4">
       <button
         ref={buttonRef}
         className={`px-4 py-2 text-white rounded ${
-          selectedCountry
+          selectedCountry && !isLoading
             ? "bg-accent hover:bg-accent-focus transition-colors"
             : "bg-gray-500 opacity-50 cursor-not-allowed"
         }`}
@@ -28,7 +28,7 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick }) =
           onSubmitButtonClick(); // Call the callback function when "Submit" is clicked
           handleSubmit(); // Continue with the submit logic
         }}
-        disabled={!selectedCountry}
+        disabled={!selectedCountry && isLoading}
       >
         Submit
       </button>
