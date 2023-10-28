@@ -6,7 +6,7 @@ const GameEnded = ({
   handleSubmitScoreToLeaderboard,
   handleStartNewGame,
 }) => (
-  <div>
+  <div className="my-2">
     <p className="text-3xl">
       Your final score is: <span className="font-bold">{score}</span>
     </p>

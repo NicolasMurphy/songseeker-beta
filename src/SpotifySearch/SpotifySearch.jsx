@@ -13,6 +13,7 @@ import useSubmitGuess from "../hooks/useSubmitGuess";
 import useGameProgress from "../hooks/useGameProgress";
 import useScoreSubmission from "../hooks/useScoreSubmission";
 import getFlagUrl from "../utils/getFlagUrl";
+import logo from "../Images/logo.svg";
 
 const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
@@ -167,7 +168,8 @@ const SpotifySearch = ({ database }) => {
 
   return (
     <div className="container mx-auto text-center">
-      <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
+      {!isGameStarted && <><img src={logo} alt="A logo of a location pin with music notes inside it" className="mx-auto w-32" />
+      <h1 className="text-4xl font-bold mb-4">SongSeeker</h1></>}
       {!isGameStarted ? (
         <StartGameButton handleStartFirstGame={handleStartFirstGame} />
       ) : (
