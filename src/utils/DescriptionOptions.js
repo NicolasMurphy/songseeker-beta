@@ -222,7 +222,7 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Ecuador",
-      description: `Clay pot is a musical composition with tone of dancing, known as "the unofficial hymn of Ecuador". The lyrics refer to the country's ancient mortuary rituals as a symbol of the desire to return to it Mother Earth and it was written in 1950 by poets Jorge Carrera Andrade, Jorge Enrique Adoum, Hugo Alemán and the painter Jaime Valencia. The melody of the song was created by. Gonzalo Benítez.`,
+      description: `Clay pot is a musical composition for dancing, known as "the unofficial anthem of Ecuador". The lyrics refer to the country's ancient mortuary rituals as a symbol of the desire to return to it Mother Earth and it was written in 1950 by poets Jorge Carrera Andrade, Jorge Enrique Adoum, Hugo Alemán and the painter Jaime Valencia. The melody of the song was created by Gonzalo Benítez.`,
       link: "https://es.wikipedia.org/wiki/Vasija_de_barro",
     },
     {

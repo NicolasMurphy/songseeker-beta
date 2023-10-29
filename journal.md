@@ -6,9 +6,12 @@
         - Add more tracks
         - Improve translation for Ecuador
         - Fix track not autoplaying on mobile
+        - Center logo for ico
         -
     Notes:
         - Added more tracks
+        - ico centered
+        - translation improved
         -
 
 # 10/28
