@@ -4,8 +4,11 @@
         - Make better 404 page
         - Add all guesses for GameEnded
         - Add more tracks
+        - Improve translation for Ecuador
+        - Fix track not autoplaying on mobile
         -
     Notes:
+        - Added more tracks
         -
 
 # 10/28

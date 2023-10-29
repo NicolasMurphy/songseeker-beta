@@ -1,6 +1,6 @@
 ## SongSeeker
 
-SongSeeker is a music education geography game! Featuring music from over 40 countries!
+SongSeeker is a music education geography game! Featuring music from over 50 countries!
 
 ## Project Initialization
 

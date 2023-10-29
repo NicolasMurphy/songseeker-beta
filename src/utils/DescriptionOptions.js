@@ -210,6 +210,61 @@ const getDescriptionOptions = () => {
       description: `"Indépendance Cha Cha" (French; "Independence cha cha") was a song performed by Joseph Kabasele (best known by his stage name Le Grand Kallé) from the group L'African Jazz in the popular African Rumba style. The song has been described as "Kabasele's most memorable song" and one of the first Pan-African hits.\nThe song was composed and first performed in 1960, the so-called Year of Africa, to celebrate the imminent independence of the Belgian Congo (the modern-day Democratic Republic of the Congo). The song achieved considerable successes and remains the most internationally best-known examples of Congolese Rumba.`,
       link: "https://en.wikipedia.org/wiki/Ind%C3%A9pendance_Cha_Cha",
     },
+    {
+      country: "Canada",
+      description: `The Inuit of the Canadian Northwest Territories follow two seasonal social patterns: hunting with families in the summer, and gathering for trade and intense spiritual activities with large communities in the winter. Traditionally, when these groups reunited at the start of the long, dark winter, they exchanged songs. Each person is believed to be a composer and performer; each song is a gift to be reciprocated, and the sharing of songs and dances was a way to strengthen the social fabric. Many songs on this album are about hunting, but it was forbidden to exchange songs whilehunting, or even while outdoors. The Inuit believed that under an open sky, “a spirit could steal the words and by seizing the breath of the singer, rob him of his life.”`,
+      link: "https://folkways.si.edu/canada-music-of-the-inuit-the-copper-eskimo-tradition/world/music/album/smithsonian",
+    },
+    {
+      country: "United States",
+      description: `"This Land Is Your Land" is a song by American folk singer Woody Guthrie. It is one of the United States' most famous folk songs. Its lyrics were written in 1940 in critical response to Irving Berlin's "God Bless America". Its melody is based on a Carter Family tune called "When the World's on Fire". When Guthrie was tired of hearing Kate Smith sing "God Bless America" on the radio in the late 1930s, he sarcastically called his song "God Blessed America for Me" before renaming it "This Land Is Your Land".`,
+      link: "https://en.wikipedia.org/wiki/This_Land_Is_Your_Land",
+    },
+    {
+      country: "Ecuador",
+      description: `Clay pot is a musical composition with tone of dancing, known as "the unofficial hymn of Ecuador". The lyrics refer to the country's ancient mortuary rituals as a symbol of the desire to return to it Mother Earth and it was written in 1950 by poets Jorge Carrera Andrade, Jorge Enrique Adoum, Hugo Alemán and the painter Jaime Valencia. The melody of the song was created by. Gonzalo Benítez.`,
+      link: "https://es.wikipedia.org/wiki/Vasija_de_barro",
+    },
+    {
+      country: "Morocco",
+      description: `This 1988 recording focuses on the Arabic tradition in Moroccan music. According to the liner notes, the two forms of l-'asri modern music and sh-sha'abi popular/people’s music have wide appeal around the country as well as in all segments of the population. Although they share similar modal structures, they are quite different formally and rhythmically.`,
+      link: "https://folkways.si.edu/morocco-arabic-traditional-music/world/music/album/smithsonian",
+    },
+    {
+      country: "Latvia",
+      description: `Blow the winds (limp Pugõ tour — 'blow, wind') is old Liv wedding a song that is folklore and is considered Latvian folk song. It is believed to have originated at. Daugava leva In Vidzeme. Liv the guy went by boat to his beloved to Kurzemi, wanting to get married.`,
+      link: "https://lv.wikipedia.org/wiki/P%C5%ABt,_v%C4%93ji%C5%86i_(dziesma)",
+    },
+    {
+      country: "Rwanda",
+      description: `Inka Yi Abajiji (The Cows of the Abajiji Family). Sung by the women and girls of the house of the queen-mother at Shyogwe. The song is from the time of Musinga. The theme is pastoral, telling about the cows with the long horns. Each one's name is called, and the song narrates the places where the cattle have grazed and the calves that have been born.`,
+      link: "https://folkways.si.edu/songs-of-the-watutsi/world/music/album/smithsonian",
+    },
+    {
+      country: "Romania",
+      description: `This collection of Romanian folk music showcases two of the country’s most popular musical forms. Considered as belonging to everybody, the doina is “..a song of love, a pantheistic poem, a fighting song, or an outcry against injustice or the foreign ruler.” The hora, which is said to be known by more than 1546 names, is an ageless and genderless circle dance that can be found throughout Romania.`,
+      link: "https://folkways.si.edu/folk-music-of-rumania/world/album/smithsonian",
+    },
+    {
+      country: "Ethiopia",
+      description: `The Waito tribe is usually associated with the Tigre and live in the region of Gondar. They are nomadic and live close to the Earth. This song is a traditional call to the flock, improvised while watching the animals eat and play. A spontaneous, harmonious song played on a hand made bamboo flute with six holes, this melodic improvisation passes the time of day for the shepherd who tends his flock.`,
+      link: "https://folkways.si.edu/folk-music-and-ceremonies-of-ethiopia/world/album/smithsonian",
+    },
+    {
+      country: "Cambodia",
+      description: `The khong ... (various sized gongs with flat or nippled surfaces) have been used up to this century. A number of gongs can be suspended in a horizontal circle, almost touching the ground, with a single player in the center. The khong can also be played with only one player to a single gong. A number of techniques for khong performance are unknown, but some are; execution by striking with a closed fist, open palm, flat fingers or back of the hand, performed with controlled attacks and damping techniques. `,
+      link: "https://folkways.si.edu/cambodia-traditional-music-vol-2-tribe-music-folk-music-and-popular-dances/world/album/smithsonian",
+    },
+    {
+      country: "Honduras",
+      description: `As liner notes author Doris Stone explains, “Honduras was a meeting ground of nations from its earliest pre-Columbian days. ” Spanish colonial, African, and Native American influences blend not only in the music and dance styles but in the development of musical instruments, especially the marimba. Released in 1955, Songs and Dances of Honduras features ballads such as the corrido and dances such as the waltz, rumba, fandango, and the local sique. Liner notes include a brief cultural history of Honduras, lyrics, track notes, and detailed descriptions of instruments and types of dances.`,
+      link: "https://folkways.si.edu/songs-and-dances-of-honduras/world/music/album/smithsonian",
+    },
+    // {
+    //   country: "",
+    //   description: ``,
+    //   link: "",
+    // },
     // Add more locations as needed
   ];
 };
