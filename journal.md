@@ -1,3 +1,11 @@
+# 10/30
+    Goals:
+        -
+    Notes:
+        - updated about
+        - added analytics
+        -
+
 # 10/29
     Goals:
         - move GameEnded on mobile
@@ -7,6 +15,7 @@
         - Improve translation for Ecuador
         - Fix track not autoplaying on mobile
         - Center logo for ico
+        - Equalize volume for all tracks / remove loud tracks
         -
     Notes:
         - Added more tracks

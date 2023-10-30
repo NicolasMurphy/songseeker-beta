@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
+    "@vercel/analytics": "^1.1.1",
     "btoa": "^1.2.1",
     "firebase": "^10.4.0",
     "haversine": "^1.1.1",
