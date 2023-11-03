@@ -98,7 +98,7 @@ const Map = ({
 
       if (!window.google && !existingScript) {
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,drawing,places&callback=initMap`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,drawing,places&callback=initMap&language=en`;
         script.async = true;
         script.defer = true;
         document.body.appendChild(script);

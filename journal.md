@@ -1,3 +1,18 @@
+# 11/2
+    Goals:
+        - fix language glitch
+        - hide nav during game
+        - fix aut0play glitch on mobile
+        - make selected country say none yet
+        - fix volume reset between rounds issue
+        - firebase not working in some parts of Russia, let the user know
+        - firefox spotify playback sdk issue, let user know
+        - add clues, dock points
+        -
+    Notes:
+        - made map always in english
+        -
+
 # 10/30
     Goals:
         -

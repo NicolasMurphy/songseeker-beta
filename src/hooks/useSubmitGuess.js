@@ -47,8 +47,6 @@ const useSubmitGuess = (
           console.error("Error in geocoding:", error);
         }
       } else {
-        // setCorrectLocation(null);
-        // setShouldResetMap(true);
         setScore((prevScore) => prevScore + 6000);
       }
     }
