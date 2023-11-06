@@ -1,3 +1,10 @@
+# 11/6
+    Goals:
+        -
+    Notes:
+        - Hid nav during game
+        -
+
 # 11/2
     Goals:
         - fix language glitch
