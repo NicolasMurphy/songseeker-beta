@@ -5,6 +5,7 @@
     Notes:
         - Hid nav during game
         - fixed volume reset issue
+        - selected country now says "awaiting selection..." instead of nothing
         -
 
 # 11/2
