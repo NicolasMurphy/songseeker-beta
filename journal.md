@@ -1,8 +1,10 @@
 # 11/6
     Goals:
+        - Make scores and about modals instead of nav links
         -
     Notes:
         - Hid nav during game
+        - fixed volume reset issue
         -
 
 # 11/2
