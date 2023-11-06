@@ -15,7 +15,7 @@ import useScoreSubmission from "../hooks/useScoreSubmission";
 import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
 
-const SpotifySearch = ({ database, isGameStartedNav, setIsGameStartedNav }) => {
+const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState("");
@@ -78,7 +78,6 @@ const SpotifySearch = ({ database, isGameStartedNav, setIsGameStartedNav }) => {
     setTrackCount(1);
     setPlayedTracks(new Set());
     setIsGameEnded(false);
-    setIsGameStartedNav(true);
     setIsGameStarted(true);
     setIsFinalRound(false);
     handleGetRandomTrack();
@@ -92,7 +91,6 @@ const SpotifySearch = ({ database, isGameStartedNav, setIsGameStartedNav }) => {
     setTrackCount(1);
     setPlayedTracks(new Set());
     setIsGameEnded(false);
-    setIsGameStartedNav(true);
     setIsGameStarted(true);
     setIsFinalRound(false);
   };
@@ -145,7 +143,6 @@ const SpotifySearch = ({ database, isGameStartedNav, setIsGameStartedNav }) => {
   const handleEndGame = () => {
     setIsGameEnded(true);
     setSubmittingScore(true);
-    setIsGameStartedNav(false);
   };
 
   // Handle score submission to leaderboard

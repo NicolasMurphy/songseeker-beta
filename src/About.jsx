@@ -9,7 +9,7 @@ const About = () => (
     </p>
     <p>If you enjoyed this game, please consider donating!</p>
     <br></br>
-    <form action="https://www.paypal.com/donate" method="post" target="_top">
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
       <input type="hidden" name="business" value="ABYHEBRTYTYQE" />
       <input type="hidden" name="no_recurring" value="1" />
       <input type="hidden" name="currency_code" value="USD" />

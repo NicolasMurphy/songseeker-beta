@@ -1,11 +1,13 @@
 # 11/6
     Goals:
         - Make scores and about modals instead of nav links
+        - fix randomization of tracks
         -
     Notes:
         - Hid nav during game
         - fixed volume reset issue
         - selected country now says "awaiting selection..." instead of nothing
+        - changed nav links to modals
         -
 
 # 11/2

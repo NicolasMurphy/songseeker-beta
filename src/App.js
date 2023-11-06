@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Nav from "./Nav";
 import SpotifySearch from "./SpotifySearch/SpotifySearch";
 import HighScoreList from "./HighScoreList";
@@ -22,14 +22,11 @@ const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
 
 const App = () => {
-  const [isGameStartedNav, setIsGameStartedNav] = useState(false);
   return (
     <BrowserRouter>
-      {!isGameStartedNav && <Nav />}
+      <Nav database={database} />
       <Routes>
-        <Route path="/" element={<SpotifySearch database={database} isGameStartedNav={isGameStartedNav} setIsGameStartedNav={setIsGameStartedNav} />} />
-        <Route path="scores/" element={<HighScoreList database={database} />} />
-        <Route path="about/" element={<About />} />
+        <Route path="/" element={<SpotifySearch database={database} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
