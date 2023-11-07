@@ -3,10 +3,11 @@ import { ref, onValue } from "firebase/database";
 
 function HighScoreList({ database }) {
   const [scores, setScores] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const scoresRef = ref(database, "scores");
-    onValue(scoresRef, (snapshot) => {
+    const unsubscribe = onValue(scoresRef, (snapshot) => {
       const scoreData = snapshot.val();
       if (scoreData) {
         const scoresArray = Object.entries(scoreData)
@@ -15,13 +16,21 @@ function HighScoreList({ database }) {
           .slice(0, 10);
 
         setScores(scoresArray);
+        setError(null); // Reset error on successful fetch
       }
+    }, (error) => {
+      // Handle any errors, such as network issues or permissions problems
+      setError("There was a problem accessing the leaderboard. This may be due to regional restrictions affecting connectivity.");
     });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, [database]);
 
   return (
     <div className="container mx-auto text-center">
       <h1 className="text-4xl font-bold mb-4">Leaderboard</h1>
+      {error && <p className="text-red-500">{error}</p>}
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           <thead>

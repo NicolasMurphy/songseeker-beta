@@ -61,7 +61,7 @@ const AudioPlayer = forwardRef(({ track, isLoading }, ref) => {
         <audio
           ref={audioRef}
           controls
-          autoPlay
+          autoPlay // for mobile, autoplay works on the first round, but does not for all rounds after
           onVolumeChange={(e) => {
             // Update localStorage whenever the volume is changed
             localStorage.setItem('playerVolume', e.target.volume);

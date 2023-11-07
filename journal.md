@@ -1,3 +1,16 @@
+# 11/7
+    Goals:
+        - fix randomization of tracks
+        - fix auto-play glitch on mobile
+        - firebase issue in Russia
+        - firefox spotify issue
+        - clues
+        -
+    Notes:
+        - added error for firebase issue
+        -
+        -
+
 # 11/6
     Goals:
         - Make scores and about modals instead of nav links
@@ -14,7 +27,7 @@
     Goals:
         - fix language glitch
         - hide nav during game
-        - fix aut0play glitch on mobile
+        - fix auto-play glitch on mobile
         - make selected country say none yet
         - fix volume reset between rounds issue
         - firebase not working in some parts of Russia, let the user know
