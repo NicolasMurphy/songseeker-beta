@@ -1,3 +1,15 @@
+# 11/22
+    Goals:
+        - add option for users to submit a track
+        - add authentication and more secure rules for databases
+        -
+    Notes:
+        - added "add track" feature
+        - A popup that comes and goes is called a toast! How neat!
+        - having no rules for the database allows potential nefarious behavior such as excessive writes, which may incur billing
+        - authentication will let me rate limit users
+        -
+
 # 11/7
     Goals:
         - fix randomization of tracks
@@ -8,7 +20,6 @@
         -
     Notes:
         - added error for firebase issue
-        -
         -
 
 # 11/6

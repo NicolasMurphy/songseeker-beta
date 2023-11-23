@@ -1,12 +1,11 @@
 import React from "react";
 import Nav from "./Nav";
 import SpotifySearch from "./SpotifySearch/SpotifySearch";
-import HighScoreList from "./HighScoreList";
-import About from "./About";
 import NotFound from "./NotFound";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -20,11 +19,12 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
+const firestore = getFirestore(firebaseApp);
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Nav database={database} />
+      <Nav database={database} firestore={firestore}/>
       <Routes>
         <Route path="/" element={<SpotifySearch database={database} />} />
         <Route path="*" element={<NotFound />} />

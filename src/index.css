@@ -19,3 +19,8 @@ iframe {
 .custom-player audio {
   width: 300px;
 }
+
+.textarea::placeholder {
+  font-style: italic;
+  color: #a0aec0; /* Lighter color for the placeholder text */
+}
