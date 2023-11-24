@@ -14,7 +14,7 @@ const AddTrack = ({ firestore }) => {
 
   useEffect(() => {
     if (showToast) {
-      const timer = setTimeout(() => setShowToast(false), 5000); // Toast disappears after 3000ms (3 seconds)
+      const timer = setTimeout(() => setShowToast(false), 5000);
       return () => clearTimeout(timer);
     }
   }, [showToast]);
@@ -60,6 +60,7 @@ const AddTrack = ({ firestore }) => {
         onChange={handleChange}
         required
         placeholder=""
+        maxLength={250}
       />
 
       <label className="label">
@@ -73,6 +74,7 @@ const AddTrack = ({ firestore }) => {
         onChange={handleChange}
         required
         placeholder=""
+        maxLength={100}
       />
 
       <label className="label">
@@ -86,6 +88,7 @@ const AddTrack = ({ firestore }) => {
         value={formData.description}
         onChange={handleChange}
         placeholder="Please include a source link if the description is derived from an external source!"
+        maxLength={2000}
       />
 
       <label className="label">
@@ -98,6 +101,7 @@ const AddTrack = ({ firestore }) => {
         value={formData.submittedBy}
         onChange={handleChange}
         placeholder=""
+        maxLength={30}
       />
       <br />
 

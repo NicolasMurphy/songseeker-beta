@@ -1,3 +1,15 @@
+# 11/23
+    Goals:
+        - set rate limit for all users
+        - put character limit for the form
+        - move description options to firestore
+        -
+    Notes:
+        - anonymous authentication can help deter abuse, but is not foolproof
+        - permanent accounts work even better, but is still not foolproof
+        - setting an overall rate limit, seems like the best option for now
+        -
+
 # 11/22
     Goals:
         - add option for users to submit a track
