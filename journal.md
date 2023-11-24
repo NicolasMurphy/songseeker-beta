@@ -1,3 +1,9 @@
+# 11/24
+    Goals:
+        -
+    Notes:
+        -
+
 # 11/23
     Goals:
         - set rate limit for all users
@@ -8,6 +14,7 @@
         - anonymous authentication can help deter abuse, but is not foolproof
         - permanent accounts work even better, but is still not foolproof
         - setting an overall rate limit, seems like the best option for now
+        - it seems the firebase's spark plan already sets a limit, but for the alpha version, setting custom limits is a goal
         -
 
 # 11/22
