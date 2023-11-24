@@ -19,6 +19,7 @@ const GameEnded = ({
           placeholder="Enter your username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          maxLength={30}
         />
         <br></br>
         <button
