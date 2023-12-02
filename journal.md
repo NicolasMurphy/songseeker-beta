@@ -1,5 +1,16 @@
-# 11/24
+# 12/2
     Goals:
+        - continue converting javascript to typescript
+        - continue testing with jest
+        - move description options to firestore
+        -
+    Notes:
+        -
+
+# 12/1
+    Goals:
+        - start conversion of javascript to typescript
+        - start testing with jest
         -
     Notes:
         -
