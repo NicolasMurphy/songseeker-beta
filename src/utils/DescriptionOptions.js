@@ -270,6 +270,11 @@ const getDescriptionOptions = () => {
       description: `A luta continua (in English: the struggle continues) was the rallying cry of the FRELIMO movement during Mozambique's war for independence. The phrase is in the Portuguese language (the official language of the former Portuguese colony) a slogan coined by the first president of FRELIMO, Dr. Eduardo Chivambo Mondlane, which he used to rally the population in the liberated zones of Mozambique during the armed struggle against Portuguese colonial rule.`,
       link: "https://en.wikipedia.org/wiki/A_luta_continua",
     },
+    {
+      country: "Portugal",
+      description: `"Grândola, Vila Morena" (English: Grândola, Swarthy Town) is a Portuguese song by singer-songwriter José Afonso, recorded in 1971. It was originally released in Afonso's 1971 album Cantigas do Maio and later released in an EP of the same name in 1973, and as a single in 1977. \n "Grândola, Vila Morena" became an iconic song in Portugal after being used as a radio-broadcast signal by the Portuguese Armed Forces Movement during their military coup operation in the morning of 25 April 1974, which led to the Carnation Revolution and the transition to democracy in Portugal. It has since been considered a symbol of the revolution and anti-fascism.`,
+      link: "https://en.wikipedia.org/wiki/Gr%C3%A2ndola,_Vila_Morena",
+    },
     // {
     //   country: "",
     //   description: ``,
