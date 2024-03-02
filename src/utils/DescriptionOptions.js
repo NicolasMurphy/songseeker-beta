@@ -296,7 +296,7 @@ const getDescriptionOptions = () => {
       link: "https://en.wikipedia.org/wiki/Kupalinka",
     },
     {
-      country: "Czech Republic",
+      country: "Czechia", // Czechia?
       description: `"Beer Barrel Polka", originally in Czech "Škoda lásky", also known as "The Barrel Polka", "Roll Out the Barrel", or "Rosamunde", is a 1927 polka composed by Czech musician Jaromír Vejvoda. Lyrics were added in 1934, subsequently gaining worldwide popularity during World War II as a drinking song.`,
       link: "https://en.wikipedia.org/wiki/Beer_Barrel_Polka",
     },
