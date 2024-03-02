@@ -295,6 +295,11 @@ const getDescriptionOptions = () => {
       description: `Kupalinka is a popular Belarusian song described as a “musical business card of Belarus”. \n The song's lyrical heroine, the Kupala Night Maiden is “weeding a rose, piercing her white hands” and “plucking flowers, weaving wreaths, and shedding tears”. \n It is considered that the song has become “the national personification of Belarus as a country with a beautiful and sad woman’s face”.`,
       link: "https://en.wikipedia.org/wiki/Kupalinka",
     },
+    {
+      country: "Czech Republic",
+      description: `"Beer Barrel Polka", originally in Czech "Škoda lásky", also known as "The Barrel Polka", "Roll Out the Barrel", or "Rosamunde", is a 1927 polka composed by Czech musician Jaromír Vejvoda. Lyrics were added in 1934, subsequently gaining worldwide popularity during World War II as a drinking song.`,
+      link: "https://en.wikipedia.org/wiki/Beer_Barrel_Polka",
+    },
     // {
     //   country: "",
     //   description: ``,
