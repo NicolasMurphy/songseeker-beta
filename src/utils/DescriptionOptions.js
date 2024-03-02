@@ -285,6 +285,11 @@ const getDescriptionOptions = () => {
       description: `"Zorba's Dance" (Greek: Ο Χορός Του Ζορμπά) is an instrumental by Greek composer Mikis Theodorakis. The song featured for the dance, which has become known as sirtaki, in the 1964 film Zorba the Greek, for which Theodorakis wrote the soundtrack, and became renowned around the world. It is now commonly played and danced to in Greek tavernas. The film's track has since been recorded as a standalone song by many different musicians from around the world.`,
       link: "https://en.wikipedia.org/wiki/Zorba%27s_Dance",
     },
+    {
+      country: "Nepal",
+      description: `Resham Firiri (Nepali: रेशम फिरिरि) is a traditional Nepali folk song, composed by Buddhi Pariyar and originally performed by Sunder Shrestha and Dwarika Lal Joshi in 1969. Due to sudden rise in popularity, it became one of the most widely known and performed songs in Nepal. It is often played on the sarangi, a native instrument, as street music.`,
+      link: "https://en.wikipedia.org/wiki/Resham_Firiri",
+    },
     // {
     //   country: "",
     //   description: ``,
