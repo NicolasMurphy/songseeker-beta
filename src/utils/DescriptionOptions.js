@@ -280,6 +280,11 @@ const getDescriptionOptions = () => {
       description: `"Gracias a la vida" (Spanish: "Thanks to Life") is a song written, composed and performed by Chilean Violeta Parra, one of the artists who was part of the movement and musical genre known as the Nueva Canción Chilena. Parra composed "Gracias a la vida" in La Paz in 1966. It was included on Las Últimas Composiciones, the last album Parra published before dying by suicide in 1967. The song is one of Parra's most renowned. It is performed throughout the world and remains one of the most covered Latin American songs in history.`,
       link: "https://en.wikipedia.org/wiki/Gracias_a_la_vida",
     },
+    {
+      country: "Greece",
+      description: `"Zorba's Dance" (Greek: Ο Χορός Του Ζορμπά) is an instrumental by Greek composer Mikis Theodorakis. The song featured for the dance, which has become known as sirtaki, in the 1964 film Zorba the Greek, for which Theodorakis wrote the soundtrack, and became renowned around the world. It is now commonly played and danced to in Greek tavernas. The film's track has since been recorded as a standalone song by many different musicians from around the world.`,
+      link: "https://en.wikipedia.org/wiki/Zorba%27s_Dance",
+    },
     // {
     //   country: "",
     //   description: ``,
