@@ -275,6 +275,11 @@ const getDescriptionOptions = () => {
       description: `"Grândola, Vila Morena" (English: Grândola, Swarthy Town) is a Portuguese song by singer-songwriter José Afonso, recorded in 1971. It was originally released in Afonso's 1971 album Cantigas do Maio and later released in an EP of the same name in 1973, and as a single in 1977. \n "Grândola, Vila Morena" became an iconic song in Portugal after being used as a radio-broadcast signal by the Portuguese Armed Forces Movement during their military coup operation in the morning of 25 April 1974, which led to the Carnation Revolution and the transition to democracy in Portugal. It has since been considered a symbol of the revolution and anti-fascism.`,
       link: "https://en.wikipedia.org/wiki/Gr%C3%A2ndola,_Vila_Morena",
     },
+    {
+      country: "Chile",
+      description: `"Gracias a la vida" (Spanish: "Thanks to Life") is a song written, composed and performed by Chilean Violeta Parra, one of the artists who was part of the movement and musical genre known as the Nueva Canción Chilena. Parra composed "Gracias a la vida" in La Paz in 1966. It was included on Las Últimas Composiciones, the last album Parra published before dying by suicide in 1967. The song is one of Parra's most renowned. It is performed throughout the world and remains one of the most covered Latin American songs in history.`,
+      link: "https://en.wikipedia.org/wiki/Gracias_a_la_vida",
+    },
     // {
     //   country: "",
     //   description: ``,
