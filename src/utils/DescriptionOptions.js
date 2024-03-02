@@ -290,6 +290,11 @@ const getDescriptionOptions = () => {
       description: `Resham Firiri (Nepali: रेशम फिरिरि) is a traditional Nepali folk song, composed by Buddhi Pariyar and originally performed by Sunder Shrestha and Dwarika Lal Joshi in 1969. Due to sudden rise in popularity, it became one of the most widely known and performed songs in Nepal. It is often played on the sarangi, a native instrument, as street music.`,
       link: "https://en.wikipedia.org/wiki/Resham_Firiri",
     },
+    {
+      country: "Belarus",
+      description: `Kupalinka is a popular Belarusian song described as a “musical business card of Belarus”. \n The song's lyrical heroine, the Kupala Night Maiden is “weeding a rose, piercing her white hands” and “plucking flowers, weaving wreaths, and shedding tears”. \n It is considered that the song has become “the national personification of Belarus as a country with a beautiful and sad woman’s face”.`,
+      link: "https://en.wikipedia.org/wiki/Kupalinka",
+    },
     // {
     //   country: "",
     //   description: ``,
