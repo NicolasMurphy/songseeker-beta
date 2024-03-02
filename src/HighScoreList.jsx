@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ref, onValue } from "firebase/database";
 
 function HighScoreList({ database }) {
@@ -10,20 +10,28 @@ function HighScoreList({ database }) {
     const unsubscribe = onValue(scoresRef, (snapshot) => {
       const scoreData = snapshot.val();
       if (scoreData) {
-        const scoresArray = Object.entries(scoreData)
-          .map(([key, value]) => ({ id: key, ...value }))
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 10);
-
+        // Convert object to array and group by username
+        const groupedByUser = Object.entries(scoreData).reduce((acc, [key, value]) => {
+          const { username } = value;
+          if (!acc[username]) {
+            acc[username] = [];
+          }
+          acc[username].push({ id: key, ...value });
+          return acc;
+        }, {});
+        // For each user, find the highest score
+        const topScores = Object.values(groupedByUser).map(userScores => {
+          return userScores.reduce((topScore, current) => {
+            return current.score > topScore.score ? current : topScore;
+          });
+        });
+        const scoresArray = topScores.sort((a, b) => b.score - a.score).slice(0, 10);
         setScores(scoresArray);
-        setError(null); // Reset error on successful fetch
+        setError(null);
       }
     }, (error) => {
-      // Handle any errors, such as network issues or permissions problems
       setError("There was a problem accessing the leaderboard. This may be due to regional restrictions affecting connectivity.");
     });
-
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, [database]);
 
