@@ -265,7 +265,12 @@ const getDescriptionOptions = () => {
       description: `"Cherry Blossom Ending" (Korean: 벚꽃 엔딩; RR: Beotkkot Ending) is a song by South Korean indie band Busker Busker, from their debut studio album Busker Busker 1st Album. The song was written by band member Jang Beom-jun [ko] and was released on March 29, 2012, by CJ E&M Music. The song is well known for re-entering the music charts every spring in South Korea, earning the nicknames "Spring Carol" and "Cherry Blossom Zombie". As of 2021, "Cherry Blossom Ending" has received over 8,000,000 digital downloads according to Gaon, making it the best-selling single in the country.`,
       link: "https://en.wikipedia.org/wiki/Cherry_Blossom_Ending",
     },
-        // {
+    {
+      country: "Mozambique",
+      description: `A luta continua (in English: the struggle continues) was the rallying cry of the FRELIMO movement during Mozambique's war for independence. The phrase is in the Portuguese language (the official language of the former Portuguese colony) a slogan coined by the first president of FRELIMO, Dr. Eduardo Chivambo Mondlane, which he used to rally the population in the liberated zones of Mozambique during the armed struggle against Portuguese colonial rule.`,
+      link: "https://en.wikipedia.org/wiki/A_luta_continua",
+    },
+    // {
     //   country: "",
     //   description: ``,
     //   link: "",

@@ -1,3 +1,27 @@
+# 3/2
+    Goals:
+        - add more tracks
+        - add image to README
+        - add question mark icon, explaining the game
+        - fix track duplication
+        - only one highscore per username
+        - move description options to firestore, hide spotify playlist link
+        - continue converting javascript to typescript
+        - continue testing with jest
+        -
+    Notes:
+        -
+
+# 2/29
+    Goals:
+        - add more tracks
+        - add image to README
+        - add question mark icon, explaining the game
+        - fix track duplication
+        -
+    Notes:
+        -
+
 # 12/2
     Goals:
         - continue converting javascript to typescript
