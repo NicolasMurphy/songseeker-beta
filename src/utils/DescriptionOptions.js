@@ -296,9 +296,14 @@ const getDescriptionOptions = () => {
       link: "https://en.wikipedia.org/wiki/Kupalinka",
     },
     {
-      country: "Czechia", // Czechia?
+      country: "Czechia",
       description: `"Beer Barrel Polka", originally in Czech "Škoda lásky", also known as "The Barrel Polka", "Roll Out the Barrel", or "Rosamunde", is a 1927 polka composed by Czech musician Jaromír Vejvoda. Lyrics were added in 1934, subsequently gaining worldwide popularity during World War II as a drinking song.`,
       link: "https://en.wikipedia.org/wiki/Beer_Barrel_Polka",
+    },
+    {
+      country: "Sri Lanka",
+      description: `Sri Lankabhimanya Wannakuwattawaduge Don Albert Perera[4] (Sinhala: වන්නකුවත්තවඩුගේ දොන් ඇල්බට් පෙරේරා; Tamil: டபிள்யூ. டி. அமரதேவா; 5 December 1927 – 3 November 2016), better known by his adopted name Amaradeva, was a prominent Sri Lankan Sinhalese vocalist, violinist and composer. Primarily using traditional instruments like sitars, tablas and harmoniums, he incorporated Sinhala folk music with Indian ragas in his work. Many consider his contribution to the development of Sinhala music as unmatched; hence, he is occasionally cited as the "Maestro of Sri Lankan Music"`,
+      link: "https://en.wikipedia.org/wiki/W._D._Amaradeva",
     },
     // {
     //   country: "",
