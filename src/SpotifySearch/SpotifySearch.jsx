@@ -30,7 +30,6 @@ const SpotifySearch = ({ database }) => {
   const [correctLocation, setCorrectLocation] = useState(null);
   const [score, setScore] = useState(0);
   const [trackCount, setTrackCount] = useState(0);
-  const [playedTracks, setPlayedTracks] = useState(new Set());
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [submittingScore, setSubmittingScore] = useState(false);
   const [username, setUsername] = useState("");
@@ -76,7 +75,6 @@ const SpotifySearch = ({ database }) => {
     // Reset game states
     setScore(0);
     setTrackCount(1);
-    setPlayedTracks(new Set());
     setIsGameEnded(false);
     setIsGameStarted(true);
     setIsFinalRound(false);
@@ -89,7 +87,6 @@ const SpotifySearch = ({ database }) => {
     // Reset game states
     setScore(0);
     setTrackCount(1);
-    setPlayedTracks(new Set());
     setIsGameEnded(false);
     setIsGameStarted(true);
     setIsFinalRound(false);
@@ -114,8 +111,6 @@ const SpotifySearch = ({ database }) => {
     track,
     setCorrectLocation,
     setShouldResetMap,
-    playedTracks,
-    setPlayedTracks,
     setTrackCount
   );
 

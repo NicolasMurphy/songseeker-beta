@@ -12,8 +12,6 @@ const useGetRandomTrack = (
   track,
   setCorrectLocation,
   setShouldResetMap,
-  playedTracks,
-  setPlayedTracks
 ) => {
   const handleGetRandomTrack = async () => {
     setShouldResetMap(true);
@@ -27,7 +25,7 @@ const useGetRandomTrack = (
       const token = await refreshAccessToken(); // <-- Use the function here
       if (!token) throw new Error("Failed to refresh the access token");
 
-      await getRandomTrack(token, track, setTrack, setIsLoading, resetAudio, setLocation, setShowTrackInfo, playedTracks, setPlayedTracks);
+      await getRandomTrack(token, track, setTrack, setIsLoading, resetAudio, setLocation, setShowTrackInfo);
     } catch (error) {
       console.error('Error retrieving random track:', error);
       setIsLoading(false);

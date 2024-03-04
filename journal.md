@@ -1,3 +1,16 @@
+# 3/4
+    Goals:
+        - add more tracks
+        - add image to README
+        - add question mark icon, explaining the game
+        - move description options to firestore, hide spotify playlist link
+        - continue converting javascript to typescript
+        - continue testing with jest
+        -
+    Notes:
+        - fixed track repeating issue, using localStorage
+        -
+
 # 3/2
     Goals:
         - add more tracks

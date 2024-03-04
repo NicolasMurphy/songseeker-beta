@@ -1,4 +1,4 @@
-import getDescriptionOptions from '../utils/DescriptionOptions';
+import getDescriptionOptions from "../utils/DescriptionOptions";
 
 const getRandomTrack = async (
   accessToken,
@@ -7,14 +7,13 @@ const getRandomTrack = async (
   setIsLoading,
   resetAudio,
   setLocation,
-  setShowTrackInfo,
-  playedTracks,
-  setPlayedTracks
+  setShowTrackInfo
 ) => {
   try {
     setIsLoading(true);
 
     const playlistId = "34fCtmB1IBXo6gZmxAJi2l";
+    // const playlistId = "3GFRHr2rWYiBxgXLqLXBYt"; // shorter playlist for testing
 
     const response = await fetch(
       `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=100`,
@@ -28,34 +27,51 @@ const getRandomTrack = async (
     if (response.ok) {
       const data = await response.json();
       const tracks = data.items.map((item) => item.track);
+      // Initialize or retrieve playedTracks from local storage
+      let localPlayedTracks = new Set(
+        JSON.parse(localStorage.getItem("playedTracks") || "[]")
+      );
       let randomTrack = null;
 
-      do {
-        randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
-      } while (
-        prevTrack &&
-        (randomTrack.id === prevTrack.id || !randomTrack.preview_url || playedTracks.has(randomTrack.id))
+      // Attempt to select a random track that has not been played
+      const attempts = tracks.filter(
+        (track) => !localPlayedTracks.has(track.id) && track.preview_url
       );
+      if (attempts.length > 0) {
+        randomTrack = attempts[Math.floor(Math.random() * attempts.length)];
+      }
 
-      if (!randomTrack || !randomTrack.preview_url) {
-        console.warn("Selected track has no preview.");
+      // Reset played tracks if all have been played
+      if (!randomTrack) {
+        localStorage.removeItem("playedTracks"); // Clear played tracks from local storage
+        localPlayedTracks.clear(); // Clear the local set for a fresh start
+        // Reattempt to select a track without filtering by playedTracks
+        randomTrack = tracks.find((track) => track.preview_url);
+      }
+
+      if (!randomTrack) {
+        console.warn("Unable to select a track.");
         setTrack(null);
         setIsLoading(false);
         return;
       }
 
-      // Add the selected track to playedTracks
-      setPlayedTracks(prev => {
-        const newSet = new Set(prev);
-        newSet.add(randomTrack.id);
-        return newSet;
-      });
+      // Update localPlayedTracks and localStorage
+      localPlayedTracks.add(randomTrack.id);
+      localStorage.setItem(
+        "playedTracks",
+        JSON.stringify([...localPlayedTracks])
+      );
 
       const index = tracks.indexOf(randomTrack);
       const descriptions = getDescriptionOptions();
       const descriptionObject = descriptions[index % descriptions.length];
 
-      setTrack({ ...randomTrack, location: descriptionObject.country, description: descriptionObject });
+      setTrack({
+        ...randomTrack,
+        location: descriptionObject.country,
+        description: descriptionObject,
+      });
 
       resetAudio();
       setLocation(descriptionObject.country);
@@ -64,7 +80,7 @@ const getRandomTrack = async (
     }
 
     setIsLoading(false);
-    setShowTrackInfo(false);
+    setShowTrackInfo(true);
   } catch (error) {
     console.error("Error retrieving random track:", error);
     setIsLoading(false);
