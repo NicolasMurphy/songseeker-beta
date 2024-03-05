@@ -310,6 +310,31 @@ const getDescriptionOptions = () => {
       description: `"Kâtibim" ("my clerk"), or "Üsküdar'a Gider İken" ("while going to Üsküdar") is a Turkish folk song about someone's clerk (kâtip) as they travel to Üsküdar. The tune is a famous Istanbul türkü, which is spread beyond Turkey in many countries, especially in the Balkans.`,
       link: "https://en.wikipedia.org/wiki/K%C3%A2tibim",
     },
+    {
+      country: "Austria",
+      description: `"Silent Night" (German: "Stille Nacht, heilige Nacht") is a popular Christmas carol, composed in 1818 by Franz Xaver Gruber to lyrics by Joseph Mohr in Oberndorf bei Salzburg, Austria. It was declared an intangible cultural heritage by UNESCO in 2011. The song was first recorded in 1905 and has remained a popular success, appearing in films and multiple successful recordings, as well as being quoted in other musical compositions. It is the world's most recorded Christmas song, with more than 137,000 known recordings.`,
+      link: "https://en.wikipedia.org/wiki/Silent_Night",
+    },
+    {
+      country: "Switzerland",
+      description: `The song from Vreneli ab em Guggisberg, Guggisberglied for short, also called Guggisbergerlied or Altes Guggisbergerlied, is probably the oldest still known Swiss folk song. It was first mentioned in 1741, and the oldest surviving text variant dates from 1764. \n The song is about a “Vreneli” (Swiss German for “Verena”) from Guggisberg, who longs for his chosen one “Simes Hans-Joggeli” (Simons Hans-Jakob) and finds consolation for his enduring love in the image of the constantly turning mill wheel.`,
+      link: "https://de.wikipedia.org/wiki/Guggisberglied",
+    },
+    {
+      country: "Ukraine",
+      description: `Oh, the Red Viburnum in the Meadow (Ukrainian: Ой у лузі червона калина, romanized: Oi u luzi chervona kalyna) is a Ukrainian patriotic march first published in 1875 by Volodymyr Antonovych and Mykhailo Drahomanov. It was written in a modern treatment by the composer Stepan Charnetsky in 1914, in honor and memory of the Sich Riflemen of the First World War. The song has many variations. \n Following the 2014 annexation by Russia of the Ukrainian Crimean peninsula, and then the 2022 Russian invasion of Ukraine, singing "nationalist anthems" such as Chervona Kalyna in Crimea became punishable by fines and imprisonment.`,
+      link: "https://en.wikipedia.org/wiki/Oi_u_luzi_chervona_kalyna",
+    },
+    {
+      country: "Finland",
+      description: `"Ievan polkka" (Finnish for "Ieva's Polka") is a Finnish song with lyrics printed in 1928 and written by Eino Kettunen to a traditional Finnish polka tune. The song is sung in an Eastern Savonian dialect spoken in North Karelia. It is sung from the point of view of a young man, about a woman called Ieva (dialectal for the name Eva or Eeva in standard Finnish) who sneaks out and dances the polka with him all night. The song is often mistaken for a traditional folk song, but the lyrics by Eino Kettunen are still under copyright. Later, a scat singing version of the song by the band Loituma was incorporated into the viral animation Loituma Girl. In 2007, the song was brought into worldwide popular culture through a cover sung by Hatsune Miku, with Otomania arranging the music and providing Miku's voice manipulation.`,
+      link: "https://en.wikipedia.org/wiki/Ievan_polkka",
+    },
+    {
+      country: "Jamaica",
+      description: `Robert Nesta Marley OM (6 February 1945 – 11 May 1981) was a Jamaican reggae singer, guitarist, and songwriter. Considered one of the pioneers of the genre, Marley fused elements of reggae, ska, and rocksteady in his music and was renowned for his distinctive vocal and songwriting style. Marley's contribution to music increased the visibility of Jamaican music worldwide and made him a global figure in popular culture.`,
+      link: "https://en.wikipedia.org/wiki/Bob_Marley",
+    },
     // {
     //   country: "",
     //   description: ``,
