@@ -1,3 +1,14 @@
+# 3/5
+    Goals:
+        - Pressing enter before selection softlocks the game
+        - When the tracks have been exhausted, it always starts with Indonesia (first track)
+        - fix warnings in console
+        - continue with previous goals
+        -
+    Notes:
+        - Need to decide on method for moving descriptions to firestore. Either make JSON file, fix formatting, write script. Or manually copy and paste.
+        -
+
 # 3/4
     Goals:
         - add more tracks
