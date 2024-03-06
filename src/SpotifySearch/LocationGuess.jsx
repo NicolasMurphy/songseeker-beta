@@ -5,7 +5,7 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isL
   const buttonRef = useRef();
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.key === "Enter" && buttonRef.current) {
+      if (e.key === "Enter" && selectedCountry && !isLoading && buttonRef.current) {
         buttonRef.current.click();
       }
     };
@@ -13,7 +13,7 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isL
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, []);
+  }, [selectedCountry, isLoading]);
 
   return (
     <div className="flex justify-center my-4">
@@ -28,7 +28,7 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isL
           onSubmitButtonClick(); // Call the callback function when "Submit" is clicked
           handleSubmit(); // Continue with the submit logic
         }}
-        disabled={!selectedCountry && isLoading}
+        disabled={!selectedCountry || isLoading}
       >
         Submit
       </button>

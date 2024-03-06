@@ -7,6 +7,7 @@
         -
     Notes:
         - Need to decide on method for moving descriptions to firestore. Either make JSON file, fix formatting, write script. Or manually copy and paste.
+        - fixed softlock issue
         -
 
 # 3/4
