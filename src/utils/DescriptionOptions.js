@@ -335,6 +335,31 @@ const getDescriptionOptions = () => {
       description: `Robert Nesta Marley OM (6 February 1945 – 11 May 1981) was a Jamaican reggae singer, guitarist, and songwriter. Considered one of the pioneers of the genre, Marley fused elements of reggae, ska, and rocksteady in his music and was renowned for his distinctive vocal and songwriting style. Marley's contribution to music increased the visibility of Jamaican music worldwide and made him a global figure in popular culture.`,
       link: "https://en.wikipedia.org/wiki/Bob_Marley",
     },
+    {
+      country: "New Zealand",
+      description: `"Pōkarekare Ana" is a traditional New Zealand love song, probably communally composed about the time World War I began in 1914. The song is written in Māori and has been translated into English. It enjoys widespread popularity in New Zealand as well as some popularity in other countries.`,
+      link: "https://en.wikipedia.org/wiki/P%C5%8Dkarekare_Ana",
+    },
+    {
+      country: "Malaysia",
+      description: `Dato' Sri Hajah Siti Nurhaliza Tarudin SSAP, DIMP, JSM, SAP, PMP, AAP (Jawi: سيتي نورهاليزا بنت تارودين; IPA: [ˈsiti nʊrhaˈliza ˈbinti taˈrudɪn]; born January 11, 1979) is a Malaysian singer, songwriter, actress and businesswoman with more than 300 local and international awards. She made her debut after she won a local singing competition show, Bintang HMI in 1995 when she was 16. Her debut single, Jerat Percintaan, won the 11th Anugerah Juara Lagu and another two awards for Best Performance and Best Ballad. Her debut album as of 2005 has sold more than 800,000 units in Malaysia. She has recorded and sung in multiple languages, including Malaysian, Javanese, English, Japanese, and Mandarin.`,
+      link: "https://en.wikipedia.org/wiki/Siti_Nurhaliza",
+    },
+    {
+      country: "Ghana",
+      description: `Nana Kwame Ampadu (31 March 1945 – 28 September 2021) was a Ghanaian musician and composer credited with numerous popular highlife tracks and he is known to have composed over 800 songs. He was also known as Adwomtofo Nyinaa Hene. Ampadu was the lead singer, chief songwriter, and founder of the "African Brothers Band". He is regarded as a pioneer of highlife music and one of the most illustrious Ghanaian musicians of the 20th century.`,
+      link: "https://en.wikipedia.org/wiki/Nana_Ampadu",
+    },
+    {
+      country: "Bolivia",
+      description: `"Llorando se fue" (English: They left in tears) is a Bolivian folk song recorded by Los Kjarkas in 1981 on the album Canto a la mujer de mi pueblo and released as a B-side of the "Wa ya yay" single in 1982. The song has been very popular in Latin America since the 1980s and has been covered several times. It obtained international fame with artists such as Wilkins in 1984, Argentine singer Juan Ramón in 1985, Brazilian singer Márcia Ferreira in 1986 and the French-Brazilian pop group Kaoma in 1989.`,
+      link: "https://en.wikipedia.org/wiki/Llorando_se_fue",
+    },
+    {
+      country: "Paraguay",
+      description: `"Recuerdos de Ypacaraí" is a Guarani song with lyrics by Zulema de Mirkin and music by Demetrio Ortiz. With this song of wide worldwide circulation, Demetrio Ortiz is known and contributes to the knowledge of the music of Paraguay as well as of Lake Ypacaraí and the city of San Bernardino.`,
+      link: "https://es.wikipedia.org/wiki/Recuerdos_de_Ypacara%C3%AD",
+    },
     // {
     //   country: "",
     //   description: ``,

@@ -1,10 +1,6 @@
 const Donate = () => (
   <div className="container mx-auto text-center">
     <h1 className="text-4xl font-bold mb-4">Donate</h1>
-    {/* <p>
-      SongSeeker is a music education geography game! Featuring music from over
-      50 countries!
-    </p> */}
     <p className="text-lg">If you enjoyed this game, please consider donating!</p>
     <br></br>
     <form action="https://www.paypal.com/donate" method="post" target="_blank">
