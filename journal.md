@@ -4,6 +4,7 @@
         -
     Notes:
         - added footer
+        - adjusted nav, used about instead of question mark icon
         -
 
 # 3/5
