@@ -8,6 +8,7 @@
     Notes:
         - Need to decide on method for moving descriptions to firestore. Either make JSON file, fix formatting, write script. Or manually copy and paste.
         - fixed softlock issue
+        - updated google maps API link to include "v=quarterly". Marker warning is gone, but still need to update it. Still need to fix loading=async warning
         -
 
 # 3/4
