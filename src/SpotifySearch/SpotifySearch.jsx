@@ -162,7 +162,7 @@ const SpotifySearch = ({ database }) => {
   };
 
   return (
-    <div className="container mx-auto text-center">
+    <div className="min-h-screen container mx-auto text-center">
       {!isGameStarted && (
         <>
           <img

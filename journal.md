@@ -1,3 +1,11 @@
+# 3/6
+    Goals:
+        - Add question mark icon
+        -
+    Notes:
+        - added footer
+        -
+
 # 3/5
     Goals:
         - Pressing enter before selection softlocks the game
