@@ -30,6 +30,7 @@ const TrackLoader = ({
       className={`${buttonClass} my-4`}
       onClick={isFinalRound ? handleEndGame : handleGetRandomTrack}
       disabled={isLoading}
+      title="Keyboard shortcut: Enter"
     >
       {!isFinalRound ? (isLoading ? "Loading..." : "Next Round") : "See Score"}
     </button>

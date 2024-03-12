@@ -3,6 +3,7 @@
         - Figure out modal track info issue, (update DaisyUI?)
         - Add more songs
         - Mention information icon in about
+        - Add titles for "Submit", "Next Track", and info icon
         -
     Notes:
         -

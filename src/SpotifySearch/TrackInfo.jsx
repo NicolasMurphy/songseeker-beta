@@ -38,7 +38,7 @@ const TrackInfo = ({ track }) => {
       </div>
 
       {/* The button to open modal */}
-      <label htmlFor="my-modal-3" className="btn btn-circle btn-ghost btn-xs text-info">
+      <label title="Track Information" htmlFor="my-modal-3" className="btn btn-circle btn-ghost btn-xs text-info">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

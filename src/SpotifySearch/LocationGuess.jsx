@@ -29,6 +29,7 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isL
           handleSubmit(); // Continue with the submit logic
         }}
         disabled={!selectedCountry || isLoading}
+        title={selectedCountry && !isLoading ? "Keyboard shortcut: Enter" : ""}
       >
         Submit
       </button>
