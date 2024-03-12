@@ -5,8 +5,8 @@ function Footer({ firestore }) {
     <>
       <footer className="bottom-0 footer footer-center p-10 bg-base-200 text-base-content rounded">
         <nav>
-          <label htmlFor="my-modal-4" className="btn btn-outline btn-sm mx-2">
-            add track
+          <label htmlFor="my-modal-4" className="btn btn-outline btn-sm mx-2 uppercase">
+            Add Track
           </label>
           <input type="checkbox" id="my-modal-4" className="modal-toggle" />
           <div className="modal">

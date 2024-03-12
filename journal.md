@@ -2,6 +2,7 @@
     Goals:
         - Figure out modal track info issue, (update DaisyUI?)
         - Add more songs
+        - Update modals
         -
     Notes:
         -

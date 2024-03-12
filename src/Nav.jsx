@@ -5,8 +5,8 @@ import About from "./About";
 function Nav({ database }) {
   return (
     <nav className="text-center py-4">
-      <label htmlFor="my-modal-1" className="btn btn-outline btn-sm mx-2">
-        scores
+      <label htmlFor="my-modal-1" className="btn btn-outline btn-sm mx-2 uppercase">
+        Scores
       </label>
       <input type="checkbox" id="my-modal-1" className="modal-toggle" />
       <div className="modal">
@@ -21,8 +21,8 @@ function Nav({ database }) {
         </div>
       </div>
 
-      <label htmlFor="my-modal-5" className="btn btn-outline btn-sm mx-2">
-        about
+      <label htmlFor="my-modal-5" className="btn btn-outline btn-sm mx-2 uppercase">
+        About
       </label>
       <input type="checkbox" id="my-modal-5" className="modal-toggle" />
       <div className="modal">
@@ -39,9 +39,9 @@ function Nav({ database }) {
 
       <label
         htmlFor="my-modal-2"
-        className="btn btn-outline btn-secondary btn-sm mx-2"
+        className="btn btn-outline btn-secondary btn-sm mx-2 uppercase"
       >
-        donate
+        Donate
       </label>
       <input type="checkbox" id="my-modal-2" className="modal-toggle" />
       <div className="modal">

@@ -19,10 +19,10 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isL
     <div className="flex justify-center my-4">
       <button
         ref={buttonRef}
-        className={`px-4 py-2 text-white rounded ${
+        className={`py-2 ${
           selectedCountry && !isLoading
-            ? "bg-accent hover:bg-accent-focus transition-colors"
-            : "bg-gray-500 opacity-50 cursor-not-allowed"
+            ? "btn btn-accent"
+            : "btn btn-neutral"
         }`}
         onClick={() => {
           onSubmitButtonClick(); // Call the callback function when "Submit" is clicked

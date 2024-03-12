@@ -23,14 +23,14 @@ const GameEnded = ({
         />
         <br></br>
         <button
-          className="px-4 py-2 my-2 bg-info hover:bg-[#2c93bf] text-white rounded transition-colors"
+          className="my-2 btn btn-info"
           onClick={handleSubmitScoreToLeaderboard}
         >
           Submit Score to Leaderboard
         </button>
         <br></br>
         <button
-          className="px-4 py-2 my-2 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+          className="my-2 btn btn-primary"
           onClick={handleStartNewGame}
         >
           Play Again
@@ -38,7 +38,7 @@ const GameEnded = ({
       </div>
     ) : (
       <button
-        className="px-4 py-2 my-2 mt-4 bg-primary hover:bg-primary-focus text-white rounded transition-colors"
+        className="mt-4 btn btn-primary"
         onClick={handleStartNewGame}
       >
         Play Again

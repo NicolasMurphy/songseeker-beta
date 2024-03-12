@@ -109,7 +109,7 @@ const AddTrack = ({ firestore }) => {
         <>
           <button
             type="submit"
-            className="px-4 py-2 my-2 bg-info hover:bg-[#2c93bf] text-white rounded transition-colors"
+            className="my-2 btn btn-info"
           >
             Submit
           </button>
