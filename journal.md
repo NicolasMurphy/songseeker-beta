@@ -1,3 +1,11 @@
+# 3/12
+    Goals:
+        - Figure out modal track info issue, (update DaisyUI?)
+        - Add more songs
+        -
+    Notes:
+        -
+
 # 3/11
     Goals:
         - Figure out modal track info issue, (update DaisyUI?)
@@ -7,7 +15,6 @@
         -
     Notes:
         -
-
 
 # 3/8
     Goals:

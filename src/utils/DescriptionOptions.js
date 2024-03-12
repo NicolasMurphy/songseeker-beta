@@ -385,6 +385,31 @@ const getDescriptionOptions = () => {
       description: `"Aan de Amsterdamse grachten" (Dutch pronunciation: [ˈaːn də ʔɑmstərˌdɑmsə ˈɣrɑxtə(n)]; "At the Amsterdam canals") is a Dutch song by Pieter Goemans. It was written in 1949 but not recorded until 1956, and many times more since then. It is one of the standard songs celebrating the city of Amsterdam, and one of the best-known and most popular songs in the Netherlands.`,
       link: "https://en.wikipedia.org/wiki/Aan_de_Amsterdamse_grachten",
     },
+    {
+      country: "Luxembourg",
+      description: `Laurent Menager (1835–1902) was a Luxembourg composer, choirmaster, organist and conductor who is often referred to as Luxembourg's national composer. He founded the national choral association Sang a Klang (1857) and composed many songs, orchestral music and operettas as well as music for brass bands and the theatre. \n When Menager died on 7 February 1902, he had become so popular that he was mourned by the entire nation. Over 6,000 people, including representatives of 45 societies, attended his funeral.`,
+      link: "https://en.wikipedia.org/wiki/Laurent_Menager",
+    },
+    {
+      country: "Hungary",
+      description: `Béla Viktor János Bartók (/ˈbeɪlə ˈbɑːrtɒk/; Hungarian: [ˈbeːlɒ ˈbɒrtoːk]; 25 March 1881 – 26 September 1945) was a Hungarian composer, pianist and ethnomusicologist. He is considered one of the most important composers of the 20th century; he and Franz Liszt are regarded as Hungary's greatest composers. Through his collection and analytical study of folk music, he was one of the founders of comparative musicology, which later became known as ethnomusicology.`,
+      link: "https://en.wikipedia.org/wiki/B%C3%A9la_Bart%C3%B3k",
+    },
+    {
+      country: "Slovakia",
+      description: `"Na Kráľovej holi" is a Slovak folk song from the Horehronie region. It gained prominence mainly through the film "Zem spieva" (The Earth Sings) made in 1933 by Karol Plicka. In the song's original version, the first stanza mentions the hill leaning towards the land of Šumiac. This altered text was first introduced in the film "The Singing Earth." \n Legend has it that the song's lyrics were written by a soldier from Šumiac fighting on the Russian front, who, after being shot, realized he would probably never return home. \n Another interpretation suggests that the song is the lament of a convict before his execution, with the tree with an inclined top symbolizing the gallows.`,
+      link: "https://sk.wikipedia.org/wiki/Na_Kr%C3%A1%C4%BEovej_holi",
+    },
+    {
+      country: "Slovenia",
+      description: `Na Golici (German: Trompetenecho) is a Slovenian polka instrumental composed by Slavko Avsenik (1929-2015) and arranged by his brother Vilko Ovsenik (1928-2017, he used an older spelling of the family name). The song was written in 1954 and first recorded in January 1955 in the Radio Kärnten (Carinthia) studio in Klagenfurt, Austria. It is considered the most played instrumental tune in the world. At this time, the band was renamed to Gorenjski kvintet (Original Oberkrainer Quintett). This song has been covered more than 600 times all over the world. \n Golica (German: Kahlkogel), the 1,836 metres (6,024 ft) high Slovenian mountain from which the song takes its name, is a peak in the Western Karawanks, on the border between Slovenia and Austria, above the Slovene town of Jesenice. It is known mainly for its fields of wild white narcissi, swathes of which cover Golica and surrounding pastures in late April and early May. Despite having given the song this title, Slavko Avsenik was never in his life on Golica. Today the band is known as Ansambel bratov Avsenik (Slavko Avsenik und seine Original Oberkrainer), even though the band no longers exists.`,
+      link: "https://en.wikipedia.org/wiki/Na_Golici",
+    },
+    {
+      country: "Croatia",
+      description: `"Lijepa li si" is a single by Marko Perković Thompson from the album Vjetar S Dinare. It is one of Thompson's most famous singles and the most popular Croatian patriotic songs.`,
+      link: "https://hr.wikipedia.org/wiki/Lijepa_li_si",
+    },
     // {
     //   country: "",
     //   description: ``,
