@@ -1,3 +1,21 @@
+# 3/11
+    Goals:
+        - Figure out modal track info issue, (update DaisyUI?)
+        - Add more songs
+        - Mention information icon in about
+        -
+    Notes:
+        -
+
+
+# 3/8
+    Goals:
+        - Add more songs
+        - Mention information icon in about
+        -
+    Notes:
+        -
+
 # 3/6
     Goals:
         - Add question mark icon

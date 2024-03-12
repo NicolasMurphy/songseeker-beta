@@ -360,6 +360,31 @@ const getDescriptionOptions = () => {
       description: `"Recuerdos de Ypacaraí" is a Guarani song with lyrics by Zulema de Mirkin and music by Demetrio Ortiz. With this song of wide worldwide circulation, Demetrio Ortiz is known and contributes to the knowledge of the music of Paraguay as well as of Lake Ypacaraí and the city of San Bernardino.`,
       link: "https://es.wikipedia.org/wiki/Recuerdos_de_Ypacara%C3%AD",
     },
+    {
+      country: "United Kingdom",
+      description: `"Land of Hope and Glory" is a British patriotic song, with music by Edward Elgar, written in 1901 and with lyrics by A. C. Benson later added in 1902. \n In the United States, Canada and the Philippines, the instrumental version of this song is traditionally associated with high school and college (university) graduation ceremonies. It is played as a processional or recessional often omitting all but the movement of the song over which the chorus is traditionally sung. During ceremonies for larger schools this piece (or the truncated version, if it is being used) is played repeatedly. It may be played for as long as the graduates are marching or walking, which can be longer than some symphonies.`,
+      link: "https://en.wikipedia.org/wiki/Land_of_Hope_and_Glory",
+    },
+    {
+      country: "Sweden",
+      description: `The Slängpolska (Swedish plural slängpolskor; "släng" Swed. for "toss, throw, chuck" and directly cognate to the English "to sling") is a Swedish folk dance and sometimes also the description of certain folk music tunes.`,
+      link: "https://en.wikipedia.org/wiki/Sl%C3%A4ngpolska",
+    },
+    {
+      country: "Belgium",
+      description: `"De Vlaamse Leeuw" (Dutch: [də ˈvlaːmsə ˈleːu]; The Flemish Lion) is the official anthem of Flanders, a region and community in Belgium.`,
+      link: "https://en.wikipedia.org/wiki/De_Vlaamse_Leeuw",
+    },
+    {
+      country: "Denmark",
+      description: `"The Danish song is a young, blonde girl" (or simply "The Danish song") is a song, originally written as an apartment poem, with text of Kai Hoffmann 1924 and melody of Carl Nielsen 1926. It is one of the most popular Danish songs.`,
+      link: "https://da.wikipedia.org/wiki/Den_danske_sang_er_en_ung,_blond_pige",
+    },
+    {
+      country: "Netherlands",
+      description: `"Aan de Amsterdamse grachten" (Dutch pronunciation: [ˈaːn də ʔɑmstərˌdɑmsə ˈɣrɑxtə(n)]; "At the Amsterdam canals") is a Dutch song by Pieter Goemans. It was written in 1949 but not recorded until 1956, and many times more since then. It is one of the standard songs celebrating the city of Amsterdam, and one of the best-known and most popular songs in the Netherlands.`,
+      link: "https://en.wikipedia.org/wiki/Aan_de_Amsterdamse_grachten",
+    },
     // {
     //   country: "",
     //   description: ``,
