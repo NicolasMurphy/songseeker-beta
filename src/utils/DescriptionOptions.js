@@ -80,11 +80,11 @@ const getDescriptionOptions = () => {
       description: `Highlander, are you sorry? - a song composed to the words of a poem by the Krakow poet Michał Bałucki. The poem was written in the second half of the 19th century in prison, where the companion of the author imprisoned there "for troublemaking" was a highlander longing for his homeland.`,
       link: "https://pl.wikipedia.org/wiki/G%C3%B3ralu,_czy_ci_nie_%C5%BCal%3F",
     },
-    {
-      country: "Italy",
-      description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
-      link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
-    },
+    // {
+    //   country: "Italy",
+    //   description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
+    //   link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
+    // },
     {
       country: "Russia",
       description: `"Korobeiniki" is a nineteenth-century Russian folk song that tells the story of a meeting between a peddler and a girl, describing their haggling over goods in a metaphor for courtship.\nOutside Russia, "Korobeiniki" is widely known as the Tetris theme tune, from its appearance in Nintendo's Game Boy version of the game (titled "A-Type") as arranged by the Japanese composer Hirokazu Tanaka in 1989.`,
@@ -434,6 +434,36 @@ const getDescriptionOptions = () => {
       country: "Albania",
       description: `Iso-Polyphony is a traditional part of Albanian folk music and, as such, is included in UNESCO's intangible cultural heritage list.`,
       link: "https://en.wikipedia.org/wiki/Iso-Polyphony",
+    },
+    {
+      country: "Lithuania",
+      description: `Sutartinės - multipart songs, (from the Lithuanian word sutarti — to be in concordance, in agreement, singular sutartinė) are unique examples of folk music. They are an ancient form of two and three voiced polyphony, based on the oldest principles of multi-voiced vocal music: heterophony, parallelism, canon and free imitation. Most of the sutartinės were recorded in the 19th and 20th centuries, but sources from the 16th century on show that they were significant along with monophonic songs. Recognizing their uniqueness and value, UNESCO inscribed sutartinės into the representative list of the Masterpieces of the Oral and Intangible Heritage of Humanity in 2010.`,
+      link: "https://en.wikipedia.org/wiki/Folk_songs_of_Lithuania",
+    },
+    {
+      country: "Estonia",
+      description: `Arvo Pärt (Estonian pronunciation: [ˈɑrʋo ˈpært]; born 11 September 1935) is an Estonian composer of contemporary classical music. Since the late 1970s, Pärt has worked in a minimalist style that employs tintinnabuli, a compositional technique he invented. Pärt's music is in part inspired by Gregorian chant. His most performed works include Fratres (1977), Spiegel im Spiegel (1978), and Für Alina (1976). From 2011 to 2018, and again in 2022, Pärt was the most performed living composer in the world, and the second most performed in 2019, after John Williams. The Arvo Pärt Centre, in Laulasmaa, was opened to the public in 2018.`,
+      link: "https://en.wikipedia.org/wiki/Arvo_P%C3%A4rt",
+    },
+    {
+      country: "Malta",
+      description: `The subjects of Maltese folk-songs vary according to circumstances, and this one it is in the nature of a satire upon the faults of the character of the one "That eats too much", hence the Maltese name "Iz-zaqqieq".`,
+      link: "https://folkways.si.edu/folk-songs-and-music-from-malta/world/album/smithsonian",
+    },
+    {
+      country: "Cyprus",
+      description: `The music of Cyprus includes a variety of traditional, Western classical and Western popular genres. Cypriot traditional music is similar to the traditional music of Greece with Turkish and Arab influences, and includes dances like sousta, syrtos, ballos, tatsia, antikristos, arabiye, karotseris, sinalik, chiftetteli, zeimbekiko and the mandra dance.`,
+      link: "https://en.wikipedia.org/wiki/Music_of_Cyprus",
+    },
+    {
+      country: "Armenia",
+      description: `"Dle Yaman" (in Armenian Դլե Յաման, in Western Armenian Տըլէ Եաման) also francicized "Délé Yaman" is an Armenian traditional tune. It is the story of a tragic love affair between two persons. It was discovered by Father Komitas in his travels in Armenian countryside. He re-arranged the lyrics and the music for the piano. "Dle Yaman" is very often interpreted with solo bits made with the duduk.`,
+      link: "https://en.wikipedia.org/wiki/Dle_Yaman",
+    },
+    {
+      country: "Italy",
+      description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
+      link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
     },
     // {
     //   country: "",

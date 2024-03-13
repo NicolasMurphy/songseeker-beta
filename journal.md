@@ -1,5 +1,13 @@
 # 3/12
     Goals:
+        - Add more tracks
+        - Replace Italy track with new one
+        -
+    Notes:
+        -
+
+# 3/12
+    Goals:
         - Figure out modal track info issue, (update DaisyUI?)
         - Add more songs
         - Update modals
