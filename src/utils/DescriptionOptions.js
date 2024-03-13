@@ -465,6 +465,31 @@ const getDescriptionOptions = () => {
       description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
       link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
     },
+    {
+      country: "Azerbaijan",
+      description: `"Song of the Blind Arab" (Azerbaijani: Kor ərəbin mahnısı) is a song written by the Azerbaijani composer Fikret Amirov for the staging of the "Sheikh Sanan" play by Huseyn Javid. It is noted that the song is a typical example of a ballad song.`,
+      link: "https://en.wikipedia.org/wiki/Song_of_the_Blind_Arab",
+    },
+    {
+      country: "Georgia",
+      description: `"Patrick (Georgian: ჩაკრულო, transliterated: chak'rulo) is a Georgian polyphonic choral folk song. It is a three-part song from the region of Kakheti, dramatising preparations for a battle. It is characterised by two highly ornamented individual vocal parts over a choral foundation. \n When Georgian vocal polyphony was recognized by UNESCO, as an Intangible Heritage masterpiece in 2001, Chakrulo was cited as a prime example. Chakrulo was one of 29 musical compositions included on the Voyager Golden Records that were sent into space on Voyager 2 on 20 August 1977, and Voyager 1 on 5 September 1977.`,
+      link: "https://en.wikipedia.org/wiki/Chakrulo",
+    },
+    {
+      country: "Uzbekistan",
+      description: `Qaradali, a piece that performers link to the Khorezm dutar maqam, embodies a well-known legend. Qaradali was the name of a favorite horse of the Khorezm khan. The horse grew old and sick, and the khan called for help. He warned, however, that anyone who told him that the horse would die would have his head cut off. Fearful of punishment, no one came forward to explain to the khan the true fate of his horse. Finally, a lone dutar player appeared, and, saying nothing, picked up his dutar and played this piece. The khan understood the meaning of the piece, and wept. `,
+      link: "https://folkways.si.edu/uzbekistan-music-of-khorezm/world/music/album/smithsonian",
+    },
+    {
+      country: "Turkmenistan",
+      description: `The music of the nomadic and rural Turkmen people is closely related to Kyrgyz and Kazakh folk forms. Important musical traditions in Turkmen music include traveling singers and shamans called bakshy, who act as healers and magicians and sing either a cappella or with instruments such as the two-stringed lute called dutar.`,
+      link: "https://en.wikipedia.org/wiki/Music_of_Turkmenistan",
+    },
+    {
+      country: "Kyrgyzstan",
+      description: `Throughout Central Asia, legends portray Kambarkan, also known as Kambar-ata, as the father of music, inventor of musical instruments, and patron of musicians. Among Kyrgyz musicians, he is regarded as the creator of the komuz. Nurak recounts the creation legend as follows: "Kambarkan was a hunter, and once when he went to the forest, a monkey fell as he jumped from one tree to another. The monkey's stomach became impaled on a sharp twig and burst open, and his intestine got stretched out between a high tree branch and the ground. When it dried, a wind came up, and the intestine emitted a magical sound. Kambarkan realized that the sound was coming from the monkey's intestine, and he got the idea of using that intestine to make an instrument. He took a piece of wood, curved it, and fixed the intestine tightly over it. That's how he invented the komuz." No evidence suggests that monkeys ever lived in what is now Kyrgyzstan, but terra-cotta statues of monkey- musicians dating back almost two thousand years have been unearthed in various parts of Central Asia. A variant of the legend recounted by Nurak was also known in India, where it turns up in 14th-century literary sources, underscoring historical links between Central Asia and the Subcontinent.`,
+      link: "https://folkways.si.edu/music-of-central-asia-vol-1-tengir-too-mountain-from-kyrgyzstan/islamica-world/album/smithsonian",
+    },
     // {
     //   country: "",
     //   description: ``,
