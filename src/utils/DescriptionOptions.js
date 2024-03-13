@@ -410,6 +410,31 @@ const getDescriptionOptions = () => {
       description: `"Lijepa li si" is a single by Marko Perković Thompson from the album Vjetar S Dinare. It is one of Thompson's most famous singles and the most popular Croatian patriotic songs.`,
       link: "https://hr.wikipedia.org/wiki/Lijepa_li_si",
     },
+    {
+      country: "Serbia",
+      description: `Tamo daleko (Serbian Cyrillic: Тамо далеко; "There, Far Away", "Over There, Far Away" or "There, Afar") is a Serbian folk song which was composed in 1916 to commemorate the Serbian Army's retreat through Albania in World War I and during which it was devastated by hunger, disease and attacks by armed bands before regrouping on the Greek island of Corfu, where many more Serbian soldiers died. It revolves around the theme of loss and longing for a distant homeland.`,
+      link: "https://en.wikipedia.org/wiki/Tamo_daleko",
+    },
+    {
+      country: "Bosnia and Herzegovina",
+      description: `Moj dilbere (English: My Sweetheart or My Darling) is a Bosnian traditional folk and sevdalinka song. \n The song is sung from the female point of view, no matter the gender of the singer.`,
+      link: "https://en.wikipedia.org/wiki/Moj_dilbere",
+    },
+    {
+      country: "Montenegro",
+      description: `Nenad Knežević (Serbian Cyrillic: Ненад Кнежевић; born 5 December 1967), better known as Knez, is a Montenegrin singer, based in Belgrade, Serbia. Best known for his 1994 hit "Dal' si ikada mene voljela" (Have You Ever Loved Me), he rose to fame as a 1990s dance-pop singer. Knez also represented Montenegro in the Eurovision Song Contest 2015 with "Adio", finishing 13th out of 27 countries, the best result Montenegro has ever achieved at the contest.`,
+      link: "https://en.wikipedia.org/wiki/Knez_(singer)",
+    },
+    {
+      country: "North Macedonia",
+      description: `Jovano, Jovanke (Bulgarian: Йовано, Йованке; Macedonian: Јовано, Јованке) is a traditional folk song originating from the region of Macedonia. It is popular in and frequently performed in North Macedonia, Bulgaria, and the Macedonia region of Greece. The song has also been adapted and performed in neighboring Balkan states such as Bosnia and Herzegovina, Serbia and Croatia. It is about two young lovers separated by their disapproving parents. The song mentions the Vardar river which runs through present-day North Macedonia and present-day Greece.`,
+      link: "https://en.wikipedia.org/wiki/Jovano_Jovanke",
+    },
+    {
+      country: "Albania",
+      description: `Iso-Polyphony is a traditional part of Albanian folk music and, as such, is included in UNESCO's intangible cultural heritage list.`,
+      link: "https://en.wikipedia.org/wiki/Iso-Polyphony",
+    },
     // {
     //   country: "",
     //   description: ``,
