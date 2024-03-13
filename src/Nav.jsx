@@ -5,56 +5,56 @@ import About from "./About";
 function Nav({ database }) {
   return (
     <nav className="text-center py-4">
-      <label htmlFor="my-modal-1" className="btn btn-outline btn-sm mx-2 uppercase">
+      <button
+        className="btn btn-outline btn-sm mx-2 uppercase"
+        onClick={() => document.getElementById("scores").showModal()}
+      >
         Scores
-      </label>
-      <input type="checkbox" id="my-modal-1" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
-          <label
-            htmlFor="my-modal-1"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
+      </button>
+      <dialog id="scores" className="modal">
+        <div className="modal-box">
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
           <HighScoreList database={database} />
         </div>
-      </div>
+      </dialog>
 
-      <label htmlFor="my-modal-5" className="btn btn-outline btn-sm mx-2 uppercase">
+      <button
+        className="btn btn-outline btn-sm mx-2 uppercase"
+        onClick={() => document.getElementById("about").showModal()}
+      >
         About
-      </label>
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
-          <label
-            htmlFor="my-modal-5"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
+      </button>
+      <dialog id="about" className="modal">
+        <div className="modal-box">
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
           <About />
         </div>
-      </div>
+      </dialog>
 
-      <label
-        htmlFor="my-modal-2"
+      <button
         className="btn btn-outline btn-secondary btn-sm mx-2 uppercase"
+        onClick={() => document.getElementById("donate").showModal()}
       >
         Donate
-      </label>
-      <input type="checkbox" id="my-modal-2" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
-          <label
-            htmlFor="my-modal-2"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
+      </button>
+      <dialog id="donate" className="modal">
+        <div className="modal-box">
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
           <Donate />
         </div>
-      </div>
+      </dialog>
     </nav>
   );
 }

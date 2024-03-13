@@ -5,7 +5,10 @@ function Footer({ firestore }) {
     <>
       <footer className="bottom-0 footer footer-center p-10 bg-base-200 text-base-content rounded">
         <nav>
-          <label htmlFor="my-modal-4" className="btn btn-outline btn-sm mx-2 uppercase">
+          {/* <label
+            htmlFor="my-modal-4"
+            className="btn btn-outline btn-sm mx-2 uppercase"
+          >
             Add Track
           </label>
           <input type="checkbox" id="my-modal-4" className="modal-toggle" />
@@ -19,7 +22,24 @@ function Footer({ firestore }) {
               </label>
               <AddTrack firestore={firestore} />
             </div>
-          </div>
+          </div> */}
+
+          <button
+            className="btn btn-outline btn-sm mx-2 uppercase"
+            onClick={() => document.getElementById("add_track").showModal()}
+          >
+            Add Track
+          </button>
+          <dialog id="add_track" className="modal">
+            <div className="modal-box">
+              <form method="dialog">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                  ✕
+                </button>
+              </form>
+              <AddTrack firestore={firestore} />
+            </div>
+          </dialog>
         </nav>
         <aside>
           <p>

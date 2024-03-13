@@ -53,7 +53,7 @@ const AddTrack = ({ firestore }) => {
         <span className="label-text">Spotify link</span>
       </label>
       <input
-        className="input input-bordered input-info w-full max-w-xs"
+        className="input input-bordered w-full max-w-xs"
         type="url"
         name="spotifyLink"
         value={formData.spotifyLink}
@@ -67,7 +67,7 @@ const AddTrack = ({ firestore }) => {
         <span className="label-text">Country</span>
       </label>
       <input
-        className="input input-bordered input-info w-full max-w-xs"
+        className="input input-bordered w-full max-w-xs"
         type="text"
         name="country"
         value={formData.country}
@@ -82,7 +82,7 @@ const AddTrack = ({ firestore }) => {
       </label>
       <textarea
         rows="4"
-        className="textarea textarea-info"
+        className="textarea textarea-bordered"
         type="text"
         name="description"
         value={formData.description}
@@ -95,7 +95,7 @@ const AddTrack = ({ firestore }) => {
         <span className="label-text">Username (optional)</span>
       </label>
       <input
-        className="input input-bordered input-info w-full max-w-xs"
+        className="input input-bordered w-full max-w-xs"
         type="text"
         name="submittedBy"
         value={formData.submittedBy}
