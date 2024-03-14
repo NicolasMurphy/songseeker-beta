@@ -9,9 +9,9 @@ const fetchAllTracks = async (playlistId, accessToken) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    if (!response.ok) throw new Error('Failed to fetch tracks');
+    if (!response.ok) throw new Error("Failed to fetch tracks");
     const data = await response.json();
-    tracks = tracks.concat(data.items.map(item => item.track));
+    tracks = tracks.concat(data.items.map((item) => item.track));
     url = data.next;
   }
   return tracks;
@@ -40,30 +40,36 @@ const getRandomTrack = async (
     let randomTrack = null;
 
     // Attempt to select a random track that has not been played and has a preview URL
-    const attempts = tracks.filter(
-      (track) => !localPlayedTracks.has(track.id) && track.preview_url
-    );
+    const attempts = tracks.filter((track) => {
+      if (!track.preview_url) {
+        console.log(`Track ${track.id} has no preview URL.`)
+      }
+      return !localPlayedTracks.has(track.id) && track.preview_url;
+    });
     if (attempts.length > 0) {
-        randomTrack = attempts[Math.floor(Math.random() * attempts.length)];
+      randomTrack = attempts[Math.floor(Math.random() * attempts.length)];
     }
 
     // Reset played tracks if all have been played
     if (!randomTrack) {
-        localStorage.removeItem("playedTracks");
-        localPlayedTracks.clear();
-        randomTrack = tracks.find((track) => track.preview_url);
+      localStorage.removeItem("playedTracks");
+      localPlayedTracks.clear();
+      randomTrack = tracks.find((track) => track.preview_url);
     }
 
     if (!randomTrack) {
-        console.warn("Unable to select a track.");
-        setTrack(null);
-        setIsLoading(false);
-        return;
+      console.warn("Unable to select a track.");
+      setTrack(null);
+      setIsLoading(false);
+      return;
     }
 
     // Update localPlayedTracks and localStorage
     localPlayedTracks.add(randomTrack.id);
-    localStorage.setItem("playedTracks", JSON.stringify([...localPlayedTracks]));
+    localStorage.setItem(
+      "playedTracks",
+      JSON.stringify([...localPlayedTracks])
+    );
 
     const index = tracks.indexOf(randomTrack);
     const descriptions = getDescriptionOptions();

@@ -7,6 +7,7 @@
         - Make sure all songs are played (localStorage resets at 105, but there are 107 tracks)
         -
     Notes:
+        - Removed Finland, because the preview URL is no longer available
         -
 
 # 3/13
