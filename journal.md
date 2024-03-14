@@ -1,4 +1,15 @@
-# 3/12
+# 3/14
+    Goals:
+        - Add more tracks
+        - Add logging for tracks without preview
+        - Move Description Options (firestore?)
+        - Make Playlist ID an environment variable
+        - Make sure all songs are played (localStorage resets at 105, but there are 107 tracks)
+        -
+    Notes:
+        -
+
+# 3/13
     Goals:
         - Add more tracks
         - Replace Italy track with new one
