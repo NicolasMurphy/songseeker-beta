@@ -3,7 +3,7 @@ const About = () => (
     <h1 className="text-4xl font-bold mb-8">About</h1>
     <p className="mb-10 text-lg">
       SongSeeker is a music education geography game! Featuring music from over
-      50 countries!
+      100 countries!
     </p>
     <h2 className="text-3xl font-bold mb-6">How to Play</h2>
     <ol className="text-left list-decimal text-lg mb-12 mx-6">
