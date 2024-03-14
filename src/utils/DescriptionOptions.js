@@ -80,6 +80,11 @@ const getDescriptionOptions = () => {
       description: `Highlander, are you sorry? - a song composed to the words of a poem by the Krakow poet Michał Bałucki. The poem was written in the second half of the 19th century in prison, where the companion of the author imprisoned there "for troublemaking" was a highlander longing for his homeland.`,
       link: "https://pl.wikipedia.org/wiki/G%C3%B3ralu,_czy_ci_nie_%C5%BCal%3F",
     },
+    // {
+    //   country: "Italy",
+    //   description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
+    //   link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
+    // },
     {
       country: "Russia",
       description: `"Korobeiniki" is a nineteenth-century Russian folk song that tells the story of a meeting between a peddler and a girl, describing their haggling over goods in a metaphor for courtship.\nOutside Russia, "Korobeiniki" is widely known as the Tetris theme tune, from its appearance in Nintendo's Game Boy version of the game (titled "A-Type") as arranged by the Japanese composer Hirokazu Tanaka in 1989.`,
