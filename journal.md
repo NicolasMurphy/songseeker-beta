@@ -2,6 +2,7 @@
     Goals:
         - Add more tracks
         - Replace Italy track with new one
+        - Figure out pagination with Spotify 100 track fetch limit
         -
     Notes:
         -
