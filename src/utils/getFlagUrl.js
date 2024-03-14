@@ -10,6 +10,10 @@ export default function getFlagUrl(countryName) {
     countryName = "Myanmar"
   }
 
+  if (countryName === "Côte d'Ivoire") {
+    countryName = "Ivory Coast"
+  }
+
   let countryCode = getAlpha2Code(countryName, "en");
 
   if (!countryCode) return "";
