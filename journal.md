@@ -4,10 +4,11 @@
         - Add logging for tracks without preview
         - Move Description Options (firestore?)
         - Make Playlist ID an environment variable
-        - Make sure all songs are played (localStorage resets at 105, but there are 107 tracks)
         -
     Notes:
         - Removed Finland, because the preview URL is no longer available
+        - Missing preview URL was causing the discrepancy with localStorage
+        - "One Love" missing preview URL outside of United States
         -
 
 # 3/13

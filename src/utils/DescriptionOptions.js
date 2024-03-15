@@ -80,11 +80,6 @@ const getDescriptionOptions = () => {
       description: `Highlander, are you sorry? - a song composed to the words of a poem by the Krakow poet Michał Bałucki. The poem was written in the second half of the 19th century in prison, where the companion of the author imprisoned there "for troublemaking" was a highlander longing for his homeland.`,
       link: "https://pl.wikipedia.org/wiki/G%C3%B3ralu,_czy_ci_nie_%C5%BCal%3F",
     },
-    // {
-    //   country: "Italy",
-    //   description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
-    //   link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
-    // },
     {
       country: "Russia",
       description: `"Korobeiniki" is a nineteenth-century Russian folk song that tells the story of a meeting between a peddler and a girl, describing their haggling over goods in a metaphor for courtship.\nOutside Russia, "Korobeiniki" is widely known as the Tetris theme tune, from its appearance in Nintendo's Game Boy version of the game (titled "A-Type") as arranged by the Japanese composer Hirokazu Tanaka in 1989.`,
@@ -325,11 +320,6 @@ const getDescriptionOptions = () => {
       description: `Oh, the Red Viburnum in the Meadow (Ukrainian: Ой у лузі червона калина, romanized: Oi u luzi chervona kalyna) is a Ukrainian patriotic march first published in 1875 by Volodymyr Antonovych and Mykhailo Drahomanov. It was written in a modern treatment by the composer Stepan Charnetsky in 1914, in honor and memory of the Sich Riflemen of the First World War. The song has many variations. \n Following the 2014 annexation by Russia of the Ukrainian Crimean peninsula, and then the 2022 Russian invasion of Ukraine, singing "nationalist anthems" such as Chervona Kalyna in Crimea became punishable by fines and imprisonment.`,
       link: "https://en.wikipedia.org/wiki/Oi_u_luzi_chervona_kalyna",
     },
-    // {
-    //   country: "Finland",
-    //   description: `"Ievan polkka" (Finnish for "Ieva's Polka") is a Finnish song with lyrics printed in 1928 and written by Eino Kettunen to a traditional Finnish polka tune. The song is sung in an Eastern Savonian dialect spoken in North Karelia. It is sung from the point of view of a young man, about a woman called Ieva (dialectal for the name Eva or Eeva in standard Finnish) who sneaks out and dances the polka with him all night. The song is often mistaken for a traditional folk song, but the lyrics by Eino Kettunen are still under copyright. Later, a scat singing version of the song by the band Loituma was incorporated into the viral animation Loituma Girl. In 2007, the song was brought into worldwide popular culture through a cover sung by Hatsune Miku, with Otomania arranging the music and providing Miku's voice manipulation.`,
-    //   link: "https://en.wikipedia.org/wiki/Ievan_polkka",
-    // },
     {
       country: "Jamaica",
       description: `Robert Nesta Marley OM (6 February 1945 – 11 May 1981) was a Jamaican reggae singer, guitarist, and songwriter. Considered one of the pioneers of the genre, Marley fused elements of reggae, ska, and rocksteady in his music and was renowned for his distinctive vocal and songwriting style. Marley's contribution to music increased the visibility of Jamaican music worldwide and made him a global figure in popular culture.`,
@@ -539,6 +529,31 @@ const getDescriptionOptions = () => {
       country: "Côte d'Ivoire",
       description: `"Magic in the Air" is a 2014 single by Ivorian musical group Magic System, featuring Moroccan singer Chawki and produced by Moroccan producer RedOne. The track also appears on Magic System's album Africainement vôtre, released on 19 May 2014. \n The song was sampled from Khaled's song C'est La Vie.`,
       link: "https://en.wikipedia.org/wiki/Magic_in_the_Air",
+    },
+    {
+      country: "Niger",
+      description: `Etran Finatawa is a Niger-based band, formed in 2004 during the Festival au Désert near Timbuktu, Mali. The music of Etran Finatawa blends the traditional music of the Wodaabe and Tuareg people with western instruments such as the electric guitar.`,
+      link: "https://en.wikipedia.org/wiki/Etran_Finatawa",
+    },
+    {
+      country: "Burkina Faso",
+      description: `Amadou Traoré (March 8, 1944 – August 27, 2014), better known as Amadou Balaké, was a popular singer from Burkina Faso. During his career, which lasted over 50 years, Balaké recorded and performed in different parts of West Africa as well as New York and Paris. In the early 21st century, he was a member of Senegalese salsa band Africando. His music combined different traditions from his home country, primarily Dioula (Mandé) and Mossi, as well as Afro-Cuban music.`,
+      link: "https://en.wikipedia.org/wiki/Amadou_Balak%C3%A9",
+    },
+    {
+      country: "Mali",
+      description: `Ali Ibrahim "Ali Farka" Touré (31 October 1939 – 6 March 2006) was a Malian singer and multi-instrumentalist, and one of the African continent's most internationally renowned musicians. His music blends traditional Malian music and its derivative, African American blues and is considered a pioneer of African desert blues. Touré was ranked number 76 on Rolling Stone's list of "The 100 Greatest Guitarists of All Time" and number 37 on Spin magazine's "100 Greatest Guitarists of All Time".`,
+      link: "https://en.wikipedia.org/wiki/Ali_Farka_Tour%C3%A9",
+    },
+    {
+      country: "Finland",
+      description: `"Ievan polkka" (Finnish for "Ieva's Polka") is a Finnish song with lyrics printed in 1928 and written by Eino Kettunen to a traditional Finnish polka tune. The song is sung in an Eastern Savonian dialect spoken in North Karelia. It is sung from the point of view of a young man, about a woman called Ieva (dialectal for the name Eva or Eeva in standard Finnish) who sneaks out and dances the polka with him all night. The song is often mistaken for a traditional folk song, but the lyrics by Eino Kettunen are still under copyright. Later, a scat singing version of the song by the band Loituma was incorporated into the viral animation Loituma Girl. In 2007, the song was brought into worldwide popular culture through a cover sung by Hatsune Miku, with Otomania arranging the music and providing Miku's voice manipulation.`,
+      link: "https://en.wikipedia.org/wiki/Ievan_polkka",
+    },
+    {
+      country: "Pakistan",
+      description: `This type of Punjabi folk song is sung by groups of women or girls, to the accompaniment of a dholak drum. These songs depict the romantic side of rural life, and are sung on festive occasions such as marriages, harvest festivals, and village fairs. The instruments accompanying the voices in this piece are the dholak, a clarinet, tabla drums. The performance is by Munawar Sultana, Iqbal Banso and group.`,
+      link: "https://folkways.si.edu/folk-music-of-pakistan/central-asia-islamica-world/album/smithsonian",
     },
     // {
     //   country: "",
