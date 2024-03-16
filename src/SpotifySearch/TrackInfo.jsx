@@ -1,5 +1,3 @@
-import React from "react";
-
 const TrackInfo = ({ track }) => {
   if (!track) {
     return null;
@@ -68,20 +66,12 @@ const TrackInfo = ({ track }) => {
             {track.name} - {track.artists[0].name}
           </h3>
           <p className="py-4">
-            {track.description.description
-              .split("\n")
-              .map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  <br />
-                  <br />
-                </React.Fragment>
-              ))}
+            {track.description}
           </p>
           <a
             target="_blank"
             rel="noreferrer"
-            href={track.description.link}
+            href={track.link}
             className="text-info underline hover:no-underline w-24 mx-auto"
           >
             Read more

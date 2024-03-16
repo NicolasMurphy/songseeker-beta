@@ -1,3 +1,12 @@
+# 3/16
+    Goals:
+        - Move descriptions to Firestore
+        - add more tracks
+        - Make playlist id env
+        -
+    Notes:
+        -
+
 # 3/14
     Goals:
         - Add more tracks

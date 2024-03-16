@@ -32,26 +32,18 @@ const getRandomTrack = async (
     // const playlistId = "3GFRHr2rWYiBxgXLqLXBYt"; // shorter playlist for testing
 
     const tracks = await fetchAllTracks(playlistId, accessToken);
+    const descriptions = await getDescriptionOptions();
 
     // Initialize or retrieve playedTracks from local storage
     let localPlayedTracks = new Set(
       JSON.parse(localStorage.getItem("playedTracks") || "[]")
     );
-    let randomTrack = null;
-
-    // Attempt to select a random track that has not been played and has a preview URL
-    const attempts = tracks.filter((track) => {
-      if (!track.preview_url) {
-        console.log(`Track ${track.id} has no preview URL.`)
-      }
-      return !localPlayedTracks.has(track.id) && track.preview_url;
-    });
-    if (attempts.length > 0) {
-      randomTrack = attempts[Math.floor(Math.random() * attempts.length)];
-    }
+    let randomTrack = tracks.find(
+      (track) => !localPlayedTracks.has(track.id) && track.preview_url
+    );
 
     // Reset played tracks if all have been played
-    if (!randomTrack) {
+    if (!randomTrack && localPlayedTracks.size >= tracks.length) {
       localStorage.removeItem("playedTracks");
       localPlayedTracks.clear();
       randomTrack = tracks.find((track) => track.preview_url);
@@ -64,6 +56,19 @@ const getRandomTrack = async (
       return;
     }
 
+    // Use the track's index in the playlist to find the corresponding description
+    const trackIndex = tracks.indexOf(randomTrack);
+    const descriptionObject = descriptions.find(
+      (desc) => desc.order === trackIndex
+    );
+
+    if (!descriptionObject) {
+      console.warn("Description not found for the selected track.");
+      setTrack(null);
+      setIsLoading(false);
+      return;
+    }
+
     // Update localPlayedTracks and localStorage
     localPlayedTracks.add(randomTrack.id);
     localStorage.setItem(
@@ -71,14 +76,11 @@ const getRandomTrack = async (
       JSON.stringify([...localPlayedTracks])
     );
 
-    const index = tracks.indexOf(randomTrack);
-    const descriptions = getDescriptionOptions();
-    const descriptionObject = descriptions[index % descriptions.length];
-
     setTrack({
       ...randomTrack,
       location: descriptionObject.country,
-      description: descriptionObject,
+      description: descriptionObject.description,
+      link: descriptionObject.link,
     });
 
     resetAudio();
