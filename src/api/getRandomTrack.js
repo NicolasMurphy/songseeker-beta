@@ -34,19 +34,25 @@ const getRandomTrack = async (
     const tracks = await fetchAllTracks(playlistId, accessToken);
     const descriptions = await getDescriptionOptions();
 
+    // Initialize or retrieve playedTracks from local storage
     let localPlayedTracks = new Set(
       JSON.parse(localStorage.getItem("playedTracks") || "[]")
     );
 
-    let attempts = tracks.filter(track => track.preview_url && !localPlayedTracks.has(track.id));
+    // Filter tracks to those that have not been played and have a preview URL
+    let playableTracks = tracks.filter(track => !localPlayedTracks.has(track.id) && track.preview_url);
 
-    if (attempts.length === 0) {
+    // Select a random track from the filtered list
+    let randomTrack = playableTracks.length > 0 ? playableTracks[Math.floor(Math.random() * playableTracks.length)] : null;
+
+    // Reset played tracks if all have been played
+    if (!randomTrack && localPlayedTracks.size >= tracks.length) {
       localStorage.removeItem("playedTracks");
       localPlayedTracks.clear();
-      attempts = tracks.filter(track => track.preview_url);
+      playableTracks = tracks.filter(track => track.preview_url);
+      randomTrack = playableTracks.length > 0 ? playableTracks[Math.floor(Math.random() * playableTracks.length)] : null;
     }
 
-    const randomTrack = attempts[Math.floor(Math.random() * attempts.length)];
     if (!randomTrack) {
       console.warn("Unable to select a track.");
       setTrack(null);
@@ -54,13 +60,16 @@ const getRandomTrack = async (
       return;
     }
 
+    // Update localPlayedTracks and localStorage
     localPlayedTracks.add(randomTrack.id);
-    localStorage.setItem("playedTracks", JSON.stringify([...localPlayedTracks]));
-
-    const trackIndex = tracks.findIndex(track => track.id === randomTrack.id);
-    const descriptionObject = descriptions.find(
-      (desc, index) => index === (trackIndex % descriptions.length)
+    localStorage.setItem(
+      "playedTracks",
+      JSON.stringify([...localPlayedTracks])
     );
+
+    // Find the description that matches the track's order in the playlist
+    const trackIndex = tracks.findIndex(track => track.id === randomTrack.id);
+    const descriptionObject = descriptions.find(desc => desc.order === trackIndex);
 
     if (!descriptionObject) {
       console.warn("Description not found for the selected track.");
@@ -73,7 +82,7 @@ const getRandomTrack = async (
       ...randomTrack,
       location: descriptionObject.country,
       description: descriptionObject.description,
-      link: descriptionObject.link
+      link: descriptionObject.link,
     });
 
     resetAudio();
