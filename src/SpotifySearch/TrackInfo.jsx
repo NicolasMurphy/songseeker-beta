@@ -37,8 +37,10 @@ const TrackInfo = ({ track }) => {
         </a>
       </div>
 
-      {/* The button to open modal */}
-      <label title="Track Information" htmlFor="my-modal-3" className="btn btn-circle btn-ghost btn-xs text-info">
+      <button
+        className="btn btn-circle btn-ghost btn-xs text-info"
+        onClick={() => document.getElementById("information").showModal()}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -52,10 +54,55 @@ const TrackInfo = ({ track }) => {
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           ></path>
         </svg>
-      </label>
+      </button>
+      <dialog id="information" className="modal">
+        <div className="modal-box">
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <h3 className="text-lg font-bold">
+            {track.name} - {track.artists[0].name}
+          </h3>
+          <p className="py-4">
+            {track.description.description.split("\n").map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+                <br />
+              </React.Fragment>
+            ))}
+          </p>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={track.description.link}
+            className="text-info underline hover:no-underline w-24 mx-auto"
+          >
+            Read more
+          </a>
+        </div>
+      </dialog>
 
-      {/* Put this part before </body> tag */}
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      {/* The button to open modal */}
+      {/* <label title="Track Information" htmlFor="my-modal-3" className="btn btn-circle btn-ghost btn-xs text-info">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          className="w-4 h-4 stroke-current"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+      </label> */}
+
+      {/* <input type="checkbox" id="my-modal-3" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label
@@ -87,8 +134,7 @@ const TrackInfo = ({ track }) => {
             Read more
           </a>
         </div>
-      </div>
-
+      </div> */}
     </div>
   );
 };

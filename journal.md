@@ -1,3 +1,12 @@
+# 3/18
+    Goals:
+        - Update info icon
+        - Find better track for Libya
+        - Possibly replace: Ethiopia, Philippines
+        -
+    Notes:
+        -
+
 # 3/17
     Goals:
         - Firestore descriptions are buggy, find fix for occasional missing track or revert to earlier commit
