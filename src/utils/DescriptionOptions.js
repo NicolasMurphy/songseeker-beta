@@ -555,6 +555,16 @@ const getDescriptionOptions = () => {
       description: `This type of Punjabi folk song is sung by groups of women or girls, to the accompaniment of a dholak drum. These songs depict the romantic side of rural life, and are sung on festive occasions such as marriages, harvest festivals, and village fairs. The instruments accompanying the voices in this piece are the dholak, a clarinet, tabla drums. The performance is by Munawar Sultana, Iqbal Banso and group.`,
       link: "https://folkways.si.edu/folk-music-of-pakistan/central-asia-islamica-world/album/smithsonian",
     },
+    {
+      country: "Bangladesh",
+      description: `Firoza Begum (Bengali: ফিরোজা বেগম; 28 July 1930 – 9 September 2014) was a Bangladeshi Nazrul Geeti singer. She was awarded the Independence Day Award in 1979 by the Government of Bangladesh.`,
+      link: "https://en.wikipedia.org/wiki/Firoza_Begum_(singer)",
+    },
+    {
+      country: "Syria",
+      description: `Sabah al-Din Abu Qaws (Arabic: صباح الدين أبو قوس), also known as Sabah Fakhri (Arabic: صباح فخري North Levantine Arabic pronunciation: [sˤɑbɑːħ fæxɾiː]; May 2, 1933 – November 2, 2021), was a Syrian tenor singer from Aleppo. \n With over 50 years of fame and popularity as a singer, Sabah Fakhri modified and popularized the then-fading forms of traditional Arabic music Muwashahat and Qudud Halabiya. He was well known for his beautiful strong vocals, impeccable control and execution of Maqamat and harmony, as well as his dominant and charismatic performances on stage. In the Arab world, he is regarded as one of the greatest artists of all time.`,
+      link: "https://en.wikipedia.org/wiki/Sabah_Fakhri",
+    },
     // {
     //   country: "",
     //   description: ``,

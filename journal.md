@@ -1,3 +1,21 @@
+# 3/17
+    Goals:
+        - Firestore descriptions are buggy, find fix for occasional missing track or revert to earlier commit
+        -
+    Notes:
+        - Reverted Firestore descriptions
+        -
+
+# 3/16
+    Goals:
+        - Move descriptions to Firestore
+        - new lines not working, find fix
+        - add more tracks
+        - Make playlist id env
+        -
+    Notes:
+        -
+
 # 3/14
     Goals:
         - Add more tracks
