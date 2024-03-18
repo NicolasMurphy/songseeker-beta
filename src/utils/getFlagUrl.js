@@ -14,6 +14,10 @@ export default function getFlagUrl(countryName) {
     countryName = "Ivory Coast"
   }
 
+  if (countryName === "Syria") {
+    countryName = "Syrian Arab Republic"
+  }
+
   let countryCode = getAlpha2Code(countryName, "en");
 
   if (!countryCode) return "";
