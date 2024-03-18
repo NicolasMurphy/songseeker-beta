@@ -38,23 +38,32 @@ const getRandomTrack = async (
     let localPlayedTracks = new Set(
       JSON.parse(localStorage.getItem("playedTracks") || "[]")
     );
-
-    // Filter tracks to those that have not been played and have a preview URL
-    let playableTracks = tracks.filter(track => !localPlayedTracks.has(track.id) && track.preview_url);
-
-    // Select a random track from the filtered list
-    let randomTrack = playableTracks.length > 0 ? playableTracks[Math.floor(Math.random() * playableTracks.length)] : null;
+    let randomTrack = tracks.find(
+      (track) => !localPlayedTracks.has(track.id) && track.preview_url
+    );
 
     // Reset played tracks if all have been played
     if (!randomTrack && localPlayedTracks.size >= tracks.length) {
       localStorage.removeItem("playedTracks");
       localPlayedTracks.clear();
-      playableTracks = tracks.filter(track => track.preview_url);
-      randomTrack = playableTracks.length > 0 ? playableTracks[Math.floor(Math.random() * playableTracks.length)] : null;
+      randomTrack = tracks.find((track) => track.preview_url);
     }
 
     if (!randomTrack) {
       console.warn("Unable to select a track.");
+      setTrack(null);
+      setIsLoading(false);
+      return;
+    }
+
+    // Use the track's index in the playlist to find the corresponding description
+    const trackIndex = tracks.indexOf(randomTrack);
+    const descriptionObject = descriptions.find(
+      (desc) => desc.order === trackIndex
+    );
+
+    if (!descriptionObject) {
+      console.warn("Description not found for the selected track.");
       setTrack(null);
       setIsLoading(false);
       return;
@@ -66,17 +75,6 @@ const getRandomTrack = async (
       "playedTracks",
       JSON.stringify([...localPlayedTracks])
     );
-
-    // Find the description that matches the track's order in the playlist
-    const trackIndex = tracks.findIndex(track => track.id === randomTrack.id);
-    const descriptionObject = descriptions.find(desc => desc.order === trackIndex);
-
-    if (!descriptionObject) {
-      console.warn("Description not found for the selected track.");
-      setTrack(null);
-      setIsLoading(false);
-      return;
-    }
 
     setTrack({
       ...randomTrack,

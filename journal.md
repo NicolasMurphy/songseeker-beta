@@ -1,7 +1,6 @@
 # 3/16
     Goals:
         - Move descriptions to Firestore
-        - new lines not working, find fix
         - add more tracks
         - Make playlist id env
         -

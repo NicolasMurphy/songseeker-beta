@@ -1,5 +1,3 @@
-import React from "react";
-
 const TrackInfo = ({ track }) => {
   if (!track) {
     return null;
@@ -38,11 +36,7 @@ const TrackInfo = ({ track }) => {
       </div>
 
       {/* The button to open modal */}
-      <label
-        title="Track Information"
-        htmlFor="my-modal-3"
-        className="btn btn-circle btn-ghost btn-xs text-info"
-      >
+      <label title="Track Information" htmlFor="my-modal-3" className="btn btn-circle btn-ghost btn-xs text-info">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -72,15 +66,7 @@ const TrackInfo = ({ track }) => {
             {track.name} - {track.artists[0].name}
           </h3>
           <p className="py-4">
-            {track.description
-              .split("\n")
-              .map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  <br />
-                  <br />
-                </React.Fragment>
-              ))}
+            {track.description}
           </p>
           <a
             target="_blank"
@@ -92,6 +78,7 @@ const TrackInfo = ({ track }) => {
           </a>
         </div>
       </div>
+
     </div>
   );
 };
