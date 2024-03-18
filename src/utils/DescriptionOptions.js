@@ -451,11 +451,6 @@ const getDescriptionOptions = () => {
       link: "https://en.wikipedia.org/wiki/Dle_Yaman",
     },
     {
-      country: "Italy",
-      description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
-      link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
-    },
-    {
       country: "Azerbaijan",
       description: `"Song of the Blind Arab" (Azerbaijani: Kor ərəbin mahnısı) is a song written by the Azerbaijani composer Fikret Amirov for the staging of the "Sheikh Sanan" play by Huseyn Javid. It is noted that the song is a typical example of a ballad song.`,
       link: "https://en.wikipedia.org/wiki/Song_of_the_Blind_Arab",
@@ -564,6 +559,31 @@ const getDescriptionOptions = () => {
       country: "Syria",
       description: `Sabah al-Din Abu Qaws (Arabic: صباح الدين أبو قوس), also known as Sabah Fakhri (Arabic: صباح فخري North Levantine Arabic pronunciation: [sˤɑbɑːħ fæxɾiː]; May 2, 1933 – November 2, 2021), was a Syrian tenor singer from Aleppo. \n With over 50 years of fame and popularity as a singer, Sabah Fakhri modified and popularized the then-fading forms of traditional Arabic music Muwashahat and Qudud Halabiya. He was well known for his beautiful strong vocals, impeccable control and execution of Maqamat and harmony, as well as his dominant and charismatic performances on stage. In the Arab world, he is regarded as one of the greatest artists of all time.`,
       link: "https://en.wikipedia.org/wiki/Sabah_Fakhri",
+    },
+    {
+      country: "Italy",
+      description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
+      link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
+    },
+    {
+      country: "Yemen",
+      description: `Ayoob Tarish Absi (Arabic: أيوب طارش عبسي, born 1942; first name also spelled Ayoub; last name also spelled Absey) is a Yemeni singer and musician from the area of Al-Aboos in the Ta'izz Governorate. Tarish composed "United Republic", the national anthem of Yemen, which was adopted following the Yemenite reunification.`,
+      link: "https://en.wikipedia.org/wiki/Ayoob_Tarish",
+    },
+    {
+      country: "Jordan",
+      description: `Omar Al-Abdallat (Arabic: عمر العبداللات; transliterated: "Umar al-"Abdallāt) is a Jordanian singer-songwriter credited with popularizing Bedouin music. He has produced and/or performed a number of Jordanian patriotic standards, including "Hashimi, Hashimi" and "Jeishana" in addition to traditional Jordanian songs. He has also represented Jordan in multicultural events throughout the world. He is also popular in various cities of other Arab countries.`,
+      link: "https://en.wikipedia.org/wiki/Omar_Al-Abdallat",
+    },
+    {
+      country: "Libya",
+      description: `Ahmed Fakroun (Arabic: أحمد فكرون; born 1953) is a singer and songwriter from Benghazi, Libya. He is a pioneer of modern Arabic World Music.`,
+      link: "https://en.wikipedia.org/wiki/Ahmed_Fakroun",
+    },
+    {
+      country: "Somalia",
+      description: `Hasan Adan Samatar (Somali: Xasan Aadan Samatar, Arabic: حسن اذن ساماتار) (b. May 23, 1953 in Diinsoor, Somalia) is a prominent Somali singer, guitarist and theatrical performer.`,
+      link: "https://en.wikipedia.org/wiki/Hasan_Adan_Samatar",
     },
     // {
     //   country: "",
