@@ -576,11 +576,6 @@ const getDescriptionOptions = () => {
       link: "https://en.wikipedia.org/wiki/Omar_Al-Abdallat",
     },
     {
-      country: "Libya",
-      description: `Ahmed Fakroun (Arabic: أحمد فكرون; born 1953) is a singer and songwriter from Benghazi, Libya. He is a pioneer of modern Arabic World Music.`,
-      link: "https://en.wikipedia.org/wiki/Ahmed_Fakroun",
-    },
-    {
       country: "Somalia",
       description: `Hasan Adan Samatar (Somali: Xasan Aadan Samatar, Arabic: حسن اذن ساماتار) (b. May 23, 1953 in Diinsoor, Somalia) is a prominent Somali singer, guitarist and theatrical performer.`,
       link: "https://en.wikipedia.org/wiki/Hasan_Adan_Samatar",
