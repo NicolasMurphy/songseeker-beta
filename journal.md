@@ -1,10 +1,3 @@
-# 3/17
-    Goals:
-        - Firestore descriptions are buggy, find fix for occasional missing track or revert to earlier commit
-        -
-    Notes:
-        -
-
 # 3/16
     Goals:
         - Move descriptions to Firestore
