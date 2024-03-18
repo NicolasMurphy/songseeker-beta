@@ -5,6 +5,7 @@
         - Possibly replace: Ethiopia, Philippines
         -
     Notes:
+        - Decided to skip Brunei, possibly remove some other smaller countries.
         -
 
 # 3/17

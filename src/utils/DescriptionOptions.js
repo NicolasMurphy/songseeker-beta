@@ -605,31 +605,31 @@ const getDescriptionOptions = () => {
       description: `Gnonnan Sossou Pierre Kouassivi, known by the stage name Gnonnas Pedro was a singer and musician from Lokossa, Benin. He is perhaps best known as the lead singer of Africando between 1995 and his death in 2004 but had been well known in his home country of Benin and beyond since the 1960s.`,
       link: "https://en.wikipedia.org/wiki/Gnonnas_Pedro",
     },
-    // {
-    //   country: "Libya",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Brunei",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Eritrea",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Sierra Leone",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "",
-    //   description: ``,
-    //   link: "",
-    // },
+    {
+      country: "Libya",
+      description: `Nasser Al-Mezdawi (Arabic: ناصر المزداوي), (born 5 September 1950) is a Libyan singer, guitarist, songwriter and composer.`,
+      link: "https://en.wikipedia.org/wiki/Nasser_el-Mizdawi",
+    },
+    {
+      country: "Eritrea",
+      description: `Yemane Ghebremichael (born January 21, 1949 – November 5, 1997) (commonly known as Yemane Baria or Yemane Barya) was a well-known Eritrean songwriter, composer and singer. He became one of the most renowned Eritrean artists (a Tigrinya singer).`,
+      link: "https://en.wikipedia.org/wiki/Yemane_Ghebremichael",
+    },
+    {
+      country: "Sierra Leone",
+      description: `Sooliman Ernest Rogers "Rogie", (1926 – 4 July 1994) better known as S. E. Rogie, was a highlife and palm wine musician and guitarist from Sierra Leone.`,
+      link: "https://en.wikipedia.org/wiki/S._E._Rogie",
+    },
+    {
+      country: "Zambia",
+      description: `Alick Nkhata (1922–1978) was a Zambian musician, freedom fighter and broadcaster from the 1950s to the mid-1970s. He was also the director of the Zambia National Broadcasting Corporation (ZNBC), and formed the Lusaka Radio Band, later called the Big Gold Six Band. The band played Zambian music and scored translations of original rural songs.`,
+      link: "https://en.wikipedia.org/wiki/Alick_Nkhata",
+    },
+    {
+      country: "Central African Republic",
+      description: `The landlocked nation of the Central African Republic is home to an estimated 80 to 100 ethnic groups, each with their own language and music idioms. This album presents music from seven of these groups: Dendi, Nzakara, Gbaya, Banda-Linda, Banda-Dakpa, Aka Pygmies, and Ngbaka. The recordings range from war chants to lullabies, with songs for counting, thinking, hunting, and music for ceremonial dance. The selections fit into two broad categories: group and individual. Group music celebrates and signals major events of the community, while individual music offers personal expression, sung for the performer’s pleasure rather than for an audience. Both follow strict cyclical structures and a pentatonic scale. This field recording was made by ethnomusicologist Simha Arom, a noted expert on the music of central Africa.`,
+      link: "https://folkways.si.edu/central-african-republic/world/music/album/smithsonian",
+    },
     // {
     //   country: "",
     //   description: ``,
