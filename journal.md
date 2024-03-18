@@ -2,7 +2,7 @@
     Goals:
         - Update info icon
         - Find better track for Libya
-        - Possibly replace: Ethiopia, Philippines
+        - Possibly replace: Ethiopia, Philippines, Cambodia, Afghanistan
         -
     Notes:
         - Decided to skip Brunei, possibly remove some other smaller countries.

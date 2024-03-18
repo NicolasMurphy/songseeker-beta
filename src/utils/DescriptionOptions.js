@@ -630,6 +630,41 @@ const getDescriptionOptions = () => {
       description: `The landlocked nation of the Central African Republic is home to an estimated 80 to 100 ethnic groups, each with their own language and music idioms. This album presents music from seven of these groups: Dendi, Nzakara, Gbaya, Banda-Linda, Banda-Dakpa, Aka Pygmies, and Ngbaka. The recordings range from war chants to lullabies, with songs for counting, thinking, hunting, and music for ceremonial dance. The selections fit into two broad categories: group and individual. Group music celebrates and signals major events of the community, while individual music offers personal expression, sung for the performer’s pleasure rather than for an audience. Both follow strict cyclical structures and a pentatonic scale. This field recording was made by ethnomusicologist Simha Arom, a noted expert on the music of central Africa.`,
       link: "https://folkways.si.edu/central-african-republic/world/music/album/smithsonian",
     },
+    {
+      country: "South Sudan",
+      description: `Gordon Koang is a blind South Sudanese musician based in Australia. He is known in South Sudan as the country's "King of Music".`,
+      link: "https://en.wikipedia.org/wiki/Gordon_Koang",
+    },
+    {
+      country: "Chad",
+      description: `The balafon is a xylophone found throughout the Chad, particularly in the regions inhabited by the Sara tribes. The dance played here, called the "Saye" is one of the most widespread. Like all dances of the Sara, it is well liked by young people, calling for great physical exertion, its execution demanding great bodily suppleness. \n The song heard here, executed by a group of balafon players and accompanied by a battery of drums, tells about the legendary" charity of the head of a family whose land is visited by all and sundry."`,
+      link: "https://folkways.si.edu/music-of-chad/islamica-world/album/smithsonian",
+    },
+    {
+      country: "Guyana",
+      description: `Terry Vivekanand Gajraj is a Guyanese chutney and chutney-soca artist.`,
+      link: "https://en.wikipedia.org/wiki/Terry_Gajraj",
+    },
+    {
+      country: "Guinea",
+      description: `Djeli Moussa Diawara, born 1962 in Kankan, Guinea, is a Kora player (Korafola), composer and singer.`,
+      link: "https://en.wikipedia.org/wiki/Djeli_Moussa_Diawara",
+    },
+    {
+      country: "Liberia",
+      description: `This triangular framed zither song, according to soloist Flumo of Totota, depicts a leopard hunting for food in the rain forest. Melodic motives interlock in hocket style. The player holds the instrument at a right angle to his body, pressing the gourd resonator against his chest. The koniŋ has 9 strings (in this case) stretched across a triangular wooden frame that is attached to a gourd resonator. Of the nine wire strings, the five highest pitched are nônii (children) and the four lowest pitched are ǹeeŋa (mothers), as explained by the soloist.`,
+      link: "https://folkways.si.edu/music-of-the-kpelle-of-liberia/world/album/smithsonian",
+    },
+    // {
+    //   country: "Mauritania",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Togo",
+    //   description: ``,
+    //   link: "",
+    // },
     // {
     //   country: "",
     //   description: ``,
