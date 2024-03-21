@@ -1,3 +1,14 @@
+# 3/20
+    Goals:
+        - Add more tracks
+        - Update so that tracks are loaded before "next round", for autoplay on mobile
+        - Add hints feature
+        - Possibly replace: Ethiopia, Philippines, Cambodia, Afghanistan, Guyana, Malta, Cyprus
+        -
+    Notes:
+        - Countries skipped: Brunei, Kosovo (not recognized by Google Maps API), Palestine, Singapore, Vatican City
+        -
+
 # 3/18
     Goals:
         - Update info icon

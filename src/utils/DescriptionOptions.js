@@ -655,13 +655,58 @@ const getDescriptionOptions = () => {
       description: `This triangular framed zither song, according to soloist Flumo of Totota, depicts a leopard hunting for food in the rain forest. Melodic motives interlock in hocket style. The player holds the instrument at a right angle to his body, pressing the gourd resonator against his chest. The koniŋ has 9 strings (in this case) stretched across a triangular wooden frame that is attached to a gourd resonator. Of the nine wire strings, the five highest pitched are nônii (children) and the four lowest pitched are ǹeeŋa (mothers), as explained by the soloist.`,
       link: "https://folkways.si.edu/music-of-the-kpelle-of-liberia/world/album/smithsonian",
     },
+    {
+      country: "Mauritania",
+      description: `Dimi Mint Abba (Arabic: ديمي منت آبا‎; 25 December 1958 – June 2011) was one of Mauritania's most famous musicians. She was born Loula Bint Siddaty Ould Abba in Tidjikja in Mauritania. 1958, into a low-caste ("iggawin") family specializing in the griot tradition.`,
+      link: "https://en.wikipedia.org/wiki/Dimi_Mint_Abba",
+    },
+    {
+      country: "Togo",
+      description: `King Mensah (born August 12, 1971), also known as "The Golden Voice of Togo", is a Togolese singer from West Africa. Though based in Lomé, he regularly records and promotes his albums in Paris, and has embarked on several world tours since 2005. Singing in Mina, Ewe, and French, King Mensah's sound fuses elements of traditional Ewe music (Agbadza and Akpessé), and Kabye dance-drum music, with funk, reggae and West African Afropop. King Mensah's lyrical themes are steeped in religion and hopeful encouragement for the orphaned, oppressed and downtrodden.`,
+      link: "https://en.wikipedia.org/wiki/King_Mensah",
+    },
+    {
+      country: "Malawi",
+      description: `Gidesi Chalamanda was born on 15 January 1931, is most commonly known as "Agide". He is a Malawian acoustic artist. He was born in Chiradzulu in the Southern region of Malawi. \n He is one of Malawi's legendary artists. His song "linny" a mashup with Dr Namadingo trended on TikTok gaining over a million views and challenges across the world.`,
+      link: "https://en.wikipedia.org/wiki/Giddess_Chalamanda",
+    },
+    {
+      country: "Namibia",
+      description: `Jackson Kaujeua (3 July 1953 – 27 May 2010) was a Namibian musician, composer and gospel singer, and a veteran of the Namibian struggle for independence. He sang in various Namibian languages but also Afrikaans and English.`,
+      link: "https://en.wikipedia.org/wiki/Jackson_Kaujeua",
+    },
+    {
+      country: "The Gambia",
+      description: `Jaliba Kuyateh is a Gambian musician. He is well known internationally as the "King of Kora." His music mixes traditional kora beats with modern pop music and is often referred to as "kora pop." Kuyateh is a former school teacher, a resident of Brikama, and performs extensively abroad.`,
+      link: "https://en.wikipedia.org/wiki/Jaliba_Kuyateh",
+    },
     // {
-    //   country: "Mauritania",
+    //   country: "Burundi",
     //   description: ``,
     //   link: "",
     // },
     // {
-    //   country: "Togo",
+    //   country: "Lesotho",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Oman",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Bhutan",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Fiji",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Suriname",
     //   description: ``,
     //   link: "",
     // },
