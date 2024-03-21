@@ -1,3 +1,12 @@
+# 3/21
+    Goals:
+        - Add more tracks
+        - Fix autoplay mobile
+        - Add hints
+        -
+    Notes:
+        -
+
 # 3/20
     Goals:
         - Add more tracks
