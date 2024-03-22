@@ -1,8 +1,11 @@
 # 3/22
     Goals:
         - Implement autoplay fix
+        - Fix button flash for "submit" (fixed by setSelectedCountry(null) in handleNextRound)
+        - Add loading state for "start game"
         -
     Notes:
+        - removed all mentions of "isLoading"
         -
 
 # 3/21

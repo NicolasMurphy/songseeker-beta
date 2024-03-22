@@ -17,7 +17,6 @@ import logo from "../Images/logo.svg";
 
 const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState("");
   const [showTrackInfo, setShowTrackInfo] = useState(false);
   const [isCorrectGuess, setIsCorrectGuess] = useState(false);
@@ -85,17 +84,18 @@ const SpotifySearch = ({ database }) => {
     setShouldResetMap(true);
     setIsMarkerPlacementAllowed(true);
     setTrackCount((prevCount) => prevCount + 1);
+    setSelectedCountry(null);
   };
 
   const handlePlayAgain = () => {
     setIsGameStarted(false);
+    setIsGameReady(false);
     setCurrentTrackIndex(-1);
     refreshAccessToken().then((token) => {
       if (token) {
         getRandomTracks(token).then((fetchedTracks) => {
           setTracks(fetchedTracks);
           setIsGameReady(true);
-          setIsGameStarted(false);
         });
       }
     });
@@ -103,10 +103,10 @@ const SpotifySearch = ({ database }) => {
     setScore(0);
     setTrackCount(1);
     setIsGameEnded(false);
-    setIsGameStarted(true);
     setIsFinalRound(false);
     setIsSubmitted(false);
     setShouldResetMap(true);
+    setCorrectLocation(null);
   };
 
   const handleSubmit = useSubmitGuess(
@@ -252,7 +252,6 @@ const SpotifySearch = ({ database }) => {
                   <AudioPlayer
                     ref={audioRef}
                     track={track}
-                    isLoading={isLoading}
                   />
                 </div>
                 {/* {column 4} */}
@@ -272,12 +271,10 @@ const SpotifySearch = ({ database }) => {
                       selectedCountry={selectedCountry}
                       handleSubmit={handleSubmit}
                       onSubmitButtonClick={handleSubmitButtonClick}
-                      isLoading={isLoading}
                     />
                   )}
                   {!isGameEnded && isSubmitted && (
                     <TrackLoader
-                      isLoading={isLoading}
                       handleNextRound={handleNextRound}
                       handleEndGame={handleEndGame}
                       isFinalRound={isFinalRound}

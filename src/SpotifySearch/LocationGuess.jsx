@@ -1,11 +1,19 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
-const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isLoading }) => {
+const LocationGuess = ({
+  selectedCountry,
+  handleSubmit,
+  onSubmitButtonClick,
+}) => {
   // click enter instead of clicking button
   const buttonRef = useRef();
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.key === "Enter" && selectedCountry && !isLoading && buttonRef.current) {
+      if (
+        e.key === "Enter" &&
+        selectedCountry &&
+        buttonRef.current
+      ) {
         buttonRef.current.click();
       }
     };
@@ -13,23 +21,19 @@ const LocationGuess = ({ selectedCountry, handleSubmit, onSubmitButtonClick, isL
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, [selectedCountry, isLoading]);
+  }, [selectedCountry]);
 
   return (
     <div className="flex justify-center my-4">
       <button
         ref={buttonRef}
-        className={`py-2 ${
-          selectedCountry && !isLoading
-            ? "btn btn-accent"
-            : "btn btn-neutral"
-        }`}
+        className="py-2 btn btn-accent"
         onClick={() => {
           onSubmitButtonClick(); // Call the callback function when "Submit" is clicked
           handleSubmit(); // Continue with the submit logic
         }}
-        disabled={!selectedCountry || isLoading}
-        title={selectedCountry && !isLoading ? "Keyboard shortcut: Enter" : ""}
+        disabled={!selectedCountry}
+        title={selectedCountry ? "Keyboard shortcut: Enter" : ""}
       >
         Submit
       </button>
