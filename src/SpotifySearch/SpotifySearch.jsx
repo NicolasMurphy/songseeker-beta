@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import refreshAccessToken from "../api/refreshAccessToken";
 import AudioPlayer from "./AudioPlayer";
 import Map from "../Map/Map";
@@ -8,7 +8,7 @@ import TrackInfo from "./TrackInfo";
 import StartGameButton from "./StartGameButton";
 import GameEnded from "./GameEnded";
 import ScoreAndRoundInfo from "./ScoreAndRoundInfo";
-import useGetRandomTrack from "../hooks/useGetRandomTrack";
+import getRandomTracks from "../api/getRandomTracks";
 import useSubmitGuess from "../hooks/useSubmitGuess";
 import useGameProgress from "../hooks/useGameProgress";
 import useScoreSubmission from "../hooks/useScoreSubmission";
@@ -38,18 +38,23 @@ const SpotifySearch = ({ database }) => {
   const { isFinalRound, isGameEnded, setIsFinalRound, setIsGameEnded } =
     useGameProgress(trackCount);
   const { submitScoreToFirebase } = useScoreSubmission(database);
+  const [tracks, setTracks] = useState([]);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(-1);
+  const [isGameReady, setIsGameReady] = useState(false);
 
-  // Fetch access token and get a random track when component mounts
   useEffect(() => {
-    const fetchData = async () => {
-      await refreshAccessToken(setTrack);
-      handleGetRandomTrack();
+    const fetchAccessTokenAndTracks = async () => {
+      const token = await refreshAccessToken();
+      if (token) {
+        const fetchedTracks = await getRandomTracks(token);
+        setTracks(fetchedTracks);
+        setIsGameReady(true);
+      }
     };
 
-    fetchData();
+    fetchAccessTokenAndTracks();
   }, []);
 
-  // Reset map when the user submits a guess
   useEffect(() => {
     if (shouldResetMap) {
       setSelectedCountry("");
@@ -57,64 +62,53 @@ const SpotifySearch = ({ database }) => {
     }
   }, [shouldResetMap]);
 
-  // Reset audio player
-  const resetAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.reset();
-    }
-  };
-
   const handleSubmitButtonClick = () => {
-    // Disable marker placement on the map
     setIsMarkerPlacementAllowed(false);
   };
 
-  // Start a new game
-  const handleStartNewGame = () => {
-    setIsMarkerPlacementAllowed(true);
-    // Reset game states
+  const handleStartGame = () => {
     setScore(0);
     setTrackCount(1);
     setIsGameEnded(false);
     setIsGameStarted(true);
-    setIsFinalRound(false);
-    handleGetRandomTrack();
+    setIsGameReady(false);
+    setCurrentTrackIndex(0);
+    setTrack(tracks[0]);
   };
 
-  // Start a new game
-  const handleStartFirstGame = () => {
-    setIsMarkerPlacementAllowed(true);
-    // Reset game states
-    setScore(0);
-    setTrackCount(1);
-    setIsGameEnded(false);
-    setIsGameStarted(true);
-    setIsFinalRound(false);
-  };
-
-  // Increment track count and fetch a new random track
-  const handleGetRandomTrackClick = () => {
+  const handleNextRound = () => {
+    const nextIndex =
+      currentTrackIndex + 1 < tracks.length ? currentTrackIndex + 1 : 0;
+    setCurrentTrackIndex(nextIndex);
+    setTrack(tracks[nextIndex]);
+    setIsSubmitted(false);
+    setShouldResetMap(true);
     setIsMarkerPlacementAllowed(true);
     setTrackCount((prevCount) => prevCount + 1);
-    handleGetRandomTrack();
   };
 
-  // Custom hook to get a random track
-  const handleGetRandomTrack = useGetRandomTrack(
-    setShowTrackInfo,
-    setIsLoading,
-    setIsSubmitted,
-    setDistanceMessage,
-    resetAudio,
-    setLocation,
-    setTrack,
-    track,
-    setCorrectLocation,
-    setShouldResetMap,
-    setTrackCount
-  );
+  const handlePlayAgain = () => {
+    setIsGameStarted(false);
+    setCurrentTrackIndex(-1);
+    refreshAccessToken().then((token) => {
+      if (token) {
+        getRandomTracks(token).then((fetchedTracks) => {
+          setTracks(fetchedTracks);
+          setIsGameReady(true);
+          setIsGameStarted(false);
+        });
+      }
+    });
+    setIsMarkerPlacementAllowed(true);
+    setScore(0);
+    setTrackCount(1);
+    setIsGameEnded(false);
+    setIsGameStarted(true);
+    setIsFinalRound(false);
+    setIsSubmitted(false);
+    setShouldResetMap(true);
+  };
 
-  // Custom hook to handle guess submission
   const handleSubmit = useSubmitGuess(
     setIsCorrectGuess,
     setIsSubmitted,
@@ -127,36 +121,26 @@ const SpotifySearch = ({ database }) => {
     setScore
   );
 
-  // Handle user's country selection on the map
   const handleCountrySelection = (country, location) => {
     setLocation(country);
     setSelectedCountry(country);
     setMarkerLocation(location);
   };
 
-  // End the game
   const handleEndGame = () => {
     setIsGameEnded(true);
     setSubmittingScore(true);
   };
 
-  // Handle score submission to leaderboard
   const handleSubmitScoreToLeaderboard = () => {
     if (!username) {
       alert("Please enter a username before submitting your score.");
-      return; // Do not submit the score if the username is empty
+      return;
     }
-
-    // if (username.length > 30) {
-    //   alert("Username should not exceed 30 characters.");
-    //   return; // Do not submit the score if the username is too long
-    // }
-
     if (username.startsWith(" ") || username.endsWith(" ")) {
       alert("Username cannot start or end with whitespace.");
-      return; // Do not submit the score if the username starts or ends with whitespace
+      return;
     }
-
     submitScoreToFirebase(username, score);
     setSubmittingScore(false);
   };
@@ -173,125 +157,137 @@ const SpotifySearch = ({ database }) => {
           <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
         </>
       )}
-      {!isGameStarted ? (
-        <StartGameButton handleStartFirstGame={handleStartFirstGame} />
+      {!isGameStarted && isGameReady ? (
+        <StartGameButton handleStartGame={handleStartGame} />
       ) : (
-        <div>
-          <div className="mb-6">
-            <ScoreAndRoundInfo
-              score={score}
-              isGameEnded={isGameEnded}
-              trackCount={trackCount}
-              selectedCountry={selectedCountry}
-            />
-            <Map
-              handleCountrySelection={handleCountrySelection}
-              selectedCountry={selectedCountry}
-              correctLocation={correctLocation}
-              shouldReset={shouldResetMap}
-              isMarkerPlacementAllowed={isMarkerPlacementAllowed}
-            />
+        <>
+          {isGameStarted && (
+            <div className="mb-6">
+              <ScoreAndRoundInfo
+                score={score}
+                isGameEnded={isGameEnded}
+                trackCount={trackCount}
+                selectedCountry={selectedCountry}
+              />
+              <Map
+                handleCountrySelection={handleCountrySelection}
+                selectedCountry={selectedCountry}
+                correctLocation={correctLocation}
+                shouldReset={shouldResetMap}
+                isMarkerPlacementAllowed={isMarkerPlacementAllowed}
+              />
 
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto_2fr_1fr]">
-              {/* {column 1} */}
-              <div className="order-3 md:order-1 mx-auto">
-                {isSubmitted && (
-                  <img
-                    className="my-4"
-                    width="96px"
-                    src={getFlagUrl(track.location)}
-                    alt={`${track.location} flag`}
-                  />
-                )}
-              </div>
-              {/* {column 2} */}
-              <div className="order-2 md:order-2">
-                <div className="my-2">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto_2fr_1fr]">
+                {/* {column 1} */}
+                <div className="order-3 md:order-1 mx-auto">
                   {isSubmitted && (
-                    <div>
-                      {isCorrectGuess ? (
-                        <>
-                          <p>
-                            The correct country is{" "}
-                            <span className="font-bold">{track.location}</span>!
-                          </p>
-                          <p>
-                            That is{" "}
-                            <span className="font-bold">6000 points</span>
-                            !!!
-                          </p>
-                        </>
-                      ) : (
-                        <>
-                          <p>
-                            The correct country was{" "}
-                            <span className="font-bold">{track.location}</span>.
-                          </p>
-                          <p>
-                            You were{" "}
-                            <span className="font-bold">
-                              {distanceMessage[0]} miles
-                            </span>{" "}
-                            away. That is{" "}
-                            <span className="font-bold">
-                              {distanceMessage[1]} points
-                            </span>
-                            .
-                          </p>
-                        </>
-                      )}
-                    </div>
+                    <img
+                      className="my-4"
+                      width="96px"
+                      src={getFlagUrl(track.location)}
+                      alt={`${track.location} flag`}
+                    />
+                  )}
+                </div>
+                {/* {column 2} */}
+                <div className="order-2 md:order-2">
+                  <div className="my-2">
+                    {isSubmitted && (
+                      <div>
+                        {isCorrectGuess ? (
+                          <>
+                            <p>
+                              The correct country is{" "}
+                              <span className="font-bold">
+                                {track.location}
+                              </span>
+                              !
+                            </p>
+                            <p>
+                              That is{" "}
+                              <span className="font-bold">6000 points</span>
+                              !!!
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <p>
+                              The correct country was{" "}
+                              <span className="font-bold">
+                                {track.location}
+                              </span>
+                              .
+                            </p>
+                            <p>
+                              You were{" "}
+                              <span className="font-bold">
+                                {distanceMessage[0]} miles
+                              </span>{" "}
+                              away. That is{" "}
+                              <span className="font-bold">
+                                {distanceMessage[1]} points
+                              </span>
+                              .
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                {/* {column 3} */}
+                <div className="order-5 md:order-3">
+                  {isGameEnded && (
+                    <GameEnded
+                      score={score}
+                      submittingScore={submittingScore}
+                      username={username}
+                      setUsername={setUsername}
+                      handleSubmitScoreToLeaderboard={
+                        handleSubmitScoreToLeaderboard
+                      }
+                      handlePlayAgain={handlePlayAgain}
+                    />
+                  )}
+                  <AudioPlayer
+                    ref={audioRef}
+                    track={track}
+                    isLoading={isLoading}
+                  />
+                </div>
+                {/* {column 4} */}
+                <div className="order-4 md:order-4 my-4">
+                  {isSubmitted || isGameEnded ? (
+                    <TrackInfo track={track} />
+                  ) : (
+                    ""
+                  )}
+                </div>
+                {/* {column 5} */}
+                <div className="order-1 md:order-5">
+                  {isSubmitted || isGameEnded ? (
+                    ""
+                  ) : (
+                    <LocationGuess
+                      selectedCountry={selectedCountry}
+                      handleSubmit={handleSubmit}
+                      onSubmitButtonClick={handleSubmitButtonClick}
+                      isLoading={isLoading}
+                    />
+                  )}
+                  {!isGameEnded && isSubmitted && (
+                    <TrackLoader
+                      isLoading={isLoading}
+                      handleNextRound={handleNextRound}
+                      handleEndGame={handleEndGame}
+                      isFinalRound={isFinalRound}
+                    />
                   )}
                 </div>
               </div>
-              {/* {column 3} */}
-              <div className="order-5 md:order-3">
-                {isGameEnded && (
-                  <GameEnded
-                    score={score}
-                    submittingScore={submittingScore}
-                    username={username}
-                    setUsername={setUsername}
-                    handleSubmitScoreToLeaderboard={
-                      handleSubmitScoreToLeaderboard
-                    }
-                    handleStartNewGame={handleStartNewGame}
-                  />
-                )}
-                <AudioPlayer
-                  ref={audioRef}
-                  track={track}
-                  isLoading={isLoading}
-                />
-              </div>
-              {/* {column 4} */}
-              <div className="order-4 md:order-4 my-4">
-                {isSubmitted || isGameEnded ? <TrackInfo track={track} /> : ""}
-              </div>
-              {/* {column 5} */}
-              <div className="order-1 md:order-5">
-                {isSubmitted || isGameEnded ? (
-                  ""
-                ) : (
-                  <LocationGuess
-                    selectedCountry={selectedCountry}
-                    handleSubmit={handleSubmit}
-                    onSubmitButtonClick={handleSubmitButtonClick}
-                    isLoading={isLoading}
-                  />
-                )}
-                {!isGameEnded && isSubmitted && (
-                  <TrackLoader
-                    isLoading={isLoading}
-                    handleGetRandomTrack={handleGetRandomTrackClick}
-                    handleEndGame={handleEndGame}
-                    isFinalRound={isFinalRound}
-                  />
-                )}
-              </div>
             </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
     </div>
   );

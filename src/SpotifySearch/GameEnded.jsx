@@ -4,7 +4,7 @@ const GameEnded = ({
   username,
   setUsername,
   handleSubmitScoreToLeaderboard,
-  handleStartNewGame,
+  handlePlayAgain,
 }) => (
   <div className="my-2">
     <p className="text-3xl">
@@ -31,7 +31,7 @@ const GameEnded = ({
         <br></br>
         <button
           className="my-2 btn btn-primary"
-          onClick={handleStartNewGame}
+          onClick={handlePlayAgain}
         >
           Play Again
         </button>
@@ -39,7 +39,7 @@ const GameEnded = ({
     ) : (
       <button
         className="mt-4 btn btn-primary"
-        onClick={handleStartNewGame}
+        onClick={handlePlayAgain}
       >
         Play Again
       </button>

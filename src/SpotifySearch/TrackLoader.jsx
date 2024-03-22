@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const TrackLoader = ({
   isLoading,
-  handleGetRandomTrack,
+  handleNextRound,
   handleEndGame,
   isFinalRound,
 }) => {
@@ -28,7 +28,7 @@ const TrackLoader = ({
     <button
       ref={buttonRef}
       className={`${buttonClass} my-4`}
-      onClick={isFinalRound ? handleEndGame : handleGetRandomTrack}
+      onClick={isFinalRound ? handleEndGame : handleNextRound}
       disabled={isLoading}
       title="Keyboard shortcut: Enter"
     >

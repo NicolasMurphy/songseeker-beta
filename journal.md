@@ -1,3 +1,10 @@
+# 3/22
+    Goals:
+        - Implement autoplay fix
+        -
+    Notes:
+        -
+
 # 3/21
     Goals:
         - Add more tracks

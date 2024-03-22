@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface StartGameButtonProps {
-  handleStartFirstGame: () => void;
+  handleStartGame: () => void;
 }
 
-const StartGameButton: React.FC<StartGameButtonProps> = ({ handleStartFirstGame }) => (
+const StartGameButton: React.FC<StartGameButtonProps> = ({ handleStartGame }) => (
   <button
     className="my-4 btn btn-primary"
-    onClick={handleStartFirstGame}
+    onClick={handleStartGame}
   >
     Start Game
   </button>
