@@ -157,8 +157,8 @@ const SpotifySearch = ({ database }) => {
           <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
         </>
       )}
-      {!isGameStarted && isGameReady ? (
-        <StartGameButton handleStartGame={handleStartGame} />
+      {!isGameStarted ? (
+        <StartGameButton handleStartGame={handleStartGame} isGameReady={isGameReady} />
       ) : (
         <>
           {isGameStarted && (

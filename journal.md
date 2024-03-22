@@ -3,6 +3,7 @@
         - Implement autoplay fix
         - Fix button flash for "submit" (fixed by setSelectedCountry(null) in handleNextRound)
         - Add loading state for "start game"
+        - Fix styling for scoring on mobile
         -
     Notes:
         - removed all mentions of "isLoading"
