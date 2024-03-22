@@ -5,6 +5,7 @@
         - Add hints
         -
     Notes:
+        - Made "Secret" file for testing on mobile. Adding "start game" after "play again" so tracks can be fetched
         -
 
 # 3/20
