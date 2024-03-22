@@ -7,6 +7,7 @@
         -
     Notes:
         - removed all mentions of "isLoading"
+        - Added restrictions to certain websites for Google Maps API key, look into using a separate API key for development
         -
 
 # 3/21
