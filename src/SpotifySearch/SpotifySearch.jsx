@@ -158,7 +158,10 @@ const SpotifySearch = ({ database }) => {
         </>
       )}
       {!isGameStarted ? (
-        <StartGameButton handleStartGame={handleStartGame} isGameReady={isGameReady} />
+        <StartGameButton
+          handleStartGame={handleStartGame}
+          isGameReady={isGameReady}
+        />
       ) : (
         <>
           {isGameStarted && (
@@ -236,7 +239,7 @@ const SpotifySearch = ({ database }) => {
                   </div>
                 </div>
                 {/* {column 3} */}
-                <div className="order-5 md:order-3">
+                <div className="order-1 md:order-3">
                   {isGameEnded && (
                     <GameEnded
                       score={score}
@@ -249,13 +252,10 @@ const SpotifySearch = ({ database }) => {
                       handlePlayAgain={handlePlayAgain}
                     />
                   )}
-                  <AudioPlayer
-                    ref={audioRef}
-                    track={track}
-                  />
+                  <AudioPlayer ref={audioRef} track={track} />
                 </div>
                 {/* {column 4} */}
-                <div className="order-4 md:order-4 my-4">
+                <div className="order-4 md:order-4">
                   {isSubmitted || isGameEnded ? (
                     <TrackInfo track={track} />
                   ) : (
@@ -263,24 +263,32 @@ const SpotifySearch = ({ database }) => {
                   )}
                 </div>
                 {/* {column 5} */}
-                <div className="order-1 md:order-5">
-                  {isSubmitted || isGameEnded ? (
-                    ""
-                  ) : (
+                {isSubmitted || isGameEnded ? (
+                  <div className="order-1 md:order-5">
+                    {!isGameEnded && isSubmitted && (
+                      <TrackLoader
+                        handleNextRound={handleNextRound}
+                        handleEndGame={handleEndGame}
+                        isFinalRound={isFinalRound}
+                      />
+                    )}
+                  </div>
+                ) : (
+                  <div className="order-5 md:order-5">
                     <LocationGuess
                       selectedCountry={selectedCountry}
                       handleSubmit={handleSubmit}
                       onSubmitButtonClick={handleSubmitButtonClick}
                     />
-                  )}
-                  {!isGameEnded && isSubmitted && (
-                    <TrackLoader
-                      handleNextRound={handleNextRound}
-                      handleEndGame={handleEndGame}
-                      isFinalRound={isFinalRound}
-                    />
-                  )}
-                </div>
+                    {!isGameEnded && isSubmitted && (
+                      <TrackLoader
+                        handleNextRound={handleNextRound}
+                        handleEndGame={handleEndGame}
+                        isFinalRound={isFinalRound}
+                      />
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           )}

@@ -24,10 +24,10 @@ const LocationGuess = ({
   }, [selectedCountry]);
 
   return (
-    <div className="flex justify-center my-4">
+    <div className="flex justify-center my-2 md:my-4">
       <button
         ref={buttonRef}
-        className="py-2 btn btn-accent"
+        className="btn btn-accent"
         onClick={() => {
           onSubmitButtonClick(); // Call the callback function when "Submit" is clicked
           handleSubmit(); // Continue with the submit logic

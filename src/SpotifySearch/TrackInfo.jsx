@@ -22,7 +22,7 @@ const TrackInfo = ({ track }) => {
   }
 
   return (
-    <div className="text-center">
+    <div className="text-center my-4">
       <div className="w-36 mx-auto">
         <a
           href={track.external_urls.spotify}
