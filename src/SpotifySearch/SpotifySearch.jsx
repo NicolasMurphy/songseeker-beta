@@ -14,6 +14,7 @@ import useGameProgress from "../hooks/useGameProgress";
 import useScoreSubmission from "../hooks/useScoreSubmission";
 import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
+import { handleGeocoding } from "../utils/helpers";
 
 const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
@@ -40,6 +41,27 @@ const SpotifySearch = ({ database }) => {
   const [tracks, setTracks] = useState([]);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(-1);
   const [isGameReady, setIsGameReady] = useState(false);
+
+  const [usedFiftyFifty, setUsedFiftyFifty] = useState(false);
+  const [fiftyFiftyModalVisible, setFiftyFiftyModalVisible] = useState(false);
+  const [fiftyFiftyOptions, setFiftyFiftyOptions] = useState([]);
+
+  const handleFiftyFifty = () => {
+    if (!usedFiftyFifty && tracks.length > 0 && currentTrackIndex >= 0) {
+      const correctTrack = tracks[currentTrackIndex];
+      let wrongOptions = tracks.filter(t => t.description.country !== correctTrack.description.country);
+      let wrongOption = wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
+      setFiftyFiftyOptions([correctTrack, wrongOption].sort(() => Math.random() - 0.5));
+      setFiftyFiftyModalVisible(true);
+      setUsedFiftyFifty(true);
+    }
+  };
+
+  const selectOption = (option) => {
+    setSelectedCountry(option.description.country);
+    setFiftyFiftyModalVisible(false);
+    setUsedFiftyFifty(true);
+  };
 
   useEffect(() => {
     const fetchAccessTokenAndTracks = async () => {
@@ -107,6 +129,7 @@ const SpotifySearch = ({ database }) => {
     setIsSubmitted(false);
     setShouldResetMap(true);
     setCorrectLocation(null);
+    setUsedFiftyFifty(false);
   };
 
   const handleSubmit = useSubmitGuess(
@@ -183,6 +206,33 @@ const SpotifySearch = ({ database }) => {
               <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto_2fr_1fr]">
                 {/* {column 1} */}
                 <div className="order-3 md:order-1 mx-auto">
+                  {!usedFiftyFifty && !isSubmitted && (
+                    <button onClick={handleFiftyFifty} className="btn-50-50">
+                      Use 50/50
+                    </button>
+                  )}
+                  {fiftyFiftyModalVisible && (
+                    <dialog open className="modal" id="fiftyFiftyModal">
+                      <div className="modal-box">
+                        <form method="dialog"></form>
+                        <h2 className="mb-4">Select Your Guess</h2>
+                        {fiftyFiftyOptions.map((option) => (
+                          <button
+                            key={option.id}
+                            className="m-2 transition duration-300 ease-in-out hover:scale-105"
+                            onClick={() => selectOption(option)}
+                          >
+                            <img
+                              width="96px"
+                              src={getFlagUrl(option.description.country)}
+                              alt={`${option.description.country} flag`}
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </dialog>
+                  )}
+
                   {isSubmitted && (
                     <img
                       className="my-4"
