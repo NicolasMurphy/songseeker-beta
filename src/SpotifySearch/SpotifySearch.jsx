@@ -14,7 +14,6 @@ import useGameProgress from "../hooks/useGameProgress";
 import useScoreSubmission from "../hooks/useScoreSubmission";
 import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
-import { handleGeocoding } from "../utils/helpers";
 
 const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
