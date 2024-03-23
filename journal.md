@@ -4,6 +4,8 @@
         - Fix button flash for "submit" (fixed by setSelectedCountry(null) in handleNextRound)
         - Add loading state for "start game"
         - Fix styling for scoring on mobile
+        - Add back logging for missing preview urls
+        - Add hints (50/50?)
         -
     Notes:
         - removed all mentions of "isLoading"
