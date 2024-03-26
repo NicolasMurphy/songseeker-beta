@@ -1,3 +1,15 @@
+# 3/26
+    Goals:
+        - Finish 50/50
+            - Finish polyline
+            - Finish automatic submit
+            - testing
+            -
+    Notes:
+        - Changed markerLocation from [0, 0] to null since it is an object
+        - Need to define clearer variable names for "markerLocation", "markerRef", etc.
+        -
+
 # 3/22
     Goals:
         - Implement autoplay fix

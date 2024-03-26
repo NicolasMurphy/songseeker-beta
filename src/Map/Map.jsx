@@ -6,6 +6,9 @@ const Map = ({
   shouldReset,
   correctLocation,
   isMarkerPlacementAllowed,
+  isFiftyFifty,
+  setIsFiftyFifty,
+  markerLocation,
 }) => {
   const mapRef = useRef(null);
   const markerRef = useRef(null);
@@ -43,75 +46,94 @@ const Map = ({
     setMapInstance(map);
 
     window.google.maps.event.addListener(map, "click", (event) => {
-        if (!isMarkerPlacementAllowedRef.current) {
-          // If marker placement is not allowed, simply return and do nothing
-          return;
-        }
-        if (markerRef.current) {
-          markerRef.current.setMap(null);
-        }
-
-        const clickedLocation = {
-          lat: event.latLng.lat(),
-          lng: event.latLng.lng(),
-        };
-
-        markerLocationRef.current = clickedLocation;
-
-        const geocoder = new window.google.maps.Geocoder();
-        geocoder.geocode({ location: clickedLocation }, (results, status) => {
-          if (status === "OK") {
-            const countryResult = results.find((result) =>
-              result.types.includes("country")
-            );
-
-            if (countryResult) {
-              const country = getCountryFromResult(countryResult);
-              handleCountrySelection(country, clickedLocation);
-            } else {
-              handleCountrySelection("Not a valid country", clickedLocation);
-            }
-
-            const newMarker = new window.google.maps.Marker({
-              position: clickedLocation,
-              map: map,
-              clickable: false,
-            });
-
-            markerRef.current = newMarker;
-          } else {
-            handleCountrySelection("Geocoding request failed", clickedLocation);
-          }
-        });
-      });
-    };
-
-    useEffect(() => {
-      if (!mapInstance) {
-        initializeMap();
+      if (!isMarkerPlacementAllowedRef.current) {
+        // If marker placement is not allowed, simply return and do nothing
+        return;
       }
-    }, [mapInstance, isMarkerPlacementAllowed]);
-
-    useEffect(() => {
-      // Check if the Maps API script has already been loaded or is being loaded
-      const existingScript = document.querySelector(`script[src^="https://maps.googleapis.com/maps/api/js?key="]`);
-
-      if (!window.google && !existingScript) {
-        const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?v=quarterly&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,drawing,places&callback=initMap&language=en`;
-        script.async = true;
-        script.defer = true;
-        document.body.appendChild(script);
-      } else if (window.google) {
-        initializeMap();
+      if (markerRef.current) {
+        markerRef.current.setMap(null);
       }
 
-      // Define the global initMap function that will be called by the Google Maps script
-      window.initMap = () => {
-        initializeMap();
+      const clickedLocation = {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
       };
 
-    }, []);
+      markerLocationRef.current = clickedLocation;
+
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode({ location: clickedLocation }, (results, status) => {
+        if (status === "OK") {
+          const countryResult = results.find((result) =>
+            result.types.includes("country")
+          );
+
+          if (countryResult) {
+            const country = getCountryFromResult(countryResult);
+            handleCountrySelection(country, clickedLocation);
+          } else {
+            handleCountrySelection("Not a valid country", clickedLocation);
+          }
+
+          const newMarker = new window.google.maps.Marker({
+            position: clickedLocation,
+            map: map,
+            clickable: false,
+          });
+
+          markerRef.current = newMarker;
+        } else {
+          handleCountrySelection("Geocoding request failed", clickedLocation);
+        }
+      });
+    });
+  };
+
+  // FiftyFifty
+  useEffect(() => {
+    if (mapInstance && markerLocation && isFiftyFifty) {
+      if (markerRef.current) {
+        markerRef.current.setMap(null);
+      }
+
+      markerRef.current = new window.google.maps.Marker({
+        position: markerLocation,
+        map: mapInstance,
+        clickable: false,
+      });
+
+      mapInstance.setCenter(markerLocation);
+      setIsFiftyFifty(false);
+    }
+  }, [mapInstance, markerLocation, isFiftyFifty]);
+
+  useEffect(() => {
+    if (!mapInstance) {
+      initializeMap();
+    }
+  }, [mapInstance, isMarkerPlacementAllowed]);
+
+  useEffect(() => {
+    // Check if the Maps API script has already been loaded or is being loaded
+    const existingScript = document.querySelector(
+      `script[src^="https://maps.googleapis.com/maps/api/js?key="]`
+    );
+
+    if (!window.google && !existingScript) {
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?v=quarterly&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,drawing,places&callback=initMap&language=en`;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    } else if (window.google) {
+      initializeMap();
+    }
+
+    // Define the global initMap function that will be called by the Google Maps script
+    window.initMap = () => {
+      initializeMap();
+    };
+  }, []);
 
   useEffect(() => {
     if (shouldReset && mapInstance) {

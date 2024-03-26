@@ -14,6 +14,7 @@ import useGameProgress from "../hooks/useGameProgress";
 import useScoreSubmission from "../hooks/useScoreSubmission";
 import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
+import { handleGeocoding } from "../utils/helpers";
 
 const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
@@ -24,7 +25,7 @@ const SpotifySearch = ({ database }) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [shouldResetMap, setShouldResetMap] = useState(false);
-  const [markerLocation, setMarkerLocation] = useState([0, 0]);
+  const [markerLocation, setMarkerLocation] = useState(null);
   const [distanceMessage, setDistanceMessage] = useState([]);
   const [correctLocation, setCorrectLocation] = useState(null);
   const [score, setScore] = useState(0);
@@ -40,17 +41,22 @@ const SpotifySearch = ({ database }) => {
   const [tracks, setTracks] = useState([]);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(-1);
   const [isGameReady, setIsGameReady] = useState(false);
-
   const [usedFiftyFifty, setUsedFiftyFifty] = useState(false);
   const [fiftyFiftyModalVisible, setFiftyFiftyModalVisible] = useState(false);
   const [fiftyFiftyOptions, setFiftyFiftyOptions] = useState([]);
+  const [isFiftyFifty, setIsFiftyFifty] = useState(false);
 
   const handleFiftyFifty = () => {
     if (!usedFiftyFifty && tracks.length > 0 && currentTrackIndex >= 0) {
       const correctTrack = tracks[currentTrackIndex];
-      let wrongOptions = tracks.filter(t => t.description.country !== correctTrack.description.country);
-      let wrongOption = wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
-      setFiftyFiftyOptions([correctTrack, wrongOption].sort(() => Math.random() - 0.5));
+      let wrongOptions = tracks.filter(
+        (t) => t.description.country !== correctTrack.description.country
+      );
+      let wrongOption =
+        wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
+      setFiftyFiftyOptions(
+        [correctTrack, wrongOption].sort(() => Math.random() - 0.5)
+      );
       setFiftyFiftyModalVisible(true);
       setUsedFiftyFifty(true);
     }
@@ -58,8 +64,22 @@ const SpotifySearch = ({ database }) => {
 
   const selectOption = (option) => {
     setSelectedCountry(option.description.country);
+    setIsFiftyFifty(true);
     setFiftyFiftyModalVisible(false);
     setUsedFiftyFifty(true);
+
+    handleGeocoding(option.description.country)
+      .then((locationLatLng) => {
+        const location = {
+          lat: locationLatLng[0],
+          lng: locationLatLng[1],
+      };
+      setMarkerLocation(location);
+      })
+      .catch((error) => {
+        console.error("Geocoding failed: ", error);
+        setMarkerLocation(null);
+      });
   };
 
   useEffect(() => {
@@ -106,6 +126,7 @@ const SpotifySearch = ({ database }) => {
     setIsMarkerPlacementAllowed(true);
     setTrackCount((prevCount) => prevCount + 1);
     setSelectedCountry(null);
+    setMarkerLocation(null);
   };
 
   const handlePlayAgain = () => {
@@ -129,6 +150,7 @@ const SpotifySearch = ({ database }) => {
     setShouldResetMap(true);
     setCorrectLocation(null);
     setUsedFiftyFifty(false);
+    setMarkerLocation(null);
   };
 
   const handleSubmit = useSubmitGuess(
@@ -200,6 +222,9 @@ const SpotifySearch = ({ database }) => {
                 correctLocation={correctLocation}
                 shouldReset={shouldResetMap}
                 isMarkerPlacementAllowed={isMarkerPlacementAllowed}
+                isFiftyFifty={isFiftyFifty}
+                setIsFiftyFifty={setIsFiftyFifty}
+                markerLocation={markerLocation}
               />
 
               <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto_2fr_1fr]">
