@@ -1,3 +1,13 @@
+# 3/27
+    Goals:
+        - Hide all sensitive info: playlist id, track ids
+        - change maps key for dev
+        - Add hidden volume slider to level track loudness
+        - fix AudioPlayer click?
+        -
+    Notes:
+        -
+
 # 3/26
     Goals:
         - Finish 50/50
@@ -8,6 +18,7 @@
     Notes:
         - Changed markerLocation from [0, 0] to null since it is an object
         - Need to define clearer variable names for "markerLocation", "markerRef", etc.
+        - Having trouble with state synchronization, probably need to use something for state management
         -
 
 # 3/22
