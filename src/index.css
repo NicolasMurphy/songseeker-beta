@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-// for older mobile devices
+/* for older mobile devices */
 .btn-outline.btn-secondary {
   background-color: gold !important;
   border-color: gold !important;
