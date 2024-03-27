@@ -156,6 +156,7 @@ const SpotifySearch = ({ database }) => {
     setCorrectLocation(null);
     setUsedFiftyFifty(false);
     setMarkerLocation(null);
+    setSelectedCountry(null);
   };
 
   const handleSubmit = useSubmitGuess(
