@@ -7,6 +7,7 @@
         - Move state management to zustand
         -
     Notes:
+        - Marker not moving on 50/50 after non 50/50 correct guess. Setting isCorrectGuess to false at the start of every round resolves this issue.
         -
 
 # 3/26

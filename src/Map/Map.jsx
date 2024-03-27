@@ -19,7 +19,7 @@ const Map = ({
   const markerLocationRef = useRef(null);
   const [mapInstance, setMapInstance] = useState(null);
   const isMarkerPlacementAllowedRef = useRef(isMarkerPlacementAllowed);
-  const { isCorrectGuess } = useStore();
+  const { isCorrectGuess, setIsCorrectGuess } = useStore();
   const { isSubmitted } = useStore();
 
   useEffect(() => {
@@ -147,6 +147,8 @@ const Map = ({
 
       markerLocationRef.current = null;
 
+      setIsCorrectGuess(false);
+
       setCorrectLocation(null);
 
       setShouldResetMap(false);
@@ -157,6 +159,7 @@ const Map = ({
     setShouldResetMap,
     correctLocation,
     setCorrectLocation,
+    setIsCorrectGuess,
   ]);
 
   // polyline
@@ -193,10 +196,11 @@ const Map = ({
   }, [correctLocation, mapInstance, isFiftyFifty, isSubmitted]);
 
   // console.log("5050: ", isFiftyFifty, ", marker: ", correctMarkerRef, ", loca: ", correctLocation);
+  // console.log("markerRef: ", markerRef.current, ", markerLocationRef: ", markerLocationRef.current);
 
   // FiftyFifty
   useEffect(() => {
-    if (mapInstance && isFiftyFifty && markerLocation && !isCorrectGuess) {
+    if (mapInstance && isFiftyFifty && markerLocation) {
       if (markerRef.current) {
         markerRef.current.setMap(null);
       }
@@ -209,7 +213,7 @@ const Map = ({
 
       mapInstance.panTo(markerLocation);
     }
-  }, [mapInstance, markerLocation, isFiftyFifty, isCorrectGuess]);
+  }, [mapInstance, markerLocation, isFiftyFifty]);
 
   // FiftyFifty polyline
   useEffect(() => {
