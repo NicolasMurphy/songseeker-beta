@@ -1,6 +1,6 @@
 import { handleGeocoding } from "../utils/helpers";
 import { haversineDistance } from "../utils/utils";
-import useStore from '../store';
+import useStore from "../store";
 
 const useSubmitGuess = (
   setShowTrackInfo,
@@ -8,11 +8,9 @@ const useSubmitGuess = (
   selectedCountry,
   setCorrectLocation,
   markerLocation,
-  setDistanceMessage,
-  setScore
+  setDistanceMessage
 ) => {
-  const { setIsCorrectGuess } = useStore();
-  const { setIsSubmitted } = useStore();
+  const { setIsCorrectGuess, setIsSubmitted, score, setScore } = useStore();
 
   const calculateScore = (distance) => {
     // Formula: score = 6000 - distance, but at least 0
@@ -40,15 +38,15 @@ const useSubmitGuess = (
             markerLocationCoords
           );
           if (distance) {
-            const score = calculateScore(distance);
-            setScore((prevScore) => prevScore + score);
-            setDistanceMessage([distance, score]);
+            const roundScore = calculateScore(distance);
+            setScore(score + roundScore);
+            setDistanceMessage([distance, roundScore]);
           }
         } catch (error) {
           console.error("Error in geocoding:", error);
         }
       } else {
-        setScore((prevScore) => prevScore + 6000);
+        setScore(score + 6000);
       }
     }
   };

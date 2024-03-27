@@ -1,11 +1,15 @@
+import useStore from "../store";
+
 const GameEnded = ({
-  score,
   submittingScore,
   username,
   setUsername,
   handleSubmitScoreToLeaderboard,
   handlePlayAgain,
-}) => (
+}) => {
+  const { score } = useStore();
+
+  return (
   <div className="my-2">
     <p className="text-3xl">
       Your final score is: <span className="font-bold">{score}</span>
@@ -45,6 +49,6 @@ const GameEnded = ({
       </button>
     )}
   </div>
-);
+)};
 
 export default GameEnded;

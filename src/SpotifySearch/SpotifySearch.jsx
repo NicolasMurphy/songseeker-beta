@@ -18,6 +18,9 @@ import { handleGeocoding } from "../utils/helpers";
 import useStore from "../store";
 
 const SpotifySearch = ({ database }) => {
+  const { isCorrectGuess, isSubmitted, setIsSubmitted, score, setScore } =
+    useStore();
+
   const [track, setTrack] = useState(null);
   const [location, setLocation] = useState("");
   const [showTrackInfo, setShowTrackInfo] = useState(false);
@@ -27,7 +30,6 @@ const SpotifySearch = ({ database }) => {
   const [markerLocation, setMarkerLocation] = useState(null);
   const [distanceMessage, setDistanceMessage] = useState([]);
   const [correctLocation, setCorrectLocation] = useState(null);
-  const [score, setScore] = useState(0);
   const [trackCount, setTrackCount] = useState(0);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [submittingScore, setSubmittingScore] = useState(false);
@@ -44,8 +46,6 @@ const SpotifySearch = ({ database }) => {
   const [fiftyFiftyModalVisible, setFiftyFiftyModalVisible] = useState(false);
   const [fiftyFiftyOptions, setFiftyFiftyOptions] = useState([]);
   const [isFiftyFifty, setIsFiftyFifty] = useState(false);
-  const { isCorrectGuess } = useStore();
-  const { isSubmitted, setIsSubmitted } = useStore();
 
   const handleFiftyFifty = () => {
     if (!usedFiftyFifty && tracks.length > 0 && currentTrackIndex >= 0) {
@@ -74,8 +74,8 @@ const SpotifySearch = ({ database }) => {
         const location = {
           lat: locationLatLng[0],
           lng: locationLatLng[1],
-      };
-      setMarkerLocation(location);
+        };
+        setMarkerLocation(location);
       })
       .catch((error) => {
         console.error("Geocoding failed: ", error);
@@ -157,8 +157,7 @@ const SpotifySearch = ({ database }) => {
     selectedCountry,
     setCorrectLocation,
     markerLocation,
-    setDistanceMessage,
-    setScore,
+    setDistanceMessage
   );
 
   const handleCountrySelection = (country, location) => {
@@ -181,7 +180,7 @@ const SpotifySearch = ({ database }) => {
       alert("Username cannot start or end with whitespace.");
       return;
     }
-    submitScoreToFirebase(username, score);
+    submitScoreToFirebase(username);
     setSubmittingScore(false);
   };
 
@@ -207,7 +206,6 @@ const SpotifySearch = ({ database }) => {
           {isGameStarted && (
             <div className="mb-6">
               <ScoreAndRoundInfo
-                score={score}
                 isGameEnded={isGameEnded}
                 trackCount={trackCount}
                 selectedCountry={selectedCountry}
@@ -228,7 +226,10 @@ const SpotifySearch = ({ database }) => {
                 {/* {column 1} */}
                 <div className="order-3 md:order-1 mx-auto">
                   {!usedFiftyFifty && !isSubmitted && (
-                    <button onClick={handleFiftyFifty} className="btn btn-circle btn-success my-4">
+                    <button
+                      onClick={handleFiftyFifty}
+                      className="btn btn-circle btn-success my-4"
+                    >
                       50/50
                     </button>
                   )}
@@ -313,7 +314,6 @@ const SpotifySearch = ({ database }) => {
                 <div className="order-1 md:order-3">
                   {isGameEnded && (
                     <GameEnded
-                      score={score}
                       submittingScore={submittingScore}
                       username={username}
                       setUsername={setUsername}
