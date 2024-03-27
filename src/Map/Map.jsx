@@ -263,7 +263,7 @@ const Map = ({
     isFiftyFifty,
   ]);
 
-  return <div ref={mapRef} className="w-[95%] h-80 mx-auto" />;
+  return <div ref={mapRef} className="w-[95%] md:h-80 h-60 mx-auto" />;
 };
 
 export default Map;

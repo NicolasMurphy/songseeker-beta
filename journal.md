@@ -10,6 +10,8 @@
         - Marker not moving on 50/50 after non 50/50 correct guess. Setting isCorrectGuess to false at the start of every round resolves this issue.
         - Moved score to store
         - Audio glitch not resolved
+        - Testing smaller map size for mobile
+        - modals don't open on my ancient phone with showModal, but it does with the 5050, perhaps update the rest of the modals in that style
         -
 
 # 3/26
