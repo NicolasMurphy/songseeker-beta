@@ -96,13 +96,6 @@ const SpotifySearch = ({ database }) => {
     fetchAccessTokenAndTracks();
   }, []);
 
-  // useEffect(() => {
-  //   if (shouldResetMap) {
-  //     setSelectedCountry("");
-  //     setShouldResetMap(false);
-  //   }
-  // }, [shouldResetMap]);
-
   const handleSubmitButtonClick = () => {
     setIsMarkerPlacementAllowed(false);
   };
@@ -152,7 +145,6 @@ const SpotifySearch = ({ database }) => {
     setIsGameEnded(false);
     setIsFinalRound(false);
     setIsSubmitted(false);
-    // setShouldResetMap(true);
     setCorrectLocation(null);
     setUsedFiftyFifty(false);
     setMarkerLocation(null);
@@ -236,8 +228,8 @@ const SpotifySearch = ({ database }) => {
                 {/* {column 1} */}
                 <div className="order-3 md:order-1 mx-auto">
                   {!usedFiftyFifty && !isSubmitted && (
-                    <button onClick={handleFiftyFifty} className="btn-50-50">
-                      Use 50/50
+                    <button onClick={handleFiftyFifty} className="btn btn-circle btn-success my-4">
+                      50/50
                     </button>
                   )}
                   {fiftyFiftyModalVisible && (
