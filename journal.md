@@ -4,6 +4,7 @@
         - change maps key for dev
         - Add hidden volume slider to level track loudness
         - fix AudioPlayer click?
+        - Move state management to zustand
         -
     Notes:
         -
@@ -19,6 +20,7 @@
         - Changed markerLocation from [0, 0] to null since it is an object
         - Need to define clearer variable names for "markerLocation", "markerRef", etc.
         - Having trouble with state synchronization, probably need to use something for state management
+        - zustand seems cool, will make app more manageable
         -
 
 # 3/22

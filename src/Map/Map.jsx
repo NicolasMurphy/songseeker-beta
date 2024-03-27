@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getCountryFromResult } from "./getCountryFromResult";
+import useStore from "../store";
 
 const Map = ({
   handleCountrySelection,
@@ -7,8 +8,9 @@ const Map = ({
   correctLocation,
   isMarkerPlacementAllowed,
   isFiftyFifty,
-  setIsFiftyFifty,
   markerLocation,
+  setShouldResetMap,
+  setCorrectLocation,
 }) => {
   const mapRef = useRef(null);
   const markerRef = useRef(null);
@@ -17,6 +19,8 @@ const Map = ({
   const markerLocationRef = useRef(null);
   const [mapInstance, setMapInstance] = useState(null);
   const isMarkerPlacementAllowedRef = useRef(isMarkerPlacementAllowed);
+  const { isCorrectGuess } = useStore();
+  const { isSubmitted } = useStore();
 
   useEffect(() => {
     isMarkerPlacementAllowedRef.current = isMarkerPlacementAllowed;
@@ -28,7 +32,7 @@ const Map = ({
     }
 
     const mapOptions = {
-      center: { lat: 0, lng: 0 },
+      center: { lat: 20, lng: 0 },
       zoom: 2,
       gestureHandling: "greedy",
       restriction: {
@@ -61,6 +65,8 @@ const Map = ({
 
       markerLocationRef.current = clickedLocation;
 
+      map.panTo(clickedLocation);
+
       const geocoder = new window.google.maps.Geocoder();
       geocoder.geocode({ location: clickedLocation }, (results, status) => {
         if (status === "OK") {
@@ -88,24 +94,6 @@ const Map = ({
       });
     });
   };
-
-  // FiftyFifty
-  useEffect(() => {
-    if (mapInstance && markerLocation && isFiftyFifty) {
-      if (markerRef.current) {
-        markerRef.current.setMap(null);
-      }
-
-      markerRef.current = new window.google.maps.Marker({
-        position: markerLocation,
-        map: mapInstance,
-        clickable: false,
-      });
-
-      mapInstance.setCenter(markerLocation);
-      setIsFiftyFifty(false);
-    }
-  }, [mapInstance, markerLocation, isFiftyFifty]);
 
   useEffect(() => {
     if (!mapInstance) {
@@ -135,9 +123,10 @@ const Map = ({
     };
   }, []);
 
+  // Reset map, markers, lines
   useEffect(() => {
     if (shouldReset && mapInstance) {
-      mapInstance.setCenter({ lat: 0, lng: 0 });
+      mapInstance.panTo({ lat: 20, lng: 0 });
       mapInstance.setZoom(2);
 
       if (markerRef.current) {
@@ -146,6 +135,7 @@ const Map = ({
       }
 
       if (correctMarkerRef.current) {
+        // this should make it null
         correctMarkerRef.current.setMap(null);
         correctMarkerRef.current = null;
       }
@@ -156,15 +146,22 @@ const Map = ({
       }
 
       markerLocationRef.current = null;
+
+      setCorrectLocation(null);
+
+      setShouldResetMap(false);
     }
-  }, [shouldReset, mapInstance]);
+  }, [
+    shouldReset,
+    mapInstance,
+    setShouldResetMap,
+    correctLocation,
+    setCorrectLocation,
+  ]);
 
+  // polyline
   useEffect(() => {
-    if (correctLocation && mapInstance) {
-      if (correctMarkerRef.current) {
-        correctMarkerRef.current.setMap(null);
-      }
-
+    if (correctLocation && mapInstance && !isFiftyFifty && isSubmitted) {
       const correctMarker = new window.google.maps.Marker({
         position: correctLocation,
         map: mapInstance,
@@ -193,7 +190,74 @@ const Map = ({
         mapInstance.fitBounds(bounds);
       }
     }
-  }, [correctLocation, mapInstance]);
+  }, [correctLocation, mapInstance, isFiftyFifty, isSubmitted]);
+
+  // console.log("5050: ", isFiftyFifty, ", marker: ", correctMarkerRef, ", loca: ", correctLocation);
+
+  // FiftyFifty
+  useEffect(() => {
+    if (mapInstance && isFiftyFifty && markerLocation && !isCorrectGuess) {
+      if (markerRef.current) {
+        markerRef.current.setMap(null);
+      }
+
+      markerRef.current = new window.google.maps.Marker({
+        position: markerLocation,
+        map: mapInstance,
+        clickable: false,
+      });
+
+      mapInstance.panTo(markerLocation);
+    }
+  }, [mapInstance, markerLocation, isFiftyFifty, isCorrectGuess]);
+
+  // FiftyFifty polyline
+  useEffect(() => {
+    if (
+      mapInstance &&
+      isSubmitted &&
+      correctLocation &&
+      markerLocation &&
+      isFiftyFifty
+    ) {
+      if (!isCorrectGuess) {
+        const correctMarker = new window.google.maps.Marker({
+          position: correctLocation,
+          map: mapInstance,
+          clickable: false,
+          icon: {
+            url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+          },
+        });
+
+        correctMarkerRef.current = correctMarker; // need this to be null
+
+        if (markerLocation) {
+          const polyline = new window.google.maps.Polyline({
+            path: [markerLocation, correctLocation],
+            geodesic: true,
+            strokeColor: "#000000",
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+          });
+          polyline.setMap(mapInstance);
+          polylineRef.current = polyline;
+
+          const bounds = new window.google.maps.LatLngBounds();
+          bounds.extend(markerLocation);
+          bounds.extend(correctLocation);
+          mapInstance.fitBounds(bounds);
+        }
+      }
+    }
+  }, [
+    mapInstance,
+    isSubmitted,
+    isCorrectGuess,
+    correctLocation,
+    markerLocation,
+    isFiftyFifty,
+  ]);
 
   return <div ref={mapRef} className="w-[95%] h-80 mx-auto" />;
 };

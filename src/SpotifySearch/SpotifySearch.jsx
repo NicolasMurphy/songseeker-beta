@@ -15,15 +15,14 @@ import useScoreSubmission from "../hooks/useScoreSubmission";
 import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
 import { handleGeocoding } from "../utils/helpers";
+import useStore from "../store";
 
 const SpotifySearch = ({ database }) => {
   const [track, setTrack] = useState(null);
   const [location, setLocation] = useState("");
   const [showTrackInfo, setShowTrackInfo] = useState(false);
-  const [isCorrectGuess, setIsCorrectGuess] = useState(false);
   const audioRef = useRef(null);
   const [selectedCountry, setSelectedCountry] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [shouldResetMap, setShouldResetMap] = useState(false);
   const [markerLocation, setMarkerLocation] = useState(null);
   const [distanceMessage, setDistanceMessage] = useState([]);
@@ -45,6 +44,8 @@ const SpotifySearch = ({ database }) => {
   const [fiftyFiftyModalVisible, setFiftyFiftyModalVisible] = useState(false);
   const [fiftyFiftyOptions, setFiftyFiftyOptions] = useState([]);
   const [isFiftyFifty, setIsFiftyFifty] = useState(false);
+  const { isCorrectGuess } = useStore();
+  const { isSubmitted, setIsSubmitted } = useStore();
 
   const handleFiftyFifty = () => {
     if (!usedFiftyFifty && tracks.length > 0 && currentTrackIndex >= 0) {
@@ -95,12 +96,12 @@ const SpotifySearch = ({ database }) => {
     fetchAccessTokenAndTracks();
   }, []);
 
-  useEffect(() => {
-    if (shouldResetMap) {
-      setSelectedCountry("");
-      setShouldResetMap(false);
-    }
-  }, [shouldResetMap]);
+  // useEffect(() => {
+  //   if (shouldResetMap) {
+  //     setSelectedCountry("");
+  //     setShouldResetMap(false);
+  //   }
+  // }, [shouldResetMap]);
 
   const handleSubmitButtonClick = () => {
     setIsMarkerPlacementAllowed(false);
@@ -117,19 +118,23 @@ const SpotifySearch = ({ database }) => {
   };
 
   const handleNextRound = () => {
+    setShouldResetMap(true);
     const nextIndex =
       currentTrackIndex + 1 < tracks.length ? currentTrackIndex + 1 : 0;
     setCurrentTrackIndex(nextIndex);
     setTrack(tracks[nextIndex]);
     setIsSubmitted(false);
-    setShouldResetMap(true);
     setIsMarkerPlacementAllowed(true);
     setTrackCount((prevCount) => prevCount + 1);
     setSelectedCountry(null);
     setMarkerLocation(null);
+    if (isFiftyFifty) {
+      setIsFiftyFifty(false);
+    }
   };
 
   const handlePlayAgain = () => {
+    setShouldResetMap(true);
     setIsGameStarted(false);
     setIsGameReady(false);
     setCurrentTrackIndex(-1);
@@ -147,22 +152,20 @@ const SpotifySearch = ({ database }) => {
     setIsGameEnded(false);
     setIsFinalRound(false);
     setIsSubmitted(false);
-    setShouldResetMap(true);
+    // setShouldResetMap(true);
     setCorrectLocation(null);
     setUsedFiftyFifty(false);
     setMarkerLocation(null);
   };
 
   const handleSubmit = useSubmitGuess(
-    setIsCorrectGuess,
-    setIsSubmitted,
     setShowTrackInfo,
     track,
     selectedCountry,
     setCorrectLocation,
     markerLocation,
     setDistanceMessage,
-    setScore
+    setScore,
   );
 
   const handleCountrySelection = (country, location) => {
@@ -223,8 +226,9 @@ const SpotifySearch = ({ database }) => {
                 shouldReset={shouldResetMap}
                 isMarkerPlacementAllowed={isMarkerPlacementAllowed}
                 isFiftyFifty={isFiftyFifty}
-                setIsFiftyFifty={setIsFiftyFifty}
                 markerLocation={markerLocation}
+                setShouldResetMap={setShouldResetMap}
+                setCorrectLocation={setCorrectLocation}
               />
 
               <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto_2fr_1fr]">

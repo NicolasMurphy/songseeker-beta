@@ -1,9 +1,8 @@
 import { handleGeocoding } from "../utils/helpers";
 import { haversineDistance } from "../utils/utils";
+import useStore from '../store';
 
 const useSubmitGuess = (
-  setIsCorrectGuess,
-  setIsSubmitted,
   setShowTrackInfo,
   track,
   selectedCountry,
@@ -12,6 +11,8 @@ const useSubmitGuess = (
   setDistanceMessage,
   setScore
 ) => {
+  const { setIsCorrectGuess } = useStore();
+  const { setIsSubmitted } = useStore();
 
   const calculateScore = (distance) => {
     // Formula: score = 6000 - distance, but at least 0
