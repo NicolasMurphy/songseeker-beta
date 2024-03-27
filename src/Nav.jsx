@@ -1,60 +1,71 @@
+import { useState } from 'react';
 import HighScoreList from "./HighScoreList";
 import Donate from "./Donate";
 import About from "./About";
 
 function Nav({ database }) {
+  const [isScoresVisible, setIsScoresVisible] = useState(false);
+  const [isAboutVisible, setIsAboutVisible] = useState(false);
+  const [isDonateVisible, setIsDonateVisible] = useState(false);
+
   return (
     <nav className="text-center py-4">
       <button
         className="btn btn-outline btn-sm mx-2 uppercase"
-        onClick={() => document.getElementById("scores").showModal()}
+        onClick={() => setIsScoresVisible(true)}
       >
         Scores
       </button>
-      <dialog id="scores" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
-          <HighScoreList database={database} />
-        </div>
-      </dialog>
+      {isScoresVisible && (
+        <dialog open className="modal">
+          <div className="modal-box">
+            <form method="dialog">
+              <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => setIsScoresVisible(false)}>
+                ✕
+              </button>
+            </form>
+            <HighScoreList database={database} />
+          </div>
+        </dialog>
+      )}
 
       <button
         className="btn btn-outline btn-sm mx-2 uppercase"
-        onClick={() => document.getElementById("about").showModal()}
+        onClick={() => setIsAboutVisible(true)}
       >
         About
       </button>
-      <dialog id="about" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
-          <About />
-        </div>
-      </dialog>
+      {isAboutVisible && (
+        <dialog open className="modal">
+          <div className="modal-box">
+            <form method="dialog">
+              <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => setIsAboutVisible(false)}>
+                ✕
+              </button>
+            </form>
+            <About />
+          </div>
+        </dialog>
+      )}
 
       <button
         className="btn btn-outline btn-secondary btn-sm mx-2 uppercase"
-        onClick={() => document.getElementById("donate").showModal()}
+        onClick={() => setIsDonateVisible(true)}
       >
         Donate
       </button>
-      <dialog id="donate" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
-          <Donate />
-        </div>
-      </dialog>
+      {isDonateVisible && (
+        <dialog open className="modal">
+          <div className="modal-box">
+            <form method="dialog">
+              <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => setIsDonateVisible(false)}>
+                ✕
+              </button>
+            </form>
+            <Donate />
+          </div>
+        </dialog>
+      )}
     </nav>
   );
 }

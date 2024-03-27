@@ -12,6 +12,7 @@
         - Audio glitch not resolved
         - Testing smaller map size for mobile
         - modals don't open on my ancient phone with showModal, but it does with the 5050, perhaps update the rest of the modals in that style
+        - Trying changing the modals, and fallback color for donate button to test on my older phone
         -
 
 # 3/26

@@ -1,24 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const TrackInfo = ({ track }) => {
+  const [showInfoModal, setShowInfoModal] = useState(false);
+
   if (!track) {
     return null;
-  }
-
-  if (!track.location) {
-    return (
-      <div>
-        <p>Location information is not available for this track.</p>
-        <div className="spotify-link">
-          <a
-            href={track.external_urls.spotify}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          </a>
-        </div>
-      </div>
-    );
   }
 
   return (
@@ -39,7 +25,7 @@ const TrackInfo = ({ track }) => {
 
       <button
         className="btn btn-circle btn-ghost btn-xs text-info"
-        onClick={() => document.getElementById("information").showModal()}
+        onClick={() => setShowInfoModal(true)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,35 +41,39 @@ const TrackInfo = ({ track }) => {
           ></path>
         </svg>
       </button>
-      <dialog id="information" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+
+      {showInfoModal && (
+        <dialog open className="modal" id="information">
+          <div className="modal-box">
+            <button
+              type="button"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              onClick={() => setShowInfoModal(false)}
+            >
               ✕
             </button>
-          </form>
-          <h3 className="text-lg font-bold">
-            {track.name} - {track.artists[0].name}
-          </h3>
-          <p className="py-4">
-            {track.description.description.split("\n").map((line, index) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-                <br />
-              </React.Fragment>
-            ))}
-          </p>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={track.description.link}
-            className="text-info underline hover:no-underline w-24 mx-auto"
-          >
-            Read more
-          </a>
-        </div>
-      </dialog>
+            <h3 className="text-lg font-bold">
+              {track.name} - {track.artists[0].name}
+            </h3>
+            <p className="py-4">
+              {track.description.description.split("\n").map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </p>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={track.description.link}
+              className="text-info underline hover:no-underline"
+            >
+              Read more
+            </a>
+          </div>
+        </dialog>
+      )}
     </div>
   );
 };
