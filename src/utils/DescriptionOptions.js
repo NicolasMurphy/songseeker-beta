@@ -710,6 +710,106 @@ const getDescriptionOptions = () => {
       description: `Julius Theodoor Hugo Uiterloo (December 13, 1934 – November 15, 1975), better known by his stage-name Lieve Hugo and his nickname Iko, was a Surinamese singer. He was one of the pioneers of the kaseko-genre; hence his other nickname King of Kaseko.`,
       link: "https://en.wikipedia.org/wiki/Lieve_Hugo",
     },
+    {
+      country: "Seychelles",
+      description: `Jean-Marc Volcy (born January 29, 1966) is a Seychellois composer, performer and songwriter regarded as one of the pioneering musicians to propagate creole music in Seychelles.`,
+      link: "https://en.wikipedia.org/wiki/Jean-Marc_Volcy",
+    },
+    {
+      country: "Cabo Verde",
+      description: `Cesária Évora GCIH (Portuguese pronunciation: [sɨˈzaɾiɐ ˈɛvuɾɐ]; 27 August 1941 – 17 December 2011) was a Cape Verdean singer known for singing morna, a genre of music from Cape Verde, in her native Cape Verdean Creole. Her songs were often devoted to themes of love, homesickness, nostalgia, and the history of the Cape Verdean people.`,
+      link: "https://en.wikipedia.org/wiki/Ces%C3%A1ria_%C3%89vora",
+    },
+    {
+      country: "Eswatini",
+      description: `"Mine Bengidzakiwe" is a traditional song sung in native ceremonies in Swaziland, which became a local hit in 2007.`,
+      link: "https://en.wikipedia.org/wiki/Mine_bengidzakiwe",
+    },
+    {
+      country: "Samoa",
+      description: `Laulau Siva, by all the matai of Solosolo, Upolu. A laulau siua is a short song which introduces an evening of dancing and singing. The singers are accompanied by a rolled-mat player.`,
+      link: "https://folkways.si.edu/music-from-western-samoa-from-conch-shell-to-disco/world/album/smithsonian",
+    },
+    {
+      country: "Uruguay",
+      description: `"A Don José" is a song composed by maestro Rubén Lena in honor of the oriental hero José Artigas. It was registered in the National Library on May 26, 1964, and composed in 1961 for a songbook that Rubén Lena devised for the children of the school where he served as head teacher. When he composed the song, Rubén Lena was not yet known as a composer and poet; he worked as a rural teacher in Isla Patrulla, a town in the department of Treinta y Tres. The song arose from Rubén Lena's desire to find a composition referring to Artigas that was not as distant as those that had existed until then, and that, with simplicity, was close to the people. For this, he gave it lyrical simplicity and composed it in the form of a milonga, considering it the most traditional rhythm. It was popularized by the group Los Olimareños. In 2003 it was declared a Uruguayan cultural and popular anthem by law. The song is part of the Uruguayan identity and is sung in public schools, mainly on June 19, the anniversary of the birth of José Gervasio Artigas and promise and swearing of the flag in Uruguay. It is found in the repertoire of the National Army of Uruguay.`,
+      link: "https://es.wikipedia.org/wiki/A_don_Jos%C3%A9",
+    },
+    {
+      country: "Moldova",
+      description: `Ion Paladi (N. October 10 1984, Chişcăreni, Singerei) is an interpreter of folk music from Republic of Moldova.`,
+      link: "https://ro.wikipedia.org/wiki/Ion_Paladi",
+    },
+    // {
+    //   country: "Laos",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Papau New Guinea",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Guatemala",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Belize",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Nicaragua",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Costa Rica",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Panama",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Gabon",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Trinidad and Tobago",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Senegal",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "North Korea",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Dominican Republic",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Greenland",
+    //   description: ``,
+    //   link: "",
+    // },
+    // {
+    //   country: "Kuwait",
+    //   description: ``,
+    //   link: "",
+    // },
     // {
     //   country: "",
     //   description: ``,

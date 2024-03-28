@@ -1,3 +1,11 @@
+# 3/28
+    Goals:
+        - Fix autoplay glitch
+        - Add more tracks
+        -
+    Notes:
+        - Countries skipped: Brunei, Kosovo (not recognized by Google Maps API), Palestine, Singapore, Vatican City, Equatorial Guinea, Timor-Leste, Kiribati, Tonga, Micronesia, Vanuatu
+
 # 3/27
     Goals:
         - Hide all sensitive info: playlist id, track ids

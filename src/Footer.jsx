@@ -7,23 +7,6 @@ function Footer({ firestore }) {
     <>
       <footer className="bottom-0 footer footer-center p-10 bg-base-200 text-base-content rounded">
         <nav>
-          {/* <button
-            className="btn btn-outline btn-sm mx-2 uppercase"
-            onClick={() => document.getElementById("add_track").showModal()}
-          >
-            Add Track
-          </button>
-          <dialog id="add_track" className="modal">
-            <div className="modal-box">
-              <form method="dialog">
-                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                  ✕
-                </button>
-              </form>
-              <AddTrack firestore={firestore} />
-            </div>
-          </dialog> */}
-
           <button
             className="btn btn-outline btn-sm mx-2 uppercase"
             onClick={() => setIsAddTrackModalVisible(true)}
@@ -50,15 +33,23 @@ function Footer({ firestore }) {
         <aside>
           <p>
             Copyright © 2024 - Website by{" "}
-            <span>
-              <a
-                href="https://nicolasmurphy.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Nicolas Murphy
-              </a>
-            </span>
+            <a
+              href="https://nicolasmurphy.com"
+              target="_blank"
+              rel="noopener"
+            >
+              Nicolas Murphy
+            </a>
+          </p>
+          <p>
+            Flags provided by{" "}
+            <a
+              href="https://flagpedia.net"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Flagpedia
+            </a>
           </p>
         </aside>
       </footer>

@@ -5,17 +5,15 @@ registerLocale(en);
 export default function getFlagUrl(countryName) {
   if (!countryName) return "";
 
-  if (countryName === "Myanmar (Burma)") {
-    countryName = "Myanmar";
-  }
+  const nameCorrections = {
+    "Myanmar (Burma)": "Myanmar",
+    "Côte d'Ivoire": "Ivory Coast",
+    "Syria": "Syrian Arab Republic",
+    "Cabo Verde": "Cape Verde",
+    "Moldova": "Moldova, Republic of"
+  };
 
-  if (countryName === "Côte d'Ivoire") {
-    countryName = "Ivory Coast";
-  }
-
-  if (countryName === "Syria") {
-    countryName = "Syrian Arab Republic";
-  }
+  countryName = nameCorrections[countryName] || countryName;
 
   let countryCode = getAlpha2Code(countryName, "en");
 
