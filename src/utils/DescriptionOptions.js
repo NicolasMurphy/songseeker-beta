@@ -740,36 +740,36 @@ const getDescriptionOptions = () => {
       description: `Ion Paladi (N. October 10 1984, Chişcăreni, Singerei) is an interpreter of folk music from Republic of Moldova.`,
       link: "https://ro.wikipedia.org/wiki/Ion_Paladi",
     },
-    // {
-    //   country: "Laos",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Papau New Guinea",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Guatemala",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Belize",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Nicaragua",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Costa Rica",
-    //   description: ``,
-    //   link: "",
-    // },
+    {
+      country: "Laos",
+      description: `Solo for a six-foot khene played by Thao Phet Sananikhone. \n This is an example of music for the six-foot khene played by a virtuoso of the instrument who performs three songs of the South in the finest tradition. Because of its dimensions, this khilne calls for a player with powerful lungs, and therefore good players of the six-foot khene are rare. `,
+      link: "https://folkways.si.edu/laos-traditional-music-of-the-south/world/music/album/smithsonian",
+    },
+    {
+      country: "Papua New Guinea",
+      description: `Two generations of Bosavi musicians and 25 years of field recordings: a comprehensive and intimate musical portrait of life in a Papua New Guinea rainforest community. Includes the contemporary music of the youngest generation of guitar band composers, and performances of many traditional everyday and ritual styles featuring their parents.`,
+      link: "https://folkways.si.edu/bosavi-rainforest-music-from-papua-new-guinea/world/album/smithsonian",
+    },
+    {
+      country: "Guatemala",
+      description: `"Luna de Xelajú" is a popular Guatemalan waltz composed by Paco Pérez in 1944. \n Despite the specific context in which the song was written, it is sometimes referred to as Guatemala's second national anthem.`,
+      link: "https://en.wikipedia.org/wiki/Luna_de_Xelaj%C3%BA",
+    },
+    {
+      country: "Belize",
+      description: `Andy Vivian Palacio (December 2, 1960 – January 19, 2008) was a Belizean punta musician and government official. He was also a leading activist for the Garifuna people and their culture.`,
+      link: "https://en.wikipedia.org/wiki/Andy_Palacio",
+    },
+    {
+      country: "Nicaragua",
+      description: `Carlos Mejía Godoy (born June 27, 1943) is a Nicaraguan musician, composer and singer-songwriter and one of the main representatives of the testimonial song or new song of his country.`,
+      link: "https://en.wikipedia.org/wiki/Carlos_Mej%C3%ADa_Godoy",
+    },
+    {
+      country: "Costa Rica",
+      description: `Carlos Guzmán Bermúdez (February 20, 1957 in Desamparados , San José , Costa Rica ) is a musician, composer, producer, arranger and musical director. With a long career in Costa Rican popular music, he has been the winner of several awards, including the most important the Aquileo Echeverría National Music Award in 2008. \n The album 'Gaviota de Fiesta' includes his hit 'Acércate', the official song of the Pyrenees World Festival in France in 2000, and the most notable song composed by Carlos Guzmán called: Soy Tico. Which is part of the Costa Rican national songbook and has become an endearing anthem and song for many 'Ticos' who live outside the country and without a doubt an indisputable success for Gaviota.`,
+      link: "https://es.wikipedia.org/wiki/Carlos_Guzm%C3%A1n_Berm%C3%BAdez",
+    },
     // {
     //   country: "Panama",
     //   description: ``,

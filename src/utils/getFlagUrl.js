@@ -10,7 +10,8 @@ export default function getFlagUrl(countryName) {
     "Côte d'Ivoire": "Ivory Coast",
     "Syria": "Syrian Arab Republic",
     "Cabo Verde": "Cape Verde",
-    "Moldova": "Moldova, Republic of"
+    "Moldova": "Moldova, Republic of",
+    "Laos": "Lao People's Democratic Republic"
   };
 
   countryName = nameCorrections[countryName] || countryName;

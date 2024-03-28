@@ -2,9 +2,11 @@
     Goals:
         - Fix autoplay glitch
         - Add more tracks
+        - Make 5050 choose any flag (perhaps within a certain radius), not just from the 6 chosen.
         -
     Notes:
         - Countries skipped: Brunei, Kosovo (not recognized by Google Maps API), Palestine, Singapore, Vatican City, Equatorial Guinea, Timor-Leste, Kiribati, Tonga, Micronesia, Vanuatu
+        -
 
 # 3/27
     Goals:
