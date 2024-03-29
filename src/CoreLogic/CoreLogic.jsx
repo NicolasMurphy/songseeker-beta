@@ -16,10 +16,10 @@ import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
 import { handleGeocoding } from "../utils/helpers";
 import useStore from "../store";
+import getDescriptionOptions from "../utils/DescriptionOptions";
 
-const SpotifySearch = ({ database }) => {
-  const { isCorrectGuess, isSubmitted, setIsSubmitted, score, setScore } =
-    useStore();
+const CoreLogic = ({ database }) => {
+  const { isCorrectGuess, isSubmitted, setIsSubmitted, setScore } = useStore();
 
   const [track, setTrack] = useState(null);
   const [location, setLocation] = useState("");
@@ -50,13 +50,16 @@ const SpotifySearch = ({ database }) => {
   const handleFiftyFifty = () => {
     if (!usedFiftyFifty && tracks.length > 0 && currentTrackIndex >= 0) {
       const correctTrack = tracks[currentTrackIndex];
-      let wrongOptions = tracks.filter(
-        (t) => t.description.country !== correctTrack.description.country
+      let allTracks = getDescriptionOptions();
+      let wrongOptions = allTracks.filter(
+        (t) => t.country !== correctTrack.description.country
       );
       let wrongOption =
         wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
       setFiftyFiftyOptions(
-        [correctTrack, wrongOption].sort(() => Math.random() - 0.5)
+        [correctTrack.description.country, wrongOption.country].sort(
+          () => Math.random() - 0.5
+        )
       );
       setFiftyFiftyModalVisible(true);
       setUsedFiftyFifty(true);
@@ -64,12 +67,12 @@ const SpotifySearch = ({ database }) => {
   };
 
   const selectOption = (option) => {
-    setSelectedCountry(option.description.country);
+    setSelectedCountry(option);
     setIsFiftyFifty(true);
     setFiftyFiftyModalVisible(false);
     setUsedFiftyFifty(true);
 
-    handleGeocoding(option.description.country)
+    handleGeocoding(option)
       .then((locationLatLng) => {
         const location = {
           lat: locationLatLng[0],
@@ -240,14 +243,14 @@ const SpotifySearch = ({ database }) => {
                         <h2 className="mb-4">Select Your Guess</h2>
                         {fiftyFiftyOptions.map((option) => (
                           <button
-                            key={option.id}
+                            key={option}
                             className="m-2 transition duration-300 ease-in-out hover:scale-105"
                             onClick={() => selectOption(option)}
                           >
                             <img
                               width="96px"
-                              src={getFlagUrl(option.description.country)}
-                              alt={`${option.description.country} flag`}
+                              src={getFlagUrl(option)}
+                              alt={`${option} flag`}
                             />
                           </button>
                         ))}
@@ -369,4 +372,4 @@ const SpotifySearch = ({ database }) => {
   );
 };
 
-export default SpotifySearch;
+export default CoreLogic;

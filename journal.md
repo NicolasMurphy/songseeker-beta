@@ -1,3 +1,14 @@
+# 3/29
+    Goals:
+        - Figure out how to replicate audio glitch reliably
+        - Expand flag selection to all options
+        - Restrict flag selection to neighboring countries
+        -
+    Notes:
+        - 5050 now chooses any track from description options
+        - Renamed SpotifySearch to CoreLogic
+        -
+
 # 3/28
     Goals:
         - Fix autoplay glitch

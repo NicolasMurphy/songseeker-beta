@@ -1,5 +1,5 @@
 import Nav from "./Nav";
-import SpotifySearch from "./SpotifySearch/SpotifySearch";
+import CoreLogic from "./CoreLogic/CoreLogic";
 import NotFound from "./NotFound";
 import Footer from "./Footer";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
       <Nav database={database}/>
       <Routes>
-        <Route path="/" element={<SpotifySearch database={database} />} />
+        <Route path="/" element={<CoreLogic database={database} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer firestore={firestore}/>
