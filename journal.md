@@ -1,3 +1,10 @@
+# 4/1
+    Goals:
+        - Add more tracks
+        -
+    Notes:
+        -
+
 # 3/29
     Goals:
         - Figure out how to replicate audio glitch reliably

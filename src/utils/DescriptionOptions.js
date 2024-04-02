@@ -770,36 +770,36 @@ const getDescriptionOptions = () => {
       description: `Carlos Guzmán Bermúdez (February 20, 1957 in Desamparados , San José , Costa Rica ) is a musician, composer, producer, arranger and musical director. With a long career in Costa Rican popular music, he has been the winner of several awards, including the most important the Aquileo Echeverría National Music Award in 2008. \n The album 'Gaviota de Fiesta' includes his hit 'Acércate', the official song of the Pyrenees World Festival in France in 2000, and the most notable song composed by Carlos Guzmán called: Soy Tico. Which is part of the Costa Rican national songbook and has become an endearing anthem and song for many 'Ticos' who live outside the country and without a doubt an indisputable success for Gaviota.`,
       link: "https://es.wikipedia.org/wiki/Carlos_Guzm%C3%A1n_Berm%C3%BAdez",
     },
-    // {
-    //   country: "Panama",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Gabon",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Trinidad and Tobago",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Senegal",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "North Korea",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Dominican Republic",
-    //   description: ``,
-    //   link: "",
-    // },
+    {
+      country: "Panama",
+      description: `Edgardo Armando Franco (born 27 September 1969), better known as El General, is a Panamanian former reggae artist considered by some to be one of the fathers of reggae en Español and a precursor to reggaetón.`,
+      link: "https://en.wikipedia.org/wiki/El_General",
+    },
+    {
+      country: "Gabon",
+      description: `Patience Marie Josephine Kama Dabany (born 22 January 1941; member of the Order of Gabriela Silang), also known by the names Marie Joséphine Kama and Josephine Bongo, is a Gabonese singer and musician. Dabany served as the First Lady of Gabon from 1967 to 1987. For 28 years, she was married to Omar Bongo Ondimba, who was President of Gabon from 1967 to 2009. After their divorce, she successfully pursued a career in music. She is the mother of the former President of Gabon, Ali Bongo Ondimba.`,
+      link: "https://en.wikipedia.org/wiki/Patience_Dabany",
+    },
+    {
+      country: "Trinidad and Tobago",
+      description: `Slinger Francisco ORTT CM OBE (born July 9, 1935), better known as Mighty Sparrow, is a Trinidadian calypso vocalist, songwriter, and guitarist. Known as the "Calypso King of the World", he is one of the best-known and most successful calypsonians. He has won Trinidad's Carnival Road March competition eight times, Calypso King/Monarch eight times, and has twice won the Calypso King of Kings title.`,
+      link: "https://en.wikipedia.org/wiki/Mighty_Sparrow",
+    },
+    {
+      country: "Senegal",
+      description: `Youssou N'Dour (French: [jusu (ɛ)nduʁ], Wolof: Yuusu Nduur; also known as Youssou Madjiguène Ndour; born 1 October 1959) is a Senegalese singer, songwriter, musician, composer, occasional actor, businessman, and politician. In 2004, Rolling Stone described him as, "perhaps the most famous singer alive" in Senegal and much of Africa and in 2023, the same publication ranked him at number 69 on its list of the 200 Greatest Singers of All Time. From April 2012 to September 2013, he was Senegal's Minister of Tourism.`,
+      link: "https://en.wikipedia.org/wiki/Youssou_N%27Dour",
+    },
+    {
+      country: "North Korea",
+      description: `The Moranbong Band (Korean: 모란봉악단; MR: Moranbong aktan, lit. "Tree Peony Peak Band"), also known as the Moran Hill Orchestra, is a North Korean girl group. The original members were selected by the country's supreme leader, Kim Jong Un. Performing interpretive styles of pop, rock, and fusion, they are the first all-female band from the DPRK, and made their world debut on 6 July 2012. Their varied musical style has been described as symphonic because it is "putting together different kinds of sounds, and ending in a harmonious, pleasing result." \n The band has been referred to in the West as "North Korea's version of the Spice Girls".`,
+      link: "https://en.wikipedia.org/wiki/Moranbong_Band",
+    },
+    {
+      country: "Dominican Republic",
+      description: `The music and dance of merengue originated in the Dominican Republic in the 19th century. Initially merengue was a rural form that was considered unsophisticated and was out of favor with the upper classes. As the result of a political decree in the 1940s, however, it was “dressed up” and became the Dominican Republic’s national dance. This collection features Dominican Joaquín Díaz on diatonic accordion and vocals playing traditional and original merengue music. “Homenaje a San Pedro” is his salute to baseball players Pedro Guerrero, Jorge Bell, and Sammy Sosa, some of the people who were born in his hometown of San Pedro de Macoris.`,
+      link: "https://folkways.si.edu/joaquin-diaz/merengue-alegre/world/music/album/smithsonian",
+    },
     // {
     //   country: "Greenland",
     //   description: ``,

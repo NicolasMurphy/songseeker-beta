@@ -60,6 +60,7 @@ const TrackInfo = ({ track }) => {
                 <React.Fragment key={index}>
                   {line}
                   <br />
+                  <br />
                 </React.Fragment>
               ))}
             </p>
