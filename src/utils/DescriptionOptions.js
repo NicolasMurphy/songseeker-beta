@@ -92,7 +92,7 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Philippines",
-      description: `Tinikling is a traditional Philippine folk dance which originated during the Spanish colonial era. The dance involves at least two people beating, tapping, and sliding bamboo poles on the ground and against each other in coordination with one or more dancers who step over and in between the poles in a dance. It is traditionally danced to rondalla music, a sort of serenade played by an ensemble of stringed instruments which originated in Spain during the Middle Ages; that is why unlike other bamboo dances found around the world, Tinikling is the only bamboo dance that has a Spanish influence. The locomotor movements used in this dance are hopping, jumping, and turning.`,
+      description: `Tinikling is a traditional Philippine folk dance which originated prior to Spanish colonialism in the area. The dance involves at least two people beating, tapping, and sliding bamboo poles on the ground and against each other in coordination with one or more dancers who step over and in between the poles in a dance. It is traditionally danced to rondalla music, a sort of serenade played by an ensemble of stringed instruments which originated in Spain during the Middle Ages. The locomotor movements used in this dance are hopping, jumping, and turning.`,
       link: "https://en.wikipedia.org/wiki/Tinikling",
     },
     {
@@ -297,7 +297,7 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Sri Lanka",
-      description: `Sri Lankabhimanya Wannakuwattawaduge Don Albert Perera[4] (Sinhala: වන්නකුවත්තවඩුගේ දොන් ඇල්බට් පෙරේරා; Tamil: டபிள்யூ. டி. அமரதேவா; 5 December 1927 – 3 November 2016), better known by his adopted name Amaradeva, was a prominent Sri Lankan Sinhalese vocalist, violinist and composer. Primarily using traditional instruments like sitars, tablas and harmoniums, he incorporated Sinhala folk music with Indian ragas in his work. Many consider his contribution to the development of Sinhala music as unmatched; hence, he is occasionally cited as the "Maestro of Sri Lankan Music"`,
+      description: `Sri Lankabhimanya Wannakuwattawaduge Don Albert Perera (Sinhala: වන්නකුවත්තවඩුගේ දොන් ඇල්බට් පෙරේරා; Tamil: டபிள்யூ. டி. அமரதேவா; 5 December 1927 – 3 November 2016), better known by his adopted name Amaradeva, was a prominent Sri Lankan Sinhalese vocalist, violinist and composer. Primarily using traditional instruments like sitars, tablas and harmoniums, he incorporated Sinhala folk music with Indian ragas in his work. Many consider his contribution to the development of Sinhala music as unmatched; hence, he is occasionally cited as the "Maestro of Sri Lankan Music"`,
       link: "https://en.wikipedia.org/wiki/W._D._Amaradeva",
     },
     {
@@ -800,16 +800,41 @@ const getDescriptionOptions = () => {
       description: `The music and dance of merengue originated in the Dominican Republic in the 19th century. Initially merengue was a rural form that was considered unsophisticated and was out of favor with the upper classes. As the result of a political decree in the 1940s, however, it was “dressed up” and became the Dominican Republic’s national dance. This collection features Dominican Joaquín Díaz on diatonic accordion and vocals playing traditional and original merengue music. “Homenaje a San Pedro” is his salute to baseball players Pedro Guerrero, Jorge Bell, and Sammy Sosa, some of the people who were born in his hometown of San Pedro de Macoris.`,
       link: "https://folkways.si.edu/joaquin-diaz/merengue-alegre/world/music/album/smithsonian",
     },
-    // {
-    //   country: "Greenland",
-    //   description: ``,
-    //   link: "",
-    // },
-    // {
-    //   country: "Kuwait",
-    //   description: ``,
-    //   link: "",
-    // },
+    {
+      country: "Greenland",
+      description: `Rasmus Ole Lyberth (born 21 August 1951) is a Greenlandic-Danish musician and actor. Since 1970, he has been one of the most popular artists in the Greenlandic music scene. His music is well known beyond the borders of Greenland.`,
+      link: "https://en.wikipedia.org/wiki/Rasmus_Lyberth",
+    },
+    {
+      country: "Kuwait",
+      description: `Nawal was born on November 18 in the mid-1960s in the Eastern region. She began her studies at the Higher Institute for Musical Arts in Kuwait in the 1970s, where she developed a passion for art and music. Her entry into the institute was driven by her love for music, with Umm Kulthum, Abdel Halim Hafez, Warda Al-Jazairia, and Fairuz being among her favorite singers. Nawal first took the stage at the age of seventeen, during her high school years. She did not continue her university education due to her involvement in the arts and faced difficulties, including delays in obtaining Kuwaiti nationality, which was a significant obstacle at the start of her career. Being stateless, she studied various subjects at the institute, such as solfège, and everything related to singing, including maqams, musical notes, melodies, and vocal ranges like pitch, timbre, and volume, as well as music dictation to develop her musical sense and strengthen her skills in identifying and distinguishing between notes and classifying global musical genres. During her time at the institute, her interaction with the art scene began as many singers who recognized her talent recommended her, including Talal Maddah and Abdul Karim Abdul Qadir. In 1983, the musician Rashid Al-Khader insisted she sing, eventually convincing her, and he is credited with her emergence on the art scene. "Musical instruments Nawal excels at playing."`,
+      link: "https://ar.wikipedia.org/wiki/%D9%86%D9%88%D8%A7%D9%84_%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A%D8%A9",
+    },
+    {
+      country: "Djibouti",
+      description: `Ostinato Records founder Vik Sohonie traveled to Djibouti in hopes of shedding light on the tiny East African nation’s widely unknown musical heritage—much like he did for Somalia with Sweet as Broken Dates, the label’s revelatory 2017 collection of hidden sounds from that country. Instead, he ended up recording Groupe RTD, a contemporary Djibouti combo that serves as house band for Radiodiffusion-Télévision Djibouti, the country’s nationalized media source. The Dancing Devils of Djibouti captures the nine-piece group off the clock, as it were, blowing hard and free.`,
+      link: "https://daily.bandcamp.com/album-of-the-day/groupe-rtd-the-dancing-devils-of-djibouti-review",
+    },
+    {
+      country: "Taiwan",
+      description: `Chen Da (also Chen Ta; Chinese: 陳達; pinyin: Chén Dá; Wade–Giles: Ch'en2 Ta2; Pe̍h-ōe-jī: Tân Ta̍t; b. 1905 (1906?) – d. April 11, 1981) was a Taiwanese folk singer. He was part of Taiwan's folk music scene and worked as an analphabetic creator of lyrics. His spontaneous performances of traditional tunes became an object of study for many scholars focused on the music of Taiwan and brought him to the attention of writers engaged in music criticism including the novelist Wang Tuoh. According to the Journal of Music in China, Chen Da was "the only noted singer of Taiwanese folk singing." Chen Da is also referred to as a singer of "Hoklo folk songs," a synonym of "Taiwanese folk songs."`,
+      link: "https://en.wikipedia.org/wiki/Chen_Da_(singer)",
+    },
+    {
+      country: "Guinea-Bissau",
+      description: `Eneida Marta is a singer from Guinea-Bissau who sings in Portuguese and Guinea-Bissau Creole. She has toured internationally since the release of her first album in 2001 and was selected to take part in the 2008 World Music Expo (WOMEX). Her most recent album, Family, was released in 2022 and has ranked in the top 20 of the Transglobal World Music Chart.`,
+      link: "https://en.wikipedia.org/wiki/Eneida_Marta",
+    },
+    {
+      country: "Ethiopia",
+      description: `Aster Aweke (Amharic: አስቴር አወቀ; born 1959) is an Ethiopian singer-songwriter. Aster's voice has attracted broader public popularity, especially tracing back in 1990s singles and her single "Abebayehosh" in Ethiopian New Year. She is best known for her 1999 album Hagere and her 2006 album Fikir.`,
+      link: "https://en.wikipedia.org/wiki/Aster_Aweke",
+    },
+    {
+      country: "Cambodia",
+      description: `"Champa Battambang" (ចំប៉ាបាត់ដំបង, which means "The Frangipani of Battambang”) is a popular song of the 1960s composed by Sinn Sisamouth, which has become part of Cambodian heritage.`,
+      link: "https://en.wikipedia.org/wiki/Champa_Battambang",
+    },
     // {
     //   country: "",
     //   description: ``,

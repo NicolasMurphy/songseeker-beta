@@ -1,3 +1,15 @@
+# 4/5
+    Goals:
+        - Add more tracks
+        - Replace Ethiopia and Cambodia
+        - Update Philippines Wiki (or replace) (perhaps automate wiki descriptions)
+        -
+    Notes:
+        - Don't think need to add any more new countries, perhaps start repeating countries
+        - Perhaps start mixing in automation of selection of random tracks from Smithsonian Folkways to increase total track number
+        - Perhaps use Wikipedia API?
+        -
+
 # 4/1
     Goals:
         - Add more tracks
