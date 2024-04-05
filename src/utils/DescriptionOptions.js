@@ -241,16 +241,6 @@ const getDescriptionOptions = () => {
       link: "https://folkways.si.edu/folk-music-of-rumania/world/album/smithsonian",
     },
     {
-      country: "Ethiopia",
-      description: `The Waito tribe is usually associated with the Tigre and live in the region of Gondar. They are nomadic and live close to the Earth. This song is a traditional call to the flock, improvised while watching the animals eat and play. A spontaneous, harmonious song played on a hand made bamboo flute with six holes, this melodic improvisation passes the time of day for the shepherd who tends his flock.`,
-      link: "https://folkways.si.edu/folk-music-and-ceremonies-of-ethiopia/world/album/smithsonian",
-    },
-    {
-      country: "Cambodia",
-      description: `The khong ... (various sized gongs with flat or nippled surfaces) have been used up to this century. A number of gongs can be suspended in a horizontal circle, almost touching the ground, with a single player in the center. The khong can also be played with only one player to a single gong. A number of techniques for khong performance are unknown, but some are; execution by striking with a closed fist, open palm, flat fingers or back of the hand, performed with controlled attacks and damping techniques. `,
-      link: "https://folkways.si.edu/cambodia-traditional-music-vol-2-tribe-music-folk-music-and-popular-dances/world/album/smithsonian",
-    },
-    {
       country: "Honduras",
       description: `As liner notes author Doris Stone explains, “Honduras was a meeting ground of nations from its earliest pre-Columbian days. ” Spanish colonial, African, and Native American influences blend not only in the music and dance styles but in the development of musical instruments, especially the marimba. Released in 1955, Songs and Dances of Honduras features ballads such as the corrido and dances such as the waltz, rumba, fandango, and the local sique. Liner notes include a brief cultural history of Honduras, lyrics, track notes, and detailed descriptions of instruments and types of dances.`,
       link: "https://folkways.si.edu/songs-and-dances-of-honduras/world/music/album/smithsonian",
