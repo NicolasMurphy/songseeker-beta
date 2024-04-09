@@ -187,6 +187,22 @@ const CoreLogic = ({ database }) => {
     setSubmittingScore(false);
   };
 
+  // For displaying results at end
+  // let correctCountry = null;
+  // if (isSubmitted) {
+  //   correctCountry = track.location;
+  // }
+
+  // console.log(
+  //   {
+  //     "trackCount": currentTrackIndex,
+  //     "correctLocationCoords": correctLocation,
+  //     "markerLocationCoords": markerLocation,
+  //     "selectedCountry": selectedCountry,
+  //     "correctCountry": correctCountry,
+  //   }
+  // )
+
   return (
     <div className="min-h-screen container mx-auto text-center">
       {!isGameStarted && (
@@ -226,7 +242,7 @@ const CoreLogic = ({ database }) => {
               />
 
               <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_auto_2fr_1fr]">
-                {/* {column 1} */}
+                {/* {column 1 (row 4) - 5050 and flag} */}
                 <div className="order-3 md:order-1 mx-auto">
                   {!usedFiftyFifty && !isSubmitted && (
                     <button
@@ -267,7 +283,7 @@ const CoreLogic = ({ database }) => {
                     />
                   )}
                 </div>
-                {/* {column 2} */}
+                {/* {column 2 (row 3)- is correct guess and distance message} */}
                 <div className="order-2 md:order-2">
                   <div className="my-2">
                     {isSubmitted && (
@@ -313,7 +329,7 @@ const CoreLogic = ({ database }) => {
                     )}
                   </div>
                 </div>
-                {/* {column 3} */}
+                {/* {column 3 (row 1)- audio player, final score, play again, submit score} */}
                 <div className="order-1 md:order-3">
                   {isGameEnded && (
                     <GameEnded
@@ -328,7 +344,7 @@ const CoreLogic = ({ database }) => {
                   )}
                   <AudioPlayer ref={audioRef} track={track} />
                 </div>
-                {/* {column 4} */}
+                {/* {column 4 (row 5) - album art, info button (description, track name and artist)} */}
                 <div className="order-4 md:order-4">
                   {isSubmitted || isGameEnded ? (
                     <TrackInfo track={track} />
@@ -336,9 +352,10 @@ const CoreLogic = ({ database }) => {
                     ""
                   )}
                 </div>
-                {/* {column 5} */}
+                {/* {column 5 (row 2/6) - submit button, next round button} */}
                 {isSubmitted || isGameEnded ? (
                   <div className="order-1 md:order-5">
+                    {/* row 2 - next round*/}
                     {!isGameEnded && isSubmitted && (
                       <TrackLoader
                         handleNextRound={handleNextRound}
@@ -349,6 +366,7 @@ const CoreLogic = ({ database }) => {
                   </div>
                 ) : (
                   <div className="order-5 md:order-5">
+                    {/* row 6 - submit*/}
                     <LocationGuess
                       selectedCountry={selectedCountry}
                       handleSubmit={handleSubmit}

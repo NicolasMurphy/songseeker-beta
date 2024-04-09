@@ -1,3 +1,23 @@
+# 4/9
+    Goals:
+        - Show more detailed results at end
+        - Namibia preview url is no longer available, either remove or replace it
+        -
+    Notes:
+        - Added more clear comments for columns/rows
+        -
+
+# 4/6
+    Goals:
+        - Make map persist for "play again", also perhaps have the map preload but not shown, for "start game"
+        - Keep track of all guesses, and show them at the end, perhaps all spotify links, descriptions, flags, etc.
+        -
+    Notes:
+        - Another hint would be helpful, perhaps a circle that narrows it down?
+        - Include timer? Factor time into score?
+        - Perhaps rework scoring system, draw line to nearest border point, or make the game, incremental by one point (score increases by 1 until you lose)
+        -
+
 # 4/5
     Goals:
         - Add more tracks
