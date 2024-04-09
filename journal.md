@@ -2,9 +2,11 @@
     Goals:
         - Show more detailed results at end
         - Namibia preview url is no longer available, either remove or replace it
+        - Fix audio glitch
         -
     Notes:
         - Added more clear comments for columns/rows
+        - Fixed audio glitch!?
         -
 
 # 4/6
