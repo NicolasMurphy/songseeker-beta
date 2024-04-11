@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const TrackInfo = ({ track }) => {
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  useEffect(() => {
+    const infoSeen = localStorage.getItem("infoSeen");
+    if (!infoSeen) {
+      setShowNotification(true);
+    }
+  }, []);
+
+  const handleInfoClick = () => {
+    setShowInfoModal(true);
+    setShowNotification(false);
+    localStorage.setItem("infoSeen", "true");
+  };
 
   if (!track) {
     return null;
   }
 
   return (
-    <div className="text-center my-4">
+    <div className="text-center my-4 relative">
       <div className="w-36 mx-auto">
         <a
           href={track.external_urls.spotify}
@@ -23,9 +37,19 @@ const TrackInfo = ({ track }) => {
         </a>
       </div>
 
+      <div className="absolute right-1/2 transform -translate-y-full mt-4">
+        {showNotification && (
+          <div className="chat chat-end">
+            <div className="chat-bubble chat-bubble-info">
+              Check out the info button for more details!
+            </div>
+          </div>
+        )}
+      </div>
+
       <button
-        className="btn btn-circle btn-ghost btn-xs text-info"
-        onClick={() => setShowInfoModal(true)}
+        className="btn btn-circle btn-ghost btn-xs text-info relative z-10"
+        onClick={handleInfoClick}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -1,3 +1,10 @@
+# 4/11
+    Goals:
+        - Add a popup for the info icon if the have not seen the popup yet, since most people seem to not click on it
+        -
+    Notes:
+        -
+
 # 4/9
     Goals:
         - Show more detailed results at end
