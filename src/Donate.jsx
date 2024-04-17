@@ -1,7 +1,10 @@
 const Donate = () => (
   <div className="container mx-auto text-center">
     <h1 className="text-4xl font-bold mb-4">Donate</h1>
-    <p className="text-lg">If you enjoyed this game, please consider donating!</p>
+    <p className="text-lg">
+      If you enjoyed this game and are interested in supporting ongoing
+      development costs, please consider donating!
+    </p>
     <br></br>
     <form action="https://www.paypal.com/donate" method="post" target="_blank">
       <input type="hidden" name="business" value="ABYHEBRTYTYQE" />
