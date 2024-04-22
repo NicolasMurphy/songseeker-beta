@@ -1,3 +1,9 @@
+# 4/22
+    Goals:
+        - Gabon preview not available, update/remove it
+        -
+    Notes:
+
 # 4/11
     Goals:
         - Add a popup for the info icon if the have not seen the popup yet, since most people seem to not click on it
