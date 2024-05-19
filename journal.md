@@ -1,3 +1,13 @@
+# 5/19
+    Goals:
+        - Gabon preview not available, update/remove it
+        - Add share score to social media
+        - contact FoodGuessr dev, perhaps structure the scoring system more similar to their game
+        - contact Toby on the 28th, to see if the data is ready
+        - add Conner's suggestions
+        -
+    Notes:
+
 # 4/22
     Goals:
         - Gabon preview not available, update/remove it
