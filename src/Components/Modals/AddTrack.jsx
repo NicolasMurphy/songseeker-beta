@@ -29,8 +29,8 @@ const AddTrack = ({ firestore }) => {
     e.preventDefault();
 
     try {
-      const docRef = await addDoc(collection(firestore, "tracks"), formData);
-      console.log("Document written with ID: ", docRef.id);
+      await addDoc(collection(firestore, "tracks"), formData);
+      // console.log("Document written with ID: ", docRef.id);
       setShowToast(true);
       // Reset form fields
       setFormData({
