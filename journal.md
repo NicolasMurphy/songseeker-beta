@@ -1,3 +1,14 @@
+# 6/17
+    Goals:
+        - About list component
+        - Move useEffect in HighScoreList into a hook
+        - Add loading state for HighScoreList
+        - Make Button Component
+        - Input Widget
+        -
+    Notes:
+        -
+
 # 5/19
     Goals:
         - Gabon preview not available, update/remove it

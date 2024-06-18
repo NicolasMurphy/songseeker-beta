@@ -1,7 +1,7 @@
-import Nav from "./Nav";
+import Nav from "./Components/Nav";
 import CoreLogic from "./CoreLogic/CoreLogic";
 import NotFound from "./NotFound";
-import Footer from "./Footer";
+import Footer from "./Components/Footer";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { database, firestore } from "./firebaseConfig";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddTrack from "./AddTrack";
+import AddTrack from "./Modals/AddTrack";
 
 function Footer({ firestore }) {
   const [isAddTrackModalVisible, setIsAddTrackModalVisible] = useState(false);

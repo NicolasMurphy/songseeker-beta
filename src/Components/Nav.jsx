@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import HighScoreList from "./HighScoreList";
-import Donate from "./Donate";
-import About from "./About";
+import HighScoreList from "./Modals/HighScoreList";
+import Donate from "./Modals/Donate";
+import About from "./Modals/About";
 
 function Nav({ database }) {
   const [isScoresVisible, setIsScoresVisible] = useState(false);
