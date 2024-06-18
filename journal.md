@@ -1,3 +1,16 @@
+# 6/18
+    Goals:
+        - Move useEffect in HighScoreList into a hook
+        - Make Button Component
+        - Input Widget
+        - Convert files to TypeScript
+        - Update Gabon
+        - Find alternative for dangerouslySetInnerHTML
+        -
+    Notes:
+        - dangerouslySetInnerHTML is risky, opens risk of xss attack to users
+        -
+
 # 6/17
     Goals:
         - About list component
