@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
+import { Firestore, collection, addDoc } from "firebase/firestore";
 
-const AddTrack = ({ firestore }) => {
+interface AddTrackProps {
+  firestore: Firestore;
+}
+
+const AddTrack: React.FC<AddTrackProps> = ({ firestore }) => {
   // State to hold form data
   const [formData, setFormData] = useState({
     country: "",
@@ -20,12 +24,12 @@ const AddTrack = ({ firestore }) => {
   }, [showToast]);
 
   // Update state on input change
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
@@ -81,9 +85,8 @@ const AddTrack = ({ firestore }) => {
         <span className="label-text">Description (optional)</span>
       </label>
       <textarea
-        rows="4"
+        rows={4}
         className="textarea textarea-bordered"
-        type="text"
         name="description"
         value={formData.description}
         onChange={handleChange}

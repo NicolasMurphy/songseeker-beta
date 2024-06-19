@@ -2,7 +2,7 @@ import useStore from "../../store";
 import useFetchScores from "../../hooks/useFetchHighScores";
 
 interface HighScoreListProps {
-  database: any;
+  database: object;
 }
 
 interface Score {
