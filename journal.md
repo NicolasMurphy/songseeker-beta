@@ -1,3 +1,11 @@
+# 6/19
+    Goals:
+        - Convert files to TypeScript
+        - Update Gabon
+        -
+    Notes:
+        -
+
 # 6/18
     Goals:
         - Move useEffect in HighScoreList into a hook
