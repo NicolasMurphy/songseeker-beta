@@ -1,6 +1,12 @@
 import useStore from '../store';
 
-const ScoreAndRoundInfo = ({ isGameEnded, trackCount, selectedCountry }) => {
+interface ScoreAndRoundInfoProps {
+  isGameEnded: boolean;
+  trackCount: number;
+  selectedCountry: string;
+}
+
+const ScoreAndRoundInfo: React.FC<ScoreAndRoundInfoProps> = ({ isGameEnded, trackCount, selectedCountry }) => {
   const { score } = useStore();
 
   return (
