@@ -1,7 +1,17 @@
 import useStore from "../../store";
 import useFetchScores from "../../hooks/useFetchHighScores";
 
-function HighScoreList({ database }) {
+interface HighScoreListProps {
+  database: any;
+}
+
+interface Score {
+  id: string;
+  username: string;
+  score: number;
+}
+
+const HighScoreList: React.FC<HighScoreListProps> = ({ database }) => {
   useFetchScores(database);
 
   const { scores, error, loading } = useStore();
@@ -26,7 +36,7 @@ function HighScoreList({ database }) {
               </tr>
             </thead>
             <tbody>
-              {scores.map((score, index) => (
+              {scores.map((score: Score, index: number) => (
                 <tr key={score.id}>
                   <th>{index + 1}</th>
                   <td>{score.username}</td>
