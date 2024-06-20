@@ -2,6 +2,7 @@
     Goals:
         - Convert files to TypeScript
         - Update Gabon
+        - Add more loading states/spinners for flags(including 5050), album art, selected country
         -
     Notes:
         -
