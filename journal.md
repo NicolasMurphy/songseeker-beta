@@ -1,3 +1,11 @@
+# 6/20
+    Goals:
+        - Continue converting files to TypeScript
+        - Add more loading states/spinners for flags(including 5050), album art, selected country
+        -
+    Notes:
+        -
+
 # 6/19
     Goals:
         - Convert files to TypeScript
