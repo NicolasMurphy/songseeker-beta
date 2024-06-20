@@ -765,11 +765,11 @@ const getDescriptionOptions = () => {
       description: `Edgardo Armando Franco (born 27 September 1969), better known as El General, is a Panamanian former reggae artist considered by some to be one of the fathers of reggae en Español and a precursor to reggaetón.`,
       link: "https://en.wikipedia.org/wiki/El_General",
     },
-    {
-      country: "Gabon",
-      description: `Patience Marie Josephine Kama Dabany (born 22 January 1941; member of the Order of Gabriela Silang), also known by the names Marie Joséphine Kama and Josephine Bongo, is a Gabonese singer and musician. Dabany served as the First Lady of Gabon from 1967 to 1987. For 28 years, she was married to Omar Bongo Ondimba, who was President of Gabon from 1967 to 2009. After their divorce, she successfully pursued a career in music. She is the mother of the former President of Gabon, Ali Bongo Ondimba.`,
-      link: "https://en.wikipedia.org/wiki/Patience_Dabany",
-    },
+    // {
+    //   country: "Gabon",
+    //   description: `Patience Marie Josephine Kama Dabany (born 22 January 1941; member of the Order of Gabriela Silang), also known by the names Marie Joséphine Kama and Josephine Bongo, is a Gabonese singer and musician. Dabany served as the First Lady of Gabon from 1967 to 1987. For 28 years, she was married to Omar Bongo Ondimba, who was President of Gabon from 1967 to 2009. After their divorce, she successfully pursued a career in music. She is the mother of the former President of Gabon, Ali Bongo Ondimba.`,
+    //   link: "https://en.wikipedia.org/wiki/Patience_Dabany",
+    // },
     {
       country: "Trinidad and Tobago",
       description: `Slinger Francisco ORTT CM OBE (born July 9, 1935), better known as Mighty Sparrow, is a Trinidadian calypso vocalist, songwriter, and guitarist. Known as the "Calypso King of the World", he is one of the best-known and most successful calypsonians. He has won Trinidad's Carnival Road March competition eight times, Calypso King/Monarch eight times, and has twice won the Calypso King of Kings title.`,
