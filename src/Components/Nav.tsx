@@ -3,7 +3,11 @@ import HighScoreList from "./Modals/HighScoreList";
 import Donate from "./Modals/Donate";
 import About from "./Modals/About";
 
-function Nav({ database }) {
+interface NavProps {
+  database: object;
+}
+
+const Nav: React.FC<NavProps> = ({ database }) => {
   const [isScoresVisible, setIsScoresVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isDonateVisible, setIsDonateVisible] = useState(false);
