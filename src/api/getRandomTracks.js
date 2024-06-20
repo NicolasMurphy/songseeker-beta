@@ -29,7 +29,9 @@ const getRandomTracks = async (accessToken) => {
     description: descriptions[index % descriptions.length],
   }));
 
-  const tracksWithoutPreviewUrl = allTracks.filter(track => !track.preview_url);
+  const tracksWithoutPreviewUrl = allTracks.filter(
+    (track) => !track.preview_url
+  );
   console.log("Tracks without preview URL:", tracksWithoutPreviewUrl);
 
   const playedTracksKey = `playedTracks_${playlistId}`;

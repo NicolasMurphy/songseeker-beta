@@ -49,6 +49,6 @@ const HighScoreList: React.FC<HighScoreListProps> = ({ database }) => {
       )}
     </div>
   );
-}
+};
 
 export default HighScoreList;

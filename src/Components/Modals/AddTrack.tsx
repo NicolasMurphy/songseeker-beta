@@ -24,7 +24,9 @@ const AddTrack: React.FC<AddTrackProps> = ({ firestore }) => {
   }, [showToast]);
 
   // Update state on input change
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -110,10 +112,7 @@ const AddTrack: React.FC<AddTrackProps> = ({ firestore }) => {
 
       {!showToast && (
         <>
-          <button
-            type="submit"
-            className="my-2 btn btn-info"
-          >
+          <button type="submit" className="my-2 btn btn-info">
             Submit
           </button>
         </>

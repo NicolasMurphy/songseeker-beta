@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
 interface StartGameButtonProps {
   handleStartGame: () => void;
   isGameReady: boolean;
 }
 
-const StartGameButton: React.FC<StartGameButtonProps> = ({ handleStartGame, isGameReady }) => (
+const StartGameButton: React.FC<StartGameButtonProps> = ({
+  handleStartGame,
+  isGameReady,
+}) => (
   <>
     {!isGameReady ? (
       <div className="loading loading-bars loading-lg"></div>

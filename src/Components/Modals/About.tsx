@@ -11,7 +11,8 @@ const howToPlayItems = [
         50/50
       </button>
     </span>{" "}
-    button to narrow down your choices to two countries. You only get one per game, so choose wisely!
+    button to narrow down your choices to two countries. You only get one per
+    game, so choose wisely!
   </>,
   <>
     Click the{" "}
@@ -31,15 +32,15 @@ const howToPlayItems = [
       </svg>
     </span>{" "}
     icon to learn more about each track.
-  </>
+  </>,
 ];
-
 
 const About = () => (
   <div className="container mx-auto text-center px-6 py-8">
     <h1 className="text-4xl font-bold mb-8">About</h1>
     <p className="mb-10 text-lg">
-      SongSeeker is a music education geography game! Featuring music from over 150 countries!
+      SongSeeker is a music education geography game! Featuring music from over
+      150 countries!
     </p>
     <h2 className="text-3xl font-bold mb-6">How to Play</h2>
     <List items={howToPlayItems} />

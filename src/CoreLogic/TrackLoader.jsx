@@ -1,10 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const TrackLoader = ({
-  handleNextRound,
-  handleEndGame,
-  isFinalRound,
-}) => {
+const TrackLoader = ({ handleNextRound, handleEndGame, isFinalRound }) => {
   const buttonClass = isFinalRound
     ? "px-4 py-2 btn btn-info"
     : "px-4 py-2 btn btn-primary";

@@ -38,11 +38,7 @@ const Footer: React.FC<FooterProps> = ({ firestore }) => {
         <aside>
           <p>
             Copyright © 2024 - Website by{" "}
-            <a
-              href="https://nicolasmurphy.com"
-              target="_blank"
-              rel="noopener"
-            >
+            <a href="https://nicolasmurphy.com" target="_blank" rel="noopener">
               Nicolas Murphy
             </a>
           </p>
@@ -60,6 +56,6 @@ const Footer: React.FC<FooterProps> = ({ firestore }) => {
       </footer>
     </>
   );
-}
+};
 
 export default Footer;

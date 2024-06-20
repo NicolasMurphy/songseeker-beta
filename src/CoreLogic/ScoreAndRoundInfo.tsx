@@ -1,4 +1,4 @@
-import useStore from '../store';
+import useStore from "../store";
 
 interface ScoreAndRoundInfoProps {
   isGameEnded: boolean;
@@ -6,14 +6,21 @@ interface ScoreAndRoundInfoProps {
   selectedCountry: string;
 }
 
-const ScoreAndRoundInfo: React.FC<ScoreAndRoundInfoProps> = ({ isGameEnded, trackCount, selectedCountry }) => {
+const ScoreAndRoundInfo: React.FC<ScoreAndRoundInfoProps> = ({
+  isGameEnded,
+  trackCount,
+  selectedCountry,
+}) => {
   const { score } = useStore();
 
   return (
     <div className="grid grid-cols-3">
       <p>Current score: {score}</p>
       <p>Round {isGameEnded ? 6 : trackCount}/6</p>
-      <p>Selected Country: {selectedCountry ? selectedCountry : "Awaiting selection..."}</p>
+      <p>
+        Selected Country:{" "}
+        {selectedCountry ? selectedCountry : "Awaiting selection..."}
+      </p>
     </div>
   );
 };

@@ -8,12 +8,12 @@ import { database, firestore } from "./firebaseConfig";
 const App = () => {
   return (
     <BrowserRouter>
-      <Nav database={database}/>
+      <Nav database={database} />
       <Routes>
         <Route path="/" element={<CoreLogic database={database} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer firestore={firestore}/>
+      <Footer firestore={firestore} />
     </BrowserRouter>
   );
 };

@@ -9,11 +9,7 @@ const LocationGuess = ({
   const buttonRef = useRef();
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (
-        e.key === "Enter" &&
-        selectedCountry &&
-        buttonRef.current
-      ) {
+      if (e.key === "Enter" && selectedCountry && buttonRef.current) {
         buttonRef.current.click();
       }
     };

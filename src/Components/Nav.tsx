@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import HighScoreList from "./Modals/HighScoreList";
 import Donate from "./Modals/Donate";
 import About from "./Modals/About";
@@ -24,7 +24,11 @@ const Nav: React.FC<NavProps> = ({ database }) => {
         <dialog open className="modal">
           <div className="modal-box">
             <form method="dialog">
-              <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => setIsScoresVisible(false)}>
+              <button
+                type="button"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                onClick={() => setIsScoresVisible(false)}
+              >
                 ✕
               </button>
             </form>
@@ -43,7 +47,11 @@ const Nav: React.FC<NavProps> = ({ database }) => {
         <dialog open className="modal">
           <div className="modal-box">
             <form method="dialog">
-              <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => setIsAboutVisible(false)}>
+              <button
+                type="button"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                onClick={() => setIsAboutVisible(false)}
+              >
                 ✕
               </button>
             </form>
@@ -62,7 +70,11 @@ const Nav: React.FC<NavProps> = ({ database }) => {
         <dialog open className="modal">
           <div className="modal-box">
             <form method="dialog">
-              <button type="button" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => setIsDonateVisible(false)}>
+              <button
+                type="button"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                onClick={() => setIsDonateVisible(false)}
+              >
                 ✕
               </button>
             </form>
@@ -72,6 +84,6 @@ const Nav: React.FC<NavProps> = ({ database }) => {
       )}
     </nav>
   );
-}
+};
 
 export default Nav;
