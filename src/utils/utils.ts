@@ -1,5 +1,10 @@
-export function haversineDistance(coords1, coords2) {
-  function toRad(x) {
+interface Coordinates {
+  0: number;
+  1: number;
+}
+
+export function haversineDistance(coords1: Coordinates, coords2: Coordinates) {
+  function toRad(x: number) {
     return (x * Math.PI) / 180;
   }
 
