@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useGameProgress = (trackCount) => {
+const useGameProgress = (trackCount: number) => {
   const [isFinalRound, setIsFinalRound] = useState(false);
   const [isGameEnded, setIsGameEnded] = useState(false);
 
