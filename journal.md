@@ -1,9 +1,18 @@
+# 6/21
+    Goals:
+        - Continue converting files to TypeScript
+        - Add more loading states/spinners for flags(including 5050), album art, selected country
+        -
+    Notes:
+        -
+
 # 6/20
     Goals:
         - Continue converting files to TypeScript
         - Add more loading states/spinners for flags(including 5050), album art, selected country
         -
     Notes:
+        - Function type annotation. Example: const function: (variable: type) => void
         -
 
 # 6/19
