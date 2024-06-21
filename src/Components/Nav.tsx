@@ -2,9 +2,10 @@ import { useState } from "react";
 import HighScoreList from "./Modals/HighScoreList";
 import Donate from "./Modals/Donate";
 import About from "./Modals/About";
+import { Database } from "firebase/database";
 
 interface NavProps {
-  database: object;
+  database: Database;
 }
 
 const Nav: React.FC<NavProps> = ({ database }) => {

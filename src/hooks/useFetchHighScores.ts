@@ -1,8 +1,14 @@
 import { useEffect } from "react";
-import { ref, onValue } from "firebase/database";
+import { Database, ref, onValue } from "firebase/database";
 import useStore from "../store";
 
-const useFetchScores = (database) => {
+interface Score {
+  username: string;
+  score: number;
+  id?: string;
+}
+
+const useFetchScores = (database: Database) => {
   const { setScores, setError, setLoading } = useStore();
 
   useEffect(() => {
@@ -10,11 +16,10 @@ const useFetchScores = (database) => {
     const unsubscribe = onValue(
       scoresRef,
       (snapshot) => {
-        const scoreData = snapshot.val();
+        const scoreData: Record<string, Score> | null = snapshot.val();
         if (scoreData) {
-          // Convert object to array and group by username
           const groupedByUser = Object.entries(scoreData).reduce(
-            (acc, [key, value]) => {
+            (acc: Record<string, Score[]>, [key, value]) => {
               const { username } = value;
               if (!acc[username]) {
                 acc[username] = [];
@@ -24,7 +29,6 @@ const useFetchScores = (database) => {
             },
             {}
           );
-          // For each user, find the highest score
           const topScores = Object.values(groupedByUser).map((userScores) => {
             return userScores.reduce((topScore, current) => {
               return current.score > topScore.score ? current : topScore;

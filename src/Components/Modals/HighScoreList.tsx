@@ -1,8 +1,9 @@
 import useStore from "../../store";
 import useFetchScores from "../../hooks/useFetchHighScores";
+import { Database } from "firebase/database";
 
 interface HighScoreListProps {
-  database: object;
+  database: Database;
 }
 
 interface Score {
