@@ -1,3 +1,16 @@
+# 6/22
+    Goals:
+        - NewVersion:
+            - Continue refactoring
+            - Write tests
+            - Scoring system
+            - Randomization
+            - Round system
+            -
+        -
+    Notes:
+        -
+
 # 6/21
     Goals:
         - NewVersion folder, start working on new scoring system
