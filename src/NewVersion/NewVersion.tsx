@@ -41,6 +41,7 @@ const fetchAllTracks = async (accessToken: string): Promise<Track[]> => {
 
 const NewVersion: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchAccessTokenAndTracks = async () => {
@@ -51,18 +52,28 @@ const NewVersion: React.FC = () => {
           setTracks(fetchedTracks);
         } catch (error) {
           console.error("Error fetching tracks:", error);
+        } finally {
+          setLoading(false);
         }
+      } else {
+        setLoading(false);
       }
     };
+
     fetchAccessTokenAndTracks();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (tracks.length === 0) {
+    return <div>No tracks available</div>;
+  }
+
   return (
     <div className="custom-player">
-      <audio
-        controls
-        preload="auto"
-      >
+      <audio controls preload="auto">
         <source src={tracks[0].preview_url} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>

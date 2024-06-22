@@ -12,7 +12,7 @@ const App = () => {
       <Nav database={database} />
       <Routes>
         <Route path="/" element={<CoreLogic database={database} />} />
-        {/* <Route path="/" element={<NewVersion />} /> */}
+        {/* <Route path="/" element={<NewVersion  />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer firestore={firestore} />
