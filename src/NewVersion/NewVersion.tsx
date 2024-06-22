@@ -1,34 +1,8 @@
-import { useState, useEffect } from "react";
-import { refreshAccessToken, fetchAllTracks } from "./api"; // Adjust the path as needed
-
-interface Track {
-  name: string;
-  preview_url: string;
-}
-
-const fetchAccessTokenAndTracks = async (setTracks: React.Dispatch<React.SetStateAction<Track[]>>, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
-  const token = await refreshAccessToken();
-  if (token) {
-    try {
-      const fetchedTracks = await fetchAllTracks(token);
-      setTracks(fetchedTracks);
-    } catch (error) {
-      console.error("Error fetching tracks:", error);
-    } finally {
-      setLoading(false);
-    }
-  } else {
-    setLoading(false);
-  }
-};
+import React from "react";
+import useTracks from "./useTracks";
 
 const NewVersion: React.FC = () => {
-  const [tracks, setTracks] = useState<Track[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    fetchAccessTokenAndTracks(setTracks, setLoading);
-  }, []);
+  const { tracks, loading } = useTracks();
 
   if (loading) {
     return <div>Loading...</div>;
