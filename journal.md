@@ -1,5 +1,6 @@
 # 6/21
     Goals:
+        - NewVersion folder, start working on new scoring system
         - Continue converting files to TypeScript
         - Add more loading states/spinners for flags(including 5050), album art, selected country
         -
