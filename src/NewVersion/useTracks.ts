@@ -1,28 +1,28 @@
 import { useState, useEffect } from "react";
 import { refreshAccessToken, fetchAllTracks } from "./api";
+import { Track } from "./types";
+import { playlistId } from "./config";
 
-interface Track {
-  name: string;
-  preview_url: string;
-}
-
-const useTracks = (): { tracks: Track[]; loading: boolean } => {
+const useTracks = (): { tracks: Track[]; loading: boolean; error: string | null } => {
   const [tracks, setTracks] = useState<Track[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchAccessTokenAndTracks = async () => {
       const token = await refreshAccessToken();
       if (token) {
         try {
-          const fetchedTracks = await fetchAllTracks(token);
+          const fetchedTracks = await fetchAllTracks(token, playlistId);
           setTracks(fetchedTracks);
-        } catch (error) {
-          console.error("Error fetching tracks:", error);
+        } catch (err) {
+          console.error("Error fetching tracks:", err);
+          setError("Failed to fetch tracks.");
         } finally {
           setLoading(false);
         }
       } else {
+        setError("Failed to refresh access token.");
         setLoading(false);
       }
     };
@@ -30,7 +30,7 @@ const useTracks = (): { tracks: Track[]; loading: boolean } => {
     fetchAccessTokenAndTracks();
   }, []);
 
-  return { tracks, loading };
+  return { tracks, loading, error };
 };
 
 export default useTracks;

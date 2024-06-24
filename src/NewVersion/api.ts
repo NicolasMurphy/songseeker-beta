@@ -1,3 +1,5 @@
+import { Track } from "./types";
+
 export const refreshAccessToken = async (): Promise<string | null> => {
   try {
     const response = await fetch("/api/getAccessToken");
@@ -15,14 +17,12 @@ export const refreshAccessToken = async (): Promise<string | null> => {
   }
 };
 
-interface Track {
-  name: string;
-  preview_url: string;
-}
-
-export const fetchAllTracks = async (accessToken: string): Promise<Track[]> => {
+export const fetchAllTracks = async (
+  accessToken: string,
+  playlistId: string
+): Promise<Track[]> => {
   let tracks: Track[] = [];
-  let url = `https://api.spotify.com/v1/playlists/34fCtmB1IBXo6gZmxAJi2l/tracks?limit=100`;
+  let url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=100`;
   while (url) {
     const response = await fetch(url, {
       headers: {
@@ -31,7 +31,15 @@ export const fetchAllTracks = async (accessToken: string): Promise<Track[]> => {
     });
     if (!response.ok) throw new Error("Failed to fetch tracks");
     const data = await response.json();
-    tracks = tracks.concat(data.items.map((item: any) => item.track));
+    tracks = tracks.concat(
+      data.items.map((item: any) => ({
+        name: item.track.name,
+        preview_url: item.track.preview_url,
+        artists: item.track.artists.map((artist: any) => ({
+          name: artist.name,
+        })),
+      }))
+    );
     url = data.next;
   }
   return tracks;
