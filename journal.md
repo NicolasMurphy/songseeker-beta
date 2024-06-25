@@ -1,3 +1,30 @@
+# 6/26
+    Goals:
+        - NewVersion:
+            -
+            -
+        -
+    Notes:
+        -
+
+# 6/25
+    Goals:
+        - NewVersion:
+            - Write tests
+            -
+        -
+    Notes:
+        -
+
+# 6/24
+    Goals:
+        - NewVersion:
+            - Refactor
+            -
+        -
+    Notes:
+        -
+
 # 6/22
     Goals:
         - NewVersion:
