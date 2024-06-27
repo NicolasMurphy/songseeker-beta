@@ -24,16 +24,8 @@ const NewVersion: React.FC = () => {
     setRandomIndex(getRandomInt(descriptions.length));
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <ErrorMessage message={error} />;
-  }
-
-  if (tracks.length === 0 || randomIndex === null) {
-    return <div>No tracks available</div>;
   }
 
   const descriptions: Description[] = getDescriptionOptions();
@@ -45,7 +37,7 @@ const NewVersion: React.FC = () => {
   const checkAnswer = () => {
     if (
       inputValue.toLowerCase() ===
-      descriptions[randomIndex].country.toLowerCase()
+      descriptions[randomIndex as number].country.toLowerCase()
     ) {
       setResult("Correct");
     } else {
@@ -54,17 +46,33 @@ const NewVersion: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen text-center">
-      <AudioPlayer src={tracks[randomIndex].preview_url} />
-      <input
-      className="input input-bordered w-full max-w-xs m-2"
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Enter country"
-      />
-      <button className="btn btn-primary" onClick={checkAnswer}>Check</button>
-      <div>{result}</div>
+    <div className="flex min-h-screen">
+      <div className="mx-auto mt-40 text-center">
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            {tracks.length === 0 || randomIndex === null ? (
+              <div>No tracks available</div>
+            ) : (
+              <section>
+                <AudioPlayer src={tracks[randomIndex].preview_url} />
+                <input
+                  className="input input-bordered w-full max-w-xs m-4"
+                  type="text"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  placeholder="Enter country"
+                />
+                <button className="btn btn-primary m-4" onClick={checkAnswer}>
+                  Check
+                </button>
+                <div>{result}</div>
+              </section>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

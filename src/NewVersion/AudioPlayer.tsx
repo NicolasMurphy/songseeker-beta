@@ -6,7 +6,7 @@ interface AudioPlayerProps {
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   return (
-    <div className="custom-player">
+    <div className="custom-player m-4">
       <audio controls preload="auto">
         <source src={src} type="audio/mpeg" />
         Your browser does not support the audio element.
