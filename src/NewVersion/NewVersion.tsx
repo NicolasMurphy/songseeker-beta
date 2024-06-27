@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useTracks from "./useTracks";
 import getDescriptionOptions from "../utils/DescriptionOptions";
 import ErrorMessage from "./ErrorMessage";
@@ -6,6 +6,7 @@ import AudioPlayer from "./AudioPlayer";
 
 interface Description {
   description: string;
+  country: string;
 }
 
 const getRandomInt = (max: number): number => {
@@ -14,6 +15,14 @@ const getRandomInt = (max: number): number => {
 
 const NewVersion: React.FC = () => {
   const { tracks, loading, error } = useTracks();
+  const [inputValue, setInputValue] = useState("");
+  const [result, setResult] = useState("");
+  const [randomIndex, setRandomIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const descriptions: Description[] = getDescriptionOptions();
+    setRandomIndex(getRandomInt(descriptions.length));
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -23,21 +32,39 @@ const NewVersion: React.FC = () => {
     return <ErrorMessage message={error} />;
   }
 
-  if (tracks.length === 0) {
+  if (tracks.length === 0 || randomIndex === null) {
     return <div>No tracks available</div>;
   }
 
   const descriptions: Description[] = getDescriptionOptions();
-  const randomIndex = getRandomInt(descriptions.length);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const checkAnswer = () => {
+    if (
+      inputValue.toLowerCase() ===
+      descriptions[randomIndex].country.toLowerCase()
+    ) {
+      setResult("Correct");
+    } else {
+      setResult("Wrong");
+    }
+  };
 
   return (
-    <div className="custom-player">
-      <h1>{randomIndex}</h1>
-      <h2>
-        {tracks[randomIndex].name} - {tracks[randomIndex].artists[0].name}
-      </h2>
-      <h3>{descriptions[randomIndex].description}</h3>
+    <div className="min-h-screen text-center">
       <AudioPlayer src={tracks[randomIndex].preview_url} />
+      <input
+      className="input input-bordered w-full max-w-xs m-2"
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Enter country"
+      />
+      <button className="btn btn-primary" onClick={checkAnswer}>Check</button>
+      <div>{result}</div>
     </div>
   );
 };
