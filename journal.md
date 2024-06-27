@@ -1,7 +1,17 @@
+# 6/27
+    Goals:
+        - NewVersion:
+            - Auto suggest countries
+            -
+        -
+    Notes:
+        -
+
 # 6/26
     Goals:
         - NewVersion:
-            -
+            - styling
+            - input field
             -
         -
     Notes:
