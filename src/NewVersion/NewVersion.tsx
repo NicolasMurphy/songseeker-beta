@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useTracks from "./useTracks";
 import getDescriptionOptions from "../utils/DescriptionOptions";
-import ErrorMessage from "./ErrorMessage";
 import AudioPlayer from "./AudioPlayer";
 
 interface Description {
@@ -23,10 +22,6 @@ const NewVersion: React.FC = () => {
     const descriptions: Description[] = getDescriptionOptions();
     setRandomIndex(getRandomInt(descriptions.length));
   }, []);
-
-  if (error) {
-    return <ErrorMessage message={error} />;
-  }
 
   const descriptions: Description[] = getDescriptionOptions();
 
