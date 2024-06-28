@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useTracks from "./useTracks";
 import getDescriptionOptions from "../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
+import Autosuggest from "react-autosuggest";
 
 interface Description {
   description: string;
@@ -13,10 +14,11 @@ const getRandomInt = (max: number): number => {
 };
 
 const NewVersion: React.FC = () => {
-  const { tracks, loading, error } = useTracks();
+  const { tracks, loading } = useTracks();
   const [inputValue, setInputValue] = useState("");
   const [result, setResult] = useState("");
   const [randomIndex, setRandomIndex] = useState<number | null>(null);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -24,9 +26,27 @@ const NewVersion: React.FC = () => {
   }, []);
 
   const descriptions: Description[] = getDescriptionOptions();
+  const countries = descriptions.map(desc => desc.country);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+  const getSuggestions = (value: string) => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+
+    return inputLength === 0 ? [] : countries.filter(
+      country => country.toLowerCase().slice(0, inputLength) === inputValue
+    );
+  };
+
+  const handleInputChange = (event: React.FormEvent<any>, { newValue }: { newValue: string }) => {
+    setInputValue(newValue);
+  };
+
+  const onSuggestionsFetchRequested = ({ value }: { value: string }) => {
+    setSuggestions(getSuggestions(value));
+  };
+
+  const onSuggestionsClearRequested = () => {
+    setSuggestions([]);
   };
 
   const checkAnswer = () => {
@@ -52,12 +72,18 @@ const NewVersion: React.FC = () => {
             ) : (
               <section>
                 <AudioPlayer src={tracks[randomIndex].preview_url} />
-                <input
-                  className="input input-bordered w-full max-w-xs m-4"
-                  type="text"
-                  value={inputValue}
-                  onChange={handleInputChange}
-                  placeholder="Enter country"
+                <Autosuggest
+                  suggestions={suggestions}
+                  onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                  onSuggestionsClearRequested={onSuggestionsClearRequested}
+                  getSuggestionValue={(suggestion) => suggestion}
+                  renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                  inputProps={{
+                    placeholder: "Enter country",
+                    value: inputValue,
+                    onChange: handleInputChange,
+                    className: "input input-bordered w-full max-w-xs m-4",
+                  }}
                 />
                 <button className="btn btn-primary m-4" onClick={checkAnswer}>
                   Check
