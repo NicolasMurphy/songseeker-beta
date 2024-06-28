@@ -1,3 +1,12 @@
+# 6/28
+    Goals:
+        - NewVersion:
+            - Add multiple guesses
+            -
+        -
+    Notes:
+        -
+
 # 6/27
     Goals:
         - NewVersion:
