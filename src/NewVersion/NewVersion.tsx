@@ -11,7 +11,8 @@ const NewVersion: React.FC = () => {
   const [result, setResult] = useState("");
   const [randomIndex, setRandomIndex] = useState<number | null>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(3000);
+  const [guesses, setGuesses] = useState(3);
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -52,19 +53,21 @@ const NewVersion: React.FC = () => {
     setSuggestions([]);
   };
 
+  const correctAnswer =
+    randomIndex !== null ? descriptions[randomIndex].country : "";
+
   const checkAnswer = () => {
     if (!inputValue.trim()) return;
 
-    const correctAnswer =
-      descriptions[randomIndex as number].country.toLowerCase();
     const inputLower = inputValue.toLowerCase();
 
-    if (inputLower === correctAnswer) {
+    if (inputLower === correctAnswer.toLowerCase()) {
       setResult("Correct!");
-      setScore(score + 3000);
+      setScore(3000);
     } else {
-      setResult("Wrong");
-      setScore(score - 1000);
+      setResult("Wrong.");
+      setScore(Math.max(score - 1000, 0));
+      setGuesses(guesses - 1);
     }
   };
 
@@ -111,8 +114,20 @@ const NewVersion: React.FC = () => {
                     Check
                   </button>
                 </div>
-                <div>{result}</div>
-                <div>Score: {score}</div>
+                {result === "Correct!" || score === 0 ? (
+                  <>
+                    <div>
+                      {result} The answer was {correctAnswer}.
+                    </div>
+                    <div>Score: {score}</div>
+                  </>
+                ) : ( guesses !== 3 &&
+                  <>
+                    <div>
+                      {result} {guesses} guesses left.
+                    </div>
+                  </>
+                )}
               </section>
             )}
           </>
