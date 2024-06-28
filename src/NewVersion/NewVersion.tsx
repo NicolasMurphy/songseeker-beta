@@ -3,15 +3,7 @@ import useTracks from "./useTracks";
 import getDescriptionOptions from "../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
 import Autosuggest from "react-autosuggest";
-
-interface Description {
-  description: string;
-  country: string;
-}
-
-const getRandomInt = (max: number): number => {
-  return Math.floor(Math.random() * max);
-};
+import { Description } from "./types";
 
 const NewVersion: React.FC = () => {
   const { tracks, loading } = useTracks();
@@ -19,6 +11,7 @@ const NewVersion: React.FC = () => {
   const [result, setResult] = useState("");
   const [randomIndex, setRandomIndex] = useState<number | null>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -27,6 +20,10 @@ const NewVersion: React.FC = () => {
 
   const descriptions: Description[] = getDescriptionOptions();
   const countries = descriptions.map((desc) => desc.country);
+
+  const getRandomInt = (max: number): number => {
+    return Math.floor(Math.random() * max);
+  };
 
   const getSuggestions = (value: string) => {
     const inputValue = value.trim().toLowerCase();
@@ -56,13 +53,18 @@ const NewVersion: React.FC = () => {
   };
 
   const checkAnswer = () => {
-    if (
-      inputValue.toLowerCase() ===
-      descriptions[randomIndex as number].country.toLowerCase()
-    ) {
-      setResult("Correct");
+    if (!inputValue.trim()) return;
+
+    const correctAnswer =
+      descriptions[randomIndex as number].country.toLowerCase();
+    const inputLower = inputValue.toLowerCase();
+
+    if (inputLower === correctAnswer) {
+      setResult("Correct!");
+      setScore(score + 3000);
     } else {
       setResult("Wrong");
+      setScore(score - 1000);
     }
   };
 
@@ -110,6 +112,7 @@ const NewVersion: React.FC = () => {
                   </button>
                 </div>
                 <div>{result}</div>
+                <div>Score: {score}</div>
               </section>
             )}
           </>
