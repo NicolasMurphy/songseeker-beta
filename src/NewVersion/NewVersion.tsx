@@ -26,18 +26,24 @@ const NewVersion: React.FC = () => {
   }, []);
 
   const descriptions: Description[] = getDescriptionOptions();
-  const countries = descriptions.map(desc => desc.country);
+  const countries = descriptions.map((desc) => desc.country);
 
   const getSuggestions = (value: string) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
-    return inputLength === 0 ? [] : countries.filter(
-      country => country.toLowerCase().slice(0, inputLength) === inputValue
-    );
+    return inputLength === 0
+      ? []
+      : countries.filter(
+          (country) =>
+            country.toLowerCase().slice(0, inputLength) === inputValue
+        );
   };
 
-  const handleInputChange = (event: React.FormEvent<any>, { newValue }: { newValue: string }) => {
+  const handleInputChange = (
+    event: React.FormEvent<any>,
+    { newValue }: { newValue: string }
+  ) => {
     setInputValue(newValue);
   };
 
@@ -60,11 +66,18 @@ const NewVersion: React.FC = () => {
     }
   };
 
+  const theme = {
+    input: "input input-bordered w-full max-w-xs m-4",
+    suggestionsContainer: "ml-4 bg-gray-400 mt-1 w-full max-w-xs z-10",
+    suggestion: "p-2 cursor-pointer text-black",
+    suggestionHighlighted: "bg-gray-300",
+  };
+
   return (
     <div className="flex min-h-screen">
       <div className="mx-auto mt-40 text-center">
         {loading ? (
-          <div>Loading...</div>
+          <span className="loading loading-bars loading-lg text-primary"></span>
         ) : (
           <>
             {tracks.length === 0 || randomIndex === null ? (
@@ -72,22 +85,30 @@ const NewVersion: React.FC = () => {
             ) : (
               <section>
                 <AudioPlayer src={tracks[randomIndex].preview_url} />
-                <Autosuggest
-                  suggestions={suggestions}
-                  onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-                  onSuggestionsClearRequested={onSuggestionsClearRequested}
-                  getSuggestionValue={(suggestion) => suggestion}
-                  renderSuggestion={(suggestion) => <div>{suggestion}</div>}
-                  inputProps={{
-                    placeholder: "Enter country",
-                    value: inputValue,
-                    onChange: handleInputChange,
-                    className: "input input-bordered w-full max-w-xs m-4",
-                  }}
-                />
-                <button className="btn btn-primary m-4" onClick={checkAnswer}>
-                  Check
-                </button>
+                <div className="flex">
+                  <Autosuggest
+                    suggestions={suggestions}
+                    onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                    onSuggestionsClearRequested={onSuggestionsClearRequested}
+                    getSuggestionValue={(suggestion) => suggestion}
+                    renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                    inputProps={{
+                      placeholder: "Enter country",
+                      value: inputValue,
+                      onChange: handleInputChange,
+                      className: theme.input,
+                    }}
+                    theme={{
+                      suggestionsContainer: theme.suggestionsContainer,
+                      suggestion: theme.suggestion,
+                      suggestionHighlighted: theme.suggestionHighlighted,
+                    }}
+                  />
+                  <div className="m-4"></div>
+                  <button className="btn btn-primary m-4" onClick={checkAnswer}>
+                    Check
+                  </button>
+                </div>
                 <div>{result}</div>
               </section>
             )}
