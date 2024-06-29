@@ -1,3 +1,17 @@
+# 6/29
+    Goals:
+        - NewVersion:
+            - Work on play again button
+            - Fetch only one track at a time
+            - Start working on rounds system
+            - Hints
+            - Add flags
+            - Distance calculation: cold, warm, hot, borders
+            -
+        -
+    Notes:
+        -
+
 # 6/28
     Goals:
         - NewVersion:
