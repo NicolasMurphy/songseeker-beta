@@ -13,6 +13,7 @@ const NewVersion: React.FC = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [score, setScore] = useState(3000);
   const [guesses, setGuesses] = useState(3);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -63,12 +64,24 @@ const NewVersion: React.FC = () => {
 
     if (inputLower === correctAnswer.toLowerCase()) {
       setResult("Correct!");
-      setScore(3000);
+      setGameOver(true);
     } else {
       setResult("Wrong.");
       setScore(Math.max(score - 1000, 0));
       setGuesses(guesses - 1);
+      if (guesses === 1) {
+        setGameOver(true);
+      }
     }
+  };
+
+  const handlePlayAgain = () => {
+    setInputValue("");
+    setResult("");
+    setScore(3000);
+    setGuesses(3);
+    setGameOver(false);
+    setRandomIndex(getRandomInt(descriptions.length));
   };
 
   const theme = {
@@ -110,23 +123,37 @@ const NewVersion: React.FC = () => {
                     }}
                   />
                   <div className="m-4"></div>
-                  <button className="btn btn-primary m-4" onClick={checkAnswer}>
-                    Check
-                  </button>
+                  {!gameOver ? (
+                    <button
+                      className="btn btn-primary m-4"
+                      onClick={checkAnswer}
+                    >
+                      Check
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-primary m-4"
+                      onClick={handlePlayAgain}
+                    >
+                      Play Again
+                    </button>
+                  )}
                 </div>
-                {result === "Correct!" || score === 0 ? (
+                {gameOver ? (
                   <>
                     <div>
                       {result} The answer was {correctAnswer}.
                     </div>
                     <div>Score: {score}</div>
                   </>
-                ) : ( guesses !== 3 &&
-                  <>
-                    <div>
-                      {result} {guesses} guesses left.
-                    </div>
-                  </>
+                ) : (
+                  guesses !== 3 && (
+                    <>
+                      <div>
+                        {result} {guesses} guesses left.
+                      </div>
+                    </>
+                  )
                 )}
               </section>
             )}
