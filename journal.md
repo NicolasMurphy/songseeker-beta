@@ -5,6 +5,7 @@
             - round system
             - hints
             - distance calculation
+            - auto select input field
             -
         -
     Notes:
