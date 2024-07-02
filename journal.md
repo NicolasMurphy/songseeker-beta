@@ -19,10 +19,12 @@
                 - scroll bar in dropdown
                 - flags in dropdown
                 - list wrong guesses
+                - auto play
                 -
             -
         -
     Notes:
+        - add state + 1 to force remount
         -
 
 # 6/29
