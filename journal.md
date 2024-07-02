@@ -19,7 +19,7 @@
                 - scroll bar in dropdown
                 - flags in dropdown
                 - list wrong guesses
-                - auto play
+                - auto play - may need to make adjustments for mobile
                 -
             -
         -
