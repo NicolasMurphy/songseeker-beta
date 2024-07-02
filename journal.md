@@ -1,7 +1,11 @@
 # 7/1
     Goals:
         - NewVersion:
-            - Get rid of check button, style more similar to foodguessr: select only options from dropdown
+            - Get rid of check button, style more similar to foodguessr:
+                - select only options from dropdown
+                - All countries in dropdown
+                - scroll bar in dropdown
+                - flags in dropdown
             -
         -
     Notes:

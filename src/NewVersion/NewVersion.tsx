@@ -101,8 +101,8 @@ const NewVersion: React.FC = () => {
   };
 
   const theme = {
-    input: "input input-bordered w-full max-w-xs m-4",
-    suggestionsContainer: "ml-4 bg-gray-400 mt-1 w-full max-w-xs z-10",
+    input: "ml-2 input input-bordered w-full max-w-xs m-4",
+    suggestionsContainer: "ml-2 bg-gray-400 m-1 w-full max-w-xs z-10",
     suggestion: "p-2 cursor-pointer text-black",
     suggestionHighlighted: "bg-gray-300",
   };
