@@ -1,3 +1,15 @@
+# 7/2
+    Goals:
+        - NewVersion:
+            - flags
+            - round system
+            - hints
+            - distance calculation
+            -
+        -
+    Notes:
+        -
+
 # 7/1
     Goals:
         - NewVersion:
