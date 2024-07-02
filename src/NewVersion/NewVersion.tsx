@@ -57,10 +57,10 @@ const NewVersion: React.FC = () => {
   const correctAnswer =
     randomIndex !== null ? descriptions[randomIndex].country : "";
 
-  const checkAnswer = () => {
-    if (!inputValue.trim()) return;
+  const checkAnswer = (selectedCountry: string) => {
+    if (!selectedCountry.trim()) return;
 
-    const inputLower = inputValue.toLowerCase();
+    const inputLower = selectedCountry.toLowerCase();
 
     if (inputLower === correctAnswer.toLowerCase()) {
       setResult("Correct!");
@@ -84,6 +84,22 @@ const NewVersion: React.FC = () => {
     setRandomIndex(getRandomInt(descriptions.length));
   };
 
+  const handleSuggestionSelected = (
+    event: React.FormEvent<any>,
+    { suggestion }: { suggestion: string }
+  ) => {
+    checkAnswer(suggestion);
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" && suggestions.length > 0) {
+      event.preventDefault();
+      const topSuggestion = suggestions[0];
+      setInputValue(topSuggestion);
+      checkAnswer(topSuggestion);
+    }
+  };
+
   const theme = {
     input: "input input-bordered w-full max-w-xs m-4",
     suggestionsContainer: "ml-4 bg-gray-400 mt-1 w-full max-w-xs z-10",
@@ -103,7 +119,7 @@ const NewVersion: React.FC = () => {
             ) : (
               <section>
                 <AudioPlayer src={tracks[randomIndex].preview_url} />
-                <div className="flex">
+                <div className="">
                   <Autosuggest
                     suggestions={suggestions}
                     onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -114,30 +130,16 @@ const NewVersion: React.FC = () => {
                       placeholder: "Enter country",
                       value: inputValue,
                       onChange: handleInputChange,
+                      onKeyPress: handleKeyPress,
                       className: theme.input,
                     }}
+                    onSuggestionSelected={handleSuggestionSelected}
                     theme={{
                       suggestionsContainer: theme.suggestionsContainer,
                       suggestion: theme.suggestion,
                       suggestionHighlighted: theme.suggestionHighlighted,
                     }}
                   />
-                  <div className="m-4"></div>
-                  {!gameOver ? (
-                    <button
-                      className="btn btn-primary m-4"
-                      onClick={checkAnswer}
-                    >
-                      Check
-                    </button>
-                  ) : (
-                    <button
-                      className="btn btn-primary m-4"
-                      onClick={handlePlayAgain}
-                    >
-                      Play Again
-                    </button>
-                  )}
                 </div>
                 {gameOver ? (
                   <>
@@ -145,6 +147,12 @@ const NewVersion: React.FC = () => {
                       {result} The answer was {correctAnswer}.
                     </div>
                     <div>Score: {score}</div>
+                    <button
+                      className="btn btn-primary m-4"
+                      onClick={handlePlayAgain}
+                    >
+                      Play Again
+                    </button>
                   </>
                 ) : (
                   guesses !== 3 && (

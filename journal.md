@@ -1,3 +1,12 @@
+# 7/1
+    Goals:
+        - NewVersion:
+            - Get rid of check button, style more similar to foodguessr: select only options from dropdown
+            -
+        -
+    Notes:
+        -
+
 # 6/29
     Goals:
         - NewVersion:
