@@ -14,6 +14,7 @@ const NewVersion: React.FC = () => {
   const [score, setScore] = useState(3000);
   const [guesses, setGuesses] = useState(3);
   const [gameOver, setGameOver] = useState(false);
+  const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -69,10 +70,12 @@ const NewVersion: React.FC = () => {
       setResult("Wrong.");
       setScore(Math.max(score - 1000, 0));
       setGuesses(guesses - 1);
+      setWrongGuesses((prevGuesses) => [...prevGuesses, selectedCountry]);
       if (guesses === 1) {
         setGameOver(true);
       }
     }
+    setInputValue("");
   };
 
   const handlePlayAgain = () => {
@@ -81,6 +84,7 @@ const NewVersion: React.FC = () => {
     setScore(3000);
     setGuesses(3);
     setGameOver(false);
+    setWrongGuesses([]);
     setRandomIndex(getRandomInt(descriptions.length));
   };
 
@@ -155,13 +159,18 @@ const NewVersion: React.FC = () => {
                     </button>
                   </>
                 ) : (
-                  guesses !== 3 && (
-                    <>
-                      <div>
-                        {result} {guesses} guesses left.
-                      </div>
-                    </>
-                  )
+                  <>
+                    {guesses !== 3 && (
+                      <>
+                        <div>
+                          {result} {guesses} guesses left.
+                        </div>
+                      </>
+                    )}
+                  </>
+                )}
+                {guesses !== 3 && (
+                  <div>Wrong guesses: {wrongGuesses.join(", ")}</div>
                 )}
               </section>
             )}

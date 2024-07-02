@@ -6,6 +6,8 @@
                 - All countries in dropdown
                 - scroll bar in dropdown
                 - flags in dropdown
+                - list wrong guesses
+                -
             -
         -
     Notes:
