@@ -15,6 +15,7 @@ const NewVersion: React.FC = () => {
   const [guesses, setGuesses] = useState(3);
   const [gameOver, setGameOver] = useState(false);
   const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
+  const [trackKey, setTrackKey] = useState(0); // force re-mount
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -63,6 +64,12 @@ const NewVersion: React.FC = () => {
 
     const inputLower = selectedCountry.toLowerCase();
 
+    if (wrongGuesses.includes(selectedCountry)) {
+      setResult(`You already guessed "${selectedCountry}". Try another one.`);
+      setInputValue("");
+      return;
+    }
+
     if (inputLower === correctAnswer.toLowerCase()) {
       setResult("Correct!");
       setGameOver(true);
@@ -86,6 +93,7 @@ const NewVersion: React.FC = () => {
     setGameOver(false);
     setWrongGuesses([]);
     setRandomIndex(getRandomInt(descriptions.length));
+    setTrackKey(trackKey + 1); // force re-mount
   };
 
   const handleSuggestionSelected = (
@@ -105,8 +113,8 @@ const NewVersion: React.FC = () => {
   };
 
   const theme = {
-    input: "ml-2 input input-bordered w-full max-w-xs m-4",
-    suggestionsContainer: "ml-2 bg-gray-400 m-1 w-full max-w-xs z-10",
+    input: "mx-auto input input-bordered w-full max-w-xs m-4",
+    suggestionsContainer: "mx-auto bg-gray-400 m-1 w-full max-w-xs z-10",
     suggestion: "p-2 cursor-pointer text-black",
     suggestionHighlighted: "bg-gray-300",
   };
@@ -122,29 +130,34 @@ const NewVersion: React.FC = () => {
               <div>No tracks available</div>
             ) : (
               <section>
-                <AudioPlayer src={tracks[randomIndex].preview_url} />
-                <div className="">
-                  <Autosuggest
-                    suggestions={suggestions}
-                    onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-                    onSuggestionsClearRequested={onSuggestionsClearRequested}
-                    getSuggestionValue={(suggestion) => suggestion}
-                    renderSuggestion={(suggestion) => <div>{suggestion}</div>}
-                    inputProps={{
-                      placeholder: "Enter country",
-                      value: inputValue,
-                      onChange: handleInputChange,
-                      onKeyPress: handleKeyPress,
-                      className: theme.input,
-                    }}
-                    onSuggestionSelected={handleSuggestionSelected}
-                    theme={{
-                      suggestionsContainer: theme.suggestionsContainer,
-                      suggestion: theme.suggestion,
-                      suggestionHighlighted: theme.suggestionHighlighted,
-                    }}
-                  />
-                </div>
+                <AudioPlayer
+                  key={trackKey} // force re-mount
+                  src={tracks[randomIndex].preview_url}
+                />
+                {!gameOver && (
+                  <div>
+                    <Autosuggest
+                      suggestions={suggestions}
+                      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                      onSuggestionsClearRequested={onSuggestionsClearRequested}
+                      getSuggestionValue={(suggestion) => suggestion}
+                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                      inputProps={{
+                        placeholder: "Enter country",
+                        value: inputValue,
+                        onChange: handleInputChange,
+                        onKeyPress: handleKeyPress,
+                        className: theme.input,
+                      }}
+                      onSuggestionSelected={handleSuggestionSelected}
+                      theme={{
+                        suggestionsContainer: theme.suggestionsContainer,
+                        suggestion: theme.suggestion,
+                        suggestionHighlighted: theme.suggestionHighlighted,
+                      }}
+                    />
+                  </div>
+                )}
                 {gameOver ? (
                   <>
                     <div>
