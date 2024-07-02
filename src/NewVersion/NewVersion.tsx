@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useTracks from "./useTracks";
 import getDescriptionOptions from "../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
@@ -104,13 +104,28 @@ const NewVersion: React.FC = () => {
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter" && suggestions.length > 0) {
+    if (!gameOver && event.key === "Enter" && suggestions.length > 0) {
       event.preventDefault();
       const topSuggestion = suggestions[0];
       setInputValue(topSuggestion);
       checkAnswer(topSuggestion);
     }
   };
+
+  const handlePlayAgainKeyPress = (event: React.KeyboardEvent) => {
+    console.log("Key pressed:", event.key);
+    if (gameOver && event.key === "Enter") {
+      handlePlayAgain();
+    }
+  };
+
+  const playAgainButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (gameOver && playAgainButtonRef.current) {
+      playAgainButtonRef.current.focus();
+    }
+  }, [gameOver]);
 
   const theme = {
     input: "mx-auto input input-bordered w-full max-w-xs m-4",
@@ -165,8 +180,10 @@ const NewVersion: React.FC = () => {
                     </div>
                     <div>Score: {score}</div>
                     <button
+                      ref={playAgainButtonRef}
                       className="btn btn-primary m-4"
                       onClick={handlePlayAgain}
+                      onKeyDown={handlePlayAgainKeyPress}
                     >
                       Play Again
                     </button>
