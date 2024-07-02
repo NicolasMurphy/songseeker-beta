@@ -13,3 +13,7 @@ export interface Description {
   country: string;
   link: string;
 }
+
+export interface AudioPlayerProps {
+  src: string;
+}
