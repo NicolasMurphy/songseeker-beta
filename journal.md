@@ -6,6 +6,7 @@
             - hints
             - distance calculation
             - auto select input field
+            - simplify key press logic
             -
         -
     Notes:
