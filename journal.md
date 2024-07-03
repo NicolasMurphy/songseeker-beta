@@ -1,3 +1,19 @@
+# 7/3
+    Goals:
+        - NewVersion:
+            - flags
+            - round system
+            - hints
+            - distance calculation
+            - All countries in dropdown
+            - scroll bar in dropdown
+            - flags in dropdown
+            - styling for list of wrong guesses
+            -
+        -
+    Notes:
+        -
+
 # 7/2
     Goals:
         - NewVersion:
@@ -13,6 +29,7 @@
         - Key press
             - Previous version handled key press logic separately without using a button reference.
             - Updated to use a reference to the play again button for managing focus and triggering click on Enter key press.
+        -
 
 # 7/1
     Goals:
