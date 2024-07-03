@@ -158,7 +158,7 @@ const NewVersion: React.FC = () => {
                         value: inputValue,
                         onChange: handleInputChange,
                         className: theme.input,
-                        autoFocus: true
+                        autoFocus: true,
                       }}
                       onSuggestionSelected={handleSuggestionSelected}
                       theme={{
@@ -195,7 +195,16 @@ const NewVersion: React.FC = () => {
                   </>
                 )}
                 {guesses !== 3 && (
-                  <div>Wrong guesses: {wrongGuesses.join(", ")}</div>
+                  <table className="table">
+                    {wrongGuesses.map((wrongGuess) => (
+                      <tbody>
+                        <tr>
+                          <td>flag</td>
+                          <td>{wrongGuess}</td>
+                        </tr>
+                      </tbody>
+                    ))}
+                  </table>
                 )}
               </section>
             )}
