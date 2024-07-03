@@ -158,6 +158,7 @@ const NewVersion: React.FC = () => {
                         value: inputValue,
                         onChange: handleInputChange,
                         className: theme.input,
+                        autoFocus: true
                       }}
                       onSuggestionSelected={handleSuggestionSelected}
                       theme={{
