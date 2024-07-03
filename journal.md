@@ -10,7 +10,9 @@
             -
         -
     Notes:
-        -
+        - Key press
+            - Previous version handled key press logic separately without using a button reference.
+            - Updated to use a reference to the play again button for managing focus and triggering click on Enter key press.
 
 # 7/1
     Goals:

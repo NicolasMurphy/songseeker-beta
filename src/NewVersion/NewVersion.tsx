@@ -103,29 +103,25 @@ const NewVersion: React.FC = () => {
     checkAnswer(suggestion);
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent) => {
-    if (!gameOver && event.key === "Enter" && suggestions.length > 0) {
-      event.preventDefault();
-      const topSuggestion = suggestions[0];
-      setInputValue(topSuggestion);
-      checkAnswer(topSuggestion);
-    }
-  };
-
-  const handlePlayAgainKeyPress = (event: React.KeyboardEvent) => {
-    console.log("Key pressed:", event.key);
-    if (gameOver && event.key === "Enter") {
-      handlePlayAgain();
-    }
-  };
-
   const playAgainButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (gameOver && playAgainButtonRef.current) {
-      playAgainButtonRef.current.focus();
-    }
-  }, [gameOver]);
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (!gameOver && event.key === "Enter" && suggestions.length > 0) {
+        event.preventDefault();
+        const topSuggestion = suggestions[0];
+        setInputValue(topSuggestion);
+        checkAnswer(topSuggestion);
+      }
+      if (gameOver && playAgainButtonRef.current) {
+        playAgainButtonRef.current.click();
+      }
+    };
+    document.addEventListener("keypress", handleKeyPress as EventListener);
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress as EventListener);
+    };
+  });
 
   const theme = {
     input: "mx-auto input input-bordered w-full max-w-xs m-4",
@@ -161,7 +157,6 @@ const NewVersion: React.FC = () => {
                         placeholder: "Enter country",
                         value: inputValue,
                         onChange: handleInputChange,
-                        onKeyPress: handleKeyPress,
                         className: theme.input,
                       }}
                       onSuggestionSelected={handleSuggestionSelected}
@@ -183,7 +178,6 @@ const NewVersion: React.FC = () => {
                       ref={playAgainButtonRef}
                       className="btn btn-primary m-4"
                       onClick={handlePlayAgain}
-                      onKeyDown={handlePlayAgainKeyPress}
                     >
                       Play Again
                     </button>
