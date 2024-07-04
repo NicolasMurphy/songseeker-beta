@@ -232,7 +232,7 @@ const NewVersion: React.FC = () => {
                   <table className="table w-100">
                     <tbody>
                       {wrongGuesses.map((wrongGuess) => (
-                        <tr>
+                        <tr key={wrongGuess}>
                           <td className="w-20">
                             <img
                               src={getFlagUrl(wrongGuess)}
