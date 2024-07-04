@@ -146,9 +146,9 @@ const NewVersion: React.FC = () => {
 
   const theme = {
     input: "mx-auto input input-bordered w-full max-w-xs m-4",
-    suggestionsContainer: "mx-auto bg-gray-400 m-1 w-full max-w-xs z-10",
+    suggestionsContainer: "mx-auto bg-gray-300 m-1 w-full max-w-xs z-10 max-h-48 scrollbar",
     suggestion: "p-2 cursor-pointer text-black",
-    suggestionHighlighted: "bg-gray-300",
+    suggestionHighlighted: "bg-blue-300",
   };
 
   return (
