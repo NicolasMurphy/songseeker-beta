@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { INITIAL_SCORE, INITIAL_GUESSES } from '../utils/constants';
+import { create } from "zustand";
+import { INITIAL_SCORE, INITIAL_GUESSES } from "../utils/constants";
 
 type GameState = {
   gameOver: boolean;
@@ -19,8 +19,8 @@ type GameState = {
 
 const useGameStore = create<GameState>((set) => ({
   gameOver: false,
-  result: '',
-  correctAnswer: '',
+  result: "",
+  correctAnswer: "",
   score: INITIAL_SCORE,
   guesses: INITIAL_GUESSES,
   wrongGuesses: [],
@@ -33,8 +33,8 @@ const useGameStore = create<GameState>((set) => ({
   resetGame: () =>
     set({
       gameOver: false,
-      result: '',
-      correctAnswer: '',
+      result: "",
+      correctAnswer: "",
       score: INITIAL_SCORE,
       guesses: INITIAL_GUESSES,
       wrongGuesses: [],
