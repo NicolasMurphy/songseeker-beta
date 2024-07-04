@@ -1,3 +1,18 @@
+# 7/4
+    Goals:
+        - NewVersion:
+            - round system
+            - hints
+            - distance calculation
+            - All countries in dropdown
+            - scroll bar in dropdown
+            - Remove already made guesses from dropdown
+            - Add landing page, legacy, and new
+            -
+        -
+    Notes:
+        -
+
 # 7/3
     Goals:
         - NewVersion:
