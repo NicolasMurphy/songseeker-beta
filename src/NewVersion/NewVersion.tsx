@@ -35,7 +35,7 @@ const NewVersion: React.FC = () => {
     const inputLength = inputValue.length;
 
     return inputLength === 0
-      ? []
+      ? countries
       : countries.filter(
           (country) =>
             country.toLowerCase().slice(0, inputLength) === inputValue
@@ -171,6 +171,7 @@ const NewVersion: React.FC = () => {
                         autoFocus: true,
                       }}
                       onSuggestionSelected={handleSuggestionSelected}
+                      shouldRenderSuggestions={() => true} // always render suggestions
                       theme={{
                         suggestionsContainer: theme.suggestionsContainer,
                         suggestion: theme.suggestion,
