@@ -7,9 +7,7 @@ import { Description } from "../utils/types";
 import getFlagUrl from "../utils/getFlagUrl";
 import { Loader } from "./Loader";
 import { GameOver } from "./GameOver";
-
-const INITIAL_SCORE = 3000;
-const INITIAL_GUESSES = 3;
+import { INITIAL_SCORE, INITIAL_GUESSES } from "../utils/constants";
 
 const getRandomInt = (max: number): number => {
   return Math.floor(Math.random() * max);
