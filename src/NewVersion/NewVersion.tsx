@@ -20,6 +20,7 @@ const NewVersion: React.FC = () => {
   const [highlightedSuggestion, setHighlightedSuggestion] = useState<
     string | null
   >(null);
+  const [isInputClicked, setIsInputClicked] = useState(false);
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -117,6 +118,11 @@ const NewVersion: React.FC = () => {
     setHighlightedSuggestion(suggestion);
   };
 
+  const handleInputClick = () => {
+    setIsInputClicked(true);
+    setSuggestions(countries);
+  };
+
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (!gameOver && event.key === "Enter" && suggestions.length > 0) {
@@ -126,6 +132,7 @@ const NewVersion: React.FC = () => {
           setInputValue(suggestionToUse);
           checkAnswer(suggestionToUse);
         }
+        setIsInputClicked(false);
       }
       if (gameOver && playAgainButtonRef.current) {
         playAgainButtonRef.current.click();
@@ -135,7 +142,7 @@ const NewVersion: React.FC = () => {
     return () => {
       document.removeEventListener("keypress", handleKeyPress as EventListener);
     };
-  }, [gameOver, suggestions, highlightedSuggestion, checkAnswer]);
+  });
 
   const theme = {
     input: "mx-auto input input-bordered w-full max-w-xs m-4",
@@ -180,13 +187,14 @@ const NewVersion: React.FC = () => {
                         placeholder: "Enter country",
                         value: inputValue,
                         onChange: handleInputChange,
+                        onClick: handleInputClick,
                         className: theme.input,
                         autoFocus: true,
                       }}
                       onSuggestionSelected={handleSuggestionSelected}
                       onSuggestionHighlighted={onSuggestionHighlighted}
                       highlightFirstSuggestion={true}
-                      shouldRenderSuggestions={() => true} // always render suggestions
+                      shouldRenderSuggestions={() => true || isInputClicked} // always render suggestions
                       theme={{
                         suggestionsContainer: theme.suggestionsContainer,
                         suggestion: theme.suggestion,
