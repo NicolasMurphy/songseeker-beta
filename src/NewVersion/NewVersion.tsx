@@ -13,6 +13,19 @@ const getRandomInt = (max: number): number => {
   return Math.floor(Math.random() * max);
 };
 
+// helpers
+
+const getSuggestions = (value: string, availableCountries: string[]) => {
+  const inputValue = value.trim().toLowerCase();
+  const inputLength = inputValue.length;
+
+  return inputLength === 0
+    ? availableCountries
+    : availableCountries.filter(
+        (country) => country.toLowerCase().slice(0, inputLength) === inputValue
+      );
+};
+
 const NewVersion: React.FC = () => {
   const { tracks, loading } = useTracks();
   const [inputValue, setInputValue] = useState("");
@@ -24,7 +37,9 @@ const NewVersion: React.FC = () => {
   const [gameOver, setGameOver] = useState(false);
   const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
   const [trackKey, setTrackKey] = useState(0); // force re-mount
-  const [highlightedSuggestion, setHighlightedSuggestion] = useState<string | null>(null);
+  const [highlightedSuggestion, setHighlightedSuggestion] = useState<
+    string | null
+  >(null);
   const [isInputClicked, setIsInputClicked] = useState(false);
   const [availableCountries, setAvailableCountries] = useState<string[]>([]);
 
@@ -36,17 +51,10 @@ const NewVersion: React.FC = () => {
 
   const descriptions: Description[] = getDescriptionOptions();
 
-  const getSuggestions = (value: string) => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
+  const correctAnswer =
+    randomIndex !== null ? descriptions[randomIndex].country : "";
 
-    return inputLength === 0
-      ? availableCountries
-      : availableCountries.filter(
-          (country) =>
-            country.toLowerCase().slice(0, inputLength) === inputValue
-        );
-  };
+  // handlers
 
   const handleInputChange = (
     event: React.FormEvent<any>,
@@ -56,15 +64,53 @@ const NewVersion: React.FC = () => {
   };
 
   const onSuggestionsFetchRequested = ({ value }: { value: string }) => {
-    setSuggestions(getSuggestions(value));
+    setSuggestions(getSuggestions(value, availableCountries));
   };
 
   const onSuggestionsClearRequested = () => {
     setSuggestions([]);
   };
 
-  const correctAnswer =
-    randomIndex !== null ? descriptions[randomIndex].country : "";
+  const handleSuggestionSelected = (
+    event: React.FormEvent<any>,
+    { suggestion }: { suggestion: string }
+  ) => {
+    checkAnswer(suggestion);
+  };
+
+  const onSuggestionHighlighted = ({
+    suggestion,
+  }: {
+    suggestion: string | null;
+  }) => {
+    setHighlightedSuggestion(suggestion);
+  };
+
+  const handleInputClick = () => {
+    setIsInputClicked(true);
+    setSuggestions(availableCountries);
+  };
+
+  const handlePlayAgain = () => {
+    resetGame();
+  };
+
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (!gameOver && event.key === "Enter" && suggestions.length > 0) {
+      event.preventDefault();
+      const suggestionToUse = highlightedSuggestion;
+      if (suggestionToUse !== null) {
+        setInputValue(suggestionToUse);
+        checkAnswer(suggestionToUse);
+      }
+      setIsInputClicked(false);
+    }
+    if (gameOver && playAgainButtonRef.current) {
+      playAgainButtonRef.current.click();
+    }
+  };
+
+  // game logic
 
   const checkAnswer = (selectedCountry: string) => {
     if (!selectedCountry.trim()) return;
@@ -85,7 +131,9 @@ const NewVersion: React.FC = () => {
       setScore(Math.max(score - 1000, 0));
       setGuesses(guesses - 1);
       setWrongGuesses((prevGuesses) => [...prevGuesses, selectedCountry]);
-      setAvailableCountries((prevCountries) => prevCountries.filter((country) => country.toLowerCase() !== inputLower));
+      setAvailableCountries((prevCountries) =>
+        prevCountries.filter((country) => country.toLowerCase() !== inputLower)
+      );
       if (guesses === 1) {
         setGameOver(true);
       }
@@ -93,7 +141,7 @@ const NewVersion: React.FC = () => {
     setInputValue("");
   };
 
-  const handlePlayAgain = () => {
+  const resetGame = () => {
     setInputValue("");
     setResult("");
     setScore(INITIAL_SCORE);
@@ -106,43 +154,9 @@ const NewVersion: React.FC = () => {
     setTrackKey(trackKey + 1); // force re-mount
   };
 
-  const handleSuggestionSelected = (
-    event: React.FormEvent<any>,
-    { suggestion }: { suggestion: string }
-  ) => {
-    checkAnswer(suggestion);
-  };
-
   const playAgainButtonRef = useRef<HTMLButtonElement>(null);
 
-  const onSuggestionHighlighted = ({
-    suggestion,
-  }: {
-    suggestion: string | null;
-  }) => {
-    setHighlightedSuggestion(suggestion);
-  };
-
-  const handleInputClick = () => {
-    setIsInputClicked(true);
-    setSuggestions(availableCountries);
-  };
-
   useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (!gameOver && event.key === "Enter" && suggestions.length > 0) {
-        event.preventDefault();
-        const suggestionToUse = highlightedSuggestion;
-        if (suggestionToUse !== null) {
-          setInputValue(suggestionToUse);
-          checkAnswer(suggestionToUse);
-        }
-        setIsInputClicked(false);
-      }
-      if (gameOver && playAgainButtonRef.current) {
-        playAgainButtonRef.current.click();
-      }
-    };
     document.addEventListener("keypress", handleKeyPress as EventListener);
     return () => {
       document.removeEventListener("keypress", handleKeyPress as EventListener);
@@ -151,7 +165,8 @@ const NewVersion: React.FC = () => {
 
   const theme = {
     input: "mx-auto input input-bordered w-full max-w-xs m-4",
-    suggestionsContainer: "mx-auto bg-gray-300 m-1 w-full max-w-xs z-10 max-h-48 scrollbar",
+    suggestionsContainer:
+      "mx-auto bg-gray-300 m-1 w-full max-w-xs z-10 max-h-48 scrollbar",
     suggestion: "p-2 cursor-pointer text-black",
     suggestionHighlighted: "bg-blue-300",
   };
