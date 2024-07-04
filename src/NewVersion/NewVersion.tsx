@@ -4,6 +4,7 @@ import getDescriptionOptions from "../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
 import Autosuggest from "react-autosuggest";
 import { Description } from "./types";
+import getFlagUrl from "./getFlagUrl";
 
 const NewVersion: React.FC = () => {
   const { tracks, loading } = useTracks();
@@ -152,7 +153,17 @@ const NewVersion: React.FC = () => {
                       onSuggestionsFetchRequested={onSuggestionsFetchRequested}
                       onSuggestionsClearRequested={onSuggestionsClearRequested}
                       getSuggestionValue={(suggestion) => suggestion}
-                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                      renderSuggestion={(suggestion) => (
+                        <div className="flex">
+                          <img
+                            className="mt-1 h-4 w-6"
+
+                            src={getFlagUrl(suggestion)}
+                            alt={`${suggestion} flag`}
+                          ></img>
+                          <div className="mx-4" >{suggestion}</div>
+                        </div>
+                      )}
                       inputProps={{
                         placeholder: "Enter country",
                         value: inputValue,
@@ -195,11 +206,17 @@ const NewVersion: React.FC = () => {
                   </>
                 )}
                 {guesses !== 3 && (
-                  <table className="table">
+                  <table className="table w-40">
                     {wrongGuesses.map((wrongGuess) => (
                       <tbody>
                         <tr>
-                          <td>flag</td>
+                          <td>
+                            <img
+                              width="48px"
+                              src={getFlagUrl(wrongGuess)}
+                              alt={`${wrongGuess} flag`}
+                            ></img>
+                          </td>
                           <td>{wrongGuess}</td>
                         </tr>
                       </tbody>
