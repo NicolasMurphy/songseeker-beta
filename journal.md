@@ -21,6 +21,7 @@
             - scroll bar in dropdown
             - Remove already made guesses from dropdown
             - Add landing page, legacy, and new
+            - refactor NewVersion
             -
         -
     Notes:
