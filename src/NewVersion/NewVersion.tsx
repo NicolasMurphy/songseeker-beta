@@ -9,6 +9,10 @@ import getFlagUrl from "./getFlagUrl";
 const INITIAL_SCORE = 3000;
 const INITIAL_GUESSES = 3;
 
+const getRandomInt = (max: number): number => {
+  return Math.floor(Math.random() * max);
+};
+
 const NewVersion: React.FC = () => {
   const { tracks, loading } = useTracks();
   const [inputValue, setInputValue] = useState("");
@@ -31,10 +35,6 @@ const NewVersion: React.FC = () => {
   }, []);
 
   const descriptions: Description[] = getDescriptionOptions();
-
-  const getRandomInt = (max: number): number => {
-    return Math.floor(Math.random() * max);
-  };
 
   const getSuggestions = (value: string) => {
     const inputValue = value.trim().toLowerCase();
