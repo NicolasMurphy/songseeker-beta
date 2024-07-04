@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import Autosuggest from "react-autosuggest";
-import useTracks from "../useTracks";
+import useTracks from "../hooks/useTracks";
 import getDescriptionOptions from "../../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
-import { Description } from "../types";
-import getFlagUrl from "../getFlagUrl";
+import { Description } from "../utils/types";
+import getFlagUrl from "../utils/getFlagUrl";
 import { Loader } from "./Loader";
+import { GameOver } from "./GameOver";
 
 const INITIAL_SCORE = 3000;
 const INITIAL_GUESSES = 3;
@@ -225,19 +226,13 @@ const NewVersion: React.FC = () => {
                   </div>
                 )}
                 {gameOver ? (
-                  <>
-                    <div>
-                      {result} The answer was {correctAnswer}.
-                    </div>
-                    <div>Score: {score}</div>
-                    <button
-                      ref={playAgainButtonRef}
-                      className="btn btn-primary m-4"
-                      onClick={handlePlayAgain}
-                    >
-                      Play Again
-                    </button>
-                  </>
+                  <GameOver
+                    result={result}
+                    correctAnswer={correctAnswer}
+                    score={score}
+                    onPlayAgain={handlePlayAgain}
+                    playAgainButtonRef={playAgainButtonRef}
+                  />
                 ) : (
                   <>
                     {guesses !== INITIAL_GUESSES && (

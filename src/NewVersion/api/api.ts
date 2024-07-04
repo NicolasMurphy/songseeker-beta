@@ -1,4 +1,4 @@
-import { Track } from "./types";
+import { Track } from "../utils/types";
 
 export const refreshAccessToken = async (): Promise<string | null> => {
   try {

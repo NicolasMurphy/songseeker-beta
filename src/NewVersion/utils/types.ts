@@ -17,3 +17,11 @@ export interface Description {
 export interface AudioPlayerProps {
   src: string;
 }
+
+export type GameOverProps = {
+  result: string;
+  correctAnswer: string;
+  score: number;
+  onPlayAgain: () => void;
+  playAgainButtonRef: React.RefObject<HTMLButtonElement>;
+};

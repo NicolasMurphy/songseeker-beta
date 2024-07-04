@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { refreshAccessToken, fetchAllTracks } from "./api";
-import { Track } from "./types";
-import { playlistId } from "./config";
+import { refreshAccessToken, fetchAllTracks } from "../api/api";
+import { Track } from "../utils/types";
+import { playlistId } from "../utils/config";
 
 const useTracks = (): { tracks: Track[]; loading: boolean; error: string | null } => {
   const [tracks, setTracks] = useState<Track[]>([]);
