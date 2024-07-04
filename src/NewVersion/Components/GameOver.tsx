@@ -1,11 +1,11 @@
 import React from "react";
-import useGameStore from "../store/useGameStore";
+import useStore from "../store/useStore";
 
 export const GameOver: React.FC<{
   onPlayAgain: () => void;
   playAgainButtonRef: React.RefObject<HTMLButtonElement>;
 }> = ({ onPlayAgain, playAgainButtonRef }) => {
-  const { result, correctAnswer, score, resetGame } = useGameStore();
+  const { result, correctAnswer, score, resetGame } = useStore();
 
   return (
     <>

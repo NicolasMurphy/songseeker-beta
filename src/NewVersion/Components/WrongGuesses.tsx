@@ -1,9 +1,9 @@
 import React from "react";
-import useGameStore from "../store/useGameStore";
+import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 
 const WrongGuesses: React.FC = () => {
-  const { wrongGuesses } = useGameStore();
+  const { wrongGuesses } = useStore();
 
   return (
     <table className="table w-100">
