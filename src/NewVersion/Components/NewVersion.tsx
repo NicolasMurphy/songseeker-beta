@@ -8,7 +8,7 @@ import getFlagUrl from "../utils/getFlagUrl";
 import { Loader } from "./Loader";
 import { GameOver } from "./GameOver";
 import useGameStore from "../store/useGameStore";
-import { INITIAL_SCORE, INITIAL_GUESSES } from "../utils/constants";
+import { INITIAL_GUESSES } from "../utils/constants";
 
 const getRandomInt = (max: number): number => {
   return Math.floor(Math.random() * max);
@@ -32,8 +32,6 @@ const NewVersion: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
   const [randomIndex, setRandomIndex] = useState<number | null>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [guesses, setGuesses] = useState(INITIAL_GUESSES);
-  const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
   const [trackKey, setTrackKey] = useState(0); // force re-mount
   const [highlightedSuggestion, setHighlightedSuggestion] = useState<
     string | null
@@ -41,7 +39,19 @@ const NewVersion: React.FC = () => {
   const [isInputClicked, setIsInputClicked] = useState(false);
   const [availableCountries, setAvailableCountries] = useState<string[]>([]);
 
-  const { gameOver, setGameOver, result, setResult, setCorrectAnswer, score, setScore } = useGameStore();
+  const {
+    gameOver,
+    setGameOver,
+    result,
+    setResult,
+    score,
+    setScore,
+    guesses,
+    setGuesses,
+    wrongGuesses,
+    setWrongGuesses,
+    resetGame,
+  } = useGameStore();
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -93,6 +103,11 @@ const NewVersion: React.FC = () => {
 
   const handlePlayAgain = () => {
     resetGame();
+    setInputValue("");
+    const newDescriptions: Description[] = getDescriptionOptions();
+    setRandomIndex(getRandomInt(newDescriptions.length));
+    setAvailableCountries(newDescriptions.map((desc) => desc.country).sort());
+    setTrackKey(trackKey + 1); // force re-mount
   };
 
   const handleKeyPress = (event: KeyboardEvent) => {
@@ -130,7 +145,7 @@ const NewVersion: React.FC = () => {
       setResult("Wrong.");
       setScore(Math.max(score - 1000, 0));
       setGuesses(guesses - 1);
-      setWrongGuesses((prevGuesses) => [...prevGuesses, selectedCountry]);
+      setWrongGuesses([...wrongGuesses, selectedCountry]);
       setAvailableCountries((prevCountries) =>
         prevCountries.filter((country) => country.toLowerCase() !== inputLower)
       );
@@ -139,19 +154,6 @@ const NewVersion: React.FC = () => {
       }
     }
     setInputValue("");
-  };
-
-  const resetGame = () => {
-    setInputValue("");
-    setResult("");
-    setScore(INITIAL_SCORE);
-    setGuesses(INITIAL_GUESSES);
-    setGameOver(false);
-    setWrongGuesses([]);
-    const newDescriptions: Description[] = getDescriptionOptions();
-    setRandomIndex(getRandomInt(newDescriptions.length));
-    setAvailableCountries(newDescriptions.map((desc) => desc.country).sort());
-    setTrackKey(trackKey + 1); // force re-mount
   };
 
   const playAgainButtonRef = useRef<HTMLButtonElement>(null);
@@ -224,9 +226,7 @@ const NewVersion: React.FC = () => {
                   </div>
                 )}
                 {gameOver ? (
-                  <GameOver
-                    onPlayAgain={handlePlayAgain}
-                  />
+                  <GameOver onPlayAgain={handlePlayAgain} playAgainButtonRef={playAgainButtonRef }/>
                 ) : (
                   <>
                     {guesses !== INITIAL_GUESSES && (

@@ -20,4 +20,5 @@ export interface AudioPlayerProps {
 
 export interface GameOverProps {
   onPlayAgain: () => void;
-};
+  playAgainButtonRef: React.RefObject<HTMLButtonElement>;
+}
