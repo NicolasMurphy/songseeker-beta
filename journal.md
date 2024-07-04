@@ -4,7 +4,6 @@
             - round system
             - hints
             - distance calculation
-            - Remove already made guesses from dropdown
             - Add landing page, legacy, and new
             - Highlighted suggestion should stay highlighted even when mouse leaves box
             -
