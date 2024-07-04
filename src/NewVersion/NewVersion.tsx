@@ -24,7 +24,7 @@ const NewVersion: React.FC = () => {
   }, []);
 
   const descriptions: Description[] = getDescriptionOptions();
-  const countries = descriptions.map((desc) => desc.country);
+  const countries = descriptions.map((desc) => desc.country).sort();
 
   const getRandomInt = (max: number): number => {
     return Math.floor(Math.random() * max);
