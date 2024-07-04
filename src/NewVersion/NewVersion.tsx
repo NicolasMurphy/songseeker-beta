@@ -17,18 +17,17 @@ const NewVersion: React.FC = () => {
   const [gameOver, setGameOver] = useState(false);
   const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
   const [trackKey, setTrackKey] = useState(0); // force re-mount
-  const [highlightedSuggestion, setHighlightedSuggestion] = useState<
-    string | null
-  >(null);
+  const [highlightedSuggestion, setHighlightedSuggestion] = useState<string | null>(null);
   const [isInputClicked, setIsInputClicked] = useState(false);
+  const [availableCountries, setAvailableCountries] = useState<string[]>([]);
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
     setRandomIndex(getRandomInt(descriptions.length));
+    setAvailableCountries(descriptions.map((desc) => desc.country).sort());
   }, []);
 
   const descriptions: Description[] = getDescriptionOptions();
-  const countries = descriptions.map((desc) => desc.country).sort();
 
   const getRandomInt = (max: number): number => {
     return Math.floor(Math.random() * max);
@@ -39,8 +38,8 @@ const NewVersion: React.FC = () => {
     const inputLength = inputValue.length;
 
     return inputLength === 0
-      ? countries
-      : countries.filter(
+      ? availableCountries
+      : availableCountries.filter(
           (country) =>
             country.toLowerCase().slice(0, inputLength) === inputValue
         );
@@ -83,6 +82,7 @@ const NewVersion: React.FC = () => {
       setScore(Math.max(score - 1000, 0));
       setGuesses(guesses - 1);
       setWrongGuesses((prevGuesses) => [...prevGuesses, selectedCountry]);
+      setAvailableCountries((prevCountries) => prevCountries.filter((country) => country.toLowerCase() !== inputLower));
       if (guesses === 1) {
         setGameOver(true);
       }
@@ -97,7 +97,9 @@ const NewVersion: React.FC = () => {
     setGuesses(3);
     setGameOver(false);
     setWrongGuesses([]);
-    setRandomIndex(getRandomInt(descriptions.length));
+    const newDescriptions: Description[] = getDescriptionOptions();
+    setRandomIndex(getRandomInt(newDescriptions.length));
+    setAvailableCountries(newDescriptions.map((desc) => desc.country).sort());
     setTrackKey(trackKey + 1); // force re-mount
   };
 
@@ -120,7 +122,7 @@ const NewVersion: React.FC = () => {
 
   const handleInputClick = () => {
     setIsInputClicked(true);
-    setSuggestions(countries);
+    setSuggestions(availableCountries);
   };
 
   useEffect(() => {
