@@ -1,5 +1,5 @@
 import React from "react";
-import { AudioPlayerProps } from "./types";
+import { AudioPlayerProps } from "../types";
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   return (

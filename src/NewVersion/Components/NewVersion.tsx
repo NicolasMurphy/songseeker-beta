@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Autosuggest from "react-autosuggest";
-import useTracks from "./useTracks";
-import getDescriptionOptions from "../utils/DescriptionOptions";
+import useTracks from "../useTracks";
+import getDescriptionOptions from "../../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
-import { Description } from "./types";
-import getFlagUrl from "./getFlagUrl";
+import { Description } from "../types";
+import getFlagUrl from "../getFlagUrl";
+import { Loader } from "./Loader";
 
 const INITIAL_SCORE = 3000;
 const INITIAL_GUESSES = 3;
@@ -175,7 +176,7 @@ const NewVersion: React.FC = () => {
     <div className="flex min-h-screen">
       <div className="mx-auto mt-40 text-center">
         {loading ? (
-          <span className="loading loading-bars loading-lg text-primary"></span>
+          <Loader />
         ) : (
           <>
             {tracks.length === 0 || randomIndex === null ? (

@@ -4,7 +4,7 @@ import NotFound from "./NotFound";
 import Footer from "./Components/Footer";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { database, firestore } from "./firebaseConfig";
-import NewVersion from "./NewVersion/NewVersion";
+import NewVersion from "./NewVersion/Components/NewVersion";
 
 const App = () => {
   return (
