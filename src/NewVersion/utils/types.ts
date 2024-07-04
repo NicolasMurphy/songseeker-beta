@@ -18,10 +18,6 @@ export interface AudioPlayerProps {
   src: string;
 }
 
-export type GameOverProps = {
-  result: string;
-  correctAnswer: string;
-  score: number;
+export interface GameOverProps {
   onPlayAgain: () => void;
-  playAgainButtonRef: React.RefObject<HTMLButtonElement>;
 };

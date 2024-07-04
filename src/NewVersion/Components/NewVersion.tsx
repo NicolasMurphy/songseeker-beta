@@ -7,6 +7,7 @@ import { Description } from "../utils/types";
 import getFlagUrl from "../utils/getFlagUrl";
 import { Loader } from "./Loader";
 import { GameOver } from "./GameOver";
+import useGameStore from "../store/useGameStore";
 import { INITIAL_SCORE, INITIAL_GUESSES } from "../utils/constants";
 
 const getRandomInt = (max: number): number => {
@@ -29,12 +30,9 @@ const getSuggestions = (value: string, availableCountries: string[]) => {
 const NewVersion: React.FC = () => {
   const { tracks, loading } = useTracks();
   const [inputValue, setInputValue] = useState("");
-  const [result, setResult] = useState("");
   const [randomIndex, setRandomIndex] = useState<number | null>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [score, setScore] = useState(INITIAL_SCORE);
   const [guesses, setGuesses] = useState(INITIAL_GUESSES);
-  const [gameOver, setGameOver] = useState(false);
   const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
   const [trackKey, setTrackKey] = useState(0); // force re-mount
   const [highlightedSuggestion, setHighlightedSuggestion] = useState<
@@ -42,6 +40,8 @@ const NewVersion: React.FC = () => {
   >(null);
   const [isInputClicked, setIsInputClicked] = useState(false);
   const [availableCountries, setAvailableCountries] = useState<string[]>([]);
+
+  const { gameOver, setGameOver, result, setResult, setCorrectAnswer, score, setScore } = useGameStore();
 
   useEffect(() => {
     const descriptions: Description[] = getDescriptionOptions();
@@ -225,11 +225,7 @@ const NewVersion: React.FC = () => {
                 )}
                 {gameOver ? (
                   <GameOver
-                    result={result}
-                    correctAnswer={correctAnswer}
-                    score={score}
                     onPlayAgain={handlePlayAgain}
-                    playAgainButtonRef={playAgainButtonRef}
                   />
                 ) : (
                   <>
