@@ -156,12 +156,11 @@ const NewVersion: React.FC = () => {
                       renderSuggestion={(suggestion) => (
                         <div className="flex">
                           <img
-                            className="mt-1 h-4 w-6"
-
+                            className="object-contain w-6"
                             src={getFlagUrl(suggestion)}
                             alt={`${suggestion} flag`}
                           ></img>
-                          <div className="mx-4" >{suggestion}</div>
+                          <div className="mx-4">{suggestion}</div>
                         </div>
                       )}
                       inputProps={{
@@ -206,21 +205,20 @@ const NewVersion: React.FC = () => {
                   </>
                 )}
                 {guesses !== 3 && (
-                  <table className="table w-40">
-                    {wrongGuesses.map((wrongGuess) => (
-                      <tbody>
+                  <table className="table w-100">
+                    <tbody>
+                      {wrongGuesses.map((wrongGuess) => (
                         <tr>
-                          <td>
+                          <td className="w-20">
                             <img
-                              width="48px"
                               src={getFlagUrl(wrongGuess)}
                               alt={`${wrongGuess} flag`}
                             ></img>
                           </td>
-                          <td>{wrongGuess}</td>
+                          <td className="text-left">{wrongGuess}</td>
                         </tr>
-                      </tbody>
-                    ))}
+                      ))}
+                    </tbody>
                   </table>
                 )}
               </section>
