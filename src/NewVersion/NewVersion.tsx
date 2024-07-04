@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import Autosuggest from "react-autosuggest";
 import useTracks from "./useTracks";
 import getDescriptionOptions from "../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
-import Autosuggest from "react-autosuggest";
 import { Description } from "./types";
 import getFlagUrl from "./getFlagUrl";
+
+const INITIAL_SCORE = 3000;
+const INITIAL_GUESSES = 3;
 
 const NewVersion: React.FC = () => {
   const { tracks, loading } = useTracks();
@@ -12,8 +15,8 @@ const NewVersion: React.FC = () => {
   const [result, setResult] = useState("");
   const [randomIndex, setRandomIndex] = useState<number | null>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [score, setScore] = useState(3000);
-  const [guesses, setGuesses] = useState(3);
+  const [score, setScore] = useState(INITIAL_SCORE);
+  const [guesses, setGuesses] = useState(INITIAL_GUESSES);
   const [gameOver, setGameOver] = useState(false);
   const [wrongGuesses, setWrongGuesses] = useState<string[]>([]);
   const [trackKey, setTrackKey] = useState(0); // force re-mount
@@ -93,8 +96,8 @@ const NewVersion: React.FC = () => {
   const handlePlayAgain = () => {
     setInputValue("");
     setResult("");
-    setScore(3000);
-    setGuesses(3);
+    setScore(INITIAL_SCORE);
+    setGuesses(INITIAL_GUESSES);
     setGameOver(false);
     setWrongGuesses([]);
     const newDescriptions: Description[] = getDescriptionOptions();
@@ -221,7 +224,7 @@ const NewVersion: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    {guesses !== 3 && (
+                    {guesses !== INITIAL_GUESSES && (
                       <>
                         <div>
                           {result} {guesses} guesses left.
@@ -230,7 +233,7 @@ const NewVersion: React.FC = () => {
                     )}
                   </>
                 )}
-                {guesses !== 3 && (
+                {guesses !== INITIAL_GUESSES && (
                   <table className="table w-100">
                     <tbody>
                       {wrongGuesses.map((wrongGuess) => (
