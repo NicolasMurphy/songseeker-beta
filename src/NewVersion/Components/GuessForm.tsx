@@ -23,6 +23,7 @@ const GuessForm: React.FC = () => {
     setHighlightedSuggestion,
     setIsInputClicked,
     setAvailableCountries,
+    setSelectedCountry
   } = useStore();
 
   const getSuggestions = (value: string) => {
@@ -56,6 +57,7 @@ const GuessForm: React.FC = () => {
     event: React.FormEvent<any>,
     { suggestion }: { suggestion: string }
   ) => {
+    setSelectedCountry(suggestion);
     checkAnswer(suggestion);
   };
 

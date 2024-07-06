@@ -6,7 +6,7 @@ import { Description } from "../utils/types";
 import { Loader } from "./Loader";
 import { GameOver } from "./GameOver";
 import useStore from "../store/useStore";
-import WrongGuesses from "./WrongGuesses";
+import GuessesTable from "./GuessesTable";
 import GuessForm from "./GuessForm";
 import { INITIAL_GUESSES } from "../utils/constants";
 
@@ -95,7 +95,7 @@ const NewVersion: React.FC = () => {
                     )}
                   </>
                 )}
-                {guesses !== INITIAL_GUESSES && <WrongGuesses />}
+                <GuessesTable />
               </section>
             )}
           </>
