@@ -15,7 +15,7 @@ const getRandomInt = (max: number): number => {
 };
 
 const NewVersion: React.FC = () => {
-  const { tracks, loading } = useTracks();
+  const { tracks, loading, error } = useTracks();
   const [trackKey, setTrackKey] = useState(0); // force re-mount
 
   const {
@@ -66,6 +66,8 @@ const NewVersion: React.FC = () => {
       <div className="mx-auto mt-40 text-center">
         {loading ? (
           <Loader />
+        ) : error ? (
+          <div className="text-red-500">Error: {error}</div>
         ) : (
           <>
             {tracks.length === 0 || randomIndex === null ? (
