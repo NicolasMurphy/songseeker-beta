@@ -1,3 +1,18 @@
+# 7/6
+    Goals:
+        - NewVersion:
+            - put wrong and right guesses with feed back in table
+            - more refactoring
+            - round system
+            - hints
+            - distance calculation
+            - Add landing page, legacy, and new
+            - Highlighted suggestion should stay highlighted even when mouse leaves box
+            -
+        -
+    Notes:
+        -
+
 # 7/5
     Goals:
         - NewVersion:
