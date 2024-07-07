@@ -18,7 +18,6 @@ const GuessForm: React.FC = () => {
     inputValue,
     availableCountries,
     setInputValue,
-    setIsInputClicked,
     setAvailableCountries,
     setSelectedCountry,
   } = useStore();
@@ -83,13 +82,13 @@ const GuessForm: React.FC = () => {
         value={countryOptions.find((option) => option.value === inputValue) || null}
         onChange={handleChange}
         onInputChange={handleInputChange}
-        onMenuClose={() => setIsInputClicked(false)}
         placeholder="Enter country"
         className="bg-gray-700 m-4"
         autoFocus
         isSearchable
         unstyled
         defaultMenuIsOpen
+        menuIsOpen={true}
         classNames={{
           menu: () =>
             classNames(
