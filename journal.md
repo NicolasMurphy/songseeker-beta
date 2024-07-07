@@ -1,12 +1,12 @@
 # 7/7
     Goals:
         - NewVersion:
+            - Finish react-select adjustments on GuessForm, filtering, auto select top, etc.
             - more refactoring
             - round system
             - hints
             - distance calculation
             - Add landing page, legacy, and new
-            - Use react-select instead of react-autosuggest
             -
         -
     Notes:
