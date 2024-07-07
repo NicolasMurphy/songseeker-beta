@@ -8,6 +8,7 @@ import { GameOver } from "./GameOver";
 import useStore from "../store/useStore";
 import GuessesTable from "./GuessesTable";
 import GuessForm from "./GuessForm";
+import HintsTable from "./HintsTable";
 import { INITIAL_GUESSES } from "../utils/constants";
 
 const getRandomInt = (max: number): number => {
@@ -78,6 +79,7 @@ const NewVersion: React.FC = () => {
                   key={trackKey} // force re-mount
                   src={tracks[randomIndex].preview_url}
                 />
+                {/* <HintsTable /> */}
                 {gameOver ? (
                   <GameOver
                     onPlayAgain={handlePlayAgain}
@@ -87,8 +89,8 @@ const NewVersion: React.FC = () => {
                   <>
                     {guesses !== INITIAL_GUESSES && (
                       <>
-                        <div className="m-4">Score: {score}</div>
-                        <div className="m-4">Guesses left: {guesses}</div>
+                        <div className="mb-2 mt-8">Score: {score}</div>
+                        <div className="mb-2 mt-4">Guesses left: {guesses}</div>
                       </>
                     )}
                   </>
