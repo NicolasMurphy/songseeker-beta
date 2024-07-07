@@ -80,12 +80,11 @@ const GuessForm: React.FC = () => {
     <div>
       <Select
         options={countryOptions}
-        value={countryOptions.find((option) => option.value === inputValue)}
+        value={countryOptions.find((option) => option.value === inputValue) || null}
         onChange={handleChange}
         onInputChange={handleInputChange}
         onMenuClose={() => setIsInputClicked(false)}
         placeholder="Enter country"
-        classNamePrefix="react-select"
         className="bg-gray-700 m-4"
         autoFocus
         isSearchable
