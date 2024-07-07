@@ -35,7 +35,7 @@ const GuessesTable: React.FC = () => {
                 ></img>
               </td>
               <td className="text-left">{wrongGuess}</td>
-              <td>Wrong</td>
+              <td>❌</td>
             </tr>
           ))}
           {selectedCountry === correctAnswer && (
@@ -47,7 +47,7 @@ const GuessesTable: React.FC = () => {
                 ></img>
               </td>
               <td className="text-left">{correctAnswer}</td>
-              <td>Correct</td>
+              <td>✔️</td>
             </tr>
           )}
         </tbody>
