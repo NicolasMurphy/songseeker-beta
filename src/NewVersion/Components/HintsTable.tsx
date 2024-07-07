@@ -24,7 +24,7 @@ const HintsTable: React.FC = () => {
   return (
     <>
       {tracks.length !== 0 && randomIndex !== null && (
-        <table className="table w-100 my-4">
+        <table className="table max-w-xs text-center my-4">
           <tbody>
             {guesses < 5 && (
               <tr>
@@ -43,7 +43,7 @@ const HintsTable: React.FC = () => {
                   <img
                     src={tracks[randomIndex].album.images[0].url}
                     alt={`${tracks[randomIndex].name} album art`}
-                    className="w-16 h-16"
+                    className="mx-auto m-4 w-16 h-16"
                   />
                 </td>
               </tr>
