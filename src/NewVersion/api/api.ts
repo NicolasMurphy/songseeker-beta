@@ -38,6 +38,11 @@ export const fetchAllTracks = async (
         artists: item.track.artists.map((artist: any) => ({
           name: artist.name,
         })),
+        album: {
+          images: item.track.album.images.map((image: any) => ({
+            url: image.url,
+          })),
+        },
       }))
     );
     url = data.next;
