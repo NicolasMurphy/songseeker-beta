@@ -1,3 +1,17 @@
+# 7/7
+    Goals:
+        - NewVersion:
+            - more refactoring
+            - round system
+            - hints
+            - distance calculation
+            - Add landing page, legacy, and new
+            - Use react-select instead of react-autosuggest
+            -
+        -
+    Notes:
+        -
+
 # 7/6
     Goals:
         - NewVersion:
@@ -12,6 +26,7 @@
             -
         -
     Notes:
+        - react-autosuggest may not be the best choice, looking at react-select and react-autocomplete
         -
 
 # 7/5
