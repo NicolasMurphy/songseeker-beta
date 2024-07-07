@@ -1,6 +1,7 @@
 # 7/6
     Goals:
         - NewVersion:
+            - Türkiye -> Turkey, Côte d'Ivoire -> Ivory Coast
             - put wrong and right guesses with feed back in table
             - more refactoring
             - round system
