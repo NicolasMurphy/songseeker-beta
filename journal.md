@@ -1,3 +1,15 @@
+# 7/8
+    Goals:
+        - NewVersion:
+            - more refactoring
+            - round system
+            - distance calculation
+            - Add landing page, legacy, and new
+            -
+        -
+    Notes:
+        -
+
 # 7/7
     Goals:
         - NewVersion:
@@ -10,6 +22,7 @@
             -
         -
     Notes:
+        - Hints table needs a lot of work. Track title, artist name, album art, description sometimes give away the answer. Need to manually review all of these. Putting this off for now.
         -
 
 # 7/6
