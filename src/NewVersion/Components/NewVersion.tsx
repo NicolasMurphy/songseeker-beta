@@ -78,7 +78,6 @@ const NewVersion: React.FC = () => {
                   key={trackKey} // force re-mount
                   src={tracks[randomIndex].preview_url}
                 />
-                {!gameOver && <GuessForm />}
                 {gameOver ? (
                   <GameOver
                     onPlayAgain={handlePlayAgain}
@@ -95,6 +94,7 @@ const NewVersion: React.FC = () => {
                   </>
                 )}
                 <GuessesTable />
+                {!gameOver && <GuessForm />}
               </section>
             )}
           </>

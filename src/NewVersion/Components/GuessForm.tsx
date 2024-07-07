@@ -1,5 +1,6 @@
 import React from "react";
-import Autosuggest from "react-autosuggest";
+import Select, { SingleValue } from "react-select";
+import classNames from "classnames";
 import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 
@@ -15,63 +16,39 @@ const GuessForm: React.FC = () => {
     score,
     guesses,
     inputValue,
-    suggestions,
-    isInputClicked,
     availableCountries,
     setInputValue,
-    setSuggestions,
-    setHighlightedSuggestion,
     setIsInputClicked,
     setAvailableCountries,
-    setSelectedCountry
+    setSelectedCountry,
   } = useStore();
 
-  const getSuggestions = (value: string) => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
+  const countryOptions = availableCountries.map((country) => ({
+    value: country,
+    label: (
+      <div className="flex">
+        <img
+          className="object-contain w-6"
+          src={getFlagUrl(country)}
+          alt={`${country} flag`}
+        />
+        <div className="mx-4">{country}</div>
+      </div>
+    ),
+  }));
 
-    return inputLength === 0
-      ? availableCountries
-      : availableCountries.filter(
-          (country) =>
-            country.toLowerCase().slice(0, inputLength) === inputValue
-        );
-  };
-
-  const handleInputChange = (
-    event: React.FormEvent<any>,
-    { newValue }: { newValue: string }
-  ) => {
+  const handleInputChange = (newValue: string) => {
     setInputValue(newValue);
   };
 
-  const onSuggestionsFetchRequested = ({ value }: { value: string }) => {
-    setSuggestions(getSuggestions(value));
-  };
-
-  const onSuggestionsClearRequested = () => {
-    setSuggestions([]);
-  };
-
-  const handleSuggestionSelected = (
-    event: React.FormEvent<any>,
-    { suggestion }: { suggestion: string }
+  const handleChange = (
+    selectedOption: SingleValue<{ value: string; label: React.ReactNode }>
   ) => {
-    setSelectedCountry(suggestion);
-    checkAnswer(suggestion);
-  };
-
-  const onSuggestionHighlighted = ({
-    suggestion,
-  }: {
-    suggestion: string | null;
-  }) => {
-    setHighlightedSuggestion(suggestion);
-  };
-
-  const handleInputClick = () => {
-    setIsInputClicked(true);
-    setSuggestions(availableCountries);
+    if (selectedOption) {
+      const selectedCountry = selectedOption.value;
+      setSelectedCountry(selectedCountry);
+      checkAnswer(selectedCountry);
+    }
   };
 
   const checkAnswer = (selectedCountry: string) => {
@@ -101,38 +78,38 @@ const GuessForm: React.FC = () => {
 
   return (
     <div>
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        getSuggestionValue={(suggestion) => suggestion}
-        renderSuggestion={(suggestion) => (
-          <div className="flex">
-            <img
-              className="object-contain w-6"
-              src={getFlagUrl(suggestion)}
-              alt={`${suggestion} flag`}
-            ></img>
-            <div className="mx-4">{suggestion}</div>
-          </div>
-        )}
-        inputProps={{
-          placeholder: "Enter country",
-          value: inputValue,
-          onChange: handleInputChange,
-          onClick: handleInputClick,
-          className: "mx-auto input input-bordered w-full max-w-xs m-4",
-          autoFocus: true,
-        }}
-        onSuggestionSelected={handleSuggestionSelected}
-        onSuggestionHighlighted={onSuggestionHighlighted}
-        highlightFirstSuggestion={true}
-        shouldRenderSuggestions={() => true || isInputClicked} // always render suggestions
-        theme={{
-          suggestionsContainer:
-            "mx-auto bg-gray-300 mt-1 w-full max-w-xs z-10 max-h-48 scrollbar",
-          suggestion: "p-2 cursor-pointer text-black",
-          suggestionHighlighted: "bg-blue-300",
+      <Select
+        options={countryOptions}
+        value={countryOptions.find((option) => option.value === inputValue)}
+        onChange={handleChange}
+        onInputChange={handleInputChange}
+        onMenuClose={() => setIsInputClicked(false)}
+        placeholder="Enter country"
+        classNamePrefix="react-select"
+        className="bg-gray-700 m-4"
+        autoFocus
+        isSearchable
+        unstyled
+        defaultMenuIsOpen
+        classNames={{
+          menu: () =>
+            classNames(
+              "bg-gray-300",
+              "text-gray-900",
+              "mt-1",
+              "w-full",
+              "max-w-xs"
+            ),
+          option: ({ isFocused }) =>
+            classNames(
+              isFocused ? "bg-blue-300" : "bg-transparent",
+              "py-2",
+              "px-3"
+            ),
+            valueContainer: () =>
+            classNames(
+              "px-2"
+            )
         }}
       />
     </div>
