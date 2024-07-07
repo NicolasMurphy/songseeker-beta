@@ -130,7 +130,7 @@ const GuessForm: React.FC = () => {
         shouldRenderSuggestions={() => true || isInputClicked} // always render suggestions
         theme={{
           suggestionsContainer:
-            "mx-auto bg-gray-300 m-1 w-full max-w-xs z-10 max-h-48 scrollbar",
+            "mx-auto bg-gray-300 mt-1 w-full max-w-xs z-10 max-h-48 scrollbar",
           suggestion: "p-2 cursor-pointer text-black",
           suggestionHighlighted: "bg-blue-300",
         }}

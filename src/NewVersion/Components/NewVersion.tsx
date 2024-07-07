@@ -20,7 +20,7 @@ const NewVersion: React.FC = () => {
 
   const {
     gameOver,
-    result,
+    score,
     guesses,
     resetGame,
     setCorrectAnswer,
@@ -88,9 +88,8 @@ const NewVersion: React.FC = () => {
                   <>
                     {guesses !== INITIAL_GUESSES && (
                       <>
-                        <div>
-                          {result} {guesses} guesses left.
-                        </div>
+                        <div className="m-4">Score: {score}</div>
+                        <div className="m-4">Guesses left: {guesses}</div>
                       </>
                     )}
                   </>

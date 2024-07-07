@@ -5,14 +5,10 @@ export const GameOver: React.FC<{
   onPlayAgain: () => void;
   playAgainButtonRef: React.RefObject<HTMLButtonElement>;
 }> = ({ onPlayAgain, playAgainButtonRef }) => {
-  const { result, correctAnswer, score, resetGame } = useStore();
+  const { score, resetGame } = useStore();
 
   return (
     <>
-      <div>
-        {result} The answer was {correctAnswer}.
-      </div>
-      <div>Score: {score}</div>
       <button
         ref={playAgainButtonRef}
         className="btn btn-primary m-4"
@@ -23,6 +19,7 @@ export const GameOver: React.FC<{
       >
         Play Again
       </button>
+      <div className="m-4">Score: {score}</div>
     </>
   );
 };
