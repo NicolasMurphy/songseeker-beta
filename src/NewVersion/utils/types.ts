@@ -31,3 +31,8 @@ export interface GameOverProps {
   onPlayAgain: () => void;
   playAgainButtonRef: React.RefObject<HTMLButtonElement>;
 }
+
+export interface Coordinates {
+  0: number;
+  1: number;
+}

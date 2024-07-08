@@ -8,7 +8,7 @@ import { GameOver } from "./GameOver";
 import useStore from "../store/useStore";
 import GuessesTable from "./GuessesTable";
 import GuessForm from "./GuessForm";
-import HintsTable from "./HintsTable";
+// import HintsTable from "./HintsTable";
 import { INITIAL_GUESSES } from "../utils/constants";
 
 const getRandomInt = (max: number): number => {

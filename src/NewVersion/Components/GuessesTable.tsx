@@ -3,7 +3,7 @@ import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 
 const GuessesTable: React.FC = () => {
-  const { wrongGuesses, selectedCountry, correctAnswer, gameOver, score } = useStore();
+  const { wrongGuesses, selectedCountry, correctAnswer, gameOver, score, distances } = useStore();
 
   return (
     <>
@@ -26,7 +26,7 @@ const GuessesTable: React.FC = () => {
       </table>
       <table className="table w-100 my-4">
         <tbody>
-          {wrongGuesses.map((wrongGuess) => (
+          {wrongGuesses.map((wrongGuess, index) => (
             <tr key={wrongGuess}>
               <td className="w-20">
                 <img
@@ -35,6 +35,7 @@ const GuessesTable: React.FC = () => {
                 ></img>
               </td>
               <td className="text-left">{wrongGuess}</td>
+              <td>{distances[index]} miles</td>
               <td>❌</td>
             </tr>
           ))}

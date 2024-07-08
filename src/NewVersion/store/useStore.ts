@@ -15,6 +15,7 @@ type State = {
   availableCountries: string[];
   randomIndex: number | null;
   selectedCountry: string;
+  distances: number[];
   setGameOver: (value: boolean) => void;
   setResult: (value: string) => void;
   setCorrectAnswer: (value: string) => void;
@@ -28,6 +29,7 @@ type State = {
   setAvailableCountries: (value: string[] | ((prev: string[]) => string[])) => void;
   setRandomIndex: (value: number | null) => void;
   setSelectedCountry: (value: string) => void;
+  setDistances: (value: number[]) => void;
   resetGame: () => void;
 };
 
@@ -45,6 +47,7 @@ const useStore = create<State>((set) => ({
   availableCountries: [],
   randomIndex: null,
   selectedCountry: '',
+  distances: [],
   setGameOver: (value) => set({ gameOver: value }),
   setResult: (value) => set({ result: value }),
   setCorrectAnswer: (value) => set({ correctAnswer: value }),
@@ -60,6 +63,7 @@ const useStore = create<State>((set) => ({
   })),
   setRandomIndex: (value) => set({ randomIndex: value }),
   setSelectedCountry: (value) => set({ selectedCountry: value }),
+  setDistances: (value) => set({ distances: value }),
   resetGame: () => set({
     gameOver: false,
     result: '',
