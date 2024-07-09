@@ -1,13 +1,10 @@
 import { useGoogleMaps } from "../context/GoogleMapsContext";
-
-type Coordinates = [number, number]; // rename/move
+import { Coordinates } from "../utils/types";
 
 export const useHandleGeocoding = () => {
   const { isLoaded } = useGoogleMaps();
 
-  const handleGeocoding = async (
-    address: string
-  ): Promise<[number, number]> => {
+  const handleGeocoding = async (address: string): Promise<Coordinates> => {
     if (!isLoaded) throw new Error("Google Maps API is not loaded");
 
     const geocoder = new window.google.maps.Geocoder();

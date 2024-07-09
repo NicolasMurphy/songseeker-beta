@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Track {
   name: string;
   preview_url: string;
@@ -35,4 +37,8 @@ export interface GameOverProps {
 export interface Coordinates {
   0: number;
   1: number;
+}
+
+export interface GoogleMapsProviderProps {
+  children: ReactNode;
 }
