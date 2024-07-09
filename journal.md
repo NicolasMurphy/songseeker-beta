@@ -1,7 +1,6 @@
 # 7/10
     Goals:
         - NewVersion:
-            - There are 2 Coordinates types, need to name them differently and move the one from handle Geocoding into types
             - more refactoring
             - round system
             - Add landing page, legacy, and new
@@ -15,6 +14,7 @@
 # 7/9
     Goals:
         - NewVersion:
+            - Bring audio player, dropdown, etc. up on the page
             - There are 2 Coordinates types, need to name them differently and move the one from handle Geocoding into types
             - Fix loading=async issue, found this https://github.com/JustFly1984/react-google-maps-api/issues/3334:
                 -You must update to the latest version and replace useLoadScript with the newer useJsApiLoader import { useJsApiLoader } from "@react-google-maps/api";
