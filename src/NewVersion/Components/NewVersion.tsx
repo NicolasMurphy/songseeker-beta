@@ -64,7 +64,7 @@ const NewVersion: React.FC = () => {
 
   return (
     <div className="flex min-h-screen">
-      <div className="mx-auto mt-40 text-center">
+      <div className="mx-auto mt-20 text-center">
         {loading ? (
           <Loader />
         ) : error ? (
