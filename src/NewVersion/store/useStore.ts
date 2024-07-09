@@ -77,6 +77,7 @@ const useStore = create<State>((set) => ({
     isInputClicked: false,
     availableCountries: [],
     randomIndex: null,
+    distances: [],
   }),
 }));
 

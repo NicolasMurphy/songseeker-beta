@@ -5,6 +5,8 @@ import getFlagUrl from "../utils/getFlagUrl";
 const GuessesTable: React.FC = () => {
   const { wrongGuesses, selectedCountry, correctAnswer, gameOver, score, distances } = useStore();
 
+  // console.log(distances);
+
   return (
     <>
       <table className="table w-100">

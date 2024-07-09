@@ -11,12 +11,22 @@ const useSubmitGuess = () => {
     if (!selectedCountry || !correctAnswer) return;
 
     try {
-      const correctCoords = await handleGeocoding(correctAnswer) as Coordinates;
+      const correctCoords = (await handleGeocoding(
+        correctAnswer
+      )) as Coordinates;
 
-      const guessCoords = await handleGeocoding(selectedCountry) as Coordinates;
+      const guessCoords = (await handleGeocoding(
+        selectedCountry
+      )) as Coordinates;
 
       const distanceStr = haversineDistance(correctCoords, guessCoords);
       const distance = parseFloat(distanceStr);
+
+      // console.log([
+      //   "Correct Answer: " + correctAnswer + " " + correctCoords,
+      //   "Guess: " + selectedCountry + " " + guessCoords,
+      //   "Distance: " + distanceStr,
+      // ]);
 
       if (!isNaN(distance)) {
         setDistances([...distances, distance]);
