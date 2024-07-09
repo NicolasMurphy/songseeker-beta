@@ -1,40 +1,30 @@
-import { handleGeocoding } from "../utils/handleGeocoding";
-import { haversineDistance } from "../utils/haversineDistance";
-import useStore from "../store/useStore";
+import { useHandleGeocoding } from './useHandleGeocoding';
+import { haversineDistance } from '../utils/haversineDistance';
+import useStore from '../store/useStore';
 
-type Coordinates = [number, number];
+type Coordinates = [number, number]; // rename/move
 
 const useSubmitGuess = () => {
   const { correctAnswer, distances, setDistances } = useStore();
+  const handleGeocoding = useHandleGeocoding();
 
   const handleSubmit = async (selectedCountry: string) => {
     if (!selectedCountry || !correctAnswer) return;
 
     try {
-      const correctCoords = (await handleGeocoding(
-        correctAnswer
-      )) as Coordinates;
-
-      const guessCoords = (await handleGeocoding(
-        selectedCountry
-      )) as Coordinates;
+      const correctCoords = (await handleGeocoding(correctAnswer)) as Coordinates;
+      const guessCoords = (await handleGeocoding(selectedCountry)) as Coordinates;
 
       const distanceStr = haversineDistance(correctCoords, guessCoords);
       const distance = parseFloat(distanceStr);
 
-      // console.log([
-      //   "Correct Answer: " + correctAnswer + " " + correctCoords,
-      //   "Guess: " + selectedCountry + " " + guessCoords,
-      //   "Distance: " + distanceStr,
-      // ]);
-
       if (!isNaN(distance)) {
         setDistances([...distances, distance]);
       } else {
-        console.error("Distance is not a valid number:", distanceStr);
+        console.error('Distance is not a valid number:', distanceStr);
       }
     } catch (error) {
-      console.error("Error in geocoding:", error);
+      console.error('Error in geocoding:', error);
     }
   };
 
