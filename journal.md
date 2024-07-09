@@ -1,3 +1,17 @@
+# 7/9
+    Goals:
+        - NewVersion:
+            - There are 2 Coordinates types, need to name them differently and move the one from handle Geocoding into types
+            - Fix loading=async issue, found this https://github.com/JustFly1984/react-google-maps-api/issues/3334:
+                -You must update to the latest version and replace useLoadScript with the newer useJsApiLoader import { useJsApiLoader } from "@react-google-maps/api";
+            - more refactoring
+            - round system
+            - Add landing page, legacy, and new
+            -
+        -
+    Notes:
+        -
+
 # 7/8
     Goals:
         - NewVersion:
