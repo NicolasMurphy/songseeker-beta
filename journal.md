@@ -1,3 +1,17 @@
+# 7/10
+    Goals:
+        - NewVersion:
+            - There are 2 Coordinates types, need to name them differently and move the one from handle Geocoding into types
+            - more refactoring
+            - round system
+            - Add landing page, legacy, and new
+            -
+        - Legacy:
+            - Apply loading=async fix to Legacy version
+        -
+    Notes:
+        -
+
 # 7/9
     Goals:
         - NewVersion:
