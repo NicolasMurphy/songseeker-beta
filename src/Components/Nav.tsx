@@ -62,7 +62,7 @@ const Nav: React.FC<NavProps> = ({ database }) => {
       )}
 
       <button
-        className="btn btn-outline btn-secondary btn-sm mx-2 uppercase"
+        className="btn btn-outline btn-warning btn-sm mx-2 uppercase"
         onClick={() => setIsDonateVisible(true)}
       >
         Donate

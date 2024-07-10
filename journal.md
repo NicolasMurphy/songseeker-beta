@@ -4,6 +4,7 @@
             - more refactoring
             - round system
             - Add landing page, legacy, and new
+            - Ensure tracks are exhausted before repeats
             -
         - Legacy:
             - Apply loading=async fix to Legacy version
