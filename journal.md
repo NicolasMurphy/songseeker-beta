@@ -3,8 +3,9 @@
         - NewVersion:
             - more refactoring
             - round system
-            - Add landing page, legacy, and new
             - Ensure tracks are exhausted before repeats
+            - Hints table
+                - Manually go through and make changes to descriptions
             -
         - Legacy:
             - Apply loading=async fix to Legacy version
