@@ -1,3 +1,19 @@
+# 7/11
+    Goals:
+        - NewVersion:
+            - Figure out "borders" for distance calc (REST Countries API)
+            - more refactoring
+            - round system
+            - Ensure tracks are exhausted before repeats
+            - Hints table
+                - Manually go through and make changes to descriptions
+            -
+        - Legacy:
+            - Apply loading=async fix to Legacy version
+        -
+    Notes:
+        -
+
 # 7/10
     Goals:
         - NewVersion:
