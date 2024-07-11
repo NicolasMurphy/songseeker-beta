@@ -1,11 +1,11 @@
 import React from "react";
 import useStore from "../store/useStore";
 
-export const GameOver: React.FC<{
+export const RoundOver: React.FC<{
   onPlayAgain: () => void;
   playAgainButtonRef: React.RefObject<HTMLButtonElement>;
 }> = ({ onPlayAgain, playAgainButtonRef }) => {
-  const { score, resetGame } = useStore();
+  const { score, resetRound } = useStore();
 
   return (
     <>
@@ -13,7 +13,7 @@ export const GameOver: React.FC<{
         ref={playAgainButtonRef}
         className="btn btn-primary m-4"
         onClick={() => {
-          resetGame();
+          resetRound();
           onPlayAgain();
         }}
       >

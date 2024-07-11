@@ -29,7 +29,7 @@ export interface AudioPlayerProps {
   src: string;
 }
 
-export interface GameOverProps {
+export interface RoundOverProps {
   onPlayAgain: () => void;
   playAgainButtonRef: React.RefObject<HTMLButtonElement>;
 }

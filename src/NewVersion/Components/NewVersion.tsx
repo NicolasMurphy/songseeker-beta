@@ -4,7 +4,7 @@ import getDescriptionOptions from "../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
 import { Description } from "../utils/types";
 import { Loader } from "./Loader";
-import { GameOver } from "./GameOver";
+import { RoundOver } from "./RoundOver";
 import useStore from "../store/useStore";
 import GuessesTable from "./GuessesTable";
 import GuessForm from "./GuessForm";
@@ -20,10 +20,10 @@ const NewVersion: React.FC = () => {
   const [trackKey, setTrackKey] = useState(0); // force re-mount
 
   const {
-    gameOver,
+    roundOver,
     score,
     guesses,
-    resetGame,
+    resetRound,
     setCorrectAnswer,
     setAvailableCountries,
     setRandomIndex,
@@ -36,10 +36,10 @@ const NewVersion: React.FC = () => {
     setRandomIndex(newIndex);
     setAvailableCountries(descriptions.map((desc) => desc.country).sort());
     setCorrectAnswer(descriptions[newIndex].country);
-  }, [resetGame, setAvailableCountries, setCorrectAnswer, setRandomIndex]);
+  }, [resetRound, setAvailableCountries, setCorrectAnswer, setRandomIndex]);
 
   const handlePlayAgain = () => {
-    resetGame();
+    resetRound();
     const descriptions: Description[] = getDescriptionOptions();
     const newIndex = getRandomInt(descriptions.length);
     setRandomIndex(newIndex);
@@ -52,7 +52,7 @@ const NewVersion: React.FC = () => {
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (gameOver && playAgainButtonRef.current) {
+      if (roundOver && playAgainButtonRef.current) {
         playAgainButtonRef.current.click();
       }
     };
@@ -80,8 +80,8 @@ const NewVersion: React.FC = () => {
                   src={tracks[randomIndex].preview_url}
                 />
                 {/* <HintsTable /> */}
-                {gameOver ? (
-                  <GameOver
+                {roundOver ? (
+                  <RoundOver
                     onPlayAgain={handlePlayAgain}
                     playAgainButtonRef={playAgainButtonRef}
                   />
@@ -96,7 +96,7 @@ const NewVersion: React.FC = () => {
                   </>
                 )}
                 <GuessesTable />
-                {!gameOver && <GuessForm />}
+                {!roundOver && <GuessForm />}
               </section>
             )}
           </>

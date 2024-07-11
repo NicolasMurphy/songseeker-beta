@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { INITIAL_SCORE, INITIAL_GUESSES } from '../utils/constants';
 
 type State = {
-  gameOver: boolean;
+  roundOver: boolean;
   result: string;
   correctAnswer: string;
   score: number;
@@ -16,7 +16,7 @@ type State = {
   randomIndex: number | null;
   selectedCountry: string;
   distances: number[];
-  setGameOver: (value: boolean) => void;
+  setRoundOver: (value: boolean) => void;
   setResult: (value: string) => void;
   setCorrectAnswer: (value: string) => void;
   setScore: (value: number) => void;
@@ -30,11 +30,11 @@ type State = {
   setRandomIndex: (value: number | null) => void;
   setSelectedCountry: (value: string) => void;
   setDistances: (value: number[]) => void;
-  resetGame: () => void;
+  resetRound: () => void;
 };
 
 const useStore = create<State>((set) => ({
-  gameOver: false,
+  roundOver: false,
   result: '',
   correctAnswer: '',
   score: INITIAL_SCORE,
@@ -48,7 +48,7 @@ const useStore = create<State>((set) => ({
   randomIndex: null,
   selectedCountry: '',
   distances: [],
-  setGameOver: (value) => set({ gameOver: value }),
+  setRoundOver: (value) => set({ roundOver: value }),
   setResult: (value) => set({ result: value }),
   setCorrectAnswer: (value) => set({ correctAnswer: value }),
   setScore: (value) => set({ score: value }),
@@ -64,8 +64,8 @@ const useStore = create<State>((set) => ({
   setRandomIndex: (value) => set({ randomIndex: value }),
   setSelectedCountry: (value) => set({ selectedCountry: value }),
   setDistances: (value) => set({ distances: value }),
-  resetGame: () => set({
-    gameOver: false,
+  resetRound: () => set({
+    roundOver: false,
     result: '',
     correctAnswer: '',
     score: INITIAL_SCORE,

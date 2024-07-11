@@ -7,7 +7,7 @@ const GuessesTable: React.FC = () => {
     wrongGuesses,
     selectedCountry,
     correctAnswer,
-    gameOver,
+    roundOver,
     score,
     distances,
   } = useStore();
@@ -32,7 +32,7 @@ const GuessesTable: React.FC = () => {
     <>
       <table className="table w-100">
         <tbody>
-          {gameOver && score === 0 && (
+          {roundOver && score === 0 && (
             <tr>
               <td className="w-20">
                 <img

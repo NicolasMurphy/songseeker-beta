@@ -8,7 +8,7 @@ import useCalculateDistance  from "../hooks/useCalculateDistance";
 const GuessForm: React.FC = () => {
   const {
     setResult,
-    setGameOver,
+    setRoundOver,
     setScore,
     setGuesses,
     setWrongGuesses,
@@ -61,7 +61,7 @@ const GuessForm: React.FC = () => {
 
     if (inputLower === correctAnswer.toLowerCase()) {
       setResult("Correct!");
-      setGameOver(true);
+      setRoundOver(true);
     } else {
       setResult("Wrong.");
       setScore(Math.max(score - 1000, 0));
@@ -73,7 +73,7 @@ const GuessForm: React.FC = () => {
         )
       );
       if (guesses === 1) {
-        setGameOver(true);
+        setRoundOver(true);
       }
     }
     setInputValue("");
