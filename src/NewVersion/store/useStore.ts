@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { INITIAL_SCORE, INITIAL_GUESSES } from '../utils/constants';
+import { create } from "zustand";
+import { INITIAL_SCORE, INITIAL_GUESSES } from "../utils/constants";
 
 type State = {
   roundOver: boolean;
@@ -26,7 +26,9 @@ type State = {
   setSuggestions: (value: string[]) => void;
   setHighlightedSuggestion: (value: string | null) => void;
   setIsInputClicked: (value: boolean) => void;
-  setAvailableCountries: (value: string[] | ((prev: string[]) => string[])) => void;
+  setAvailableCountries: (
+    value: string[] | ((prev: string[]) => string[])
+  ) => void;
   setRandomIndex: (value: number | null) => void;
   setSelectedCountry: (value: string) => void;
   setDistances: (value: number[]) => void;
@@ -35,18 +37,18 @@ type State = {
 
 const useStore = create<State>((set) => ({
   roundOver: false,
-  result: '',
-  correctAnswer: '',
+  result: "",
+  correctAnswer: "",
   score: INITIAL_SCORE,
   guesses: INITIAL_GUESSES,
   wrongGuesses: [],
-  inputValue: '',
+  inputValue: "",
   suggestions: [],
   highlightedSuggestion: null,
   isInputClicked: false,
   availableCountries: [],
   randomIndex: null,
-  selectedCountry: '',
+  selectedCountry: "",
   distances: [],
   setRoundOver: (value) => set({ roundOver: value }),
   setResult: (value) => set({ result: value }),
@@ -58,27 +60,30 @@ const useStore = create<State>((set) => ({
   setSuggestions: (value) => set({ suggestions: value }),
   setHighlightedSuggestion: (value) => set({ highlightedSuggestion: value }),
   setIsInputClicked: (value) => set({ isInputClicked: value }),
-  setAvailableCountries: (value) => set((state) => ({
-    availableCountries: typeof value === 'function' ? value(state.availableCountries) : value
-  })),
+  setAvailableCountries: (value) =>
+    set((state) => ({
+      availableCountries:
+        typeof value === "function" ? value(state.availableCountries) : value,
+    })),
   setRandomIndex: (value) => set({ randomIndex: value }),
   setSelectedCountry: (value) => set({ selectedCountry: value }),
   setDistances: (value) => set({ distances: value }),
-  resetRound: () => set({
-    roundOver: false,
-    result: '',
-    correctAnswer: '',
-    score: INITIAL_SCORE,
-    guesses: INITIAL_GUESSES,
-    wrongGuesses: [],
-    inputValue: '',
-    suggestions: [],
-    highlightedSuggestion: null,
-    isInputClicked: false,
-    availableCountries: [],
-    randomIndex: null,
-    distances: [],
-  }),
+  resetRound: () =>
+    set({
+      roundOver: false,
+      result: "",
+      correctAnswer: "",
+      score: INITIAL_SCORE,
+      guesses: INITIAL_GUESSES,
+      wrongGuesses: [],
+      inputValue: "",
+      suggestions: [],
+      highlightedSuggestion: null,
+      isInputClicked: false,
+      availableCountries: [],
+      randomIndex: null,
+      distances: [],
+    }),
 }));
 
 export default useStore;

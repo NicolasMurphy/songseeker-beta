@@ -3,7 +3,7 @@ import Select, { SingleValue } from "react-select";
 import classNames from "classnames";
 import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
-import useCalculateDistance  from "../hooks/useCalculateDistance";
+import useCalculateDistance from "../hooks/useCalculateDistance";
 
 const GuessForm: React.FC = () => {
   const {
@@ -83,7 +83,9 @@ const GuessForm: React.FC = () => {
     <div>
       <Select
         options={countryOptions}
-        value={countryOptions.find((option) => option.value === inputValue) || null}
+        value={
+          countryOptions.find((option) => option.value === inputValue) || null
+        }
         onChange={handleChange}
         onInputChange={handleInputChange}
         placeholder="Enter country"
@@ -108,10 +110,7 @@ const GuessForm: React.FC = () => {
               "py-2",
               "px-3"
             ),
-            valueContainer: () =>
-            classNames(
-              "px-2"
-            )
+          valueContainer: () => classNames("px-2"),
         }}
       />
     </div>

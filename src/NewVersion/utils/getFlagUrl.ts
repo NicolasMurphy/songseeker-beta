@@ -5,13 +5,13 @@ registerLocale(en);
 export default function getFlagUrl(countryName: string): string {
   if (!countryName) return "";
 
-  const nameCorrections: { [key: string]: string} = {
+  const nameCorrections: { [key: string]: string } = {
     "Myanmar (Burma)": "Myanmar",
     "Côte d'Ivoire": "Ivory Coast",
-    "Syria": "Syrian Arab Republic",
+    Syria: "Syrian Arab Republic",
     "Cabo Verde": "Cape Verde",
-    "Moldova": "Moldova, Republic of",
-    "Laos": "Lao People's Democratic Republic"
+    Moldova: "Moldova, Republic of",
+    Laos: "Lao People's Democratic Republic",
   };
 
   countryName = nameCorrections[countryName] || countryName;

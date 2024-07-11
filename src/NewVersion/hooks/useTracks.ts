@@ -3,7 +3,11 @@ import { refreshAccessToken, fetchAllTracks } from "../api/api";
 import { Track } from "../utils/types";
 import { playlistId } from "../utils/config";
 
-const useTracks = (): { tracks: Track[]; loading: boolean; error: string | null } => {
+const useTracks = (): {
+  tracks: Track[];
+  loading: boolean;
+  error: string | null;
+} => {
   const [tracks, setTracks] = useState<Track[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
