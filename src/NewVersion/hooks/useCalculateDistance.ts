@@ -3,11 +3,11 @@ import { haversineDistance } from "../utils/haversineDistance";
 import useStore from "../store/useStore";
 import { Coordinates } from "../utils/types";
 
-const useSubmitGuess = () => {
+const useCalculateDistance = () => {
   const { correctAnswer, distances, setDistances } = useStore();
   const handleGeocoding = useHandleGeocoding();
 
-  const handleSubmit = async (selectedCountry: string) => {
+  const calculateDistance = async (selectedCountry: string) => {
     if (!selectedCountry || !correctAnswer) return;
 
     try {
@@ -31,7 +31,7 @@ const useSubmitGuess = () => {
     }
   };
 
-  return handleSubmit;
+  return calculateDistance;
 };
 
-export default useSubmitGuess;
+export default useCalculateDistance;

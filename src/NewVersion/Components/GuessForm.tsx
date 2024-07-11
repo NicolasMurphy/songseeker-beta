@@ -3,7 +3,7 @@ import Select, { SingleValue } from "react-select";
 import classNames from "classnames";
 import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
-import useSubmitGuess from "../hooks/useSubmitGuess";
+import useCalculateDistance  from "../hooks/useCalculateDistance";
 
 const GuessForm: React.FC = () => {
   const {
@@ -41,7 +41,7 @@ const GuessForm: React.FC = () => {
     setInputValue(newValue);
   };
 
-  const handleSubmitGuess = useSubmitGuess();
+  const handleCalculateDistance = useCalculateDistance();
 
   const handleChange = (
     selectedOption: SingleValue<{ value: string; label: React.ReactNode }>
@@ -50,7 +50,7 @@ const GuessForm: React.FC = () => {
       const selectedCountry = selectedOption.value;
       setSelectedCountry(selectedCountry);
       checkAnswer(selectedCountry);
-      handleSubmitGuess(selectedCountry);
+      handleCalculateDistance(selectedCountry);
     }
   };
 
