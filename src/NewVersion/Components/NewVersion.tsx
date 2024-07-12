@@ -3,7 +3,7 @@ import useTracks from "../hooks/useTracks";
 import getDescriptionOptions from "../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
 import { Description } from "../utils/types";
-import { Loader } from "./Loader";
+import { BigLoader } from "./Loaders";
 import { RoundOver } from "./RoundOver";
 import useStore from "../store/useStore";
 import GuessesTable from "./GuessesTable";
@@ -66,7 +66,7 @@ const NewVersion: React.FC = () => {
     <div className="flex min-h-screen">
       <div className="mx-auto mt-20 text-center">
         {loading ? (
-          <Loader />
+          <BigLoader />
         ) : error ? (
           <div className="text-red-500">Error: {error}</div>
         ) : (

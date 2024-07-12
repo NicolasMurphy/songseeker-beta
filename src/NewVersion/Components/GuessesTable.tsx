@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 import { checkIfBorders } from "../utils/borderUtils";
+import { SmallLoader } from "./Loaders";
 
 const GuessesTable: React.FC = () => {
   const {
@@ -86,8 +87,8 @@ const GuessesTable: React.FC = () => {
               <td>❌</td>
               <td>
                 {distances[index] !== undefined
-                  ? distanceFeedback[wrongGuess] || "Loading..."
-                  : ""}
+                  ? distanceFeedback[wrongGuess]
+                  : <SmallLoader />}
               </td>
             </tr>
           ))}
