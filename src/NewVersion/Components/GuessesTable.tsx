@@ -18,13 +18,13 @@ const GuessesTable: React.FC = () => {
     async (selectedCountry: string, distance: number): Promise<string> => {
       if (await checkIfBorders(selectedCountry, correctAnswer)) {
         return "Borders 🔥🔥🔥";
-      } else if (distance > 6000) {
+      } else if (distance > 5000) {
         return "Ice Cold ❄️";
-      } else if (distance > 4000) {
+      } else if (distance > 2500) {
         return "Cold 🥶";
-      } else if (distance > 2000) {
-        return "Warm 🌡️";
       } else if (distance > 1000) {
+        return "Warm 🌡️";
+      } else if (distance > 500) {
         return "Warmer 🔥";
       } else {
         return "Hot 🔥🔥";
