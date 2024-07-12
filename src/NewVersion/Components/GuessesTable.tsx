@@ -86,9 +86,11 @@ const GuessesTable: React.FC = () => {
               <td className="text-left">{wrongGuess}</td>
               <td>❌</td>
               <td>
-                {distances[index] !== undefined
-                  ? distanceFeedback[wrongGuess]
-                  : <SmallLoader />}
+                {distances[index] !== undefined ? (
+                  distanceFeedback[wrongGuess]
+                ) : (
+                  <SmallLoader />
+                )}
               </td>
             </tr>
           ))}
