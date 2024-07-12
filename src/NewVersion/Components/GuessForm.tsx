@@ -89,7 +89,7 @@ const GuessForm: React.FC = () => {
         onChange={handleChange}
         onInputChange={handleInputChange}
         placeholder="Enter country"
-        className="bg-gray-700 m-4"
+        className="bg-gray-700 m-4 max-w-xs mx-auto"
         autoFocus
         isSearchable
         unstyled
@@ -102,7 +102,6 @@ const GuessForm: React.FC = () => {
               "text-gray-900",
               "mt-1",
               "w-full",
-              "max-w-xs"
             ),
           option: ({ isFocused }) =>
             classNames(
