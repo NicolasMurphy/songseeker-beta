@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
+import { checkIfBorders } from "../utils/borderUtils";
 
 const GuessesTable: React.FC = () => {
   const {
@@ -12,21 +13,45 @@ const GuessesTable: React.FC = () => {
     distances,
   } = useStore();
 
-  const getDistanceFeedback = (distance: number) => {
-    if (distance > 6000) {
-      return "Ice Cold ❄️";
-    } else if (distance > 4000) {
-      return "Cold 🥶";
-    } else if (distance > 2000) {
-      return "Warm 🌡️";
-    } else if (distance > 1000) {
-      return "Warmer 🔥";
-    } else if (distance > 500) {
-      return "Hot 🔥🔥";
-    } else {
-      return "Burning Up 🔥🔥🔥";
+  const getDistanceFeedback = useCallback(
+    async (selectedCountry: string, distance: number): Promise<string> => {
+      if (await checkIfBorders(selectedCountry, correctAnswer)) {
+        return "Borders 🔥🔥🔥";
+      } else if (distance > 6000) {
+        return "Ice Cold ❄️";
+      } else if (distance > 4000) {
+        return "Cold 🥶";
+      } else if (distance > 2000) {
+        return "Warm 🌡️";
+      } else if (distance > 1000) {
+        return "Warmer 🔥";
+      } else {
+        return "Hot 🔥🔥";
+      }
+    },
+    [correctAnswer]
+  );
+
+  const [distanceFeedback, setDistanceFeedback] = useState<{
+    [key: string]: string;
+  }>({});
+
+  useEffect(() => {
+    const fetchFeedback = async () => {
+      const feedback: { [key: string]: string } = {};
+      for (let i = 0; i < wrongGuesses.length; i++) {
+        const guess = wrongGuesses[i];
+        if (distances[i] !== undefined) {
+          feedback[guess] = await getDistanceFeedback(guess, distances[i]);
+        }
+      }
+      setDistanceFeedback(feedback);
+    };
+
+    if (wrongGuesses.length > 0) {
+      fetchFeedback();
     }
-  };
+  }, [wrongGuesses, distances, getDistanceFeedback]);
 
   return (
     <>
@@ -61,7 +86,7 @@ const GuessesTable: React.FC = () => {
               <td>❌</td>
               <td>
                 {distances[index] !== undefined
-                  ? getDistanceFeedback(distances[index])
+                  ? distanceFeedback[wrongGuess] || "Loading..."
                   : ""}
               </td>
             </tr>
