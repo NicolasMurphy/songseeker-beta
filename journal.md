@@ -1,6 +1,24 @@
+# 7/12
+    Goals:
+        - NewVersion:
+            - Add compass on guess table
+            - more refactoring
+            - round system
+            - Ensure tracks are exhausted before repeats
+            - Hints table
+                - Manually go through and make changes to descriptions
+            -
+        - Legacy:
+            - Apply loading=async fix to Legacy version
+        -
+    Notes:
+        -
+
 # 7/11
     Goals:
         - NewVersion:
+            - Add new loader in guess table
+            - Add compass on guess table
             - Figure out "borders" for distance calc (REST Countries API)
             - more refactoring
             - round system
