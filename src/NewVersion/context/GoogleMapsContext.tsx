@@ -29,7 +29,7 @@ export const GoogleMapsProvider: React.FC<GoogleMapsProviderProps> = ({
 
   return (
     <GoogleMapsContext.Provider value={{ isLoaded }}>
-      {!isLoaded ? <div>Loading...</div> : children}
+      {isLoaded && children}
     </GoogleMapsContext.Provider>
   );
 };

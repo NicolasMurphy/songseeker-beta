@@ -39,11 +39,11 @@ const App = () => {
         <Route
           path="/new"
           element={
-            <NewVersionLayout>
-              <GoogleMapsProvider>
+            <GoogleMapsProvider>
+              <NewVersionLayout>
                 <NewVersion />
-              </GoogleMapsProvider>
-            </NewVersionLayout>
+              </NewVersionLayout>
+            </GoogleMapsProvider>
           }
         />
         <Route path="*" element={<NotFound />} />
