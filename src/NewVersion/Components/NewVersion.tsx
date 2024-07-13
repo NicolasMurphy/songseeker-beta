@@ -9,6 +9,7 @@ import useStore from "../store/useStore";
 import GuessesTable from "./GuessesTable";
 import GuessForm from "./GuessForm";
 import GameInfo from "./GameInfo";
+import { GameOver } from "./GameOver";
 // import HintsTable from "./HintsTable";
 import { INITIAL_GUESSES } from "../utils/constants";
 
@@ -31,8 +32,8 @@ const NewVersion: React.FC = () => {
     randomIndex,
     round,
     setRound,
-    // gameScore,
-    // setGameScore
+    gameOver,
+    resetGame,
   } = useStore();
 
   useEffect(() => {
@@ -44,7 +45,6 @@ const NewVersion: React.FC = () => {
   }, [resetRound, setAvailableCountries, setCorrectAnswer, setRandomIndex]);
 
   const handleNextRound = () => {
-    // setGameScore(gameScore + score);
     setRound(round + 1);
     resetRound();
     const descriptions: Description[] = getDescriptionOptions();
@@ -55,12 +55,28 @@ const NewVersion: React.FC = () => {
     setTrackKey(trackKey + 1); // force re-mount
   };
 
+  const handleNewGame = () => {
+    resetGame();
+    // setRound(round + 1);
+    // resetRound();
+    const descriptions: Description[] = getDescriptionOptions();
+    const newIndex = getRandomInt(descriptions.length);
+    setRandomIndex(newIndex);
+    setAvailableCountries(descriptions.map((desc) => desc.country).sort());
+    setCorrectAnswer(descriptions[newIndex].country);
+    setTrackKey(trackKey + 1); // force re-mount
+  };
+
   const nextRoundButtonRef = useRef<HTMLButtonElement>(null);
+  const playAgainButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (roundOver && nextRoundButtonRef.current) {
         nextRoundButtonRef.current.click();
+      }
+      if (gameOver && playAgainButtonRef.current) {
+        playAgainButtonRef.current.click();
       }
     };
     document.addEventListener("keypress", handleKeyPress as EventListener);
@@ -88,14 +104,14 @@ const NewVersion: React.FC = () => {
                   src={tracks[randomIndex].preview_url}
                 />
                 {/* <HintsTable /> */}
-                {roundOver ? (
+                {!gameOver && roundOver ? (
                   <RoundOver
                     onNextRound={handleNextRound}
                     nextRoundButtonRef={nextRoundButtonRef}
                   />
                 ) : (
                   <>
-                    {guesses !== INITIAL_GUESSES && (
+                    {!gameOver && guesses !== INITIAL_GUESSES && (
                       <>
                         <div className="mb-2 mt-8">Score: {score}</div>
                         <div className="mb-2 mt-4">Guesses left: {guesses}</div>
@@ -103,8 +119,14 @@ const NewVersion: React.FC = () => {
                     )}
                   </>
                 )}
-                <GuessesTable />
-                {!roundOver && <GuessForm />}
+                {gameOver && (
+                  <GameOver
+                    onNewGame={handleNewGame}
+                    playAgainButtonRef={playAgainButtonRef}
+                  />
+                )}
+                {!gameOver && <GuessesTable /> }
+                {!gameOver && !roundOver && <GuessForm />}
               </section>
             )}
           </>

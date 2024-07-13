@@ -23,6 +23,8 @@ const GuessForm: React.FC = () => {
     setSelectedCountry,
     gameScore,
     setGameScore,
+    round,
+    setGameOver,
   } = useStore();
 
   const countryOptions = availableCountries.map((country) => ({
@@ -65,6 +67,10 @@ const GuessForm: React.FC = () => {
       setGameScore(gameScore + score);
       setResult("Correct!");
       setRoundOver(true);
+      // not sure if this is best way to do this
+      if (round === 3) {
+        setGameOver(true);
+      }
     } else {
       setResult("Wrong.");
       setScore(Math.max(score - 1000, 0));
@@ -77,6 +83,10 @@ const GuessForm: React.FC = () => {
       );
       if (guesses === 1) {
         setRoundOver(true);
+        // not sure if this is best way to do this
+        if (round === 3) {
+          setGameOver(true);
+        }
       }
     }
     setInputValue("");
