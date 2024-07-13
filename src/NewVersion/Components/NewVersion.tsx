@@ -31,6 +31,8 @@ const NewVersion: React.FC = () => {
     randomIndex,
     round,
     setRound,
+    // gameScore,
+    // setGameScore
   } = useStore();
 
   useEffect(() => {
@@ -42,6 +44,7 @@ const NewVersion: React.FC = () => {
   }, [resetRound, setAvailableCountries, setCorrectAnswer, setRandomIndex]);
 
   const handleNextRound = () => {
+    // setGameScore(gameScore + score);
     setRound(round + 1);
     resetRound();
     const descriptions: Description[] = getDescriptionOptions();

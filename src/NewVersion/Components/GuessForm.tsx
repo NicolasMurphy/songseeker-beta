@@ -21,6 +21,8 @@ const GuessForm: React.FC = () => {
     setInputValue,
     setAvailableCountries,
     setSelectedCountry,
+    gameScore,
+    setGameScore,
   } = useStore();
 
   const countryOptions = availableCountries.map((country) => ({
@@ -60,6 +62,7 @@ const GuessForm: React.FC = () => {
     const inputLower = selectedCountry.toLowerCase();
 
     if (inputLower === correctAnswer.toLowerCase()) {
+      setGameScore(gameScore + score);
       setResult("Correct!");
       setRoundOver(true);
     } else {
@@ -97,12 +100,7 @@ const GuessForm: React.FC = () => {
         menuIsOpen={true}
         classNames={{
           menu: () =>
-            classNames(
-              "bg-gray-300",
-              "text-gray-900",
-              "mt-1",
-              "w-full",
-            ),
+            classNames("bg-gray-300", "text-gray-900", "mt-1", "w-full"),
           option: ({ isFocused }) =>
             classNames(
               isFocused ? "bg-blue-300" : "bg-transparent",
