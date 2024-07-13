@@ -9,11 +9,11 @@ export const GameOver: React.FC<{
 
   const getFinalScoreMessage = (score: number): string => {
     if (score > 12500) {
-      return "Ethnomusicology Wizard!";
+      return "Ethnomusicology Wizard!!!";
     } else if (score > 10000) {
-      return "Mr. Worldwide!";
+      return "Mr. Worldwide!!";
     } else if (score > 7500) {
-      return "Musicophile";
+      return "Musicophile!";
     } else if (score > 5000) {
       return "Tune Explorer";
     } else {
@@ -34,7 +34,7 @@ export const GameOver: React.FC<{
         Play Again
       </button>
       <div className="m-4">Final Score: {gameScore}</div>
-      <div className="m-4">{getFinalScoreMessage(gameScore)}</div>
+      <div className="text-secondary text-5xl font-bold m-4">{getFinalScoreMessage(gameScore)}</div>
     </>
   );
 };
