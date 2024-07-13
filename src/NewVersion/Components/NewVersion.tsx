@@ -28,6 +28,8 @@ const NewVersion: React.FC = () => {
     setAvailableCountries,
     setRandomIndex,
     randomIndex,
+    round,
+    setRound
   } = useStore();
 
   useEffect(() => {
@@ -38,7 +40,8 @@ const NewVersion: React.FC = () => {
     setCorrectAnswer(descriptions[newIndex].country);
   }, [resetRound, setAvailableCountries, setCorrectAnswer, setRandomIndex]);
 
-  const handlePlayAgain = () => {
+  const handleNextRound = () => {
+    setRound(round + 1);
     resetRound();
     const descriptions: Description[] = getDescriptionOptions();
     const newIndex = getRandomInt(descriptions.length);
@@ -48,12 +51,12 @@ const NewVersion: React.FC = () => {
     setTrackKey(trackKey + 1); // force re-mount
   };
 
-  const playAgainButtonRef = useRef<HTMLButtonElement>(null);
+  const nextRoundButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (roundOver && playAgainButtonRef.current) {
-        playAgainButtonRef.current.click();
+      if (roundOver && nextRoundButtonRef.current) {
+        nextRoundButtonRef.current.click();
       }
     };
     document.addEventListener("keypress", handleKeyPress as EventListener);
@@ -75,6 +78,7 @@ const NewVersion: React.FC = () => {
               <div>No tracks available</div>
             ) : (
               <section>
+                <div>Round: {round}</div>
                 <AudioPlayer
                   key={trackKey} // force re-mount
                   src={tracks[randomIndex].preview_url}
@@ -82,8 +86,8 @@ const NewVersion: React.FC = () => {
                 {/* <HintsTable /> */}
                 {roundOver ? (
                   <RoundOver
-                    onPlayAgain={handlePlayAgain}
-                    playAgainButtonRef={playAgainButtonRef}
+                    onNextRound={handleNextRound}
+                    nextRoundButtonRef={nextRoundButtonRef}
                   />
                 ) : (
                   <>

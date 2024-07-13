@@ -2,22 +2,22 @@ import React from "react";
 import useStore from "../store/useStore";
 
 export const RoundOver: React.FC<{
-  onPlayAgain: () => void;
-  playAgainButtonRef: React.RefObject<HTMLButtonElement>;
-}> = ({ onPlayAgain, playAgainButtonRef }) => {
+  onNextRound: () => void;
+  nextRoundButtonRef: React.RefObject<HTMLButtonElement>;
+}> = ({ onNextRound, nextRoundButtonRef }) => {
   const { score, resetRound } = useStore();
 
   return (
     <>
       <button
-        ref={playAgainButtonRef}
+        ref={nextRoundButtonRef}
         className="btn btn-primary m-4"
         onClick={() => {
           resetRound();
-          onPlayAgain();
+          onNextRound();
         }}
       >
-        Play Again
+        Next Round
       </button>
       <div className="m-4">Score: {score}</div>
     </>
