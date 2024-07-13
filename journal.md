@@ -1,6 +1,21 @@
 # 7/13
     Goals:
         - NewVersion:
+            - Add compass on guess table
+            - more refactoring
+            - Ensure tracks are exhausted before repeats
+            - Hints table
+                - Manually go through and make changes to descriptions
+            -
+        - Legacy:
+            - Apply loading=async fix to Legacy version
+        -
+    Notes:
+        -
+
+# 7/13
+    Goals:
+        - NewVersion:
             - Final Score message
             - Add compass on guess table
             - more refactoring
