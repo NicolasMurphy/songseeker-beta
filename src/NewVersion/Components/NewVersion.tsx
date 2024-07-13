@@ -8,6 +8,7 @@ import { RoundOver } from "./RoundOver";
 import useStore from "../store/useStore";
 import GuessesTable from "./GuessesTable";
 import GuessForm from "./GuessForm";
+import GameInfo from "./GameInfo";
 // import HintsTable from "./HintsTable";
 import { INITIAL_GUESSES } from "../utils/constants";
 
@@ -29,7 +30,7 @@ const NewVersion: React.FC = () => {
     setRandomIndex,
     randomIndex,
     round,
-    setRound
+    setRound,
   } = useStore();
 
   useEffect(() => {
@@ -78,7 +79,7 @@ const NewVersion: React.FC = () => {
               <div>No tracks available</div>
             ) : (
               <section>
-                <div>Round: {round}</div>
+                <GameInfo />
                 <AudioPlayer
                   key={trackKey} // force re-mount
                   src={tracks[randomIndex].preview_url}
