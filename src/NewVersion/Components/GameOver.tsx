@@ -19,7 +19,7 @@ export const GameOver: React.FC<{
       >
         Play Again
       </button>
-      {/* Give score message here */}
+      {/* Give final score message here */}
       <div className="m-4">Final Score: {gameScore}</div>
     </>
   );

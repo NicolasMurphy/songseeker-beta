@@ -1,9 +1,9 @@
-# 7/12
+# 7/13
     Goals:
         - NewVersion:
+            - Final Score message
             - Add compass on guess table
             - more refactoring
-            - round system
             - Ensure tracks are exhausted before repeats
             - Hints table
                 - Manually go through and make changes to descriptions
