@@ -7,6 +7,20 @@ export const GameOver: React.FC<{
 }> = ({ onNewGame, playAgainButtonRef }) => {
   const { gameScore, resetGame } = useStore();
 
+  const getFinalScoreMessage = (score: number): string => {
+    if (score > 12500) {
+      return "Ethnomusicology Wizard!";
+    } else if (score > 10000) {
+      return "Mr. Worldwide!";
+    } else if (score > 7500) {
+      return "Musicophile";
+    } else if (score > 5000) {
+      return "Tune Explorer";
+    } else {
+      return "Rhythm Rookie";
+    }
+  };
+
   return (
     <>
       <button
@@ -19,8 +33,8 @@ export const GameOver: React.FC<{
       >
         Play Again
       </button>
-      {/* Give final score message here */}
       <div className="m-4">Final Score: {gameScore}</div>
+      <div className="m-4">{getFinalScoreMessage(gameScore)}</div>
     </>
   );
 };
