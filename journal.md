@@ -4,7 +4,7 @@
             - Add a button (see score?) before the play again button and total score message, that way they can see their results from that round before getting that.
             - Add compass on guess table
             - more refactoring
-            - Ensure tracks are exhausted before repeats
+            - Ensure tracks are exhausted before repeats, also fetch tracks in groups of 3 and ensure auto play works correctly on mobile
             - Hints table
                 - Manually go through and make changes to descriptions
             -
