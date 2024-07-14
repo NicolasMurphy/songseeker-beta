@@ -1,6 +1,7 @@
 # 7/14
     Goals:
         - NewVersion:
+            - Show track info on correct guess
             - Add a button (see score?) before the play again button and total score message, that way they can see their results from that round before getting that.
             - Add compass on guess table
             - more refactoring
