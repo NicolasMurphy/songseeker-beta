@@ -580,11 +580,11 @@ const getDescriptionOptions = () => {
       description: `Emel Mathlouthi (Arabic: آمال المثلوثي) also known as Emel, born 11 January 1982), is a Tunisian-American singer-songwriter, musician, arranger and producer. She rose to fame with her protest song "Kelmti Horra" ("My Word is Free"), which became an anthem for the Tunisian Revolution and the Arab Spring.`,
       link: "https://en.wikipedia.org/wiki/Emel_Mathlouthi",
     },
-    {
-      country: "Lebanon",
-      description: `Nouhad Wadie Haddad (Arabic: نهاد وديع حداد, romanized: Nuhād Wadīʿ Ḥaddād, Lebanese Arabic pronunciation: [nʊˈhaːd waˈdiːʕ ħadˈdaːd]; born November 21, 1934), known as Fairuz (Arabic: فيروز, romanized: Fayrūz, pronounced [fajˈruːz]), is a Lebanese singer. She is widely considered an iconic vocalist and one of the most celebrated singers in the history of the Arab world. She is popularly known as "The Bird Of The East," "The Cedar Of Lebanon," "The Moon's Neighbor", and “The Voice Of Lebanon”, among others.`,
-      link: "https://en.wikipedia.org/wiki/Fairuz",
-    },
+    // {
+    //   country: "Lebanon",
+    //   description: `Nouhad Wadie Haddad (Arabic: نهاد وديع حداد, romanized: Nuhād Wadīʿ Ḥaddād, Lebanese Arabic pronunciation: [nʊˈhaːd waˈdiːʕ ħadˈdaːd]; born November 21, 1934), known as Fairuz (Arabic: فيروز, romanized: Fayrūz, pronounced [fajˈruːz]), is a Lebanese singer. She is widely considered an iconic vocalist and one of the most celebrated singers in the history of the Arab world. She is popularly known as "The Bird Of The East," "The Cedar Of Lebanon," "The Moon's Neighbor", and “The Voice Of Lebanon”, among others.`,
+    //   link: "https://en.wikipedia.org/wiki/Fairuz",
+    // },
     {
       country: "Haiti",
       description: `Michel Joseph Martelly (French pronunciation: [miʃɛl ʒozɛf maʁtɛli]; born 12 February 1961) is a Haitian musician and politician who was the President of Haiti from May 2011 until February 2016. \n Martelly was one of Haiti's best-known musicians for over a decade, going by the stage name Sweet Micky. For business and musical reasons, Martelly has moved a number of times between the United States and Haiti. When travelling to the United States, Martelly mostly stays in Florida. After his presidency, Martelly returned to his former band and sang a carnival méringue entitled "Bal Bannann nan" (Give Her the Banana), as a mocking response to Liliane Pierre Paul, a famous Haitian female journalist in Port-au-Prince.`,

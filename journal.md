@@ -1,4 +1,4 @@
-# 7/13
+# 7/14
     Goals:
         - NewVersion:
             - Add compass on guess table
