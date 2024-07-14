@@ -25,6 +25,7 @@
             -
         - Legacy:
             - Apply loading=async fix to Legacy version
+            - Fix deprecated marker
         -
     Notes:
         -
