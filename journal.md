@@ -8,9 +8,11 @@
                 - Manually go through and make changes to descriptions
             -
         - Legacy:
-            - Apply loading=async fix to Legacy version
+            - Fix deprecated marker, also need to add map id to env and fix web gl error
+            -
         -
     Notes:
+        - Fixing the Legacy deprecated marker may take a while, considering abandoning this to focus on the new version
         -
 
 # 7/13
@@ -26,6 +28,7 @@
         - Legacy:
             - Apply loading=async fix to Legacy version
             - Fix deprecated marker
+            -
         -
     Notes:
         -
