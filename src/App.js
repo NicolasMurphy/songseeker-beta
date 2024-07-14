@@ -6,6 +6,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { database, firestore } from "./firebaseConfig";
 import NewVersion from "./NewVersion/Components/NewVersion";
 import { GoogleMapsProvider } from "./NewVersion/context/GoogleMapsContext";
+import { GoogleMapsProviderLegacy } from "./Map/useGoogleMapsLegacy";
 import LandingPage from "./LandingPage";
 
 const LegacyLayout = ({ children }) => (
@@ -31,9 +32,11 @@ const App = () => {
         <Route
           path="/legacy"
           element={
-            <LegacyLayout>
-              <CoreLogic database={database} />
-            </LegacyLayout>
+            <GoogleMapsProviderLegacy>
+              <LegacyLayout>
+                <CoreLogic database={database} />
+              </LegacyLayout>
+            </GoogleMapsProviderLegacy>
           }
         />
         <Route

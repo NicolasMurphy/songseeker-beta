@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { getCountryFromResult } from "./getCountryFromResult";
 import useStore from "../store";
+import { useGoogleMapsLegacy } from "./useGoogleMapsLegacy";
 
 const Map = ({
   handleCountrySelection,
@@ -21,6 +22,7 @@ const Map = ({
   const isMarkerPlacementAllowedRef = useRef(isMarkerPlacementAllowed);
   const { isCorrectGuess, setIsCorrectGuess } = useStore();
   const { isSubmitted } = useStore();
+  const { isLoaded } = useGoogleMapsLegacy();
 
   useEffect(() => {
     isMarkerPlacementAllowedRef.current = isMarkerPlacementAllowed;
@@ -96,34 +98,11 @@ const Map = ({
   };
 
   useEffect(() => {
-    if (!mapInstance) {
+    if (isLoaded && !mapInstance) {
       initializeMap();
     }
-  }, [mapInstance, isMarkerPlacementAllowed]);
+  }, [isLoaded, mapInstance, isMarkerPlacementAllowed]);
 
-  useEffect(() => {
-    // Check if the Maps API script has already been loaded or is being loaded
-    const existingScript = document.querySelector(
-      `script[src^="https://maps.googleapis.com/maps/api/js?key="]`
-    );
-
-    if (!window.google && !existingScript) {
-      const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?v=quarterly&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,drawing,places&callback=initMap&language=en`;
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    } else if (window.google) {
-      initializeMap();
-    }
-
-    // Define the global initMap function that will be called by the Google Maps script
-    window.initMap = () => {
-      initializeMap();
-    };
-  }, []);
-
-  // Reset map, markers, lines
   useEffect(() => {
     if (shouldReset && mapInstance) {
       mapInstance.panTo({ lat: 20, lng: 0 });
@@ -135,7 +114,6 @@ const Map = ({
       }
 
       if (correctMarkerRef.current) {
-        // this should make it null
         correctMarkerRef.current.setMap(null);
         correctMarkerRef.current = null;
       }
@@ -148,9 +126,7 @@ const Map = ({
       markerLocationRef.current = null;
 
       setIsCorrectGuess(false);
-
       setCorrectLocation(null);
-
       setShouldResetMap(false);
     }
   }, [
@@ -162,7 +138,6 @@ const Map = ({
     setIsCorrectGuess,
   ]);
 
-  // polyline
   useEffect(() => {
     if (correctLocation && mapInstance && !isFiftyFifty && isSubmitted) {
       const correctMarker = new window.google.maps.Marker({
@@ -195,10 +170,6 @@ const Map = ({
     }
   }, [correctLocation, mapInstance, isFiftyFifty, isSubmitted]);
 
-  // console.log("5050: ", isFiftyFifty, ", marker: ", correctMarkerRef, ", loca: ", correctLocation);
-  // console.log("markerRef: ", markerRef.current, ", markerLocationRef: ", markerLocationRef.current);
-
-  // FiftyFifty
   useEffect(() => {
     if (mapInstance && isFiftyFifty && markerLocation) {
       if (markerRef.current) {
@@ -215,7 +186,6 @@ const Map = ({
     }
   }, [mapInstance, markerLocation, isFiftyFifty]);
 
-  // FiftyFifty polyline
   useEffect(() => {
     if (
       mapInstance &&
@@ -234,7 +204,7 @@ const Map = ({
           },
         });
 
-        correctMarkerRef.current = correctMarker; // need this to be null
+        correctMarkerRef.current = correctMarker;
 
         if (markerLocation) {
           const polyline = new window.google.maps.Polyline({
