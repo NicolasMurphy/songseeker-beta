@@ -12,7 +12,6 @@ import GameInfo from "./GameInfo";
 import TrackInfo from "./TrackInfo";
 import { GameOver } from "./GameOver";
 // import HintsTable from "./HintsTable";
-import { INITIAL_GUESSES } from "../utils/constants";
 
 const getRandomInt = (max: number): number => {
   return Math.floor(Math.random() * max);
@@ -24,7 +23,6 @@ const NewVersion: React.FC = () => {
 
   const {
     roundOver,
-    score,
     guesses,
     resetRound,
     setCorrectAnswer,
@@ -88,7 +86,7 @@ const NewVersion: React.FC = () => {
 
   return (
     <div className="flex min-h-screen">
-      <div className="mx-auto mt-20 text-center">
+      <div className="mx-auto my-20 text-center">
         {loading ? (
           <BigLoader />
         ) : error ? (
