@@ -9,6 +9,7 @@ import useStore from "../store/useStore";
 import GuessesTable from "./GuessesTable";
 import GuessForm from "./GuessForm";
 import GameInfo from "./GameInfo";
+import TrackInfo from "./TrackInfo";
 import { GameOver } from "./GameOver";
 // import HintsTable from "./HintsTable";
 import { INITIAL_GUESSES } from "../utils/constants";
@@ -34,6 +35,8 @@ const NewVersion: React.FC = () => {
     setRound,
     gameOver,
     resetGame,
+    selectedCountry,
+    correctAnswer
   } = useStore();
 
   useEffect(() => {
@@ -127,6 +130,7 @@ const NewVersion: React.FC = () => {
                 )}
                 <GuessesTable />
                 {!gameOver && !roundOver && <GuessForm />}
+                {selectedCountry === correctAnswer && <TrackInfo />}
               </section>
             )}
           </>
