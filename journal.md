@@ -15,6 +15,7 @@
         -
     Notes:
         - Fixing the Legacy deprecated marker may take a while, considering abandoning this to focus on the new version
+        - Maybe make a see results button that shows all guess tables from all the rounds.
         -
 
 # 7/13
