@@ -19,7 +19,7 @@ export const RoundOver: React.FC<{
       >
         Next Round
       </button>
-      <div className="m-4">Score: {score}</div>
+      <div className="m-4">Round Score: {score}</div>
     </>
   );
 };

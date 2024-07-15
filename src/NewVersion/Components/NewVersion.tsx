@@ -105,20 +105,11 @@ const NewVersion: React.FC = () => {
                   src={tracks[randomIndex].preview_url}
                 />
                 {/* <HintsTable /> */}
-                {!gameOver && roundOver ? (
+                {!gameOver && roundOver && (
                   <RoundOver
                     onNextRound={handleNextRound}
                     nextRoundButtonRef={nextRoundButtonRef}
                   />
-                ) : (
-                  <>
-                    {!gameOver && guesses !== INITIAL_GUESSES && (
-                      <>
-                        <div className="mb-2 mt-8">Score: {score}</div>
-                        <div className="mb-2 mt-4">Guesses left: {guesses}</div>
-                      </>
-                    )}
-                  </>
                 )}
                 {gameOver && (
                   <GameOver

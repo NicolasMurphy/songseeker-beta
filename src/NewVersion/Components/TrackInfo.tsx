@@ -31,7 +31,7 @@ const HintsTable: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Description: {descriptions[randomIndex].description}</td>
+              <td>{descriptions[randomIndex].description}</td>
             </tr>
           </tbody>
         </table>
