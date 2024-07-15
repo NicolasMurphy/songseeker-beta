@@ -16,10 +16,10 @@ const HintsTable: React.FC = () => {
         <table className="table max-w-xs text-center my-4">
           <tbody>
             <tr>
-              <td>
-                {tracks[randomIndex].name} -{" "}
-                {tracks[randomIndex].artists[0].name}
-              </td>
+              <td>{tracks[randomIndex].name}</td>
+            </tr>
+            <tr>
+              <td>{tracks[randomIndex].artists[0].name}</td>
             </tr>
             <tr>
               <td>

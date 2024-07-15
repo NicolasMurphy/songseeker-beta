@@ -36,7 +36,7 @@ const NewVersion: React.FC = () => {
     gameOver,
     resetGame,
     selectedCountry,
-    correctAnswer
+    correctAnswer,
   } = useStore();
 
   useEffect(() => {
@@ -60,8 +60,6 @@ const NewVersion: React.FC = () => {
 
   const handleNewGame = () => {
     resetGame();
-    // setRound(round + 1);
-    // resetRound();
     const descriptions: Description[] = getDescriptionOptions();
     const newIndex = getRandomInt(descriptions.length);
     setRandomIndex(newIndex);
@@ -130,7 +128,9 @@ const NewVersion: React.FC = () => {
                 )}
                 <GuessesTable />
                 {!gameOver && !roundOver && <GuessForm />}
-                {selectedCountry === correctAnswer && <TrackInfo />}
+                {(guesses === 0 || selectedCountry === correctAnswer) && (
+                  <TrackInfo />
+                )}
               </section>
             )}
           </>
