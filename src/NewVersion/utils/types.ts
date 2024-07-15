@@ -25,6 +25,11 @@ export interface Description {
   link: string;
 }
 
+export interface TrackInfoProps {
+  track: Track;
+  description: string;
+}
+
 export interface AudioPlayerProps {
   src: string;
 }

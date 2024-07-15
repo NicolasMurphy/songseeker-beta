@@ -1,43 +1,31 @@
 import React from "react";
-import useStore from "../store/useStore";
-import getDescriptionOptions from "../utils/DescriptionOptions";
-import { Description } from "../utils/types";
-import useTracks from "../hooks/useTracks";
+import { TrackInfoProps } from "../utils/types";
 
-const HintsTable: React.FC = () => {
-  const { tracks } = useTracks();
-  const { randomIndex } = useStore();
-
-  const descriptions: Description[] = getDescriptionOptions();
-
+const TrackInfo: React.FC<TrackInfoProps> = ({ track, description }) => {
   return (
-    <>
-      {tracks.length !== 0 && randomIndex !== null && (
-        <table className="table max-w-xs text-center my-4">
-          <tbody>
-            <tr>
-              <td>{tracks[randomIndex].name}</td>
-            </tr>
-            <tr>
-              <td>{tracks[randomIndex].artists[0].name}</td>
-            </tr>
-            <tr>
-              <td>
-                <img
-                  src={tracks[randomIndex].album.images[0].url}
-                  alt={`${tracks[randomIndex].name} album art`}
-                  className="mx-auto m-4 w-48"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>{descriptions[randomIndex].description}</td>
-            </tr>
-          </tbody>
-        </table>
-      )}
-    </>
+    <table className="table max-w-xs text-center my-4">
+      <tbody>
+        <tr>
+          <td>{track.name}</td>
+        </tr>
+        <tr>
+          <td>{track.artists[0].name}</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src={track.album.images[0].url}
+              alt={`${track.name} album art`}
+              className="mx-auto m-4 w-48"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>{description}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
-export default HintsTable;
+export default TrackInfo;

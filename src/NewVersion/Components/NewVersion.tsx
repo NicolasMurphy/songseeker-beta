@@ -20,6 +20,7 @@ const getRandomInt = (max: number): number => {
 const NewVersion: React.FC = () => {
   const { tracks, loading, error } = useTracks();
   const [trackKey, setTrackKey] = useState(0); // force re-mount
+  const [descriptions, setDescriptions] = useState<Description[]>([]);
 
   const {
     roundOver,
@@ -38,17 +39,21 @@ const NewVersion: React.FC = () => {
   } = useStore();
 
   useEffect(() => {
-    const descriptions: Description[] = getDescriptionOptions();
-    const newIndex = getRandomInt(descriptions.length);
-    setRandomIndex(newIndex);
-    setAvailableCountries(descriptions.map((desc) => desc.country).sort());
-    setCorrectAnswer(descriptions[newIndex].country);
+    const fetchData = async () => {
+      const descriptions = await getDescriptionOptions();
+      setDescriptions(descriptions);
+      const newIndex = getRandomInt(descriptions.length);
+      setRandomIndex(newIndex);
+      setAvailableCountries(descriptions.map((desc) => desc.country).sort());
+      setCorrectAnswer(descriptions[newIndex].country);
+    };
+
+    fetchData();
   }, [resetRound, setAvailableCountries, setCorrectAnswer, setRandomIndex]);
 
   const handleNextRound = () => {
     setRound(round + 1);
     resetRound();
-    const descriptions: Description[] = getDescriptionOptions();
     const newIndex = getRandomInt(descriptions.length);
     setRandomIndex(newIndex);
     setAvailableCountries(descriptions.map((desc) => desc.country).sort());
@@ -58,7 +63,6 @@ const NewVersion: React.FC = () => {
 
   const handleNewGame = () => {
     resetGame();
-    const descriptions: Description[] = getDescriptionOptions();
     const newIndex = getRandomInt(descriptions.length);
     setRandomIndex(newIndex);
     setAvailableCountries(descriptions.map((desc) => desc.country).sort());
@@ -118,7 +122,10 @@ const NewVersion: React.FC = () => {
                 <GuessesTable />
                 {!gameOver && !roundOver && <GuessForm />}
                 {(guesses === 0 || selectedCountry === correctAnswer) && (
-                  <TrackInfo />
+                  <TrackInfo
+                    track={tracks[randomIndex]}
+                    description={descriptions[randomIndex].description}
+                  />
                 )}
               </section>
             )}
