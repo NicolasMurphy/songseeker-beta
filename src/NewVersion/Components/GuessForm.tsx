@@ -93,7 +93,7 @@ const GuessForm: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="card bg-base-300 text-base-content my-4 h-96">
       <Select
         options={countryOptions}
         value={
@@ -102,7 +102,7 @@ const GuessForm: React.FC = () => {
         onChange={handleChange}
         onInputChange={handleInputChange}
         placeholder="Enter country"
-        className="bg-gray-700 m-4 max-w-xs mx-auto"
+        className="bg-gray-700 m-4"
         autoFocus
         isSearchable
         unstyled
