@@ -3,6 +3,7 @@ import { TrackInfoProps } from "../utils/types";
 
 const TrackInfo: React.FC<TrackInfoProps> = ({ track, description }) => {
   return (
+    <div className="card bg-base-300 text-base-content my-4">
     <table className="table max-w-xs text-center my-4 mx-auto">
       <tbody>
         <tr>
@@ -25,6 +26,7 @@ const TrackInfo: React.FC<TrackInfoProps> = ({ track, description }) => {
         </tr>
       </tbody>
     </table>
+    </div>
   );
 };
 

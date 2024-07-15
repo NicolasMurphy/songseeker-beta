@@ -101,11 +101,13 @@ const NewVersion: React.FC = () => {
               <div>No tracks available</div>
             ) : (
               <section>
+                <div className="card bg-base-300 text-base-content py-4">
                 <GameInfo />
                 <AudioPlayer
                   key={trackKey} // force re-mount
                   src={tracks[randomIndex].preview_url}
                 />
+                </div>
                 {/* <HintsTable /> */}
                 {gameOver && (
                   <GameOver

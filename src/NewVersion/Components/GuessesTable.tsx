@@ -3,6 +3,7 @@ import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 import { checkIfBorders } from "../utils/borderUtils";
 import { SmallLoader } from "./Loaders";
+import { INITIAL_GUESSES } from "../utils/constants";
 
 const GuessesTable: React.FC = () => {
   const {
@@ -12,6 +13,7 @@ const GuessesTable: React.FC = () => {
     roundOver,
     score,
     distances,
+    guesses,
   } = useStore();
 
   const getDistanceFeedback = useCallback(
@@ -55,10 +57,10 @@ const GuessesTable: React.FC = () => {
   }, [wrongGuesses, distances, getDistanceFeedback]);
 
   return (
-    <div className="">
-      <table className="table max-w-xs mx-auto">
-        <tbody>
-          {roundOver && score === 0 && (
+    <div className="card bg-base-300 text-base-content my-4">
+      {roundOver && score === 0 && (
+        <table className="table max-w-xs mx-auto my-4">
+          <tbody>
             <tr>
               <td className="w-20">
                 <img
@@ -70,10 +72,10 @@ const GuessesTable: React.FC = () => {
                 {correctAnswer} was the correct answer.
               </td>
             </tr>
-          )}
-        </tbody>
-      </table>
-      <table className="table max-w-xs my-4 mx-auto">
+          </tbody>
+        </table>
+      )}
+      <table className="table max-w-xs mx-auto">
         <tbody>
           {wrongGuesses.map((wrongGuess, index) => (
             <tr key={wrongGuess}>

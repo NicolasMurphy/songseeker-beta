@@ -8,11 +8,14 @@ export const RoundOver: React.FC<{
   const { score, resetRound, gameOver } = useStore();
 
   return (
-    <>
+    <div className="card bg-base-300 text-base-content my-4">
+      <div className="card-body items-center">
+      <div className="my-2">Round Score: {score}</div>
+      <div className="card-actions">
       {!gameOver && (
         <button
           ref={nextRoundButtonRef}
-          className="btn btn-primary m-4"
+          className="btn btn-primary"
           onClick={() => {
             resetRound();
             onNextRound();
@@ -21,7 +24,8 @@ export const RoundOver: React.FC<{
           Next Round
         </button>
       )}
-      <div className="m-4">Round Score: {score}</div>
-    </>
+      </div>
+      </div>
+    </div>
   );
 };
