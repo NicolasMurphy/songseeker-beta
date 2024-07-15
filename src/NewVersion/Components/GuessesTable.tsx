@@ -55,7 +55,7 @@ const GuessesTable: React.FC = () => {
   }, [wrongGuesses, distances, getDistanceFeedback]);
 
   return (
-    <>
+    <div className="">
       <table className="table max-w-xs mx-auto">
         <tbody>
           {roundOver && score === 0 && (
@@ -108,7 +108,7 @@ const GuessesTable: React.FC = () => {
           )}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

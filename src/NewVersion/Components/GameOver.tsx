@@ -23,6 +23,10 @@ export const GameOver: React.FC<{
 
   return (
     <>
+      <div className="m-4">Final Score: {gameScore}</div>
+      <div className="text-secondary text-5xl font-bold m-4">
+        {getFinalScoreMessage(gameScore)}
+      </div>
       <button
         ref={playAgainButtonRef}
         className="btn btn-primary m-4"
@@ -33,8 +37,6 @@ export const GameOver: React.FC<{
       >
         Play Again
       </button>
-      <div className="m-4">Final Score: {gameScore}</div>
-      <div className="text-secondary text-5xl font-bold m-4">{getFinalScoreMessage(gameScore)}</div>
     </>
   );
 };

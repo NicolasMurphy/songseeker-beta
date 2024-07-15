@@ -5,20 +5,22 @@ export const RoundOver: React.FC<{
   onNextRound: () => void;
   nextRoundButtonRef: React.RefObject<HTMLButtonElement>;
 }> = ({ onNextRound, nextRoundButtonRef }) => {
-  const { score, resetRound } = useStore();
+  const { score, resetRound, gameOver } = useStore();
 
   return (
     <>
-      <button
-        ref={nextRoundButtonRef}
-        className="btn btn-primary m-4"
-        onClick={() => {
-          resetRound();
-          onNextRound();
-        }}
-      >
-        Next Round
-      </button>
+      {!gameOver && (
+        <button
+          ref={nextRoundButtonRef}
+          className="btn btn-primary m-4"
+          onClick={() => {
+            resetRound();
+            onNextRound();
+          }}
+        >
+          Next Round
+        </button>
+      )}
       <div className="m-4">Round Score: {score}</div>
     </>
   );
