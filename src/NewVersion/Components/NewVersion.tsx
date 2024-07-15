@@ -125,7 +125,7 @@ const NewVersion: React.FC = () => {
                     playAgainButtonRef={playAgainButtonRef}
                   />
                 )}
-                {!gameOver && <GuessesTable /> }
+                <GuessesTable />
                 {!gameOver && !roundOver && <GuessForm />}
               </section>
             )}
