@@ -1,3 +1,14 @@
+# 7/15
+    Goals:
+        - Add compass on guess table
+        - Ensure tracks are exhausted before repeats, also fetch tracks in groups of 3 and ensure auto play works correctly on mobile
+        - Hints table
+            - Manually go through and make changes to descriptions
+        - Add a see results button after last round and before play again. Display all guess tables from all rounds
+        -
+    Notes:
+        -
+
 # 7/14
     Goals:
         - NewVersion:
