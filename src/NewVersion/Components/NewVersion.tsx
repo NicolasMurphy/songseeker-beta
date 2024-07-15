@@ -40,7 +40,7 @@ const NewVersion: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const descriptions = await getDescriptionOptions();
+      const descriptions = getDescriptionOptions();
       setDescriptions(descriptions);
       const newIndex = getRandomInt(descriptions.length);
       setRandomIndex(newIndex);

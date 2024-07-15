@@ -56,7 +56,7 @@ const GuessesTable: React.FC = () => {
 
   return (
     <>
-      <table className="table w-100">
+      <table className="table max-w-xs mx-auto">
         <tbody>
           {roundOver && score === 0 && (
             <tr>
@@ -73,7 +73,7 @@ const GuessesTable: React.FC = () => {
           )}
         </tbody>
       </table>
-      <table className="table w-100 my-4">
+      <table className="table max-w-xs my-4 mx-auto">
         <tbody>
           {wrongGuesses.map((wrongGuess, index) => (
             <tr key={wrongGuess}>

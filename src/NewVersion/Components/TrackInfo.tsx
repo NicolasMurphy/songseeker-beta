@@ -3,7 +3,7 @@ import { TrackInfoProps } from "../utils/types";
 
 const TrackInfo: React.FC<TrackInfoProps> = ({ track, description }) => {
   return (
-    <table className="table max-w-xs text-center my-4">
+    <table className="table max-w-xs text-center my-4 mx-auto">
       <tbody>
         <tr>
           <td>{track.name}</td>
