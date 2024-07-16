@@ -4,6 +4,7 @@ import classNames from "classnames";
 import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 import useCalculateDistance from "../hooks/useCalculateDistance";
+import { ROUNDS } from "../utils/constants";
 
 const GuessForm: React.FC = () => {
   const {
@@ -68,7 +69,7 @@ const GuessForm: React.FC = () => {
       setResult("Correct!");
       setRoundOver(true);
       // not sure if this is best way to do this
-      if (round === 3) {
+      if (round === ROUNDS) {
         setGameOver(true);
       }
     } else {
@@ -84,7 +85,7 @@ const GuessForm: React.FC = () => {
       if (guesses === 1) {
         setRoundOver(true);
         // not sure if this is best way to do this
-        if (round === 3) {
+        if (round === ROUNDS) {
           setGameOver(true);
         }
       }

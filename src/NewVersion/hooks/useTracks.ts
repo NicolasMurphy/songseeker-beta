@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { refreshAccessToken, fetchAllTracks } from "../api/api";
 import { Track } from "../utils/types";
 import { playlistId } from "../utils/config";
+import { ROUNDS } from "../utils/constants";
 
 const useTracks = (): {
   tracks: Track[];
@@ -25,7 +26,7 @@ const useTracks = (): {
         setTracks(fetchedTracks);
 
         const indices: number[] = [];
-        while (indices.length < 3 && indices.length < fetchedTracks.length) {
+        while (indices.length < ROUNDS && indices.length < fetchedTracks.length) {
           const randomIndex = Math.floor(Math.random() * fetchedTracks.length);
           if (!indices.includes(randomIndex)) {
             indices.push(randomIndex);
