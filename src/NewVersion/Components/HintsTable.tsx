@@ -13,27 +13,23 @@ import useTracks from "../hooks/useTracks";
 
 const HintsTable: React.FC = () => {
   const { tracks } = useTracks();
-  const { randomIndex, guesses } = useStore();
+  const { round, guesses } = useStore();
 
   const descriptions: Description[] = getDescriptionOptions();
 
-  if (randomIndex) {
-    console.log(tracks[randomIndex]);
-  }
-
   return (
     <>
-      {tracks.length !== 0 && randomIndex !== null && (
+      {tracks.length !== 0 && round !== null && (
         <table className="table max-w-xs text-center my-4">
           <tbody>
             {guesses < 5 && (
               <tr>
-                <td>Track title: {tracks[randomIndex].name}</td>
+                <td>Track title: {tracks[round - 1].name}</td>
               </tr>
             )}
             {guesses < 4 && (
               <tr>
-                <td>Track title: {tracks[randomIndex].artists[0].name}</td>
+                <td>Track title: {tracks[round - 1].artists[0].name}</td>
               </tr>
             )}
             {guesses < 3 && (
@@ -41,8 +37,8 @@ const HintsTable: React.FC = () => {
                 <td>
                   Album art:
                   <img
-                    src={tracks[randomIndex].album.images[0].url}
-                    alt={`${tracks[randomIndex].name} album art`}
+                    src={tracks[round - 1].album.images[0].url}
+                    alt={`${tracks[round - 1].name} album art`}
                     className="mx-auto m-4 w-16 h-16"
                   />
                 </td>
@@ -50,7 +46,7 @@ const HintsTable: React.FC = () => {
             )}
             {guesses < 2 && (
               <tr>
-                <td>Description: {descriptions[randomIndex].description}</td>
+                <td>Description: {descriptions[round - 1].description}</td>
               </tr>
             )}
           </tbody>

@@ -13,12 +13,8 @@ import TrackInfo from "./TrackInfo";
 import { GameOver } from "./GameOver";
 // import HintsTable from "./HintsTable";
 
-const getRandomInt = (max: number): number => {
-  return Math.floor(Math.random() * max);
-};
-
 const NewVersion: React.FC = () => {
-  const { tracks, loading, error } = useTracks();
+  const { tracks, loading, error, trackIndices, refetchTracks } = useTracks();
   const [trackKey, setTrackKey] = useState(0); // force re-mount
   const [descriptions, setDescriptions] = useState<Description[]>([]);
 
@@ -28,8 +24,6 @@ const NewVersion: React.FC = () => {
     resetRound,
     setCorrectAnswer,
     setAvailableCountries,
-    setRandomIndex,
-    randomIndex,
     round,
     setRound,
     gameOver,
@@ -42,31 +36,29 @@ const NewVersion: React.FC = () => {
     const fetchData = async () => {
       const descriptions = getDescriptionOptions();
       setDescriptions(descriptions);
-      const newIndex = getRandomInt(descriptions.length);
-      setRandomIndex(newIndex);
       setAvailableCountries(descriptions.map((desc) => desc.country).sort());
-      setCorrectAnswer(descriptions[newIndex].country);
+      if (trackIndices.length > 0) {
+        setCorrectAnswer(descriptions[trackIndices[0]].country);
+      }
     };
 
     fetchData();
-  }, [resetRound, setAvailableCountries, setCorrectAnswer, setRandomIndex]);
+  }, [trackIndices, setAvailableCountries, setCorrectAnswer]);
 
   const handleNextRound = () => {
-    setRound(round + 1);
+    const newRound = round + 1;
+    setRound(newRound);
     resetRound();
-    const newIndex = getRandomInt(descriptions.length);
-    setRandomIndex(newIndex);
-    setAvailableCountries(descriptions.map((desc) => desc.country).sort());
-    setCorrectAnswer(descriptions[newIndex].country);
+    if (descriptions.length > 0 && trackIndices.length >= newRound) {
+      setCorrectAnswer(descriptions[trackIndices[newRound - 1]].country);
+      setAvailableCountries(descriptions.map((desc) => desc.country).sort());
+    }
     setTrackKey(trackKey + 1); // force re-mount
   };
 
   const handleNewGame = () => {
     resetGame();
-    const newIndex = getRandomInt(descriptions.length);
-    setRandomIndex(newIndex);
-    setAvailableCountries(descriptions.map((desc) => desc.country).sort());
-    setCorrectAnswer(descriptions[newIndex].country);
+    refetchTracks();
     setTrackKey(trackKey + 1); // force re-mount
   };
 
@@ -97,16 +89,20 @@ const NewVersion: React.FC = () => {
           <div className="text-red-500">Error: {error}</div>
         ) : (
           <>
-            {tracks.length === 0 || randomIndex === null ? (
+            {tracks.length === 0 ? (
               <div>No tracks available</div>
             ) : (
               <section>
                 <div className="card bg-base-300 text-base-content py-4">
-                <GameInfo />
-                <AudioPlayer
-                  key={trackKey} // force re-mount
-                  src={tracks[randomIndex].preview_url}
-                />
+                  <GameInfo />
+                  {tracks[trackIndices[round - 1]]?.preview_url ? (
+                    <AudioPlayer
+                      key={trackKey}
+                      src={tracks[trackIndices[round - 1]].preview_url}
+                    />
+                  ) : (
+                    <div>No preview available for this track</div>
+                  )}
                 </div>
                 {/* <HintsTable /> */}
                 {gameOver && (
@@ -123,12 +119,13 @@ const NewVersion: React.FC = () => {
                 )}
                 <GuessesTable />
                 {!gameOver && !roundOver && <GuessForm />}
-                {(guesses === 0 || selectedCountry === correctAnswer) && (
-                  <TrackInfo
-                    track={tracks[randomIndex]}
-                    description={descriptions[randomIndex].description}
-                  />
-                )}
+                {(guesses === 0 || selectedCountry === correctAnswer) &&
+                  tracks[trackIndices[round - 1]] && (
+                    <TrackInfo
+                      track={tracks[trackIndices[round - 1]]}
+                      description={descriptions[trackIndices[round - 1]].description}
+                    />
+                  )}
               </section>
             )}
           </>

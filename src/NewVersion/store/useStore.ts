@@ -16,7 +16,6 @@ type State = {
   highlightedSuggestion: string | null;
   isInputClicked: boolean;
   availableCountries: string[];
-  randomIndex: number | null;
   selectedCountry: string;
   distances: number[];
   setGameOver: (value: boolean) => void;
@@ -35,7 +34,6 @@ type State = {
   setAvailableCountries: (
     value: string[] | ((prev: string[]) => string[])
   ) => void;
-  setRandomIndex: (value: number | null) => void;
   setSelectedCountry: (value: string) => void;
   setDistances: (value: number[]) => void;
   resetRound: () => void;
@@ -57,7 +55,6 @@ const useStore = create<State>((set, get) => ({
   highlightedSuggestion: null,
   isInputClicked: false,
   availableCountries: [],
-  randomIndex: null,
   selectedCountry: "",
   distances: [],
   setGameOver: (value) => set({ gameOver: value }),
@@ -78,7 +75,6 @@ const useStore = create<State>((set, get) => ({
       availableCountries:
         typeof value === "function" ? value(state.availableCountries) : value,
     })),
-  setRandomIndex: (value) => set({ randomIndex: value }),
   setSelectedCountry: (value) => set({ selectedCountry: value }),
   setDistances: (value) => set({ distances: value }),
   resetRound: () =>
@@ -94,7 +90,6 @@ const useStore = create<State>((set, get) => ({
       highlightedSuggestion: null,
       isInputClicked: false,
       availableCountries: [],
-      randomIndex: null,
       distances: [],
     }),
   resetGame: () => {
