@@ -23,10 +23,24 @@ const useTracks = (): {
       const token = await refreshAccessToken();
       if (token) {
         const fetchedTracks = await fetchAllTracks(token, playlistId);
-        setTracks(fetchedTracks);
+        const validTracks = fetchedTracks.filter((track) => {
+          if (!track.preview_url) {
+            console.log(
+              `Track without preview URL: ${track.name} by ${track.artists
+                .map((artist) => artist.name)
+                .join(", ")}`
+            );
+            return false;
+          }
+          return true;
+        });
+        setTracks(validTracks);
 
         const indices: number[] = [];
-        while (indices.length < ROUNDS && indices.length < fetchedTracks.length) {
+        while (
+          indices.length < ROUNDS &&
+          indices.length < fetchedTracks.length
+        ) {
           const randomIndex = Math.floor(Math.random() * fetchedTracks.length);
           if (!indices.includes(randomIndex)) {
             indices.push(randomIndex);
