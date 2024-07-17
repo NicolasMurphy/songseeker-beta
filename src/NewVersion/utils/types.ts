@@ -5,7 +5,8 @@ export interface Track {
   preview_url: string;
   artists: Artist[];
   album: Album;
-  id: string
+  id: string;
+  link: string;
 }
 
 export interface Artist {

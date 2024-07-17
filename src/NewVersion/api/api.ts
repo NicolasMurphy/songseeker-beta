@@ -44,6 +44,7 @@ export const fetchAllTracks = async (
           })),
         },
         id: item.track.id,
+        link: item.track.external_urls.spotify
       }))
     );
     url = data.next;
