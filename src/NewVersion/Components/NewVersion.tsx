@@ -93,6 +93,7 @@ const NewVersion: React.FC = () => {
               <div>No tracks available</div>
             ) : (
               <section>
+                {/* Audio and Game Info Card */}
                 <div className="card bg-base-300 text-base-content py-4 max-w-xs">
                   <GameInfo />
                   {tracks[trackIndices[round - 1]]?.preview_url ? (
@@ -105,20 +106,25 @@ const NewVersion: React.FC = () => {
                   )}
                 </div>
                 {/* <HintsTable /> */}
+                {/* Game Over Card */}
                 {gameOver && (
                   <GameOver
                     onNewGame={handleNewGame}
                     playAgainButtonRef={playAgainButtonRef}
                   />
                 )}
+                {/* Round Score Card */}
                 {roundOver && (
                   <RoundOver
                     onNextRound={handleNextRound}
                     nextRoundButtonRef={nextRoundButtonRef}
                   />
                 )}
+                {/* Guesses Table Card */}
                 <GuessesTable />
+                {/* Guess Form Card */}
                 {!gameOver && !roundOver && <GuessForm />}
+                {/* Track Info Card */}
                 {(guesses === 0 || selectedCountry === correctAnswer) &&
                   tracks[trackIndices[round - 1]] && (
                     <TrackInfo
