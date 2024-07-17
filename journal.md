@@ -1,3 +1,32 @@
+# 7/18
+    Goals:
+        - Ensure auto play works correctly on mobile
+        - Add compass on guess table
+        - Hints table
+            - Manually go through and make changes to descriptions
+        - Add a see results button after last round and before play again. Display all guess tables from all rounds
+        - Add separate nav: leader board, about, donate
+        - Factor distances into scores, perhaps time
+        - Multiplayer?
+        -
+    Notes:
+        -
+
+# 7/17
+    Goals:
+        - Make album clickable to spotify link
+        - Ensure auto play works correctly on mobile
+        - Add compass on guess table
+        - Hints table
+            - Manually go through and make changes to descriptions
+        - Add a see results button after last round and before play again. Display all guess tables from all rounds
+        - Add separate nav: leader board, about, donate
+        - Factor distances into scores, perhaps time
+        - Multiplayer?
+        -
+    Notes:
+        -
+
 # 7/16
     Goals:
         - Ensure auto play works correctly on mobile
