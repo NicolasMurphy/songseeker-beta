@@ -4,7 +4,7 @@ import { TrackInfoProps } from "../utils/types";
 const TrackInfo: React.FC<TrackInfoProps> = ({ track, description, link }) => {
   return (
     <div className="card bg-base-300 text-base-content my-4">
-      <table className="table max-w-xs text-center my-4 mx-auto">
+      <table className="table max-w-xs text-center my-2 mx-auto">
         <tbody>
           <tr>
             <td>{track.name}</td>
@@ -16,7 +16,7 @@ const TrackInfo: React.FC<TrackInfoProps> = ({ track, description, link }) => {
             <td>
               <a href={track.link} target="_blank" rel="noopener noreferrer">
                 <img
-                  className="transition duration-300 ease-in-out hover:scale-105 m-4 w-48 mx-auto"
+                  className="transition duration-300 ease-in-out hover:scale-105 w-48 mx-auto"
                   src={track.album.images[0].url}
                   alt="Album Art"
                 />
