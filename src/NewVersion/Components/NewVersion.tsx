@@ -129,7 +129,10 @@ const NewVersion: React.FC = () => {
                   tracks[trackIndices[round - 1]] && (
                     <TrackInfo
                       track={tracks[trackIndices[round - 1]]}
-                      description={descriptions[trackIndices[round - 1]].description}
+                      description={
+                        descriptions[trackIndices[round - 1]].description
+                      }
+                      link={descriptions[trackIndices[round - 1]].link}
                     />
                   )}
               </section>

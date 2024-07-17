@@ -1,7 +1,7 @@
 import React from "react";
 import { TrackInfoProps } from "../utils/types";
 
-const TrackInfo: React.FC<TrackInfoProps> = ({ track, description }) => {
+const TrackInfo: React.FC<TrackInfoProps> = ({ track, description, link }) => {
   return (
     <div className="card bg-base-300 text-base-content my-4">
       <table className="table max-w-xs text-center my-4 mx-auto">
@@ -25,6 +25,18 @@ const TrackInfo: React.FC<TrackInfoProps> = ({ track, description }) => {
           </tr>
           <tr>
             <td>{description}</td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={link}
+                className="text-info underline hover:no-underline"
+              >
+                Read more
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
