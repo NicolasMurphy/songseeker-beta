@@ -1,6 +1,6 @@
 # 7/16
     Goals:
-        - Ensure tracks are exhausted before repeats, and ensure auto play works correctly on mobile
+        - Ensure auto play works correctly on mobile
         - Add compass on guess table
         - Hints table
             - Manually go through and make changes to descriptions
