@@ -4,6 +4,8 @@ import { Track } from "../utils/types";
 import { playlistId } from "../utils/config";
 import { ROUNDS } from "../utils/constants";
 
+const PLAYED_TRACKS_KEY = `playedTracks_${playlistId}`;
+
 const useTracks = (): {
   tracks: Track[];
   loading: boolean;
@@ -36,16 +38,39 @@ const useTracks = (): {
         });
         setTracks(validTracks);
 
+        const playedTracksFromStorage = localStorage.getItem(PLAYED_TRACKS_KEY);
+        let playedTracks: Set<string>;
+        if (playedTracksFromStorage) {
+          playedTracks = new Set(JSON.parse(playedTracksFromStorage));
+        } else {
+          playedTracks = new Set();
+          localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([]));
+        }
+
+        if (playedTracks.size >= validTracks.length) {
+          playedTracks.clear();
+          localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([]));
+          console.log("All tracks have been played. Resetting played tracks.");
+        }
+
         const indices: number[] = [];
-        while (
-          indices.length < ROUNDS &&
-          indices.length < fetchedTracks.length
-        ) {
-          const randomIndex = Math.floor(Math.random() * fetchedTracks.length);
-          if (!indices.includes(randomIndex)) {
+        while (indices.length < ROUNDS && indices.length < validTracks.length) {
+          const randomIndex = Math.floor(Math.random() * validTracks.length);
+          if (
+            !indices.includes(randomIndex) &&
+            !playedTracks.has(validTracks[randomIndex].id)
+          ) {
             indices.push(randomIndex);
           }
         }
+
+        indices.forEach((index) => playedTracks.add(validTracks[index].id));
+        console.log(validTracks);
+        localStorage.setItem(
+          PLAYED_TRACKS_KEY,
+          JSON.stringify([...playedTracks])
+        );
+
         setTrackIndices(indices);
       } else {
         setError("Failed to refresh access token.");

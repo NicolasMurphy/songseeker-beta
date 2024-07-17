@@ -43,6 +43,7 @@ export const fetchAllTracks = async (
             url: image.url,
           })),
         },
+        id: item.track.id,
       }))
     );
     url = data.next;
