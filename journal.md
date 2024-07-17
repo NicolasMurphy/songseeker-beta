@@ -15,6 +15,7 @@
 # 7/17
     Goals:
         - Make album clickable to spotify link
+        - Read more link
         - Ensure auto play works correctly on mobile
         - Add compass on guess table
         - Hints table
