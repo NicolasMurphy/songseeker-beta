@@ -93,7 +93,7 @@ const NewVersion: React.FC = () => {
               <div>No tracks available</div>
             ) : (
               <section>
-                <div className="card bg-base-300 text-base-content py-4">
+                <div className="card bg-base-300 text-base-content py-4 max-w-xs">
                   <GameInfo />
                   {tracks[trackIndices[round - 1]]?.preview_url ? (
                     <AudioPlayer
