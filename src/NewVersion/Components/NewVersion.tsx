@@ -11,7 +11,8 @@ import GuessForm from "./GuessForm";
 import GameInfo from "./GameInfo";
 import TrackInfo from "./TrackInfo";
 import { GameOver } from "./GameOver";
-import logo from "../../Images/logo.svg";
+import StartGameButton from "./StartGameButton";
+import LogoAndName from "./LogoAndName";
 // import HintsTable from "./HintsTable";
 
 const NewVersion: React.FC = () => {
@@ -86,16 +87,7 @@ const NewVersion: React.FC = () => {
   return (
     <div className=" min-h-screen mx-auto">
       <div className="mx-auto my-16 text-center">
-        {!gameStarted && (
-          <>
-            <img
-              src={logo}
-              alt="A logo of a location pin with music notes inside it"
-              className="mx-auto w-32"
-            />
-            <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
-          </>
-        )}
+        {!gameStarted && <LogoAndName />}
         {loading ? (
           <BigLoader />
         ) : error ? (
@@ -107,12 +99,7 @@ const NewVersion: React.FC = () => {
             ) : (
               <section>
                 {!gameStarted ? (
-                  <button
-                    onClick={() => setGameStarted(true)}
-                    className="my-4 btn btn-primary"
-                  >
-                    Start Game
-                  </button>
+                  <StartGameButton setGameStarted={setGameStarted} />
                 ) : (
                   <>
                     {/* Audio and Game Info Card */}

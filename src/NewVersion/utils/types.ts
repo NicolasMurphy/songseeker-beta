@@ -50,3 +50,7 @@ export interface Coordinates {
 export interface GoogleMapsProviderProps {
   children: ReactNode;
 }
+
+export interface StartGameButtonProps {
+  setGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
+}
