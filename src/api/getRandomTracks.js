@@ -49,7 +49,7 @@ const getRandomTracks = async (accessToken) => {
   }
 
   const selectedTracks = [];
-  for (let i = 0; i < 3 && availableTracks.length > 0; i++) {
+  for (let i = 0; i < 6 && availableTracks.length > 0; i++) {
     const trackIndex = Math.floor(Math.random() * availableTracks.length);
     const selectedTrack = availableTracks.splice(trackIndex, 1)[0];
     selectedTracks.push(selectedTrack);

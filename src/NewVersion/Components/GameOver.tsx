@@ -22,7 +22,7 @@ export const GameOver: React.FC<{
   };
 
   return (
-    <div className="card bg-base-300 text-base-content my-4 max-w-xs">
+    <div className="card bg-base-300 text-base-content my-4 max-w-xs mx-auto">
       <div className="m-4">Final Score: {gameScore}</div>
       <div className="text-secondary text-4xl font-bold m-4">
         {getFinalScoreMessage(gameScore)}

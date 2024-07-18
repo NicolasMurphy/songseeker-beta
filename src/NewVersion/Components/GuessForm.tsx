@@ -94,7 +94,7 @@ const GuessForm: React.FC = () => {
   };
 
   return (
-    <div className="card bg-base-300 text-base-content my-4 h-96">
+    <div className="card bg-base-300 text-base-content my-4 h-96 max-w-xs mx-auto">
       <Select
         options={countryOptions}
         value={

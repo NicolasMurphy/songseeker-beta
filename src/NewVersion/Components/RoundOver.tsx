@@ -8,7 +8,7 @@ export const RoundOver: React.FC<{
   const { score, resetRound, gameOver } = useStore();
 
   return (
-    <div className="card bg-base-300 text-base-content my-4 max-w-xs">
+    <div className="card bg-base-300 text-base-content my-4 max-w-xs mx-auto">
       <div className="m-4">Round Score: {score}</div>
       {!gameOver && (
         <button

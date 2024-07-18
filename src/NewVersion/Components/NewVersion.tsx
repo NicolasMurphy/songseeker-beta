@@ -11,12 +11,14 @@ import GuessForm from "./GuessForm";
 import GameInfo from "./GameInfo";
 import TrackInfo from "./TrackInfo";
 import { GameOver } from "./GameOver";
+import logo from "../../Images/logo.svg";
 // import HintsTable from "./HintsTable";
 
 const NewVersion: React.FC = () => {
   const { tracks, loading, error, trackIndices, refetchTracks } = useTracks();
   const [trackKey, setTrackKey] = useState(0); // force re-mount
   const [descriptions, setDescriptions] = useState<Description[]>([]);
+  const [gameStarted, setGameStarted] = useState(false);
 
   const {
     roundOver,
@@ -60,6 +62,7 @@ const NewVersion: React.FC = () => {
     resetGame();
     refetchTracks();
     setTrackKey(trackKey + 1); // force re-mount
+    setGameStarted(false);
   };
 
   const nextRoundButtonRef = useRef<HTMLButtonElement>(null);
@@ -81,8 +84,18 @@ const NewVersion: React.FC = () => {
   });
 
   return (
-    <div className="flex min-h-screen">
-      <div className="mx-auto my-20 text-center">
+    <div className=" min-h-screen mx-auto">
+      <div className="mx-auto my-16 text-center">
+        {!gameStarted && (
+          <>
+            <img
+              src={logo}
+              alt="A logo of a location pin with music notes inside it"
+              className="mx-auto w-32"
+            />
+            <h1 className="text-4xl font-bold mb-4">SongSeeker</h1>
+          </>
+        )}
         {loading ? (
           <BigLoader />
         ) : error ? (
@@ -93,48 +106,59 @@ const NewVersion: React.FC = () => {
               <div>No tracks available</div>
             ) : (
               <section>
-                {/* Audio and Game Info Card */}
-                <div className="card bg-base-300 text-base-content py-4 max-w-xs">
-                  <GameInfo />
-                  {tracks[trackIndices[round - 1]]?.preview_url ? (
-                    <AudioPlayer
-                      key={trackKey}
-                      src={tracks[trackIndices[round - 1]].preview_url}
-                    />
-                  ) : (
-                    <div>No preview available for this track</div>
-                  )}
-                </div>
-                {/* <HintsTable /> */}
-                {/* Game Over Card */}
-                {gameOver && (
-                  <GameOver
-                    onNewGame={handleNewGame}
-                    playAgainButtonRef={playAgainButtonRef}
-                  />
+                {!gameStarted ? (
+                  <button
+                    onClick={() => setGameStarted(true)}
+                    className="my-4 btn btn-primary"
+                  >
+                    Start Game
+                  </button>
+                ) : (
+                  <>
+                    {/* Audio and Game Info Card */}
+                    <div className="card bg-base-300 text-base-content py-4 max-w-xs mx-auto">
+                      <GameInfo />
+                      {tracks[trackIndices[round - 1]]?.preview_url ? (
+                        <AudioPlayer
+                          key={trackKey}
+                          src={tracks[trackIndices[round - 1]].preview_url}
+                        />
+                      ) : (
+                        <div>No preview available for this track</div>
+                      )}
+                    </div>
+                    {/* <HintsTable /> */}
+                    {/* Game Over Card */}
+                    {gameOver && (
+                      <GameOver
+                        onNewGame={handleNewGame}
+                        playAgainButtonRef={playAgainButtonRef}
+                      />
+                    )}
+                    {/* Round Score Card */}
+                    {roundOver && (
+                      <RoundOver
+                        onNextRound={handleNextRound}
+                        nextRoundButtonRef={nextRoundButtonRef}
+                      />
+                    )}
+                    {/* Guesses Table Card */}
+                    <GuessesTable />
+                    {/* Guess Form Card */}
+                    {!gameOver && !roundOver && <GuessForm />}
+                    {/* Track Info Card */}
+                    {(guesses === 0 || selectedCountry === correctAnswer) &&
+                      tracks[trackIndices[round - 1]] && (
+                        <TrackInfo
+                          track={tracks[trackIndices[round - 1]]}
+                          description={
+                            descriptions[trackIndices[round - 1]].description
+                          }
+                          link={descriptions[trackIndices[round - 1]].link}
+                        />
+                      )}
+                  </>
                 )}
-                {/* Round Score Card */}
-                {roundOver && (
-                  <RoundOver
-                    onNextRound={handleNextRound}
-                    nextRoundButtonRef={nextRoundButtonRef}
-                  />
-                )}
-                {/* Guesses Table Card */}
-                <GuessesTable />
-                {/* Guess Form Card */}
-                {!gameOver && !roundOver && <GuessForm />}
-                {/* Track Info Card */}
-                {(guesses === 0 || selectedCountry === correctAnswer) &&
-                  tracks[trackIndices[round - 1]] && (
-                    <TrackInfo
-                      track={tracks[trackIndices[round - 1]]}
-                      description={
-                        descriptions[trackIndices[round - 1]].description
-                      }
-                      link={descriptions[trackIndices[round - 1]].link}
-                    />
-                  )}
               </section>
             )}
           </>
