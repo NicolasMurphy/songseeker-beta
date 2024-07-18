@@ -53,9 +53,9 @@ const AudioPlayer = forwardRef(({ src }: AudioPlayerProps, ref) => {
     }, 200);
   };
 
-  // if (!src) {
-  //   return null;
-  // }
+  if (!src) {
+    return null;
+  }
 
   return (
     <div className="custom-player m-4">

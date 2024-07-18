@@ -50,7 +50,6 @@ const useTracks = (): {
         if (playedTracks.size >= validTracks.length) {
           playedTracks.clear();
           localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([]));
-          console.log("All tracks have been played. Resetting played tracks.");
         }
 
         const indices: number[] = [];
@@ -65,7 +64,6 @@ const useTracks = (): {
         }
 
         indices.forEach((index) => playedTracks.add(validTracks[index].id));
-        console.log(validTracks);
         localStorage.setItem(
           PLAYED_TRACKS_KEY,
           JSON.stringify([...playedTracks])
