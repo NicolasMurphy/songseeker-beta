@@ -1,18 +1,18 @@
 # 7/18
+
     Goals:
-        - Ensure auto play works correctly on mobile
-        - Add compass on guess table
         - Hints table
             - Manually go through and make changes to descriptions
         - Add a see results button after last round and before play again. Display all guess tables from all rounds
         - Add separate nav: leader board, about, donate
         - Factor distances into scores, perhaps time
-        - Multiplayer?
+        - Add compass on guess table
         -
     Notes:
         -
 
 # 7/17
+
     Goals:
         - Make album clickable to spotify link
         - Read more link
@@ -29,6 +29,7 @@
         -
 
 # 7/16
+
     Goals:
         - Ensure auto play works correctly on mobile
         - Add compass on guess table
@@ -43,6 +44,7 @@
         -
 
 # 7/15
+
     Goals:
         - Ensure tracks are exhausted before repeats, also fetch tracks in groups of 3 and ensure auto play works correctly on mobile
         - Add compass on guess table
@@ -58,6 +60,7 @@
         -
 
 # 7/14
+
     Goals:
         - NewVersion:
             - Show track info on correct guess
@@ -78,6 +81,7 @@
         -
 
 # 7/13
+
     Goals:
         - NewVersion:
             - Final Score message
@@ -96,6 +100,7 @@
         -
 
 # 7/11
+
     Goals:
         - NewVersion:
             - Add new loader in guess table
@@ -114,6 +119,7 @@
         -
 
 # 7/10
+
     Goals:
         - NewVersion:
             - more refactoring
@@ -129,6 +135,7 @@
         -
 
 # 7/9
+
     Goals:
         - NewVersion:
             - Bring audio player, dropdown, etc. up on the page
@@ -144,6 +151,7 @@
         -
 
 # 7/8
+
     Goals:
         - NewVersion:
             - There are 2 Coordinates types, need to name them differently and move the one from handle Geocoding into types
@@ -159,6 +167,7 @@
         -
 
 # 7/7
+
     Goals:
         - NewVersion:
             - Finish react-select adjustments on GuessForm, filtering, auto select top, etc.
@@ -174,6 +183,7 @@
         -
 
 # 7/6
+
     Goals:
         - NewVersion:
             - Türkiye -> Turkey, Côte d'Ivoire -> Ivory Coast
@@ -191,6 +201,7 @@
         -
 
 # 7/5
+
     Goals:
         - NewVersion:
             - round system
@@ -204,6 +215,7 @@
         -
 
 # 7/4
+
     Goals:
         - NewVersion:
             - round system
@@ -220,6 +232,7 @@
         -
 
 # 7/3
+
     Goals:
         - NewVersion:
             - flags
@@ -236,6 +249,7 @@
         -
 
 # 7/2
+
     Goals:
         - NewVersion:
             - flags
@@ -253,6 +267,7 @@
         -
 
 # 7/1
+
     Goals:
         - NewVersion:
             - Get rid of check button, style more similar to foodguessr:
@@ -270,6 +285,7 @@
         -
 
 # 6/29
+
     Goals:
         - NewVersion:
             - Work on play again button
@@ -284,6 +300,7 @@
         -
 
 # 6/28
+
     Goals:
         - NewVersion:
             - Add multiple guesses
@@ -293,6 +310,7 @@
         -
 
 # 6/27
+
     Goals:
         - NewVersion:
             - Auto suggest countries
@@ -302,6 +320,7 @@
         -
 
 # 6/26
+
     Goals:
         - NewVersion:
             - styling
@@ -312,6 +331,7 @@
         -
 
 # 6/25
+
     Goals:
         - NewVersion:
             - Write tests
@@ -321,6 +341,7 @@
         -
 
 # 6/24
+
     Goals:
         - NewVersion:
             - Refactor
@@ -330,6 +351,7 @@
         -
 
 # 6/22
+
     Goals:
         - NewVersion:
             - Continue refactoring
@@ -343,6 +365,7 @@
         -
 
 # 6/21
+
     Goals:
         - NewVersion folder, start working on new scoring system
         - Continue converting files to TypeScript
@@ -352,6 +375,7 @@
         -
 
 # 6/20
+
     Goals:
         - Continue converting files to TypeScript
         - Add more loading states/spinners for flags(including 5050), album art, selected country
@@ -361,6 +385,7 @@
         -
 
 # 6/19
+
     Goals:
         - Convert files to TypeScript
         - Update Gabon
@@ -370,6 +395,7 @@
         -
 
 # 6/18
+
     Goals:
         - Move useEffect in HighScoreList into a hook
         - Make Button Component
@@ -383,6 +409,7 @@
         -
 
 # 6/17
+
     Goals:
         - About list component
         - Move useEffect in HighScoreList into a hook
@@ -394,6 +421,7 @@
         -
 
 # 5/19
+
     Goals:
         - Gabon preview not available, update/remove it
         - Add share score to social media
@@ -404,12 +432,14 @@
     Notes:
 
 # 4/22
+
     Goals:
         - Gabon preview not available, update/remove it
         -
     Notes:
 
 # 4/11
+
     Goals:
         - Add a popup for the info icon if the have not seen the popup yet, since most people seem to not click on it
         -
@@ -417,6 +447,7 @@
         -
 
 # 4/9
+
     Goals:
         - Show more detailed results at end
         - Namibia preview url is no longer available, either remove or replace it
@@ -428,6 +459,7 @@
         -
 
 # 4/6
+
     Goals:
         - Make map persist for "play again", also perhaps have the map preload but not shown, for "start game"
         - Keep track of all guesses, and show them at the end, perhaps all spotify links, descriptions, flags, etc.
@@ -439,6 +471,7 @@
         -
 
 # 4/5
+
     Goals:
         - Add more tracks
         - Replace Ethiopia and Cambodia
@@ -451,6 +484,7 @@
         -
 
 # 4/1
+
     Goals:
         - Add more tracks
         -
@@ -458,6 +492,7 @@
         -
 
 # 3/29
+
     Goals:
         - Figure out how to replicate audio glitch reliably
         - Expand flag selection to all options
@@ -469,6 +504,7 @@
         -
 
 # 3/28
+
     Goals:
         - Fix autoplay glitch
         - Add more tracks
@@ -479,6 +515,7 @@
         -
 
 # 3/27
+
     Goals:
         - Hide all sensitive info: playlist id, track ids
         - change maps key for dev
@@ -496,6 +533,7 @@
         -
 
 # 3/26
+
     Goals:
         - Finish 50/50
             - Finish polyline
@@ -510,6 +548,7 @@
         -
 
 # 3/22
+
     Goals:
         - Implement autoplay fix
         - Fix button flash for "submit" (fixed by setSelectedCountry(null) in handleNextRound)
@@ -524,6 +563,7 @@
         -
 
 # 3/21
+
     Goals:
         - Add more tracks
         - Fix autoplay mobile
@@ -534,6 +574,7 @@
         -
 
 # 3/20
+
     Goals:
         - Add more tracks
         - Update so that tracks are loaded before "next round", for autoplay on mobile
@@ -545,6 +586,7 @@
         -
 
 # 3/18
+
     Goals:
         - Update info icon
         - Find better track for Libya
@@ -555,6 +597,7 @@
         -
 
 # 3/17
+
     Goals:
         - Firestore descriptions are buggy, find fix for occasional missing track or revert to earlier commit
         -
@@ -563,6 +606,7 @@
         -
 
 # 3/16
+
     Goals:
         - Move descriptions to Firestore
         - new lines not working, find fix
@@ -573,6 +617,7 @@
         -
 
 # 3/14
+
     Goals:
         - Add more tracks
         - Add logging for tracks without preview
@@ -586,6 +631,7 @@
         -
 
 # 3/13
+
     Goals:
         - Add more tracks
         - Replace Italy track with new one
@@ -595,6 +641,7 @@
         -
 
 # 3/12
+
     Goals:
         - Figure out modal track info issue, (update DaisyUI?)
         - Add more songs
@@ -604,6 +651,7 @@
         -
 
 # 3/11
+
     Goals:
         - Figure out modal track info issue, (update DaisyUI?)
         - Add more songs
@@ -614,6 +662,7 @@
         -
 
 # 3/8
+
     Goals:
         - Add more songs
         - Mention information icon in about
@@ -622,6 +671,7 @@
         -
 
 # 3/6
+
     Goals:
         - Add question mark icon
         -
@@ -631,6 +681,7 @@
         -
 
 # 3/5
+
     Goals:
         - Pressing enter before selection softlocks the game
         - When the tracks have been exhausted, it always starts with Indonesia (first track)
@@ -644,6 +695,7 @@
         -
 
 # 3/4
+
     Goals:
         - add more tracks
         - add image to README
@@ -657,6 +709,7 @@
         -
 
 # 3/2
+
     Goals:
         - add more tracks
         - add image to README
@@ -671,6 +724,7 @@
         -
 
 # 2/29
+
     Goals:
         - add more tracks
         - add image to README
@@ -681,6 +735,7 @@
         -
 
 # 12/2
+
     Goals:
         - continue converting javascript to typescript
         - continue testing with jest
@@ -690,6 +745,7 @@
         -
 
 # 12/1
+
     Goals:
         - start conversion of javascript to typescript
         - start testing with jest
@@ -698,6 +754,7 @@
         -
 
 # 11/23
+
     Goals:
         - set rate limit for all users
         - put character limit for the form
@@ -711,6 +768,7 @@
         -
 
 # 11/22
+
     Goals:
         - add option for users to submit a track
         - add authentication and more secure rules for databases
@@ -723,6 +781,7 @@
         -
 
 # 11/7
+
     Goals:
         - fix randomization of tracks
         - fix auto-play glitch on mobile
@@ -735,6 +794,7 @@
         -
 
 # 11/6
+
     Goals:
         - Make scores and about modals instead of nav links
         - fix randomization of tracks
@@ -747,6 +807,7 @@
         -
 
 # 11/2
+
     Goals:
         - fix language glitch
         - hide nav during game
@@ -762,6 +823,7 @@
         -
 
 # 10/30
+
     Goals:
         -
     Notes:
@@ -770,6 +832,7 @@
         -
 
 # 10/29
+
     Goals:
         - move GameEnded on mobile
         - Make better 404 page
@@ -787,6 +850,7 @@
         -
 
 # 10/28
+
     Goals:
         - Add logo
         - Make track auto play
@@ -800,6 +864,7 @@
         -
 
 # 10/26
+
     Goals:
         - Optimize fetching random track from playlist
         - Improve styling on mobile
@@ -814,18 +879,21 @@
         -
 
 # 10/24
+
     Goals:
         -
     Notes:
         - Made env variables for all keys, ids, secrets, etc.
 
 # 10/21
+
     Goals:
         - move next round button
     Notes:
         -
 
 # 10/20
+
     Goals:
         - make marker stay on correct guess
         - undo marker issue, find new solution
@@ -835,6 +903,7 @@
         - marker issue is resolved
 
 # 10/17
+
     Goals:
         - make map unclickable between rounds
         - make map unclickable until next track is loaded (slow wi-fi)
@@ -850,6 +919,7 @@
         -
 
 # 10/16
+
     Goals:
         - add navbar
     Notes:
@@ -858,6 +928,7 @@
         - added nav
 
 # 10/10
+
     Goals:
         - add navbar
             - homepage, description of the game, how to play, donate button
@@ -867,10 +938,12 @@
         - added high score list using firebase's realtime database
 
 # 9/12
+
     Notes:
         - added current score
 
 # 7/11
+
     Goals:
         - Add hints for all tracks
             - each game has 3 hints
@@ -880,27 +953,35 @@
         -
 
 # 7/10
+
     Notes:
         - Finished track descriptions (for now)
         - Fixed round incrementing issue
 
 # 7/6
+
     Goals:
         - Finish adding track descriptions
         - Overlay result over map? Fit everything on screen
     Notes:
         -
+
 # 7/5
+
     Goals:
         - Finish adding track descriptions
         - Show all guesses and flags at end of game, like GeoGuessr
+
 # 7/4
+
     Goals:
         - Make the "selected country:" country stay on correct guess
         - Add track descriptions for each track
     Notes:
         - React.Fragment allows you to add a key to an empty fragment
+
 # 7/3
+
     Notes:
         - conditional rendering is awesome
         - research CSS overlay
