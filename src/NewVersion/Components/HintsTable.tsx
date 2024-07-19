@@ -7,7 +7,7 @@
 
 import React from "react";
 import useStore from "../store/useStore";
-import getDescriptionOptions from "../utils/DescriptionOptions";
+import getDescriptionOptions from "../../utils/DescriptionOptions";
 import { Description } from "../utils/types";
 import useTracks from "../hooks/useTracks";
 

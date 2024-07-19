@@ -1,4 +1,4 @@
-const getDescriptionOptions = () => {
+const getDescriptionHintOptions = () => {
   return [
     {
       country: "Indonesia",
@@ -834,4 +834,4 @@ const getDescriptionOptions = () => {
   ];
 };
 
-export default getDescriptionOptions;
+export default getDescriptionHintOptions;

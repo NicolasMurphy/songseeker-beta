@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import useTracks from "../hooks/useTracks";
-import getDescriptionOptions from "../utils/DescriptionOptions";
+import getDescriptionOptions from "../../utils/DescriptionOptions";
 import AudioPlayer from "./AudioPlayer";
 import { Description } from "../utils/types";
 import { BigLoader } from "./Loaders";
