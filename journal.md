@@ -23,6 +23,7 @@
         -
     Notes:
         - Generating hints with ChatGPT, seems to work pretty well
+        - ChatGPT seems to struggle with multiple tasks at once. Seems to generate hints fine, but when I ask it to also add it as an key value pair to an object, and not mention the country name, it seems to run into issues.
         -
 
 # 7/17
