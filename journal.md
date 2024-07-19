@@ -1,3 +1,16 @@
+# 7/19
+
+    Goals:
+        - Hints table
+            - Manually go through and make changes to descriptions
+        - Add a see results button after last round and before play again. Display all guess tables from all rounds
+        - Add separate nav: leader board, about, donate
+        - Factor distances into scores, perhaps time
+        - Add compass on guess table
+        -
+    Notes:
+        -
+
 # 7/18
 
     Goals:
@@ -9,6 +22,7 @@
         - Add compass on guess table
         -
     Notes:
+        - Generating hints with ChatGPT, seems to work pretty well
         -
 
 # 7/17
