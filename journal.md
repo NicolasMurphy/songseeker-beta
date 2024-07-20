@@ -1,3 +1,19 @@
+# 7/20
+
+    Goals:
+        - Hints table
+            - Manually go through and make changes to descriptions
+            - For the hints, the album image often gives it away, possibly use release date instead, or maybe blur the image?
+        - Add a see results button after last round and before play again. Display all guess tables from all rounds
+        - Add separate nav: leader board, about, donate
+        - Factor distances into scores, perhaps time
+        - Add compass on guess table
+        - Add map in result?
+        - Calculate nearest border point in json file for use?
+        -
+    Notes:
+        -
+
 # 7/19
 
     Goals:
