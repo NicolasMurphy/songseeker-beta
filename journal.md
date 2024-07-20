@@ -1,3 +1,22 @@
+# 7/21
+
+    Goals:
+        - Start game button enter keyboard click
+        - Remove songs that are not unique/old enough to be recognizable as from that country
+        - Hints table
+            - Refine hints
+            - For the hints, the album image often gives it away, possibly use release date instead, or maybe blur the image? Continent could be another hint.
+            - Also need a backup of the song or artist name contains the country name.
+        - Add a see results button after last round and before play again. Display all guess tables from all rounds
+        - Add separate nav: leader board, about, donate
+        - Factor distances into scores, perhaps time
+        - Add compass on guess table
+        - Add map in result?
+        - Calculate nearest border point in json file for use?
+        -
+    Notes:
+        -
+
 # 7/20
 
     Goals:
