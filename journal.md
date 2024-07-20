@@ -1,7 +1,6 @@
 # 7/21
 
     Goals:
-        - URGENT: Game freezes when trying to fetch tracks when localStorage has played all tracks. New Version only.
         - Start game button enter keyboard click
         - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
@@ -22,6 +21,7 @@
 # 7/20
 
     Goals:
+        - URGENT: Game freezes when trying to fetch tracks when localStorage has played all tracks. New Version only.
         - Start game button enter keyboard click
         - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
