@@ -357,7 +357,7 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Denmark",
-      description: `"The Danish song is a young, blonde girl" (or simply "The Danish song") is a song, originally written as an apartment poem, with text of Kai Hoffmann 1924 and melody of Carl Nielsen 1926. It is one of the most popular Danish songs.`,
+      description: `"The Danish song is a young, blonde girl" (or simply "The Danish song") is a song, originally written as an occasional poem, with lyrics by Kai Hoffmann in 1924 and melody by Carl Nielsen in 1926. It is one of the most popular Danish songs.`,
       link: "https://da.wikipedia.org/wiki/Den_danske_sang_er_en_ung,_blond_pige",
     },
     {
