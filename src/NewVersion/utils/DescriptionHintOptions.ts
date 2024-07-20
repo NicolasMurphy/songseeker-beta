@@ -250,7 +250,7 @@ const getDescriptionHintOptions = () => {
       country: "Canada",
       description: `The Inuit of the Canadian Northwest Territories follow two seasonal social patterns: hunting with families in the summer, and gathering for trade and intense spiritual activities with large communities in the winter. Traditionally, when these groups reunited at the start of the long, dark winter, they exchanged songs. Each person is believed to be a composer and performer; each song is a gift to be reciprocated, and the sharing of songs and dances was a way to strengthen the social fabric. Many songs on this album are about hunting, but it was forbidden to exchange songs while hunting, or even while outdoors. The Inuit believed that under an open sky, “a spirit could steal the words and by seizing the breath of the singer, rob him of his life.”`,
       link: "https://folkways.si.edu/canada-music-of-the-inuit-the-copper-eskimo-tradition/world/music/album/smithsonian",
-      hint: `Music from a northern-living tribe that follows seasonal social patterns and exchanges songs during large winter gatherings.`,
+      hint: `Music from a northern-living indigenous group that follows seasonal social patterns and exchanges songs during large winter gatherings.`,
     },
     {
       country: "United States",
@@ -276,57 +276,67 @@ const getDescriptionHintOptions = () => {
       link: "https://lv.wikipedia.org/wiki/P%C5%ABt,_v%C4%93ji%C5%86i_(dziesma)",
       hint: `An old wedding song, considered a folk song, believed to have originated in the Vidzeme region.`,
     },
-    // stopped here
     {
       country: "Rwanda",
       description: `Inka Yi Abajiji (The Cows of the Abajiji Family). Sung by the women and girls of the house of the queen-mother at Shyogwe. The song is from the time of Musinga. The theme is pastoral, telling about the cows with the long horns. Each one's name is called, and the song narrates the places where the cattle have grazed and the calves that have been born.`,
       link: "https://folkways.si.edu/songs-of-the-watutsi/world/music/album/smithsonian",
+      hint: `A pastoral song sung by women and girls, telling about cows with long horns and narrating where the cattle have grazed and the calves that have been born.`,
     },
     {
       country: "Romania",
       description: `This collection of Romanian folk music showcases two of the country’s most popular musical forms. Considered as belonging to everybody, the doina is “..a song of love, a pantheistic poem, a fighting song, or an outcry against injustice or the foreign ruler.” The hora, which is said to be known by more than 1546 names, is an ageless and genderless circle dance that can be found throughout Romania.`,
       link: "https://folkways.si.edu/folk-music-of-rumania/world/album/smithsonian",
+      hint: `A collection of folk music featuring the doina, a versatile song form, and the hora, an ageless and genderless circle dance.`,
     },
     {
       country: "Honduras",
       description: `As liner notes author Doris Stone explains, “Honduras was a meeting ground of nations from its earliest pre-Columbian days. ” Spanish colonial, African, and Native American influences blend not only in the music and dance styles but in the development of musical instruments, especially the marimba. Released in 1955, Songs and Dances of Honduras features ballads such as the corrido and dances such as the waltz, rumba, fandango, and the local sique. Liner notes include a brief cultural history of Honduras, lyrics, track notes, and detailed descriptions of instruments and types of dances.`,
       link: "https://folkways.si.edu/songs-and-dances-of-honduras/world/music/album/smithsonian",
+      hint: `A collection of songs and dances blending Spanish colonial, African, and Native American influences, featuring the marimba.`,
     },
     {
       country: "South Korea",
       description: `"Cherry Blossom Ending" (Korean: 벚꽃 엔딩; RR: Beotkkot Ending) is a song by South Korean indie band Busker Busker, from their debut studio album Busker Busker 1st Album. The song was written by band member Jang Beom-jun [ko] and was released on March 29, 2012, by CJ E&M Music. The song is well known for re-entering the music charts every spring in South Korea, earning the nicknames "Spring Carol" and "Cherry Blossom Zombie". As of 2021, "Cherry Blossom Ending" has received over 8,000,000 digital downloads according to Gaon, making it the best-selling single in the country.`,
       link: "https://en.wikipedia.org/wiki/Cherry_Blossom_Ending",
+      hint: `A song by an indie band, known for re-entering the music charts every spring, earning nicknames like "Spring Carol" and "Cherry Blossom Zombie."`,
     },
     {
       country: "Mozambique",
       description: `A luta continua (in English: the struggle continues) was the rallying cry of the FRELIMO movement during Mozambique's war for independence. The phrase is in the Portuguese language (the official language of the former Portuguese colony) a slogan coined by the first president of FRELIMO, Dr. Eduardo Chivambo Mondlane, which he used to rally the population in the liberated zones of Mozambique during the armed struggle against Portuguese colonial rule.`,
       link: "https://en.wikipedia.org/wiki/A_luta_continua",
+      hint: `A rallying cry of the FRELIMO movement during the country's war for independence, coined by its first president.`,
     },
     {
       country: "Portugal",
       description: `"Grândola, Vila Morena" (English: Grândola, Swarthy Town) is a Portuguese song by singer-songwriter José Afonso, recorded in 1971. It was originally released in Afonso's 1971 album Cantigas do Maio and later released in an EP of the same name in 1973, and as a single in 1977. \n "Grândola, Vila Morena" became an iconic song in Portugal after being used as a radio-broadcast signal by the Portuguese Armed Forces Movement during their military coup operation in the morning of 25 April 1974, which led to the Carnation Revolution and the transition to democracy in Portugal. It has since been considered a symbol of the revolution and anti-fascism.`,
       link: "https://en.wikipedia.org/wiki/Gr%C3%A2ndola,_Vila_Morena",
+      hint: `A song by José Afonso, used as a radio-broadcast signal during a military coup that led to the Carnation Revolution and the transition to democracy.`,
     },
     {
       country: "Chile",
-      description: `"Gracias a la vida" (Spanish: "Thanks to Life") is a song written, composed and performed by Chilean Violeta Parra, one of the artists who was part of the movement and musical genre known as the Nueva Canción Chilena. Parra composed "Gracias a la vida" in La Paz in 1966. It was included on Las Últimas Composiciones, the last album Parra published before dying by suicide in 1967. The song is one of Parra's most renowned. It is performed throughout the world and remains one of the most covered Latin American songs in history.`,
+      description: `"Gracias a la vida" (Spanish: "Thanks to Life") is a song written, composed and performed by Chilean Violeta Parra, one of the artists who was part of the movement and musical genre known as the Nueva Canción. Parra composed "Gracias a la vida" in La Paz in 1966. It was included on Las Últimas Composiciones, the last album Parra published before dying by suicide in 1967. The song is one of Parra's most renowned. It is performed throughout the world and remains one of the most covered Latin American songs in history.`,
       link: "https://en.wikipedia.org/wiki/Gracias_a_la_vida",
+      hint: `A song by Violeta Parra, part of the Nueva Canción movement, known as one of the most covered Latin American songs in history.`,
     },
     {
       country: "Greece",
       description: `"Zorba's Dance" (Greek: Ο Χορός Του Ζορμπά) is an instrumental by Greek composer Mikis Theodorakis. The song featured for the dance, which has become known as sirtaki, in the 1964 film Zorba the Greek, for which Theodorakis wrote the soundtrack, and became renowned around the world. It is now commonly played and danced to in Greek tavernas. The film's track has since been recorded as a standalone song by many different musicians from around the world.`,
       link: "https://en.wikipedia.org/wiki/Zorba%27s_Dance",
+      hint: `An instrumental by Mikis Theodorakis featured in a famous film produced in the country, associated with the dance known as sirtaki.`,
     },
     {
       country: "Nepal",
       description: `Resham Firiri (Nepali: रेशम फिरिरि) is a traditional Nepali folk song, composed by Buddhi Pariyar and originally performed by Sunder Shrestha and Dwarika Lal Joshi in 1969. Due to sudden rise in popularity, it became one of the most widely known and performed songs in Nepal. It is often played on the sarangi, a native instrument, as street music.`,
       link: "https://en.wikipedia.org/wiki/Resham_Firiri",
+      hint: `A traditional folk song, composed by Buddhi Pariyar, widely known and performed, often played on the sarangi.`,
     },
     {
       country: "Belarus",
       description: `Kupalinka is a popular Belarusian song described as a “musical business card of Belarus”. \n The song's lyrical heroine, the Kupala Night Maiden is “weeding a rose, piercing her white hands” and “plucking flowers, weaving wreaths, and shedding tears”. \n It is considered that the song has become “the national personification of Belarus as a country with a beautiful and sad woman’s face”.`,
       link: "https://en.wikipedia.org/wiki/Kupalinka",
+      hint: `A popular song described as a “musical business card,” featuring the Kupala Night Maiden, symbolizing the country with a beautiful and sad woman’s face.`,
     },
+    // stopped here
     {
       country: "Czechia",
       description: `"Beer Barrel Polka", originally in Czech "Škoda lásky", also known as "The Barrel Polka", "Roll Out the Barrel", or "Rosamunde", is a 1927 polka composed by Czech musician Jaromír Vejvoda. Lyrics were added in 1934, subsequently gaining worldwide popularity during World War II as a drinking song.`,
