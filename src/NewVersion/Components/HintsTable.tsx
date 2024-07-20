@@ -4,7 +4,7 @@
 // 2 Wrong Guesses: Artist name (need to censor if country name is here)
 // 3 Wrong Guesses: Album art (need to blur if country name or flag is here)
 // 4 Wrong Guesses: Track Description
-// Other ideas: Release date, language, instruments used, continent
+// Other ideas: Release date, language, instruments used, continent, starting letter, how many letters in the country
 
 import React from "react";
 import useStore from "../store/useStore";
