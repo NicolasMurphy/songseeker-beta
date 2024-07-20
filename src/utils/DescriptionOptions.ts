@@ -561,11 +561,6 @@ const getDescriptionOptions = () => {
       link: "https://en.wikipedia.org/wiki/Omar_Al-Abdallat",
     },
     {
-      country: "Somalia",
-      description: `Hasan Adan Samatar (Somali: Xasan Aadan Samatar, Arabic: حسن اذن ساماتار) (b. May 23, 1953 in Diinsoor, Somalia) is a prominent Somali singer, guitarist and theatrical performer.`,
-      link: "https://en.wikipedia.org/wiki/Hasan_Adan_Samatar",
-    },
-    {
       country: "Venezuela",
       description: `"Caballo Viejo" ('Old Horse') is a Venezuelan folk song written and composed by Simón Díaz, which appears on the 1980 album Golpe Y Pasaje. It has become one of the most important folk songs in Venezuela and is regarded as a classic.`,
       link: "https://en.wikipedia.org/wiki/Caballo_Viejo",

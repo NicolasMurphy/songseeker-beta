@@ -630,57 +630,62 @@ const getDescriptionHintOptions = () => {
       link: "https://en.wikipedia.org/wiki/Ali_Farka_Tour%C3%A9",
       hint: `A singer and multi-instrumentalist, renowned for blending traditional local music with African American blues, considered a pioneer of African desert blues.`,
     },
-    //
     {
       country: "Finland",
       description: `"Ievan polkka" (Finnish for "Ieva's Polka") is a Finnish song with lyrics printed in 1928 and written by Eino Kettunen to a traditional Finnish polka tune. The song is sung in an Eastern Savonian dialect spoken in North Karelia. It is sung from the point of view of a young man, about a woman called Ieva (dialectal for the name Eva or Eeva in standard Finnish) who sneaks out and dances the polka with him all night. The song is often mistaken for a traditional folk song, but the lyrics by Eino Kettunen are still under copyright. Later, a scat singing version of the song by the band Loituma was incorporated into the viral animation Loituma Girl. In 2007, the song was brought into worldwide popular culture through a cover sung by Hatsune Miku, with Otomania arranging the music and providing Miku's voice manipulation.`,
       link: "https://en.wikipedia.org/wiki/Ievan_polkka",
+      hint: `A song written in 1928 by Eino Kettunen, often mistaken for a traditional folk song, featuring a woman sneaking out to dance the polka all night.`,
     },
     {
       country: "Pakistan",
       description: `This type of Punjabi folk song is sung by groups of women or girls, to the accompaniment of a dholak drum. These songs depict the romantic side of rural life, and are sung on festive occasions such as marriages, harvest festivals, and village fairs. The instruments accompanying the voices in this piece are the dholak, a clarinet, tabla drums. The performance is by Munawar Sultana, Iqbal Banso and group.`,
       link: "https://folkways.si.edu/folk-music-of-pakistan/central-asia-islamica-world/album/smithsonian",
+      hint: `Punjabi folk songs sung by groups of women or girls, accompanied by a dholak drum, depicting the romantic side of rural life and performed on festive occasions.`,
     },
     {
       country: "Bangladesh",
       description: `Firoza Begum (Bengali: ফিরোজা বেগম; 28 July 1930 – 9 September 2014) was a Bangladeshi Nazrul Geeti singer. She was awarded the Independence Day Award in 1979 by the Government of Bangladesh.`,
       link: "https://en.wikipedia.org/wiki/Firoza_Begum_(singer)",
+      hint: `A renowned Nazrul Geeti singer awarded the Independence Day Award in 1979 by her country's government.`,
     },
     {
       country: "Syria",
       description: `Sabah al-Din Abu Qaws (Arabic: صباح الدين أبو قوس), also known as Sabah Fakhri (Arabic: صباح فخري North Levantine Arabic pronunciation: [sˤɑbɑːħ fæxɾiː]; May 2, 1933 – November 2, 2021), was a Syrian tenor singer from Aleppo. \n With over 50 years of fame and popularity as a singer, Sabah Fakhri modified and popularized the then-fading forms of traditional Arabic music Muwashahat and Qudud Halabiya. He was well known for his beautiful strong vocals, impeccable control and execution of Maqamat and harmony, as well as his dominant and charismatic performances on stage. In the Arab world, he is regarded as one of the greatest artists of all time.`,
       link: "https://en.wikipedia.org/wiki/Sabah_Fakhri",
+      hint: `A tenor singer who modified and popularized traditional Arabic music forms, known for his strong vocals and charismatic stage performances.`,
     },
     {
       country: "Italy",
       description: `Luciano Pavarotti was an Italian operatic tenor who during the late part of his career crossed over into popular music, eventually becoming one of the most acclaimed tenors of all time. He made numerous recordings of complete operas and individual arias, gaining worldwide fame for his tone, and gaining the nickname "King of the High Cs".`,
       link: "https://en.wikipedia.org/wiki/Luciano_Pavarotti",
+      hint: `An operatic tenor who crossed over into popular music, known as one of the most acclaimed tenors of all time and nicknamed "King of the High Cs".`,
     },
+    //
     {
       country: "Yemen",
       description: `Ayoob Tarish Absi (Arabic: أيوب طارش عبسي, born 1942; first name also spelled Ayoub; last name also spelled Absey) is a Yemeni singer and musician from the area of Al-Aboos in the Ta'izz Governorate. Tarish composed "United Republic", the national anthem of Yemen, which was adopted following the Yemenite reunification.`,
       link: "https://en.wikipedia.org/wiki/Ayoob_Tarish",
+      hint: `A singer and musician who composed the national anthem adopted following reunification.`,
     },
     {
       country: "Jordan",
       description: `Omar Al-Abdallat (Arabic: عمر العبداللات; transliterated: "Umar al-"Abdallāt) is a Jordanian singer-songwriter credited with popularizing Bedouin music. He has produced and/or performed a number of Jordanian patriotic standards, including "Hashimi, Hashimi" and "Jeishana" in addition to traditional Jordanian songs. He has also represented Jordan in multicultural events throughout the world. He is also popular in various cities of other Arab countries.`,
       link: "https://en.wikipedia.org/wiki/Omar_Al-Abdallat",
-    },
-    {
-      country: "Somalia",
-      description: `Hasan Adan Samatar (Somali: Xasan Aadan Samatar, Arabic: حسن اذن ساماتار) (b. May 23, 1953 in Diinsoor, Somalia) is a prominent Somali singer, guitarist and theatrical performer.`,
-      link: "https://en.wikipedia.org/wiki/Hasan_Adan_Samatar",
+      hint: `A singer-songwriter credited with popularizing Bedouin music and known for producing and performing patriotic standards.`,
     },
     {
       country: "Venezuela",
       description: `"Caballo Viejo" ('Old Horse') is a Venezuelan folk song written and composed by Simón Díaz, which appears on the 1980 album Golpe Y Pasaje. It has become one of the most important folk songs in Venezuela and is regarded as a classic.`,
       link: "https://en.wikipedia.org/wiki/Caballo_Viejo",
+      hint: `A folk song written and composed by Simón Díaz, regarded as a classic and one of the most important folk songs in its country.`,
     },
     {
       country: "Tunisia",
       description: `Emel Mathlouthi (Arabic: آمال المثلوثي) also known as Emel, born 11 January 1982), is a Tunisian-American singer-songwriter, musician, arranger and producer. She rose to fame with her protest song "Kelmti Horra" ("My Word is Free"), which became an anthem for the Tunisian Revolution and the Arab Spring.`,
       link: "https://en.wikipedia.org/wiki/Emel_Mathlouthi",
+      hint: `A singer-songwriter known for her protest song "Kelmti Horra" ("My Word is Free"), which became an anthem for a revolution and the Arab Spring.`,
     },
+    //
     // {
     //   country: "Lebanon",
     //   description: `Nouhad Wadie Haddad (Arabic: نهاد وديع حداد, romanized: Nuhād Wadīʿ Ḥaddād, Lebanese Arabic pronunciation: [nʊˈhaːd waˈdiːʕ ħadˈdaːd]; born November 21, 1934), known as Fairuz (Arabic: فيروز, romanized: Fayrūz, pronounced [fajˈruːz]), is a Lebanese singer. She is widely considered an iconic vocalist and one of the most celebrated singers in the history of the Arab world. She is popularly known as "The Bird Of The East," "The Cedar Of Lebanon," "The Moon's Neighbor", and “The Voice Of Lebanon”, among others.`,
