@@ -1,6 +1,7 @@
 # 7/20
 
     Goals:
+        - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
             - Manually go through and make changes to descriptions
             - For the hints, the album image often gives it away, possibly use release date instead, or maybe blur the image? Continent could be another hint.

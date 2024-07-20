@@ -606,7 +606,6 @@ const getDescriptionHintOptions = () => {
       link: "https://en.wikipedia.org/wiki/Mohammed_Wardi",
       hint: `A Nubian singer, poet, and songwriter, regarded as an inspirational figure in the country's music and culture.`,
     },
-    //
     {
       country: "Angola",
       description: `In 1975, the Popular Movement for the Liberation of Angola (MPLA) gained control of the People’s Republic of Angola, ending more than a decade of struggle against the powerful Portuguese colonial forces and armies aided by South Africa and the United States. The songs on this album, sung in Portuguese and local languages Kimbundu and Umbundu, were recorded soon after the end of colonial rule, and the lyrics convey messages of struggle, victory, and hope. The liner notes include lyrics in English and an essay first published in 1978 in the Guardian, discussing Angola as “the focal point of confrontation...between socialism and capitalism.”`,
