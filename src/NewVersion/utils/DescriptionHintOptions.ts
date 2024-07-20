@@ -546,57 +546,67 @@ const getDescriptionHintOptions = () => {
       link: "https://folkways.si.edu/uzbekistan-music-of-khorezm/world/music/album/smithsonian",
       hint: `A piece linked to the Khorezm dutar maqam, telling the legend of the khan's favorite horse and a dutar player who conveyed its fate through music.`,
     },
-    //
     {
       country: "Turkmenistan",
       description: `The music of the nomadic and rural Turkmen people is closely related to Kyrgyz and Kazakh folk forms. Important musical traditions in Turkmen music include traveling singers and shamans called bakshy, who act as healers and magicians and sing either a cappella or with instruments such as the two-stringed lute called dutar.`,
       link: "https://en.wikipedia.org/wiki/Music_of_Turkmenistan",
+      hint: `Music related to Kyrgyz and Kazakh folk forms, featuring traveling singers and shamans called bakshy, who use a two-stringed lute called dutar.`,
     },
     {
       country: "Kyrgyzstan",
       description: `Throughout Central Asia, legends portray Kambarkan, also known as Kambar-ata, as the father of music, inventor of musical instruments, and patron of musicians. Among Kyrgyz musicians, he is regarded as the creator of the komuz. Nurak recounts the creation legend as follows: "Kambarkan was a hunter, and once when he went to the forest, a monkey fell as he jumped from one tree to another. The monkey's stomach became impaled on a sharp twig and burst open, and his intestine got stretched out between a high tree branch and the ground. When it dried, a wind came up, and the intestine emitted a magical sound. Kambarkan realized that the sound was coming from the monkey's intestine, and he got the idea of using that intestine to make an instrument. He took a piece of wood, curved it, and fixed the intestine tightly over it. That's how he invented the komuz." No evidence suggests that monkeys ever lived in what is now Kyrgyzstan, but terra-cotta statues of monkey- musicians dating back almost two thousand years have been unearthed in various parts of Central Asia. A variant of the legend recounted by Nurak was also known in India, where it turns up in 14th-century literary sources, underscoring historical links between Central Asia and the Subcontinent.`,
       link: "https://folkways.si.edu/music-of-central-asia-vol-1-tengir-too-mountain-from-kyrgyzstan/islamica-world/album/smithsonian",
+      hint: `Legendary father of music and inventor of the komuz, with a creation story involving a monkey's intestine and the discovery of a musical sound.`,
     },
     {
       country: "Tajikistan",
       description: `Tajik music is closely related to other Central Asian forms of music. The classical music is shashmaqam, which is also distinctive in Uzbekistan. Southern Tajikistan has a distinctive form of folk music called falak, which is played at celebrations for weddings, circumcisions and other occasions.`,
       link: "https://en.wikipedia.org/wiki/Music_of_Tajikistan",
+      hint: `Music related to other Central Asian forms, featuring classical shashmaqam and a distinctive form of folk music called falak.`,
     },
     {
       country: "Saudi Arabia",
       description: `Mohammed Abdu (Arabic: محمد عبده; born June 12, 1949) is a Saudi singer who is renowned across the Middle East and Arab world. He has been described as "Artist of the Arabs."`,
       link: "https://en.wikipedia.org/wiki/Mohammed_Abdu",
+      hint: `A renowned singer across the Middle East and Arab world, described as "Artist of the Arabs."`,
     },
     {
       country: "United Arab Emirates",
       description: `Mehad Hamad Mehad (Arabic: ميحد حمد), is an Emirati artist and singer. \n Hamad mainly interprets traditional Emirati songs, often accomplished by an oud. He is well known in the United Arab Emirates for his songs about the desert and his patriotic songs.`,
       link: "https://en.wikipedia.org/wiki/Mehad_Hamad",
+      hint: `An artist and singer known for interpreting traditional songs with an oud, famous for his songs about the desert and patriotic themes.`,
     },
     {
       country: "Qatar",
       description: `Fahad Al Kubaisi (Arabic: فهد الكبيسي; born April 12, 1981) is a Qatari singer, record producer, human rights activist, and fashion model. His voice has been described as a "tender" baritone. He became successful in Arab states of the Persian Gulf and Maghreb. He is also famous for producing numerous genres of Khaliji music, which were well known throughout the Persian Gulf countries.`,
       link: "https://en.wikipedia.org/wiki/Fahad_Al_Kubaisi",
+      hint: `A singer, record producer, and human rights activist known for his "tender" baritone voice and producing numerous genres of Khaliji music.`,
     },
     {
       country: "Bahrain",
       description: `The island nation of Bahrain, literally meaning “two seas,” sits along the western edge of the Persian Gulf. Prior to the discovery of oil there in 1932, ninety percent of the country’s population worked in jobs relating to the sea: as shipbuilders, sailors, fishermen, and pearl divers. The pearl divers are known for practicing what is considered the Bahrain’s most original and characteristic musical genre, fidjeri, or “sea music.” These songs, consisting of an all-male chorus and solo singer with minimal percussion, often accompanied specific and common actions, like rowing, setting sails, and pulling up the anchor. The liner notes, written by Habib Hassan Touma (d. 1998), a Palestinian composer, ethnomusicologist, and Arabian music expert, include the mythological origin story of fidjeri and further musical context.`,
       link: "https://folkways.si.edu/bahrain-fidjeri-songs-of-the-pearl-divers/world/music/album/smithsonian",
+      hint: `An island nation known for its "sea music" genre, practiced by pearl divers and characterized by an all-male chorus and solo singer.`,
     },
     {
       country: "Uganda",
       description: `Paulo Kafeero born Paul Job Kafeero and musically or commonly known as Prince Job Paulo Kafeero(Golden boy of Africa)(12 July 1970 - 17 May 2007) was a Ugandan Afro-folk singer. He is regarded as one of the pioneers of the local Ugandan Genre Kadongo Kamu, Kafeero won the Pearl of Africa Music Awards for best Kadongo Kamu artist/group.`,
       link: "https://en.wikipedia.org/wiki/Paulo_Kafeero",
+      hint: `An Afro-folk singer known as the "Golden boy of Africa," regarded as a pioneer of the local genre Kadongo Kamu.`,
     },
     {
       country: "Algeria",
       description: `Khaled Hadj Ibrahim (Arabic: خالد حاج إبرهيم, [ˈxaːled ħaːd͡ʒ ɪbˈrahiːm]; born 29 February 1960), better known by his mononym Khaled (Arabic: خالد), is an Algerian raï singer, musician and songwriter. He began recording in his early teens under the name Cheb Khaled (شاب خالد, Arabic for "Young" Khaled, with "Cheb" as a common title for male raï singers). \n Khaled is one of the most important musicians in the history of Raï music in his native Algeria and is one the world's best-known Arab singers. To date, Khaled has sold over 80.5 million albums (10 diamond, platinum, and gold) worldwide, making him one of the bestselling Arabic-language singers in history. Among his most famous songs are "Aïcha", "Didi", "El Arbi", "Abdel Kader", "La Poupée qui fait non", "Wahran Wahran", "Bakhta", "C'est la vie", and "Alech Taadi". \n He holds the Guinness World Record for best-selling artist of raï music.`,
       link: "https://en.wikipedia.org/wiki/Khaled_(musician)",
+      hint: `A raï singer, musician, and songwriter, one of the best-known Arab singers, holding the Guinness World Record for best-selling artist of raï music.`,
     },
     {
       country: "Sudan",
       description: `Mohammed Osman Hassan Salih Wardi (Arabic: محمد عثمان حسن وردي; 19 July 1932 – 18 February 2012), also known as Mohammed Wardi, was a Nubian Sudanese singer, poet and songwriter. Looking back at his life and artistic career, Sudanese writer and critic Lemya Shammat called him an "inspirational figure in Sudanese music and culture, whose prolific talent and massive contribution remains unsurpassed in Sudan."`,
       link: "https://en.wikipedia.org/wiki/Mohammed_Wardi",
+      hint: `A Nubian singer, poet, and songwriter, regarded as an inspirational figure in the country's music and culture.`,
     },
+    //
     {
       country: "Angola",
       description: `In 1975, the Popular Movement for the Liberation of Angola (MPLA) gained control of the People’s Republic of Angola, ending more than a decade of struggle against the powerful Portuguese colonial forces and armies aided by South Africa and the United States. The songs on this album, sung in Portuguese and local languages Kimbundu and Umbundu, were recorded soon after the end of colonial rule, and the lyrics convey messages of struggle, victory, and hope. The liner notes include lyrics in English and an essay first published in 1978 in the Guardian, discussing Angola as “the focal point of confrontation...between socialism and capitalism.”`,
