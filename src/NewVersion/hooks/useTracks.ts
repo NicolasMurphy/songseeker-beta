@@ -25,26 +25,15 @@ const useTracks = (): {
       const token = await refreshAccessToken();
       if (token) {
         const fetchedTracks = await fetchAllTracks(token, playlistId);
-        const validTracks = fetchedTracks.filter((track) => {
-          if (!track.preview_url) {
-            console.log(
-              `Track without preview URL: ${track.name} by ${track.artists
-                .map((artist) => artist.name)
-                .join(", ")}`
-            );
-            return false;
-          }
-          return true;
-        });
+        const validTracks = fetchedTracks.filter((track) => track.preview_url);
+
         setTracks(validTracks);
 
+        let playedTracks = new Set<string>();
         const playedTracksFromStorage = localStorage.getItem(PLAYED_TRACKS_KEY);
-        let playedTracks: Set<string>;
+
         if (playedTracksFromStorage) {
           playedTracks = new Set(JSON.parse(playedTracksFromStorage));
-        } else {
-          playedTracks = new Set();
-          localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([]));
         }
 
         if (playedTracks.size >= validTracks.length) {
@@ -52,23 +41,25 @@ const useTracks = (): {
           localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([]));
         }
 
-        const indices: number[] = [];
-        while (indices.length < ROUNDS && indices.length < validTracks.length) {
-          const randomIndex = Math.floor(Math.random() * validTracks.length);
-          if (
-            !indices.includes(randomIndex) &&
-            !playedTracks.has(validTracks[randomIndex].id)
-          ) {
-            indices.push(randomIndex);
-          }
+        const availableTrackIndices = validTracks
+          .map((_, index) => index)
+          .filter(index => !playedTracks.has(validTracks[index].id));
+
+        if (availableTrackIndices.length < ROUNDS) {
+          playedTracks.clear();
+          localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([]));
+          availableTrackIndices.push(...validTracks.map((_, index) => index));
         }
 
-        indices.forEach((index) => playedTracks.add(validTracks[index].id));
-        localStorage.setItem(
-          PLAYED_TRACKS_KEY,
-          JSON.stringify([...playedTracks])
-        );
+        const indices: number[] = [];
+        while (indices.length < ROUNDS && availableTrackIndices.length > 0) {
+          const randomIndex = Math.floor(Math.random() * availableTrackIndices.length);
+          const selectedIndex = availableTrackIndices.splice(randomIndex, 1)[0];
+          indices.push(selectedIndex);
+          playedTracks.add(validTracks[selectedIndex].id);
+        }
 
+        localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([...playedTracks]));
         setTrackIndices(indices);
       } else {
         setError("Failed to refresh access token.");
