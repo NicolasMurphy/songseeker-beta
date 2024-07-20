@@ -611,27 +611,27 @@ const getDescriptionHintOptions = () => {
       country: "Angola",
       description: `In 1975, the Popular Movement for the Liberation of Angola (MPLA) gained control of the People’s Republic of Angola, ending more than a decade of struggle against the powerful Portuguese colonial forces and armies aided by South Africa and the United States. The songs on this album, sung in Portuguese and local languages Kimbundu and Umbundu, were recorded soon after the end of colonial rule, and the lyrics convey messages of struggle, victory, and hope. The liner notes include lyrics in English and an essay first published in 1978 in the Guardian, discussing Angola as “the focal point of confrontation...between socialism and capitalism.”`,
       link: "https://folkways.si.edu/angola-forward-peoples-power/historical-song-struggle-protest-world/music/album/smithsonian",
-    },
-    {
-      country: "Ivory Coast",
-      description: `"Magic in the Air" is a 2014 single by Ivorian musical group Magic System, featuring Moroccan singer Chawki and produced by Moroccan producer RedOne. The track also appears on Magic System's album Africainement vôtre, released on 19 May 2014. \n The song was sampled from Khaled's song C'est La Vie.`,
-      link: "https://en.wikipedia.org/wiki/Magic_in_the_Air",
+      hint: `Songs recorded after the end of colonial rule, conveying messages of struggle, victory, and hope, sung in Portuguese and local languages Kimbundu and Umbundu.`,
     },
     {
       country: "Niger",
       description: `Etran Finatawa is a Niger-based band, formed in 2004 during the Festival au Désert near Timbuktu, Mali. The music of Etran Finatawa blends the traditional music of the Wodaabe and Tuareg people with western instruments such as the electric guitar.`,
       link: "https://en.wikipedia.org/wiki/Etran_Finatawa",
+      hint: `A band formed in 2004 during the Festival au Désert, blending the traditional music of the Wodaabe and Tuareg people with western instruments like the electric guitar.`,
     },
     {
       country: "Burkina Faso",
       description: `Amadou Traoré (March 8, 1944 – August 27, 2014), better known as Amadou Balaké, was a popular singer from Burkina Faso. During his career, which lasted over 50 years, Balaké recorded and performed in different parts of West Africa as well as New York and Paris. In the early 21st century, he was a member of Senegalese salsa band Africando. His music combined different traditions from his home country, primarily Dioula (Mandé) and Mossi, as well as Afro-Cuban music.`,
       link: "https://en.wikipedia.org/wiki/Amadou_Balak%C3%A9",
+      hint: `A popular singer whose career spanned over 50 years, combining Dioula (Mandé), Mossi, and Afro-Cuban music, and a member of the Senegalese salsa band Africando.`,
     },
     {
       country: "Mali",
-      description: `Ali Ibrahim "Ali Farka" Touré (31 October 1939 – 6 March 2006) was a Malian singer and multi-instrumentalist, and one of the African continent's most internationally renowned musicians. His music blends traditional Malian music and its derivative, African American blues and is considered a pioneer of African desert blues. Touré was ranked number 76 on Rolling Stone's list of "The 100 Greatest Guitarists of All Time" and number 37 on Spin magazine's "100 Greatest Guitarists of All Time".`,
+      description: `Ali Ibrahim "Ali Farka" Touré (31 October 1939 – 6 March 2006) was a singer and multi-instrumentalist, and one of the African continent's most internationally renowned musicians. His music blends traditional local music and its derivative, African American blues and is considered a pioneer of African desert blues. Touré was ranked number 76 on Rolling Stone's list of "The 100 Greatest Guitarists of All Time" and number 37 on Spin magazine's "100 Greatest Guitarists of All Time".`,
       link: "https://en.wikipedia.org/wiki/Ali_Farka_Tour%C3%A9",
+      hint: `A singer and multi-instrumentalist, renowned for blending traditional local music with African American blues, considered a pioneer of African desert blues.`,
     },
+    //
     {
       country: "Finland",
       description: `"Ievan polkka" (Finnish for "Ieva's Polka") is a Finnish song with lyrics printed in 1928 and written by Eino Kettunen to a traditional Finnish polka tune. The song is sung in an Eastern Savonian dialect spoken in North Karelia. It is sung from the point of view of a young man, about a woman called Ieva (dialectal for the name Eva or Eeva in standard Finnish) who sneaks out and dances the polka with him all night. The song is often mistaken for a traditional folk song, but the lyrics by Eino Kettunen are still under copyright. Later, a scat singing version of the song by the band Loituma was incorporated into the viral animation Loituma Girl. In 2007, the song was brought into worldwide popular culture through a cover sung by Hatsune Miku, with Otomania arranging the music and providing Miku's voice manipulation.`,

@@ -511,11 +511,6 @@ const getDescriptionOptions = () => {
       link: "https://folkways.si.edu/angola-forward-peoples-power/historical-song-struggle-protest-world/music/album/smithsonian",
     },
     {
-      country: "Côte d'Ivoire",
-      description: `"Magic in the Air" is a 2014 single by Ivorian musical group Magic System, featuring Moroccan singer Chawki and produced by Moroccan producer RedOne. The track also appears on Magic System's album Africainement vôtre, released on 19 May 2014. \n The song was sampled from Khaled's song C'est La Vie.`,
-      link: "https://en.wikipedia.org/wiki/Magic_in_the_Air",
-    },
-    {
       country: "Niger",
       description: `Etran Finatawa is a Niger-based band, formed in 2004 during the Festival au Désert near Timbuktu, Mali. The music of Etran Finatawa blends the traditional music of the Wodaabe and Tuareg people with western instruments such as the electric guitar.`,
       link: "https://en.wikipedia.org/wiki/Etran_Finatawa",
