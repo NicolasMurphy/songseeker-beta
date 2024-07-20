@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import useTracks from "../hooks/useTracks";
-import getDescriptionOptions from "../../utils/DescriptionOptions";
+import getDescriptionHintOptions from "../utils/DescriptionHintOptions";
 import AudioPlayer from "./AudioPlayer";
 import { Description } from "../utils/types";
 import { BigLoader } from "./Loaders";
@@ -37,7 +37,7 @@ const NewVersion: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const descriptions = getDescriptionOptions();
+      const descriptions = getDescriptionHintOptions();
       setDescriptions(descriptions);
       setAvailableCountries(descriptions.map((desc) => desc.country).sort());
       if (trackIndices.length > 0) {
@@ -114,7 +114,6 @@ const NewVersion: React.FC = () => {
                         <div>No preview available for this track</div>
                       )}
                     </div>
-                    {/* <HintsTable /> */}
                     {/* Game Over Card */}
                     {gameOver && (
                       <GameOver
@@ -129,6 +128,11 @@ const NewVersion: React.FC = () => {
                         nextRoundButtonRef={nextRoundButtonRef}
                       />
                     )}
+                    {/* Hints Table Card */}
+                    {/* <HintsTable
+                      track={tracks[trackIndices[round - 1]]}
+                      hint={descriptions[trackIndices[round - 1]].hint}
+                    /> */}
                     {/* Guesses Table Card */}
                     <GuessesTable />
                     {/* Guess Form Card */}

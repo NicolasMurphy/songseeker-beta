@@ -25,12 +25,18 @@ export interface Description {
   description: string;
   country: string;
   link: string;
+  hint: string;
 }
 
 export interface TrackInfoProps {
   track: Track;
   description: string;
   link: string;
+}
+
+export interface HintInfoProps {
+  track: Track;
+  hint: string;
 }
 
 export interface AudioPlayerProps {
