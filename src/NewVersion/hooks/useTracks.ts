@@ -43,7 +43,7 @@ const useTracks = (): {
 
         const availableTrackIndices = validTracks
           .map((_, index) => index)
-          .filter(index => !playedTracks.has(validTracks[index].id));
+          .filter((index) => !playedTracks.has(validTracks[index].id));
 
         if (availableTrackIndices.length < ROUNDS) {
           playedTracks.clear();
@@ -53,13 +53,18 @@ const useTracks = (): {
 
         const indices: number[] = [];
         while (indices.length < ROUNDS && availableTrackIndices.length > 0) {
-          const randomIndex = Math.floor(Math.random() * availableTrackIndices.length);
+          const randomIndex = Math.floor(
+            Math.random() * availableTrackIndices.length
+          );
           const selectedIndex = availableTrackIndices.splice(randomIndex, 1)[0];
           indices.push(selectedIndex);
           playedTracks.add(validTracks[selectedIndex].id);
         }
 
-        localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([...playedTracks]));
+        localStorage.setItem(
+          PLAYED_TRACKS_KEY,
+          JSON.stringify([...playedTracks])
+        );
         setTrackIndices(indices);
       } else {
         setError("Failed to refresh access token.");
