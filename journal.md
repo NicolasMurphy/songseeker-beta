@@ -1,6 +1,7 @@
 # 7/20
 
     Goals:
+        - Start game button enter keyboard click
         - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
             - Manually go through and make changes to descriptions
