@@ -60,4 +60,5 @@ export const censoredWords = [
   "Djibouti",
   "Mongolian",
   "Mongolia",
+  "Cuba",
 ];
