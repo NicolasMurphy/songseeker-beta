@@ -23,7 +23,7 @@ export const censoredWords = [
   "Chile",
   "Greek",
   "Czechoslovak",
-  "Ukranian",
+  "Ukrainian",
   "New Zealand",
   "Amsterdamse",
   "Holland",

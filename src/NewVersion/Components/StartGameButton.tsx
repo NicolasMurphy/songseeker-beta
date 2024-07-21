@@ -7,7 +7,7 @@ const StartGameButton: React.FC<StartGameButtonProps> = ({
   return (
     <button
       onClick={() => setGameStarted(true)}
-      className="my-4 btn btn-primary"
+      className="my-4 btn btn-primary mx-auto md:col-start-2"
     >
       Start Game
     </button>
