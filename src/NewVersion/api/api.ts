@@ -42,9 +42,10 @@ export const fetchAllTracks = async (
           images: item.track.album.images.map((image: any) => ({
             url: image.url,
           })),
+          name: item.track.album.name,
         },
         id: item.track.id,
-        link: item.track.external_urls.spotify
+        link: item.track.external_urls.spotify,
       }))
     );
     url = data.next;

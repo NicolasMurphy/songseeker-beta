@@ -19,6 +19,7 @@ const HintsTable: React.FC<HintInfoProps> = ({ track, hint }) => {
 
   const censoredTrackName = censorText(track.name, censoredWords);
   const censoredArtistName = censorText(track.artists[0].name, censoredWords);
+  const censoredAlbumName = censorText(track.album.name, censoredWords);
 
   return (
     <>
@@ -42,7 +43,7 @@ const HintsTable: React.FC<HintInfoProps> = ({ track, hint }) => {
               {guesses < 4 && (
                 <tr>
                   <td>
-                    {censoredTrackName} - {censoredArtistName}
+                    {censoredTrackName} - {censoredArtistName} - {censoredAlbumName}
                   </td>
                 </tr>
               )}

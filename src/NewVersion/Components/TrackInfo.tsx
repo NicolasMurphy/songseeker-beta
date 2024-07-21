@@ -15,6 +15,9 @@ const TrackInfo: React.FC<TrackInfoProps> = ({ track, description, link }) => {
           <tr>
             <td className="text-xl">{track.artists[0].name}</td>
           </tr>
+          <tr>
+            <td className="text-lg">{track.album.name}</td>
+          </tr>
         </tbody>
       </table>
       <div className="mx-auto flex justify-center items-center my-2">
