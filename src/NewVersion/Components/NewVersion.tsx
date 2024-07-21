@@ -116,7 +116,7 @@ const NewVersion: React.FC = () => {
                 ) : (
                   <>
                     {/* 🚨 GRID 1 🚨 */}
-                    <div>
+                    <div className="order-2 md:order-1">
                       {/* Hints Table Card */}
                       <HintsTable
                         track={tracks[trackIndices[round - 1]]}
@@ -124,7 +124,7 @@ const NewVersion: React.FC = () => {
                       />
                     </div>
                     {/* 🚨 GRID 2 🚨 */}
-                    <div>
+                    <div className="order-1 md:order-2">
                       {/* Audio and Game Info Card */}
                       <div className="card bg-base-300 text-base-content py-4 my-4 max-w-xs mx-auto md:col-start-2">
                         <GameInfo />
@@ -157,7 +157,7 @@ const NewVersion: React.FC = () => {
                       {!gameOver && !roundOver && <GuessForm />}
                     </div>
                     {/* 🚨 GRID 3 🚨 */}
-                    <div>
+                    <div className="order-3 md:order-3">
                       {/* Track Info Card */}
                       {(guesses === 0 || selectedCountry === correctAnswer) &&
                         tracks[trackIndices[round - 1]] && (
