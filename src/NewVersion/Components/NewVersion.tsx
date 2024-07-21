@@ -68,36 +68,30 @@ const NewVersion: React.FC = () => {
 
   const nextRoundButtonRef = useRef<HTMLButtonElement>(null);
   const playAgainButtonRef = useRef<HTMLButtonElement>(null);
+  const startGameButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (roundOver && nextRoundButtonRef.current) {
-        nextRoundButtonRef.current.click();
-      }
-      if (gameOver && playAgainButtonRef.current) {
-        playAgainButtonRef.current.click();
+      if (event.key === "Enter") {
+        if (roundOver && nextRoundButtonRef.current) {
+          nextRoundButtonRef.current.click();
+        }
+        if (gameOver && playAgainButtonRef.current) {
+          playAgainButtonRef.current.click();
+        }
+        if (!gameStarted && startGameButtonRef.current) {
+          startGameButtonRef.current.click();
+        }
       }
     };
-    document.addEventListener("keypress", handleKeyPress as EventListener);
+
+    document.addEventListener("keypress", handleKeyPress);
     return () => {
-      document.removeEventListener("keypress", handleKeyPress as EventListener);
+      document.removeEventListener("keypress", handleKeyPress);
     };
-  });
+  }, [roundOver, gameOver, gameStarted]);
 
   return (
-    // <div className="grid grid-cols-3 auto-rows-min gap-4 p-4">
-    //   <div className="col-start-1">
-    //     <div className="bg-gray-200 p-4 h-40">test1</div>
-    //     <div className="bg-gray-200 p-4 h-40 mt-4">test1</div>
-    //   </div>
-    //   <div className="col-start-2">
-    //     <div className="bg-gray-200 p-4 h-20">test2</div>
-    //     <div className="bg-gray-200 p-4 h-20 mt-4">test2</div>
-    //   </div>
-    //   <div className="col-start-3">
-    //     <div className="bg-gray-200 p-4">test3</div>
-    //   </div>
-    // </div>
     <div className="min-h-screen mx-auto">
       <div className="mx-auto my-16 text-center">
         {!gameStarted && <LogoAndName />}
@@ -112,7 +106,10 @@ const NewVersion: React.FC = () => {
             ) : (
               <section className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-min md:grid-flow-row-dense">
                 {!gameStarted ? (
-                  <StartGameButton setGameStarted={setGameStarted} />
+                  <StartGameButton
+                    ref={startGameButtonRef}
+                    setGameStarted={setGameStarted}
+                  />
                 ) : (
                   <>
                     {/* 🚨 GRID 1 🚨 */}

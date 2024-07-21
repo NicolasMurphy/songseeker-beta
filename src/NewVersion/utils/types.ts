@@ -59,5 +59,5 @@ export interface GoogleMapsProviderProps {
 }
 
 export interface StartGameButtonProps {
-  setGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
+  setGameStarted: (started: boolean) => void;
 }
