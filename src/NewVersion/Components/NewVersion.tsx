@@ -13,7 +13,7 @@ import TrackInfo from "./TrackInfo";
 import { GameOver } from "./GameOver";
 import StartGameButton from "./StartGameButton";
 import LogoAndName from "./LogoAndName";
-// import HintsTable from "./HintsTable";
+import HintsTable from "./HintsTable";
 
 const NewVersion: React.FC = () => {
   const { tracks, loading, error, trackIndices, refetchTracks } = useTracks();
@@ -129,10 +129,10 @@ const NewVersion: React.FC = () => {
                       />
                     )}
                     {/* Hints Table Card */}
-                    {/* <HintsTable
+                    <HintsTable
                       track={tracks[trackIndices[round - 1]]}
                       hint={descriptions[trackIndices[round - 1]].hint}
-                    /> */}
+                    />
                     {/* Guesses Table Card */}
                     <GuessesTable />
                     {/* Guess Form Card */}

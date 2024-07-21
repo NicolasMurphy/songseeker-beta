@@ -1,19 +1,24 @@
-// Here is the component for the hints table, plan is to reveal more and more information about the track at each wrong guess
-// Perhaps:
-// 1 Wrong Guess: Track name (need to censor if country name is here)
-// 2 Wrong Guesses: Artist name (need to censor if country name is here)
-// 3 Wrong Guesses: Album art (need to blur if country name or flag is here)
-// 4 Wrong Guesses: Track Description
-// Other ideas: Release date, language, instruments used, continent, starting letter, how many letters in the country
-
 import React from "react";
 import useStore from "../store/useStore";
 import useTracks from "../hooks/useTracks";
 import { HintInfoProps } from "../utils/types";
+import { censoredWords } from "../utils/censoredWords";
+
+const censorText = (text: string, words: string[]) => {
+  let censoredText = text;
+  words.forEach((word: string) => {
+    const regex = new RegExp(word, "gi");
+    censoredText = censoredText.replace(regex, "[REDACTED]");
+  });
+  return censoredText;
+};
 
 const HintsTable: React.FC<HintInfoProps> = ({ track, hint }) => {
   const { tracks } = useTracks();
-  const { round, guesses } = useStore();
+  const { round, guesses, correctAnswer } = useStore();
+
+  const censoredTrackName = censorText(track.name, censoredWords);
+  const censoredArtistName = censorText(track.artists[0].name, censoredWords);
 
   return (
     <>
@@ -23,26 +28,27 @@ const HintsTable: React.FC<HintInfoProps> = ({ track, hint }) => {
             <tbody>
               {guesses < 5 && (
                 <tr>
-                  <td>Track: {track.name}</td>
-                </tr>
-              )}
-              {guesses < 4 && (
-                <tr>
-                  <td>
-                    Artist: {track.artists[0].name}
-                  </td>
-                </tr>
-              )}
-              {guesses < 3 && (
-                <tr>
                   <td>
                     Album art:
                     <img
                       src={track.album.images[0].url}
                       alt={`${track.name} album art`}
                       className="mx-auto m-4 w-48"
+                      style={{ filter: "blur(10px)" }}
                     />
                   </td>
+                </tr>
+              )}
+              {guesses < 4 && (
+                <tr>
+                  <td>
+                    {censoredTrackName} - {censoredArtistName}
+                  </td>
+                </tr>
+              )}
+              {guesses < 3 && (
+                <tr>
+                  <td>The country starts with "{correctAnswer[0]}".</td>
                 </tr>
               )}
               {guesses < 2 && (
