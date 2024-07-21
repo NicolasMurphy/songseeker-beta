@@ -4,7 +4,7 @@ export const censoredWords = [
   "Egypt",
   "Thailand",
   "Viet Nam",
-  "Iceland",
+  "Icelandic",
   "Colombia",
   "Norway",
   "Myanmar",
@@ -61,4 +61,10 @@ export const censoredWords = [
   "Mongolian",
   "Mongolia",
   "Cuba",
+  "Australian",
+  "Australia",
+  "Haiti",
+  "Bulgaria",
+  "Hungarian",
+
 ];
