@@ -85,6 +85,19 @@ const NewVersion: React.FC = () => {
   });
 
   return (
+    // <div className="grid grid-cols-3 auto-rows-min gap-4 p-4">
+    //   <div className="col-start-1">
+    //     <div className="bg-gray-200 p-4 h-40">test1</div>
+    //     <div className="bg-gray-200 p-4 h-40 mt-4">test1</div>
+    //   </div>
+    //   <div className="col-start-2">
+    //     <div className="bg-gray-200 p-4 h-20">test2</div>
+    //     <div className="bg-gray-200 p-4 h-20 mt-4">test2</div>
+    //   </div>
+    //   <div className="col-start-3">
+    //     <div className="bg-gray-200 p-4">test3</div>
+    //   </div>
+    // </div>
     <div className="min-h-screen mx-auto">
       <div className="mx-auto my-16 text-center">
         {!gameStarted && <LogoAndName />}
@@ -97,57 +110,66 @@ const NewVersion: React.FC = () => {
             {tracks.length === 0 ? (
               <div>No tracks available</div>
             ) : (
-              <section className="grid grid-cols-1 md:grid-cols-3 grid-rows-1">
+              <section className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-min md:grid-flow-row-dense">
                 {!gameStarted ? (
                   <StartGameButton setGameStarted={setGameStarted} />
                 ) : (
                   <>
-                    {/* Audio and Game Info Card */}
-                    <div className="card bg-base-300 text-base-content py-4 my-4 max-w-xs mx-auto md:col-start-2 md:row-start-1 flex flex-col">
-                      <GameInfo />
-                      {tracks[trackIndices[round - 1]]?.preview_url ? (
-                        <AudioPlayer
-                          key={trackKey}
-                          src={tracks[trackIndices[round - 1]].preview_url}
-                        />
-                      ) : (
-                        <div>No preview available for this track</div>
-                      )}
+                    {/* 🚨 GRID 1 🚨 */}
+                    <div>
+                      {/* Hints Table Card */}
+                      <HintsTable
+                        track={tracks[trackIndices[round - 1]]}
+                        hint={descriptions[trackIndices[round - 1]].hint}
+                      />
                     </div>
-                    {/* Game Over Card */}
-                    {gameOver && (
-                      <GameOver
-                        onNewGame={handleNewGame}
-                        playAgainButtonRef={playAgainButtonRef}
-                      />
-                    )}
-                    {/* Round Score Card */}
-                    {roundOver && (
-                      <RoundOver
-                        onNextRound={handleNextRound}
-                        nextRoundButtonRef={nextRoundButtonRef}
-                      />
-                    )}
-                    {/* Hints Table Card */}
-                    <HintsTable
-                      track={tracks[trackIndices[round - 1]]}
-                      hint={descriptions[trackIndices[round - 1]].hint}
-                    />
-                    {/* Guesses Table Card */}
-                    <GuessesTable />
-                    {/* Guess Form Card */}
-                    {!gameOver && !roundOver && <GuessForm />}
-                    {/* Track Info Card */}
-                    {(guesses === 0 || selectedCountry === correctAnswer) &&
-                      tracks[trackIndices[round - 1]] && (
-                        <TrackInfo
-                          track={tracks[trackIndices[round - 1]]}
-                          description={
-                            descriptions[trackIndices[round - 1]].description
-                          }
-                          link={descriptions[trackIndices[round - 1]].link}
+                    {/* 🚨 GRID 2 🚨 */}
+                    <div>
+                      {/* Audio and Game Info Card */}
+                      <div className="card bg-base-300 text-base-content py-4 my-4 max-w-xs mx-auto md:col-start-2">
+                        <GameInfo />
+                        {tracks[trackIndices[round - 1]]?.preview_url ? (
+                          <AudioPlayer
+                            key={trackKey}
+                            src={tracks[trackIndices[round - 1]].preview_url}
+                          />
+                        ) : (
+                          <div>No preview available for this track</div>
+                        )}
+                      </div>
+                      {/* Game Over Card */}
+                      {gameOver && (
+                        <GameOver
+                          onNewGame={handleNewGame}
+                          playAgainButtonRef={playAgainButtonRef}
                         />
                       )}
+                      {/* Round Score Card */}
+                      {roundOver && (
+                        <RoundOver
+                          onNextRound={handleNextRound}
+                          nextRoundButtonRef={nextRoundButtonRef}
+                        />
+                      )}
+                      {/* Guesses Table Card */}
+                      <GuessesTable />
+                      {/* Guess Form Card */}
+                      {!gameOver && !roundOver && <GuessForm />}
+                    </div>
+                    {/* 🚨 GRID 3 🚨 */}
+                    <div>
+                      {/* Track Info Card */}
+                      {(guesses === 0 || selectedCountry === correctAnswer) &&
+                        tracks[trackIndices[round - 1]] && (
+                          <TrackInfo
+                            track={tracks[trackIndices[round - 1]]}
+                            description={
+                              descriptions[trackIndices[round - 1]].description
+                            }
+                            link={descriptions[trackIndices[round - 1]].link}
+                          />
+                        )}
+                    </div>
                   </>
                 )}
               </section>

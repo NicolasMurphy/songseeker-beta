@@ -57,7 +57,7 @@ const GuessesTable: React.FC = () => {
   return (
     <>
       {(wrongGuesses.length > 0 || selectedCountry === correctAnswer) && (
-        <div className="card bg-base-300 text-base-content py-4 my-4 mx-auto w-full max-w-xs md:col-start-2">
+        <div className="card bg-base-300 text-base-content py-4 my-4 mx-auto w-full max-w-xs">
           {roundOver && score === 0 && (
             <table className="table max-w-xs mx-auto my-2 bg-base-100">
               <tbody>

@@ -6,7 +6,7 @@ import { TrackInfoProps } from "../utils/types";
 const TrackInfo: React.FC<TrackInfoProps> = ({ track, description, link }) => {
   const { correctAnswer } = useStore();
   return (
-    <div className="card bg-base-300 text-base-content my-4 max-w-xs mx-auto md:col-start-3 md:row-start-1 md:row-span-3">
+    <div className="card bg-base-300 text-base-content my-4 max-w-xs mx-auto">
       <table className="table max-w-xs text-center my-2 mx-auto">
         <tbody>
           <tr>
