@@ -5,13 +5,12 @@
         - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
             - Refine hints
-            - For the hints, the album image often gives it away, possibly use release date instead, or maybe blur the image? Continent could be another hint.
-            - Also need a backup of the song or artist name contains the country name.
-        - Make Guess form a sticky footer
+            - Release date? Replace first letter?
         - Add a see results button after last round and before play again. Display all guess tables from all rounds
         - Add separate nav: leader board, about, donate
         - Factor distances into scores, perhaps time
         - Add compass on guess table
+        - Make multiple countries an answer if song is of a style representative of many countries.
         - Add map in result?
         - Calculate nearest border point in json file for use?
         -
