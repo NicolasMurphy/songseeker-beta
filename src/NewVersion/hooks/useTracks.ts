@@ -25,7 +25,17 @@ const useTracks = (): {
       const token = await refreshAccessToken();
       if (token) {
         const fetchedTracks = await fetchAllTracks(token, playlistId);
-        const validTracks = fetchedTracks.filter((track) => track.preview_url);
+        const validTracks = fetchedTracks.filter((track) => {
+          if (!track.preview_url) {
+            console.log(
+              `Track without preview URL: ${track.name} by ${track.artists
+                .map((artist) => artist.name)
+                .join(", ")}`
+            );
+            return false;
+          }
+          return true;
+        });
 
         setTracks(validTracks);
 

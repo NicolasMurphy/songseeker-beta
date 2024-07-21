@@ -12,10 +12,8 @@ import useTracks from "../hooks/useTracks";
 import { HintInfoProps } from "../utils/types";
 
 const HintsTable: React.FC<HintInfoProps> = ({ track, hint }) => {
-  const { tracks, trackIndices } = useTracks();
+  const { tracks } = useTracks();
   const { round, guesses } = useStore();
-
-  console.log(trackIndices)
 
   return (
     <>
