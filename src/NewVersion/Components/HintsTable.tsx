@@ -25,6 +25,7 @@ const HintsTable: React.FC<HintInfoProps> = ({ track, hint }) => {
     <>
       {guesses < 5 && tracks.length !== 0 && round !== null && (
         <div className="card bg-base-300 text-base-content my-4 mx-auto w-full max-w-xs">
+          <h1 className="mt-4 text-xl">Hints</h1>
           <table className="table max-w-xs text-center my-4">
             <tbody>
               {guesses < 5 && (
