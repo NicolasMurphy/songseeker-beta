@@ -94,8 +94,10 @@ const GuessForm: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0">
-      <div className="text-base-content my-2 w-full max-w-xs mx-auto">
+    <>
+    <div className="card bg-cyan-500 bg-opacity-20 h-96 max-w-xs fixed bottom-0 left-0 right-0 mx-auto"></div>
+      <div className="fixed bottom-0 left-0 right-0 z-10">
+      <div className="my-2 w-full max-w-xs mx-auto">
         <Select
           options={countryOptions}
           value={
@@ -113,7 +115,7 @@ const GuessForm: React.FC = () => {
           menuPlacement="top"
           classNames={{
             menu: () =>
-              classNames("bg-gray-300", "text-gray-900", "mt-1", "w-full"),
+              classNames("bg-gray-300", "text-gray-900", "w-full"),
             option: ({ isFocused }) =>
               classNames(
                 isFocused ? "bg-blue-300" : "bg-transparent",
@@ -125,6 +127,7 @@ const GuessForm: React.FC = () => {
         />
       </div>
     </div>
+    </>
   );
 };
 
