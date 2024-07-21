@@ -55,64 +55,68 @@ const GuessesTable: React.FC = () => {
   }, [wrongGuesses, distances, getDistanceFeedback]);
 
   return (
-    <div className="card bg-base-300 text-base-content py-4 my-4 mx-auto max-w-xs md:col-start-2">
-      {roundOver && score === 0 && (
-        <table className="table max-w-xs mx-auto my-2 bg-base-100">
-          <tbody>
-            <tr>
-              <td className="w-20">
-                <img
-                  src={getFlagUrl(correctAnswer)}
-                  alt={`${correctAnswer} flag`}
-                ></img>
-              </td>
-              <td className="text-left">
-                {correctAnswer} was the correct answer.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <>
+      {(wrongGuesses.length > 0 || selectedCountry === correctAnswer) && (
+        <div className="card bg-base-300 text-base-content py-4 my-4 mx-auto w-full max-w-xs md:col-start-2">
+          {roundOver && score === 0 && (
+            <table className="table max-w-xs mx-auto my-2 bg-base-100">
+              <tbody>
+                <tr>
+                  <td className="w-20">
+                    <img
+                      src={getFlagUrl(correctAnswer)}
+                      alt={`${correctAnswer} flag`}
+                    ></img>
+                  </td>
+                  <td className="text-left">
+                    {correctAnswer} was the correct answer.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          )}
+          <table className="table max-w-xs mx-auto">
+            <tbody>
+              {wrongGuesses.map((wrongGuess, index) => (
+                <tr key={wrongGuess}>
+                  <td className="w-20">
+                    <img
+                      src={getFlagUrl(wrongGuess)}
+                      alt={`${wrongGuess} flag`}
+                    ></img>
+                  </td>
+                  <td className="text-left">{wrongGuess}</td>
+                  <td>❌</td>
+                  <td>
+                    {distances[index] !== undefined ? (
+                      distanceFeedback[wrongGuess]
+                    ) : (
+                      <SmallLoader />
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {selectedCountry === correctAnswer && (
+            <table className="table max-w-xs mx-auto bg-base-100 my-4">
+              <tbody>
+                <tr>
+                  <td className="w-20">
+                    <img
+                      src={getFlagUrl(correctAnswer)}
+                      alt={`${correctAnswer} flag`}
+                    ></img>
+                  </td>
+                  <td className="text-left">{correctAnswer}</td>
+                  <td>✔️</td>
+                </tr>
+              </tbody>
+            </table>
+          )}
+        </div>
       )}
-      <table className="table max-w-xs mx-auto">
-        <tbody>
-          {wrongGuesses.map((wrongGuess, index) => (
-            <tr key={wrongGuess}>
-              <td className="w-20">
-                <img
-                  src={getFlagUrl(wrongGuess)}
-                  alt={`${wrongGuess} flag`}
-                ></img>
-              </td>
-              <td className="text-left">{wrongGuess}</td>
-              <td>❌</td>
-              <td>
-                {distances[index] !== undefined ? (
-                  distanceFeedback[wrongGuess]
-                ) : (
-                  <SmallLoader />
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {selectedCountry === correctAnswer && (
-        <table className="table max-w-xs mx-auto bg-base-100 my-4">
-          <tbody>
-            <tr>
-              <td className="w-20">
-                <img
-                  src={getFlagUrl(correctAnswer)}
-                  alt={`${correctAnswer} flag`}
-                ></img>
-              </td>
-              <td className="text-left">{correctAnswer}</td>
-              <td>✔️</td>
-            </tr>
-          </tbody>
-        </table>
-      )}
-    </div>
+    </>
   );
 };
 

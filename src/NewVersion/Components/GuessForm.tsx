@@ -94,33 +94,36 @@ const GuessForm: React.FC = () => {
   };
 
   return (
-    <div className="card bg-base-300 text-base-content my-2 h-96 w-full max-w-xs mx-auto md:col-start-2 md:row-start-2">
-      <Select
-        options={countryOptions}
-        value={
-          countryOptions.find((option) => option.value === inputValue) || null
-        }
-        onChange={handleChange}
-        onInputChange={handleInputChange}
-        placeholder="Enter country"
-        className="bg-gray-700 m-4"
-        autoFocus
-        isSearchable
-        unstyled
-        defaultMenuIsOpen
-        menuIsOpen={true}
-        classNames={{
-          menu: () =>
-            classNames("bg-gray-300", "text-gray-900", "mt-1", "w-full"),
-          option: ({ isFocused }) =>
-            classNames(
-              isFocused ? "bg-blue-300" : "bg-transparent",
-              "py-2",
-              "px-3"
-            ),
-          valueContainer: () => classNames("px-2"),
-        }}
-      />
+    <div className="fixed bottom-0 left-0 right-0">
+      <div className="text-base-content my-2 w-full max-w-xs mx-auto">
+        <Select
+          options={countryOptions}
+          value={
+            countryOptions.find((option) => option.value === inputValue) || null
+          }
+          onChange={handleChange}
+          onInputChange={handleInputChange}
+          placeholder="Enter country"
+          className="bg-gray-700 m-4"
+          autoFocus
+          isSearchable
+          unstyled
+          defaultMenuIsOpen
+          menuIsOpen={true}
+          menuPlacement="top"
+          classNames={{
+            menu: () =>
+              classNames("bg-gray-300", "text-gray-900", "mt-1", "w-full"),
+            option: ({ isFocused }) =>
+              classNames(
+                isFocused ? "bg-blue-300" : "bg-transparent",
+                "py-2",
+                "px-3"
+              ),
+            valueContainer: () => classNames("px-2"),
+          }}
+        />
+      </div>
     </div>
   );
 };

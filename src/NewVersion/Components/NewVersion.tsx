@@ -85,7 +85,7 @@ const NewVersion: React.FC = () => {
   });
 
   return (
-    <div className=" min-h-screen mx-auto">
+    <div className="min-h-screen mx-auto">
       <div className="mx-auto my-16 text-center">
         {!gameStarted && <LogoAndName />}
         {loading ? (
@@ -97,13 +97,13 @@ const NewVersion: React.FC = () => {
             {tracks.length === 0 ? (
               <div>No tracks available</div>
             ) : (
-              <section className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:auto-rows-auto">
+              <section className="grid grid-cols-1 md:grid-cols-3 grid-rows-1">
                 {!gameStarted ? (
                   <StartGameButton setGameStarted={setGameStarted} />
                 ) : (
                   <>
                     {/* Audio and Game Info Card */}
-                    <div className="card bg-base-300 text-base-content py-4 my-4 max-w-xs mx-auto md:col-start-2 md:row-start-1 h-fit">
+                    <div className="card bg-base-300 text-base-content py-4 my-4 max-w-xs mx-auto md:col-start-2 md:row-start-1 flex flex-col">
                       <GameInfo />
                       {tracks[trackIndices[round - 1]]?.preview_url ? (
                         <AudioPlayer
