@@ -93,40 +93,46 @@ const GuessForm: React.FC = () => {
     setInputValue("");
   };
 
+  const customStyles = {
+    dropdownIndicator: (provided: any) => ({
+      ...provided,
+      transform: "rotate(180deg)", // Rotate the arrow
+    }),
+  };
+
   return (
     <>
-    <div className="card bg-cyan-500 bg-opacity-20 h-96 max-w-xs fixed bottom-0 left-0 right-0 mx-auto"></div>
-      <div className="fixed bottom-0 left-0 right-0 z-10">
-      <div className="my-2 w-full max-w-xs mx-auto">
-        <Select
-          options={countryOptions}
-          value={
-            countryOptions.find((option) => option.value === inputValue) || null
-          }
-          onChange={handleChange}
-          onInputChange={handleInputChange}
-          placeholder="Enter country"
-          className="bg-gray-700 m-4"
-          autoFocus
-          isSearchable
-          unstyled
-          defaultMenuIsOpen
-          menuIsOpen={true}
-          menuPlacement="top"
-          classNames={{
-            menu: () =>
-              classNames("bg-gray-300", "text-gray-900", "w-full"),
-            option: ({ isFocused }) =>
-              classNames(
-                isFocused ? "bg-blue-300" : "bg-transparent",
-                "py-2",
-                "px-3"
-              ),
-            valueContainer: () => classNames("px-2"),
-          }}
-        />
+      <div className="fixed bottom-0 left-0 right-0 z-20">
+        <div className="my-2 w-full max-w-xs mx-auto">
+          <Select
+            options={countryOptions}
+            value={
+              countryOptions.find((option) => option.value === inputValue) ||
+              null
+            }
+            onChange={handleChange}
+            onInputChange={handleInputChange}
+            placeholder="Enter country"
+            className="bg-gray-700 m-4"
+            autoFocus
+            isSearchable
+            unstyled
+            defaultMenuIsOpen
+            menuPlacement="top"
+            styles={customStyles}
+            classNames={{
+              menu: () => classNames("bg-gray-300", "text-gray-900", "w-full"),
+              option: ({ isFocused }) =>
+                classNames(
+                  isFocused ? "bg-blue-300" : "bg-transparent",
+                  "py-2",
+                  "px-3"
+                ),
+              valueContainer: () => classNames("px-2"),
+            }}
+          />
+        </div>
       </div>
-    </div>
     </>
   );
 };
