@@ -36,6 +36,7 @@
         - Calculate nearest border point in json file for use?
         -
     Notes:
+        - The first letter hint is too obvious for certain countries like "Z", since there are not many countries that start with Z.
         -
 
 # 7/19
