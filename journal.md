@@ -5,6 +5,8 @@
         - Hints table
             - languages, album, and starting letter are too obvious
             - may have to manually go through and record instruments
+            - subregion perhaps
+            - hints can be more vague if there is a compass
         - Add a see results button after last round and before play again. Display all guess tables from all rounds
         - Add separate nav: leader board, about, donate
         - Factor distances into scores, perhaps time
