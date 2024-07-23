@@ -1,8 +1,10 @@
 # 7/24
 
     Goals:
+        - Need to test in slow 3g
         - Preload hints
         - Make unit test for correct playlist id for legacy version
+        - Integration tests: fetch playlist, playlist length matches description object length
         - Possibly make playlist id an environment variable
         - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
@@ -41,6 +43,7 @@
         -
     Notes:
         - Genre gives away country name
+        - Subregion gives away country name for Australia and New Zealand
         -
 
 # 7/22
