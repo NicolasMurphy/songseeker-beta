@@ -43,6 +43,7 @@ export const fetchAllTracks = async (
             url: image.url,
           })),
           name: item.track.album.name,
+          release_date: item.track.album.release_date,
         },
         id: item.track.id,
         link: item.track.external_urls.spotify,

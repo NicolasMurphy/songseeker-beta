@@ -16,6 +16,7 @@ export interface Artist {
 export interface Album {
   images: Image[];
   name: string;
+  release_date: string;
 }
 
 export interface Image {

@@ -59,7 +59,7 @@ const HintsTable: React.FC<HintInfoProps> = ({ track, hint }) => {
               {guesses < 5 && (
                 <tr>
                   <td>
-                    Hint placeholder
+                    {track.album.release_date.substring(0,4)}
                   </td>
                 </tr>
               )}
