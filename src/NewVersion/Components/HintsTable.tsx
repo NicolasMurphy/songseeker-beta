@@ -62,14 +62,12 @@ const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
               )}
               {guesses < 3 && (
                 <tr>
-                  <td>
-                    Subregion: {Object.values(countryData.subregion)}
-                  </td>
+                  <td>Region: {Object.values(countryData.region)}</td>
                 </tr>
               )}
               {guesses < 2 && (
                 <tr>
-                  <td>The country starts with "{correctAnswer[0]}".</td>
+                  <td>Subregion: {Object.values(countryData.subregion)}</td>
                 </tr>
               )}
             </tbody>
