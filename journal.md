@@ -1,6 +1,8 @@
 # 7/23
 
     Goals:
+        - Make unit test for correct playlist id
+        - Possibly make playlist id an environment variable
         - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
             - languages, album, and starting letter are too obvious
