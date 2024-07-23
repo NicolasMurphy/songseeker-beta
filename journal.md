@@ -3,6 +3,7 @@
     Goals:
         - Remove songs that are not unique/old enough to be recognizable as from that country
         - Hints table
+            - Using release date for now, possibly replace
             - Refine hints
             - Release date? Replace first letter?
         - Add a see results button after last round and before play again. Display all guess tables from all rounds
