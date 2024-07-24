@@ -3,38 +3,87 @@ import useStore from "../store/useStore";
 import useTracks from "../hooks/useTracks";
 import { HintInfoProps } from "../utils/types";
 import { censoredWords } from "../utils/censoredWords";
+import getDescriptionHintOptions from "../utils/DescriptionHintOptions";
 
 const censorText = (text: string, words: string[]) => {
   let censoredText = text;
-  words.forEach((word: string) => {
+  words.forEach((word) => {
     const regex = new RegExp(word, "gi");
     censoredText = censoredText.replace(regex, "[REDACTED]");
   });
   return censoredText;
 };
 
+const countryNameMapping: { [key: string]: string } = {
+  "Myanmar (Burma)": "Myanmar",
+  "The Gambia": "Gambia",
+  "Cabo Verde": "Cape Verde",
+};
+
+const manualPopulationOverride: { [key: string]: string } = {
+  "United States": "333,300,000",
+  Georgia: "3,713,000",
+};
+
+interface CountryData {
+  country: string;
+  population: string | number;
+  region?: string;
+  subregion?: string;
+}
+
 const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
   const { tracks } = useTracks();
-  const { round, guesses, correctAnswer } = useStore();
-  const [countryData, setCountryData] = useState<any>(null);
+  const { round, guesses } = useStore();
+  const [countryData, setCountryData] = useState<CountryData[]>([]);
 
   useEffect(() => {
-    if (correctAnswer) {
-      fetch(`https://restcountries.com/v3.1/name/${correctAnswer}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch country data");
+    const fetchAllCountries = async () => {
+      const descriptions = getDescriptionHintOptions();
+      const countries = descriptions.map((desc) => desc.country);
+
+      const data = await Promise.all(
+        countries.map(async (country) => {
+          const mappedCountry = countryNameMapping[country] || country;
+          const manualPopulation = manualPopulationOverride[mappedCountry];
+
+          if (manualPopulation) {
+            return { country: mappedCountry, population: manualPopulation };
           }
-          return response.json();
+
+          try {
+            const response = await fetch(
+              `https://restcountries.com/v3.1/name/${mappedCountry}?fullText=true`
+            );
+            if (!response.ok) {
+              throw new Error(
+                `Failed to fetch country data for ${mappedCountry}`
+              );
+            }
+            const jsonData = await response.json();
+            if (jsonData.length > 0) {
+              return {
+                country: mappedCountry,
+                population: jsonData[0].population,
+                region: jsonData[0].region,
+                subregion: jsonData[0].subregion,
+              };
+            } else {
+              console.warn(`No data found for country: ${mappedCountry}`);
+              return { country: mappedCountry, population: "N/A" };
+            }
+          } catch (error) {
+            console.error(`Error fetching data for ${mappedCountry}:`, error);
+            return { country: mappedCountry, population: "N/A" };
+          }
         })
-        .then((data) => {
-          setCountryData(data[0]);
-        })
-        .catch((error) => {
-          console.error("Error fetching country data:", error);
-        });
-    }
-  }, [correctAnswer, setCountryData]);
+      );
+
+      setCountryData(data);
+    };
+
+    fetchAllCountries();
+  }, []);
 
   const censoredTrackName = censorText(track.name, censoredWords);
   const censoredArtistName = censorText(track.artists[0].name, censoredWords);
@@ -55,19 +104,22 @@ const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
                   </td>
                 </tr>
               )}
-              {guesses < 4 && (
+              {guesses < 4 && countryData.length > 0 && (
                 <tr>
-                  <td>Population: {countryData.population.toLocaleString()}</td>
+                  <td>
+                    Population:{" "}
+                    {countryData[0]?.population?.toLocaleString() || "N/A"}
+                  </td>
                 </tr>
               )}
-              {guesses < 3 && (
+              {guesses < 3 && countryData.length > 0 && (
                 <tr>
-                  <td>Region: {Object.values(countryData.region)}</td>
+                  <td>Region: {countryData[0]?.region || "N/A"}</td>
                 </tr>
               )}
-              {guesses < 2 && (
+              {guesses < 2 && countryData.length > 0 && (
                 <tr>
-                  <td>Subregion: {Object.values(countryData.subregion)}</td>
+                  <td>Subregion: {countryData[0]?.subregion || "N/A"}</td>
                 </tr>
               )}
             </tbody>
