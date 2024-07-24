@@ -774,12 +774,12 @@ const getDescriptionHintOptions = () => {
       link: "https://en.wikipedia.org/wiki/King_Mensah",
       hint: `A singer known as "The Golden Voice", fusing traditional music with funk, reggae, and Afropop.`,
     },
-    {
-      country: "Malawi",
-      description: `Gidesi Chalamanda was born on 15 January 1931, is most commonly known as "Agide". He is a Malawian acoustic artist. He was born in Chiradzulu in the Southern region of Malawi. \n He is one of Malawi's legendary artists. His song "linny" a mashup with Dr Namadingo trended on TikTok gaining over a million views and challenges across the world.`,
-      link: "https://en.wikipedia.org/wiki/Giddess_Chalamanda",
-      hint: `A legendary acoustic artist whose song "Linny" trended on TikTok.`,
-    },
+    // {
+    //   country: "Malawi",
+    //   description: `Gidesi Chalamanda was born on 15 January 1931, is most commonly known as "Agide". He is a Malawian acoustic artist. He was born in Chiradzulu in the Southern region of Malawi. \n He is one of Malawi's legendary artists. His song "linny" a mashup with Dr Namadingo trended on TikTok gaining over a million views and challenges across the world.`,
+    //   link: "https://en.wikipedia.org/wiki/Giddess_Chalamanda",
+    //   hint: `A legendary acoustic artist whose song "Linny" trended on TikTok.`,
+    // },
     // {
     //   country: "Namibia",
     //   description: `Jackson Kaujeua (3 July 1953 – 27 May 2010) was a Namibian musician, composer and gospel singer, and a veteran of the Namibian struggle for independence. He sang in various Namibian languages but also Afrikaans and English.`,

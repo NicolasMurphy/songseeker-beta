@@ -645,11 +645,11 @@ const getDescriptionOptions = () => {
       description: `King Mensah (born August 12, 1971), also known as "The Golden Voice of Togo", is a Togolese singer from West Africa. Though based in Lomé, he regularly records and promotes his albums in Paris, and has embarked on several world tours since 2005. Singing in Mina, Ewe, and French, King Mensah's sound fuses elements of traditional Ewe music (Agbadza and Akpessé), and Kabye dance-drum music, with funk, reggae and West African Afropop. King Mensah's lyrical themes are steeped in religion and hopeful encouragement for the orphaned, oppressed and downtrodden.`,
       link: "https://en.wikipedia.org/wiki/King_Mensah",
     },
-    {
-      country: "Malawi",
-      description: `Gidesi Chalamanda was born on 15 January 1931, is most commonly known as "Agide". He is a Malawian acoustic artist. He was born in Chiradzulu in the Southern region of Malawi. \n He is one of Malawi's legendary artists. His song "linny" a mashup with Dr Namadingo trended on TikTok gaining over a million views and challenges across the world.`,
-      link: "https://en.wikipedia.org/wiki/Giddess_Chalamanda",
-    },
+    // {
+    //   country: "Malawi",
+    //   description: `Gidesi Chalamanda was born on 15 January 1931, is most commonly known as "Agide". He is a Malawian acoustic artist. He was born in Chiradzulu in the Southern region of Malawi. \n He is one of Malawi's legendary artists. His song "linny" a mashup with Dr Namadingo trended on TikTok gaining over a million views and challenges across the world.`,
+    //   link: "https://en.wikipedia.org/wiki/Giddess_Chalamanda",
+    // },
     // {
     //   country: "Namibia",
     //   description: `Jackson Kaujeua (3 July 1953 – 27 May 2010) was a Namibian musician, composer and gospel singer, and a veteran of the Namibian struggle for independence. He sang in various Namibian languages but also Afrikaans and English.`,
