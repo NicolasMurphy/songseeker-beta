@@ -28,8 +28,6 @@ const manualPopulationOverride: { [key: string]: string } = {
 interface CountryData {
   country: string;
   population: string | number;
-  region?: string;
-  subregion?: string;
 }
 
 const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
@@ -65,8 +63,6 @@ const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
               return {
                 country: mappedCountry,
                 population: jsonData[0].population,
-                region: jsonData[0].region,
-                subregion: jsonData[0].subregion,
               };
             } else {
               console.warn(`No data found for country: ${mappedCountry}`);
@@ -98,28 +94,25 @@ const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
             <tbody>
               {guesses < 5 && (
                 <tr>
-                  <td>
-                    {censoredTrackName} - {censoredArtistName} -{" "}
-                    {censoredAlbumName}
-                  </td>
+                  <td>Track name: {censoredTrackName}</td>
                 </tr>
               )}
               {guesses < 4 && countryData.length > 0 && (
+                <tr>
+                  <td>Artist name: {censoredArtistName}</td>
+                </tr>
+              )}
+              {guesses < 3 && countryData.length > 0 && (
+                <tr>
+                  <td>Album name: {censoredAlbumName}</td>
+                </tr>
+              )}
+              {guesses < 2 && countryData.length > 0 && (
                 <tr>
                   <td>
                     Population:{" "}
                     {countryData[0]?.population?.toLocaleString() || "N/A"}
                   </td>
-                </tr>
-              )}
-              {guesses < 3 && countryData.length > 0 && (
-                <tr>
-                  <td>Region: {countryData[0]?.region || "N/A"}</td>
-                </tr>
-              )}
-              {guesses < 2 && countryData.length > 0 && (
-                <tr>
-                  <td>Subregion: {countryData[0]?.subregion || "N/A"}</td>
                 </tr>
               )}
             </tbody>
