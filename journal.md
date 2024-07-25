@@ -3,6 +3,29 @@
     Goals:
         - Need to test in slow 3g
         - Preload hints
+        - Integration tests: fetch playlist, playlist length matches description object length
+        - Possibly make playlist id an environment variable
+        - Remove songs that are not unique/old enough to be recognizable as from that country
+        - Hints table
+            - languages, album, and starting letter are too obvious
+            - may have to manually go through and record instruments
+            - hints can be more vague if there is a compass
+        - Add a see results button after last round and before play again. Display all guess tables from all rounds
+        - Add separate nav: leader board, about, donate
+        - Factor distances into scores, perhaps time
+        - Add compass on guess table
+        - Make multiple countries an answer if song is of a style representative of many countries.
+        - Add map in result?
+        - Calculate nearest border point in json file for use?
+        -
+    Notes:
+        -
+
+# 7/24
+
+    Goals:
+        - Need to test in slow 3g
+        - Preload hints
         - Make unit test for correct playlist id for legacy version
         - Integration tests: fetch playlist, playlist length matches description object length
         - Possibly make playlist id an environment variable
