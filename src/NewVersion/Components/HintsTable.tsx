@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import useStore from "../store/useStore";
-import useTracks from "../hooks/useTracks";
 import { HintInfoProps } from "../utils/types";
 import { censoredWords } from "../utils/censoredWords";
 import getDescriptionHintOptions from "../utils/DescriptionHintOptions";
