@@ -4,6 +4,7 @@ import useTracks from "../hooks/useTracks";
 import { HintInfoProps } from "../utils/types";
 import { censoredWords } from "../utils/censoredWords";
 import getDescriptionHintOptions from "../utils/DescriptionHintOptions";
+import { CountryData } from "../utils/types";
 
 const censorText = (text: string, words: string[]) => {
   let censoredText = text;
@@ -25,13 +26,7 @@ const manualPopulationOverride: { [key: string]: string } = {
   Georgia: "3,713,000",
 };
 
-interface CountryData {
-  country: string;
-  population: string | number;
-}
-
 const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
-  const { tracks } = useTracks();
   const { round, guesses } = useStore();
   const [countryData, setCountryData] = useState<CountryData[]>([]);
 

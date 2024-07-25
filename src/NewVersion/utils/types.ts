@@ -62,3 +62,8 @@ export interface GoogleMapsProviderProps {
 export interface StartGameButtonProps {
   setGameStarted: (started: boolean) => void;
 }
+
+export interface CountryData {
+  country: string;
+  population: string | number;
+}
