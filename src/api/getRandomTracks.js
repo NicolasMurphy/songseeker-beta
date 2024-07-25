@@ -1,4 +1,5 @@
 import getDescriptionOptions from "../utils/DescriptionOptions";
+import { playlistId } from "../utils/config";
 
 const fetchAllTracks = async (playlistId, accessToken) => {
   let tracks = [];
@@ -18,8 +19,6 @@ const fetchAllTracks = async (playlistId, accessToken) => {
 };
 
 const getRandomTracks = async (accessToken) => {
-  const playlistId = "34fCtmB1IBXo6gZmxAJi2l";
-  // const playlistId = "3GFRHr2rWYiBxgXLqLXBYt"; // shorter playlist for testing
   const allTracks = await fetchAllTracks(playlistId, accessToken);
   const descriptions = getDescriptionOptions();
 
