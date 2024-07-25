@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { refreshAccessToken, fetchAllTracks } from "../api/api";
+import { fetchAllTracks } from "../api/api";
+import { refreshAccessToken } from "../api/refreshAccessToken";
 import { Track } from "../utils/types";
 import { playlistId } from "../utils/config";
 import { ROUNDS } from "../utils/constants";
