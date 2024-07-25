@@ -87,7 +87,7 @@ const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
 
   return (
     <>
-      {guesses < 5 && tracks.length !== 0 && round !== null && (
+      {guesses < 5 && round !== null && (
         <div className="card bg-base-300 text-base-content my-4 mx-auto w-full max-w-xs">
           <h1 className="mt-4 text-xl">Hints:</h1>
           <table className="table max-w-xs text-center my-4">
@@ -97,17 +97,17 @@ const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
                   <td>Track name: {censoredTrackName}</td>
                 </tr>
               )}
-              {guesses < 4 && countryData.length > 0 && (
+              {guesses < 4 && (
                 <tr>
                   <td>Artist name: {censoredArtistName}</td>
                 </tr>
               )}
-              {guesses < 3 && countryData.length > 0 && (
+              {guesses < 3 && (
                 <tr>
                   <td>Album name: {censoredAlbumName}</td>
                 </tr>
               )}
-              {guesses < 2 && countryData.length > 0 && (
+              {guesses < 2 && (
                 <tr>
                   <td>
                     Population:{" "}
