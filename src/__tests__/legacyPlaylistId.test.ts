@@ -1,4 +1,4 @@
-import { playlistId } from "../NewVersion/utils/config";
+import { playlistId } from "../utils/config";
 
 describe("Playlist ID", () => {
   it("should use the actual playlist ID in production", () => {
