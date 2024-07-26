@@ -118,6 +118,7 @@ const NewVersion: React.FC = () => {
                       <HintsTable
                         track={tracks[trackIndices[round - 1]]}
                         hint={descriptions[trackIndices[round - 1]].hint}
+                        index={trackIndices[round - 1]}
                       />
                     </div>
                     {/* 🚨 GRID 2 🚨 */}

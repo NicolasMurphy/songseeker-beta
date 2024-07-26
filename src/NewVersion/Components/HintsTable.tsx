@@ -25,7 +25,7 @@ const manualPopulationOverride: { [key: string]: string } = {
   Georgia: "3,713,000",
 };
 
-const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
+const HintsTable: React.FC<HintInfoProps> = ({ track, index }) => {
   const { round, guesses } = useStore();
   const [countryData, setCountryData] = useState<CountryData[]>([]);
 
@@ -105,7 +105,7 @@ const HintsTable: React.FC<HintInfoProps> = ({ track }) => {
                 <tr>
                   <td>
                     Population:{" "}
-                    {countryData[0]?.population?.toLocaleString() || "N/A"}
+                    {countryData[index]?.population?.toLocaleString() || "N/A"}
                   </td>
                 </tr>
               )}

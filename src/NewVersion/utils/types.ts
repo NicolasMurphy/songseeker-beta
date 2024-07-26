@@ -39,6 +39,7 @@ export interface TrackInfoProps {
 export interface HintInfoProps {
   track: Track;
   hint: string;
+  index: number;
 }
 
 export interface AudioPlayerProps {
