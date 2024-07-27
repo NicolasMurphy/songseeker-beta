@@ -670,11 +670,11 @@ const getDescriptionOptions = () => {
       description: `Music of Lesotho is a compilation by Bill Wood from recordings made between 1972 and 1975, when Wood was teaching at a secondary school in the Mafeteng District of Lesotho. The music in this recording excludes religious and choral music in favor of the traditional repertoire of the Basotho people. Wood observes that, while traditional culture is very strong, “new songs in traditional style are being composed all the time.” The male students at the school where Wood taught perform, and selections cover a range of styles and subjects (initiation, dance and game songs, improvised poetry, and more). Liner notes include lyrics in Sesotho (one of Lesotho’s two official languages), English translations, photos, information about Lesotho’s history and culture, as well as Wood’s personal reflections on his experience recording the album.`,
       link: "https://folkways.si.edu/music-of-lesotho/world/album/smithsonian",
     },
-    {
-      country: "Oman",
-      description: `Haitham Rafi (Arabic: هيثم رافي) is an Omani singer who gained fame after winning a popular Indian reality show. He is the first Omani artist to compete and challenge Indian singers, and is considered the number one Omani artist in the music industry.`,
-      link: "https://en.wikipedia.org/wiki/Haitham_Mohammed_Rafi",
-    },
+    // {
+    //   country: "Oman",
+    //   description: `Haitham Rafi (Arabic: هيثم رافي) is an Omani singer who gained fame after winning a popular Indian reality show. He is the first Omani artist to compete and challenge Indian singers, and is considered the number one Omani artist in the music industry.`,
+    //   link: "https://en.wikipedia.org/wiki/Haitham_Mohammed_Rafi",
+    // },
     {
       country: "Bhutan",
       description: `The soundscapes collected in Music of the Bhutan offer invaluable documentation and serve as a pillar by which the success of Bhutan's cultural preservation can be measured. Anthropologist and early Himalayan traveler, Dr. Johann S. Szuszkiewicz, produced Music of the Bhutan in 1978, a time when scholars had just begun to study Bhutanese music, in an era when many Western recordings of the Himalaya focused only on Buddhist liturgical music. Despite inherent political, developmental, and demographic changes throughout the years, the very songs, instrumental music, dances, and spoken word compiled in Music of the Bhutan are often still heard in Bhutan today. Bhutan is a nation fervently preserving tradition and of a people with endless enthusiasm for their heritage.`,

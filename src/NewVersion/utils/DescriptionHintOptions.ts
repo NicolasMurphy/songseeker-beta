@@ -803,12 +803,12 @@ const getDescriptionHintOptions = () => {
       link: "https://folkways.si.edu/music-of-lesotho/world/album/smithsonian",
       hint: `A compilation of traditional music from recordings made by a teacher in the 1970s.`,
     },
-    {
-      country: "Oman",
-      description: `Haitham Rafi (Arabic: هيثم رافي) is an Omani singer who gained fame after winning a popular Indian reality show. He is the first Omani artist to compete and challenge Indian singers, and is considered the number one Omani artist in the music industry.`,
-      link: "https://en.wikipedia.org/wiki/Haitham_Mohammed_Rafi",
-      hint: `A singer known for his vocal talents, considered the top artist in this Arab country.`,
-    },
+    // {
+    //   country: "Oman",
+    //   description: `Haitham Rafi (Arabic: هيثم رافي) is an Omani singer who gained fame after winning a popular Indian reality show. He is the first Omani artist to compete and challenge Indian singers, and is considered the number one Omani artist in the music industry.`,
+    //   link: "https://en.wikipedia.org/wiki/Haitham_Mohammed_Rafi",
+    //   hint: `A singer known for his vocal talents, considered the top artist in this Arab country.`,
+    // },
     {
       country: "Bhutan",
       description: `The soundscapes collected in Music of Bhutan offer invaluable documentation and serve as a pillar by which the success of Bhutan's cultural preservation can be measured. Anthropologist and early Himalayan traveler, Dr. Johann S. Szuszkiewicz, produced Music of Bhutan in 1978, a time when scholars had just begun to study Bhutanese music, in an era when many Western recordings of the Himalayas focused only on Buddhist liturgical music. Despite inherent political, developmental, and demographic changes throughout the years, the very songs, instrumental music, dances, and spoken word compiled in Music of Bhutan are often still heard today.`,
