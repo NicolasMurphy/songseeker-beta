@@ -974,7 +974,7 @@ const getDescriptionHintOptions = () => {
       country: "Cambodia",
       description: `"Champa Battambang" (ចំប៉ាបាត់ដំបង, which means "The Frangipani of Battambang”) is a popular song of the 1960s composed by Sinn Sisamouth, which has become part of Cambodian heritage.`,
       link: "https://en.wikipedia.org/wiki/Champa_Battambang",
-      hint: `A popular song from the 1960s composed by Sinn Sisamouth that has become part of this country's heritage.`,
+      hint: `The title which literally translates as the frangipani of Battambang refers to a flower commonly seen in this city in this Southeast Asian country.`,
     },
     // {
     //   country: "",
