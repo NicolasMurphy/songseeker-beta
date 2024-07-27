@@ -88,7 +88,6 @@ const GuessesTable: React.FC = () => {
                     ></img>
                   </td>
                   <td className="text-left">{wrongGuess}</td>
-                  {/* <td>❌</td> */}
                   <td>
                     {distances[index] !== undefined ? (
                       distanceFeedback[wrongGuess]
@@ -96,7 +95,7 @@ const GuessesTable: React.FC = () => {
                       <SmallLoader />
                     )}
                   </td>
-                  <Compass bearings={bearings} index={index}/>
+                  <Compass bearings={bearings} index={index} />
                 </tr>
               ))}
             </tbody>
@@ -112,9 +111,7 @@ const GuessesTable: React.FC = () => {
                     ></img>
                   </td>
                   <td className="text-left">{correctAnswer}</td>
-                  {/* <td>heyyyyyy</td> */}
                   <td>✔️</td>
-                  {/* <td>hey</td> */}
                 </tr>
               </tbody>
             </table>
