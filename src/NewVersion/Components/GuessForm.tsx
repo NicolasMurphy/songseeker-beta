@@ -5,6 +5,7 @@ import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 import useCalculateDistance from "../hooks/useCalculateDistance";
 import { ROUNDS } from "../utils/constants";
+import useCalculateBearing from "../hooks/useCalculateBearing";
 
 const GuessForm: React.FC = () => {
   const {
@@ -47,6 +48,7 @@ const GuessForm: React.FC = () => {
   };
 
   const handleCalculateDistance = useCalculateDistance();
+  const handleCalculateBearing = useCalculateBearing();
 
   const handleChange = (
     selectedOption: SingleValue<{ value: string; label: React.ReactNode }>
@@ -56,6 +58,7 @@ const GuessForm: React.FC = () => {
       setSelectedCountry(selectedCountry);
       checkAnswer(selectedCountry);
       handleCalculateDistance(selectedCountry);
+      handleCalculateBearing(selectedCountry);
     }
   };
 

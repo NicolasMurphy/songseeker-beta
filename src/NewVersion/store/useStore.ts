@@ -18,6 +18,7 @@ type State = {
   availableCountries: string[];
   selectedCountry: string;
   distances: number[];
+  bearings: number[];
   setGameOver: (value: boolean) => void;
   setGameScore: (value: number) => void;
   setRound: (value: number) => void;
@@ -36,6 +37,7 @@ type State = {
   ) => void;
   setSelectedCountry: (value: string) => void;
   setDistances: (value: number[]) => void;
+  setBearings: (value: number[]) => void;
   resetRound: () => void;
   resetGame: () => void;
 };
@@ -57,6 +59,7 @@ const useStore = create<State>((set, get) => ({
   availableCountries: [],
   selectedCountry: "",
   distances: [],
+  bearings: [],
   setGameOver: (value) => set({ gameOver: value }),
   setGameScore: (value) => set({ gameScore: value }),
   setRound: (value) => set({ round: value }),
@@ -77,6 +80,7 @@ const useStore = create<State>((set, get) => ({
     })),
   setSelectedCountry: (value) => set({ selectedCountry: value }),
   setDistances: (value) => set({ distances: value }),
+  setBearings: (value) => set({ bearings: value }),
   resetRound: () =>
     set({
       roundOver: false,
@@ -91,6 +95,7 @@ const useStore = create<State>((set, get) => ({
       isInputClicked: false,
       availableCountries: [],
       distances: [],
+      bearings: [],
     }),
   resetGame: () => {
     set({
