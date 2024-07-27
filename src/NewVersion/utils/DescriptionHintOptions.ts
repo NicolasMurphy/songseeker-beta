@@ -827,12 +827,12 @@ const getDescriptionHintOptions = () => {
       link: "https://en.wikipedia.org/wiki/Lieve_Hugo",
       hint: `A singer known as the King of Kaseko.`,
     },
-    {
-      country: "Seychelles",
-      description: `Jean-Marc Volcy (born January 29, 1966) is a Seychellois composer, performer and songwriter regarded as one of the pioneering musicians to propagate creole music in Seychelles.`,
-      link: "https://en.wikipedia.org/wiki/Jean-Marc_Volcy",
-      hint: `A composer and performer pioneering creole music in his country.`,
-    },
+    // {
+    //   country: "Seychelles",
+    //   description: `Jean-Marc Volcy (born January 29, 1966) is a Seychellois composer, performer and songwriter regarded as one of the pioneering musicians to propagate creole music in Seychelles.`,
+    //   link: "https://en.wikipedia.org/wiki/Jean-Marc_Volcy",
+    //   hint: `A composer and performer pioneering creole music in his country.`,
+    // },
     {
       country: "Cabo Verde",
       description: `Cesária Évora GCIH (Portuguese pronunciation: [sɨˈzaɾiɐ ˈɛvuɾɐ]; 27 August 1941 – 17 December 2011) was a Cape Verdean singer known for singing morna, a genre of music from Cape Verde, in her native Cape Verdean Creole. Her songs were often devoted to themes of love, homesickness, nostalgia, and the history of the Cape Verdean people.`,

@@ -690,11 +690,11 @@ const getDescriptionOptions = () => {
       description: `Julius Theodoor Hugo Uiterloo (December 13, 1934 – November 15, 1975), better known by his stage-name Lieve Hugo and his nickname Iko, was a Surinamese singer. He was one of the pioneers of the kaseko-genre; hence his other nickname King of Kaseko.`,
       link: "https://en.wikipedia.org/wiki/Lieve_Hugo",
     },
-    {
-      country: "Seychelles",
-      description: `Jean-Marc Volcy (born January 29, 1966) is a Seychellois composer, performer and songwriter regarded as one of the pioneering musicians to propagate creole music in Seychelles.`,
-      link: "https://en.wikipedia.org/wiki/Jean-Marc_Volcy",
-    },
+    // {
+    //   country: "Seychelles",
+    //   description: `Jean-Marc Volcy (born January 29, 1966) is a Seychellois composer, performer and songwriter regarded as one of the pioneering musicians to propagate creole music in Seychelles.`,
+    //   link: "https://en.wikipedia.org/wiki/Jean-Marc_Volcy",
+    // },
     {
       country: "Cabo Verde",
       description: `Cesária Évora GCIH (Portuguese pronunciation: [sɨˈzaɾiɐ ˈɛvuɾɐ]; 27 August 1941 – 17 December 2011) was a Cape Verdean singer known for singing morna, a genre of music from Cape Verde, in her native Cape Verdean Creole. Her songs were often devoted to themes of love, homesickness, nostalgia, and the history of the Cape Verdean people.`,
