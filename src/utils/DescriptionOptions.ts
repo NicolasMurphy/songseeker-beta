@@ -425,11 +425,11 @@ const getDescriptionOptions = () => {
       description: `Arvo Pärt (Estonian pronunciation: [ˈɑrʋo ˈpært]; born 11 September 1935) is an Estonian composer of contemporary classical music. Since the late 1970s, Pärt has worked in a minimalist style that employs tintinnabuli, a compositional technique he invented. Pärt's music is in part inspired by Gregorian chant. His most performed works include Fratres (1977), Spiegel im Spiegel (1978), and Für Alina (1976). From 2011 to 2018, and again in 2022, Pärt was the most performed living composer in the world, and the second most performed in 2019, after John Williams. The Arvo Pärt Centre, in Laulasmaa, was opened to the public in 2018.`,
       link: "https://en.wikipedia.org/wiki/Arvo_P%C3%A4rt",
     },
-    {
-      country: "Malta",
-      description: `The subjects of Maltese folk-songs vary according to circumstances, and this one it is in the nature of a satire upon the faults of the character of the one "That eats too much", hence the Maltese name "Iz-zaqqieq".`,
-      link: "https://folkways.si.edu/folk-songs-and-music-from-malta/world/album/smithsonian",
-    },
+    // {
+    //   country: "Malta",
+    //   description: `The subjects of Maltese folk-songs vary according to circumstances, and this one it is in the nature of a satire upon the faults of the character of the one "That eats too much", hence the Maltese name "Iz-zaqqieq".`,
+    //   link: "https://folkways.si.edu/folk-songs-and-music-from-malta/world/album/smithsonian",
+    // },
     {
       country: "Cyprus",
       description: `The music of Cyprus includes a variety of traditional, Western classical and Western popular genres. Cypriot traditional music is similar to the traditional music of Greece with Turkish and Arab influences, and includes dances like sousta, syrtos, ballos, tatsia, antikristos, arabiye, karotseris, sinalik, chiftetteli, zeimbekiko and the mandra dance.`,
@@ -705,11 +705,11 @@ const getDescriptionOptions = () => {
       description: `"Mine Bengidzakiwe" is a traditional song sung in native ceremonies in Swaziland, which became a local hit in 2007.`,
       link: "https://en.wikipedia.org/wiki/Mine_bengidzakiwe",
     },
-    {
-      country: "Samoa",
-      description: `Laulau Siva, by all the matai of Solosolo, Upolu. A laulau siua is a short song which introduces an evening of dancing and singing. The singers are accompanied by a rolled-mat player.`,
-      link: "https://folkways.si.edu/music-from-western-samoa-from-conch-shell-to-disco/world/album/smithsonian",
-    },
+    // {
+    //   country: "Samoa",
+    //   description: `Laulau Siva, by all the matai of Solosolo, Upolu. A laulau siua is a short song which introduces an evening of dancing and singing. The singers are accompanied by a rolled-mat player.`,
+    //   link: "https://folkways.si.edu/music-from-western-samoa-from-conch-shell-to-disco/world/album/smithsonian",
+    // },
     {
       country: "Uruguay",
       description: `"A Don José" is a song composed by maestro Rubén Lena in honor of the oriental hero José Artigas. It was registered in the National Library on May 26, 1964, and composed in 1961 for a songbook that Rubén Lena devised for the children of the school where he served as head teacher. When he composed the song, Rubén Lena was not yet known as a composer and poet; he worked as a rural teacher in Isla Patrulla, a town in the department of Treinta y Tres. The song arose from Rubén Lena's desire to find a composition referring to Artigas that was not as distant as those that had existed until then, and that, with simplicity, was close to the people. For this, he gave it lyrical simplicity and composed it in the form of a milonga, considering it the most traditional rhythm. It was popularized by the group Los Olimareños. In 2003 it was declared a Uruguayan cultural and popular anthem by law. The song is part of the Uruguayan identity and is sung in public schools, mainly on June 19, the anniversary of the birth of José Gervasio Artigas and promise and swearing of the flag in Uruguay. It is found in the repertoire of the National Army of Uruguay.`,
