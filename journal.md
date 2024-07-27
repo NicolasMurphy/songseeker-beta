@@ -19,7 +19,8 @@
             - Removed because too modern / not distinct: Oman, Eswatini
             - Music TO REPLACE: Ethiopia (too modern), Kenya (too quiet, not distinct enough), DRC (too loud),
             - GOOD tracks with good hints: Zimbabwe,
-            - HINTS THAT NEED IMPROVEMENT: Zambia,
+            - HINTS THAT NEED IMPROVEMENT: Zambia, Nicaragua
+            - Exception for Cabo Verde, small population but song and genre are significant
 
 # 7/26
 
