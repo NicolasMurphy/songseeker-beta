@@ -190,7 +190,7 @@ const getDescriptionHintOptions = () => {
       country: "El Salvador",
       description: `El Carbonero is a folk song written by Salvadoran singer-songwriter Francisco Antonio Lara Hernández, also known as "Pancho Lara". The song is considered by many Salvadorans as the second national anthem of the El Salvador.`,
       link: "https://es.wikipedia.org/wiki/El_Carbonero",
-      hint: `A folk song written by Francisco Antonio Lara Hernández, considered by many as the second national anthem of its country.`,
+      hint: `A folk song written by Francisco Antonio Lara Hernández, considered by many as the second national anthem of this central American country.`,
     },
     {
       country: "Myanmar (Burma)",
