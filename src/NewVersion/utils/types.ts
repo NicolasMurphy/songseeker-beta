@@ -51,6 +51,11 @@ export interface RoundOverProps {
   playAgainButtonRef: React.RefObject<HTMLButtonElement>;
 }
 
+export interface CompassProps {
+  bearings: number[];
+  index: number
+}
+
 export interface Coordinates {
   0: number;
   1: number;
