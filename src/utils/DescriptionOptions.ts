@@ -97,7 +97,7 @@ const getDescriptionOptions = () => {
     },
     {
       country: "Israel",
-      description: `"Hava Nagila" (Hebrew: הָבָה נָגִילָה, Hāvā Nāgīlā, "Let us rejoice") is a Jewish folk song. It is traditionally sung at celebrations, such as weddings. Written in 1918, it quickly spread through the Jewish diaspora.\nThe melody is based on a Hassidic Nigun. It was composed in 1918, to celebrate the Balfour Declaration and the British victory over the Ottomans in 1917. It was first performed in a mixed choir concert in Jerusalem.`,
+      description: `"Hava Nagila" is one of the first modern Jewish folk songs in the Hebrew language. It went on to become a staple of band performers at Jewish weddings and bar/bat(b'nei) mitzvah celebrations.\nThe melody is based on a Hassidic Nigun. It was composed in 1918 to celebrate the Balfour Declaration and the British victory over the Ottomans in 1917. It was first performed in a mixed choir concert in Jerusalem.`,
       link: "https://en.wikipedia.org/wiki/Hava_Nagila",
     },
     {
