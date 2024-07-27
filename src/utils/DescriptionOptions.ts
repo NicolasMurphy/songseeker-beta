@@ -700,11 +700,11 @@ const getDescriptionOptions = () => {
       description: `Cesária Évora GCIH (Portuguese pronunciation: [sɨˈzaɾiɐ ˈɛvuɾɐ]; 27 August 1941 – 17 December 2011) was a Cape Verdean singer known for singing morna, a genre of music from Cape Verde, in her native Cape Verdean Creole. Her songs were often devoted to themes of love, homesickness, nostalgia, and the history of the Cape Verdean people.`,
       link: "https://en.wikipedia.org/wiki/Ces%C3%A1ria_%C3%89vora",
     },
-    {
-      country: "Eswatini",
-      description: `"Mine Bengidzakiwe" is a traditional song sung in native ceremonies in Swaziland, which became a local hit in 2007.`,
-      link: "https://en.wikipedia.org/wiki/Mine_bengidzakiwe",
-    },
+    // {
+    //   country: "Eswatini",
+    //   description: `"Mine Bengidzakiwe" is a traditional song sung in native ceremonies in Swaziland, which became a local hit in 2007.`,
+    //   link: "https://en.wikipedia.org/wiki/Mine_bengidzakiwe",
+    // },
     // {
     //   country: "Samoa",
     //   description: `Laulau Siva, by all the matai of Solosolo, Upolu. A laulau siua is a short song which introduces an evening of dancing and singing. The singers are accompanied by a rolled-mat player.`,

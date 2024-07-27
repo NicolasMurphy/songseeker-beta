@@ -6,8 +6,11 @@
         - Possibly make playlist id an environment variable
         - Remove songs that are not unique/old enough to be recognizable as from that country
             - Start with removing all tracks where the country population is less than 1 million
-                - Tracks removed: Seychelles, Samoa, Malta
-                - Removed because too modern / not distinct: Oman
+                - Tracks removed, too small population: Seychelles, Samoa, Malta
+                - Removed because too modern / not distinct: Oman, Eswatini
+                - Music TO REPLACE: Ethiopia (too modern), Kenya (too quiet, not distinct enough), DRC (too loud),
+                - GOOD tracks with good hints: Zimbabwe,
+                - HINTS THAT NEED IMPROVEMENT: Zambia,
         - Add a see results button after last round and before play again. Display all guess tables from all rounds
         - Add separate nav: leader board, about, donate
         - Factor distances into scores, perhaps time

@@ -839,12 +839,12 @@ const getDescriptionHintOptions = () => {
       link: "https://en.wikipedia.org/wiki/Ces%C3%A1ria_%C3%89vora",
       hint: `A singer known for performing morna, a genre from her country.`,
     },
-    {
-      country: "Eswatini",
-      description: `"Mine Bengidzakiwe" is a traditional song sung in native ceremonies in Swaziland, which became a local hit in 2007.`,
-      link: "https://en.wikipedia.org/wiki/Mine_bengidzakiwe",
-      hint: `A traditional song sung in native ceremonies.`,
-    },
+    // {
+    //   country: "Eswatini",
+    //   description: `"Mine Bengidzakiwe" is a traditional song sung in native ceremonies in Swaziland, which became a local hit in 2007.`,
+    //   link: "https://en.wikipedia.org/wiki/Mine_bengidzakiwe",
+    //   hint: `A traditional song sung in native ceremonies.`,
+    // },
     // {
     //   country: "Samoa",
     //   description: `Laulau Siva, by all the matai of Solosolo, Upolu. A laulau siua is a short song which introduces an evening of dancing and singing. The singers are accompanied by a rolled-mat player.`,
