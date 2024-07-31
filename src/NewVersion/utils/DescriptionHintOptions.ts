@@ -703,12 +703,6 @@ const getDescriptionHintOptions = () => {
       hint: `A singer and musician best known as the lead singer of Africando, with a career spanning from the 1960s until his death in 2004.`,
     },
     {
-      country: "Libya",
-      description: `Nasser Al-Mezdawi (Arabic: ناصر المزداوي), (born 5 September 1950) is a Libyan singer, guitarist, songwriter and composer.`,
-      link: "https://en.wikipedia.org/wiki/Nasser_el-Mizdawi",
-      hint: `A singer, guitarist, songwriter, and composer.`,
-    },
-    {
       country: "Eritrea",
       description: `Yemane Ghebremichael (born January 21, 1949 – November 5, 1997) (commonly known as Yemane Baria or Yemane Barya) was a well-known Eritrean songwriter, composer and singer. He became one of the most renowned Eritrean artists (a Tigrinya singer).`,
       link: "https://en.wikipedia.org/wiki/Yemane_Ghebremichael",
