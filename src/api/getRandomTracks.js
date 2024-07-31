@@ -1,4 +1,4 @@
-import getDescriptionOptions from "../utils/DescriptionOptions";
+import getDescriptionHintOptions from "../NewVersion/utils/DescriptionHintOptions";
 import { playlistId } from "../utils/config";
 
 const fetchAllTracks = async (playlistId, accessToken) => {
@@ -20,7 +20,7 @@ const fetchAllTracks = async (playlistId, accessToken) => {
 
 const getRandomTracks = async (accessToken) => {
   const allTracks = await fetchAllTracks(playlistId, accessToken);
-  const descriptions = getDescriptionOptions();
+  const descriptions = getDescriptionHintOptions();
 
   const tracksWithCountries = allTracks.map((track, index) => ({
     ...track,

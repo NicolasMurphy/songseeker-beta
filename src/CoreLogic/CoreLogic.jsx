@@ -16,7 +16,7 @@ import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
 import { handleGeocoding } from "../utils/helpers";
 import useStore from "../store";
-import getDescriptionOptions from "../utils/DescriptionOptions";
+import getDescriptionHintOptions from "../NewVersion/utils/DescriptionHintOptions";
 
 const CoreLogic = ({ database }) => {
   const { isCorrectGuess, isSubmitted, setIsSubmitted, setScore } = useStore();
@@ -50,7 +50,7 @@ const CoreLogic = ({ database }) => {
   const handleFiftyFifty = () => {
     if (!usedFiftyFifty && tracks.length > 0 && currentTrackIndex >= 0) {
       const correctTrack = tracks[currentTrackIndex];
-      let allTracks = getDescriptionOptions();
+      let allTracks = getDescriptionHintOptions();
       let wrongOptions = allTracks.filter(
         (t) => t.country !== correctTrack.description.country
       );
