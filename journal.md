@@ -1,3 +1,11 @@
+# 7/30
+
+    Goals:
+        - Focus on refining track selection, improving hints
+        -
+    Notes:
+        -
+
 # 7/26
 
     Goals:
