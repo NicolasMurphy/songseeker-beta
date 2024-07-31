@@ -929,12 +929,6 @@ const getDescriptionHintOptions = () => {
       hint: `The national dance of this country, originating in the 19th century and popularized in the 1940s.`,
     },
     {
-      country: "Greenland",
-      description: `Rasmus Ole Lyberth (born 21 August 1951) is a Greenlandic-Danish musician and actor. Since 1970, he has been one of the most popular artists in the Greenlandic music scene. His music is well known beyond the borders of Greenland.`,
-      link: "https://en.wikipedia.org/wiki/Rasmus_Lyberth",
-      hint: `A musician and actor popular in his country's music scene since 1970.`,
-    },
-    {
       country: "Kuwait",
       description: `Nawal was born on November 18 in the mid-1960s in the Eastern region. She began her studies at the Higher Institute for Musical Arts in Kuwait in the 1970s, where she developed a passion for art and music. Her entry into the institute was driven by her love for music, with Umm Kulthum, Abdel Halim Hafez, Warda Al-Jazairia, and Fairuz being among her favorite singers. Nawal first took the stage at the age of seventeen, during her high school years. She did not continue her university education due to her involvement in the arts and faced difficulties, including delays in obtaining Kuwaiti nationality, which was a significant obstacle at the start of her career. Being stateless, she studied various subjects at the institute, such as solfège, and everything related to singing, including maqams, musical notes, melodies, and vocal ranges like pitch, timbre, and volume, as well as music dictation to develop her musical sense and strengthen her skills in identifying and distinguishing between notes and classifying global musical genres. During her time at the institute, her interaction with the art scene began as many singers who recognized her talent recommended her, including Talal Maddah and Abdul Karim Abdul Qadir. In 1983, the musician Rashid Al-Khader insisted she sing, eventually convincing her, and he is credited with her emergence on the art scene. "Musical instruments Nawal excels at playing."`,
       link: "https://ar.wikipedia.org/wiki/%D9%86%D9%88%D8%A7%D9%84_%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A%D8%A9",
