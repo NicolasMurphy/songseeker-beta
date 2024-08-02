@@ -1,3 +1,12 @@
+# 8/1
+
+    Goals:
+        - Focus on refining track selection, improving hints
+        - Create db
+        -
+    Notes:
+        -
+
 # 7/30
 
     Goals:
