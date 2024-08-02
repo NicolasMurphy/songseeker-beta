@@ -586,7 +586,7 @@ const getDescriptionHintOptions = () => {
       country: "Bahrain",
       description: `The island nation of Bahrain, literally meaning “two seas,” sits along the western edge of the Persian Gulf. Prior to the discovery of oil there in 1932, ninety percent of the country’s population worked in jobs relating to the sea: as shipbuilders, sailors, fishermen, and pearl divers. The pearl divers are known for practicing what is considered the Bahrain’s most original and characteristic musical genre, fidjeri, or “sea music.” These songs, consisting of an all-male chorus and solo singer with minimal percussion, often accompanied specific and common actions, like rowing, setting sails, and pulling up the anchor. The liner notes, written by Habib Hassan Touma (d. 1998), a Palestinian composer, ethnomusicologist, and Arabian music expert, include the mythological origin story of fidjeri and further musical context.`,
       link: "https://folkways.si.edu/bahrain-fidjeri-songs-of-the-pearl-divers/world/music/album/smithsonian",
-      hint: `An island nation known for its "sea music" genre, practiced by pearl divers and characterized by an all-male chorus and solo singer.`,
+      hint: `This Middle Eastern island nation is known for its "sea music" genre, practiced by pearl divers and characterized by an all-male chorus and solo singer.`,
     },
     {
       country: "Uganda",
