@@ -762,12 +762,6 @@ const getDescriptionHintOptions = () => {
       link: "https://en.wikipedia.org/wiki/Dimi_Mint_Abba",
       hint: `One of the most famous musicians born into a low-caste family specializing in the griot tradition.`,
     },
-    {
-      country: "Togo",
-      description: `King Mensah (born August 12, 1971), also known as "The Golden Voice of Togo", is a Togolese singer from West Africa. Though based in Lomé, he regularly records and promotes his albums in Paris, and has embarked on several world tours since 2005. Singing in Mina, Ewe, and French, King Mensah's sound fuses elements of traditional Ewe music (Agbadza and Akpessé), and Kabye dance-drum music, with funk, reggae and West African Afropop. King Mensah's lyrical themes are steeped in religion and hopeful encouragement for the orphaned, oppressed and downtrodden.`,
-      link: "https://en.wikipedia.org/wiki/King_Mensah",
-      hint: `A singer known as "The Golden Voice", fusing traditional music with funk, reggae, and Afropop.`,
-    },
     // {
     //   country: "Malawi",
     //   description: `Gidesi Chalamanda was born on 15 January 1931, is most commonly known as "Agide". He is a Malawian acoustic artist. He was born in Chiradzulu in the Southern region of Malawi. \n He is one of Malawi's legendary artists. His song "linny" a mashup with Dr Namadingo trended on TikTok gaining over a million views and challenges across the world.`,

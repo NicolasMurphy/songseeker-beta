@@ -7,7 +7,7 @@
     Notes:
         - Music TO REPLACE: Ethiopia (too modern), Kenya (too quiet, not distinct enough), DRC (too loud), Phillipines (needs to be more traditional), Yemen (needs to be more traditional)
         - HINTS THAT NEED IMPROVEMENT: Zambia, Nicaragua
-        - Under a million, but possibly keep: Belize (I like the song)
+        - Under a million, but possibly keep: Belize (I like the song), Iceland
         -
 
 # 7/26
