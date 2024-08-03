@@ -721,12 +721,6 @@ const getDescriptionHintOptions = () => {
       hint: `A musician, freedom fighter, and broadcaster who formed a band that played music and translated original rural songs.`,
     },
     {
-      country: "Central African Republic",
-      description: `The landlocked nation of the Central African Republic is home to an estimated 80 to 100 ethnic groups, each with their own language and music idioms. This album presents music from seven of these groups: Dendi, Nzakara, Gbaya, Banda-Linda, Banda-Dakpa, Aka Pygmies, and Ngbaka. The recordings range from war chants to lullabies, with songs for counting, thinking, hunting, and music for ceremonial dance. The selections fit into two broad categories: group and individual. Group music celebrates and signals major events of the community, while individual music offers personal expression, sung for the performer’s pleasure rather than for an audience. Both follow strict cyclical structures and a pentatonic scale. This field recording was made by ethnomusicologist Simha Arom, a noted expert on the music of central Africa.`,
-      link: "https://folkways.si.edu/central-african-republic/world/music/album/smithsonian",
-      hint: `Music from a landlocked nation featuring recordings from seven ethnic groups, including war chants, lullabies, and ceremonial dance music.`,
-    },
-    {
       country: "South Sudan",
       description: `Gordon Koang is a blind South Sudanese musician based in Australia. He is known in South Sudan as the country's "King of Music".`,
       link: "https://en.wikipedia.org/wiki/Gordon_Koang",
