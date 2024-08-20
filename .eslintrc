@@ -1,0 +1,16 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "overrides": [
+    {
+      "files": ["src/__tests__/**/*.test.js", "src/__tests__/**/*.test.ts"],
+      "plugins": ["testing-library"],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
+}

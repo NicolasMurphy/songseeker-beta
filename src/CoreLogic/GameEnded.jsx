@@ -1,4 +1,5 @@
 import useStore from "../store";
+import Toast from "./Toast";
 
 const GameEnded = ({
   submittingScore,
@@ -38,9 +39,12 @@ const GameEnded = ({
           </button>
         </div>
       ) : (
-        <button className="mt-4 btn btn-primary" onClick={handlePlayAgain}>
-          Play Again
-        </button>
+        <>
+          <Toast message="Score submitted successfully" duration={3000} />
+          <button className="mt-4 btn btn-primary" onClick={handlePlayAgain}>
+            Play Again
+          </button>
+        </>
       )}
     </div>
   );

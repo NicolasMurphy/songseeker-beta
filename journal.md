@@ -1,3 +1,13 @@
+# 8/19
+
+    Goals:
+        - install playwright, and start with a basic test
+        - Focus on refining track selection, improving hints
+        - Create db
+        -
+    Notes:
+        -
+
 # 8/1
 
     Goals:
