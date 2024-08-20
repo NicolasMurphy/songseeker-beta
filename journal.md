@@ -1,3 +1,14 @@
+# 8/20
+
+    Goals:
+        - create and optimize playwright tests
+        - move jest tests to pre push instead of in vercel
+        - Focus on refining track selection, improving hints
+        - Create db
+        -
+    Notes:
+        -
+
 # 8/19
 
     Goals:
