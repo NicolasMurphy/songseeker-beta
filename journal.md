@@ -1,12 +1,25 @@
 # 8/20
 
     Goals:
+        - optimize playwright tests
+        - move jest tests to pre push instead of in vercel
+        - Focus on refining track selection, improving hints
+        - Create db
+        -
+    Notes:
+        -
+
+# 8/20
+
+    Goals:
         - create and optimize playwright tests
         - move jest tests to pre push instead of in vercel
         - Focus on refining track selection, improving hints
         - Create db
         -
     Notes:
+        - Softlock bug in legacy version if there is too short of a duration between map click, "submit", "next round". Need to fix for new version when map is added.
+        - videos are still captured in headless mode
         -
 
 # 8/19
