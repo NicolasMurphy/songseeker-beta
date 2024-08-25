@@ -38,7 +38,7 @@ const GuessForm: React.FC = () => {
           src={getFlagUrl(country)}
           alt={`${country} flag`}
         />
-        <div className="mx-4">{country}</div>
+        <div className="mx-4">{country === "Türkiye" ? "Turkey" : country}</div>
       </div>
     ),
   }));

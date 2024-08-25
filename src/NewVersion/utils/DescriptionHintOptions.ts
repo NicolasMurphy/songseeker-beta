@@ -349,7 +349,7 @@ const getDescriptionHintOptions = () => {
       hint: `A prominent vocalist, violinist, and composer known for incorporating Sinhala folk music with Indian ragas, often cited as the "Maestro of Music" in his country.`,
     },
     {
-      country: "Turkey",
+      country: "Türkiye",
       description: `"Kâtibim" ("my clerk"), or "Üsküdar'a Gider İken" ("while going to Üsküdar") is a Turkish folk song about someone's clerk (kâtip) as they travel to Üsküdar. The tune is a famous Istanbul türkü, which is spread beyond Turkey in many countries, especially in the Balkans.`,
       link: "https://en.wikipedia.org/wiki/K%C3%A2tibim",
       hint: `A folk song about someone's clerk as they travel to Üsküdar, a famous tune that has spread to many countries, especially in the Balkans.`,
