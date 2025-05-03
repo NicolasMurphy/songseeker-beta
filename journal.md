@@ -1,3 +1,12 @@
+# 5/3/25
+
+    Goals:
+        - Find workaround since preview_url is deprecated
+        -
+    Notes:
+        - Solution: scrape all tracks for preview_url and include them in DescriptionHintOptions()
+        -
+
 # 8/20
 
     Goals:

@@ -4,6 +4,7 @@ import { refreshAccessToken } from "../api/refreshAccessToken";
 import { Track } from "../utils/types";
 import { playlistId } from "../utils/config";
 import { ROUNDS } from "../utils/constants";
+import getDescriptionHintOptions from "../utils/DescriptionHintOptions";
 
 const PLAYED_TRACKS_KEY = `playedTracks_${playlistId}`;
 
@@ -26,7 +27,17 @@ const useTracks = (): {
       const token = await refreshAccessToken();
       if (token) {
         const fetchedTracks = await fetchAllTracks(token, playlistId);
-        const validTracks = fetchedTracks.filter((track) => {
+        const descriptions = getDescriptionHintOptions();
+        const enrichedTracks = fetchedTracks.map((track, index) => {
+          const description = descriptions[index % descriptions.length];
+          return {
+            ...track,
+            preview_url: description.preview_url || null,
+            location: description.country,
+            description,
+          };
+        });
+        const validTracks = enrichedTracks.filter((track) => {
           if (!track.preview_url) {
             console.log(
               `Track without preview URL: ${track.name} by ${track.artists

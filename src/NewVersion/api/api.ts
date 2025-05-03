@@ -17,7 +17,7 @@ export const fetchAllTracks = async (
     tracks = tracks.concat(
       data.items.map((item: any) => ({
         name: item.track.name,
-        preview_url: item.track.preview_url,
+        // preview_url: item.track.preview_url,
         artists: item.track.artists.map((artist: any) => ({
           name: artist.name,
         })),

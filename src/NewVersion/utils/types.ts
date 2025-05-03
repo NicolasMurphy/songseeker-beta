@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export interface Track {
   name: string;
-  preview_url: string;
+  preview_url: string | null;
   artists: Artist[];
   album: Album;
   id: string;
@@ -34,6 +34,7 @@ export interface TrackInfoProps {
   track: Track;
   description: string;
   link: string;
+  // preview_url: string;
 }
 
 export interface HintInfoProps {

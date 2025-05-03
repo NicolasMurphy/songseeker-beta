@@ -129,7 +129,7 @@ const NewVersion: React.FC = () => {
                         {tracks[trackIndices[round - 1]]?.preview_url ? (
                           <AudioPlayer
                             key={trackKey}
-                            src={tracks[trackIndices[round - 1]].preview_url}
+                            src={tracks[trackIndices[round - 1]].preview_url || ""}
                           />
                         ) : (
                           <div>No preview available for this track</div>
@@ -165,6 +165,7 @@ const NewVersion: React.FC = () => {
                               descriptions[trackIndices[round - 1]].description
                             }
                             link={descriptions[trackIndices[round - 1]].link}
+                            // track={tracks[trackIndices[round - 1]]}
                           />
                         )}
                     </div>

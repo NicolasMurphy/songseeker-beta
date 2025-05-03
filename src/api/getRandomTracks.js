@@ -22,16 +22,15 @@ const getRandomTracks = async (accessToken) => {
   const allTracks = await fetchAllTracks(playlistId, accessToken);
   const descriptions = getDescriptionHintOptions();
 
-  const tracksWithCountries = allTracks.map((track, index) => ({
-    ...track,
-    location: descriptions[index % descriptions.length].country,
-    description: descriptions[index % descriptions.length],
-  }));
-
-  const tracksWithoutPreviewUrl = allTracks.filter(
-    (track) => !track.preview_url
-  );
-  console.log("Tracks without preview URL:", tracksWithoutPreviewUrl);
+  const tracksWithCountries = allTracks.map((track, index) => {
+    const description = descriptions[index % descriptions.length];
+    return {
+      ...track,
+      preview_url: description.preview_url || null,
+      location: description.country,
+      description,
+    };
+  });
 
   const playedTracksKey = `playedTracks_${playlistId}`;
   let playedTracks = new Set(
@@ -41,6 +40,7 @@ const getRandomTracks = async (accessToken) => {
   let availableTracks = tracksWithCountries.filter(
     (track) => track.preview_url && !playedTracks.has(track.id)
   );
+
   if (availableTracks.length < 6) {
     localStorage.removeItem(playedTracksKey);
     playedTracks = new Set();
@@ -54,6 +54,7 @@ const getRandomTracks = async (accessToken) => {
     selectedTracks.push(selectedTrack);
     playedTracks.add(selectedTrack.id);
   }
+
   localStorage.setItem(playedTracksKey, JSON.stringify([...playedTracks]));
 
   return selectedTracks;
