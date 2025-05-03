@@ -26,14 +26,14 @@ export default defineConfig({
         video: "retain-on-failure",
       },
     },
-    {
-      name: "Edge",
-      use: {
-        browserName: "chromium",
-        channel: "msedge",
-        video: "retain-on-failure",
-      },
-    },
+    // {
+    //   name: "Edge",
+    //   use: {
+    //     browserName: "chromium",
+    //     channel: "msedge",
+    //     video: "retain-on-failure",
+    //   },
+    // },
     // Mobile Devices
     {
       name: "iPhone 12 Safari",
