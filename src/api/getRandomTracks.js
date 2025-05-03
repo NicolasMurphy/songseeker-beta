@@ -1,5 +1,5 @@
 import getDescriptionHintOptions from "../NewVersion/utils/DescriptionHintOptions";
-import { playlistId } from "../utils/config";
+import { playlistId } from "../NewVersion/utils/config";
 
 const fetchAllTracks = async (playlistId, accessToken) => {
   let tracks = [];
