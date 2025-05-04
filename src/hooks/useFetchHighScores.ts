@@ -36,7 +36,7 @@ const useFetchScores = (database: Database) => {
           });
           const scoresArray = topScores
             .sort((a, b) => b.score - a.score)
-            .slice(0, 10);
+            .slice(0, 100);
           setScores(scoresArray);
           setError(null);
         }
