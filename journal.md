@@ -1,3 +1,22 @@
+# 8/31/25
+
+    Goals:
+        - Migrate to Vite (newer packages are not supported with CRA, e.g. DaisyUI)
+        - Upgrade older packages (several vulnerabilities)
+        - Google Maps Marker is Deprecated, use suggested replacement instead
+        -
+    Notes:
+        -
+
+# 8/30/25
+
+    Goals:
+        - Exit Modals UX Enhancement
+        -
+    Notes:
+        - Made the three nav modals closable via background click. Left the add track modal as is (only closeable via X) (don't want user to lose form data they had entered if they accidentally clicked outside the modal before clicking submit). Creates a slight UX inconsistency, but I think is fine, feature isn't used much anyways
+        -
+
 # 5/3/25
 
     Goals:

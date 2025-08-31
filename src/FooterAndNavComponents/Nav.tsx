@@ -24,17 +24,18 @@ const Nav: React.FC<NavProps> = ({ database }) => {
       {isScoresVisible && (
         <dialog open className="modal">
           <div className="modal-box">
-            <form method="dialog">
-              <button
-                type="button"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                onClick={() => setIsScoresVisible(false)}
-              >
-                ✕
-              </button>
-            </form>
+            <button
+              type="button"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              onClick={() => setIsScoresVisible(false)}
+            >
+              ✕
+            </button>
             <HighScoreList database={database} />
           </div>
+          <form method="dialog" className="modal-backdrop">
+            <button onClick={() => setIsScoresVisible(false)}>close</button>
+          </form>
         </dialog>
       )}
 
@@ -47,17 +48,18 @@ const Nav: React.FC<NavProps> = ({ database }) => {
       {isAboutVisible && (
         <dialog open className="modal">
           <div className="modal-box">
-            <form method="dialog">
-              <button
-                type="button"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                onClick={() => setIsAboutVisible(false)}
-              >
-                ✕
-              </button>
-            </form>
+            <button
+              type="button"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              onClick={() => setIsAboutVisible(false)}
+            >
+              ✕
+            </button>
             <About />
           </div>
+          <form method="dialog" className="modal-backdrop">
+            <button onClick={() => setIsAboutVisible(false)}>close</button>
+          </form>
         </dialog>
       )}
 
@@ -70,17 +72,18 @@ const Nav: React.FC<NavProps> = ({ database }) => {
       {isDonateVisible && (
         <dialog open className="modal">
           <div className="modal-box">
-            <form method="dialog">
-              <button
-                type="button"
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                onClick={() => setIsDonateVisible(false)}
-              >
-                ✕
-              </button>
-            </form>
+            <button
+              type="button"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              onClick={() => setIsDonateVisible(false)}
+            >
+              ✕
+            </button>
             <Donate />
           </div>
+          <form method="dialog" className="modal-backdrop">
+            <button onClick={() => setIsDonateVisible(false)}>close</button>
+          </form>
         </dialog>
       )}
     </nav>
