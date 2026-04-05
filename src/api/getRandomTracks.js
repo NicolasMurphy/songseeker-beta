@@ -1,50 +1,46 @@
-import getDescriptionHintOptions from "../NewVersion/utils/DescriptionHintOptions";
-import { playlistId } from "../NewVersion/utils/config";
+import tracksData from "../data/tracks.json";
 
-const fetchAllTracks = async (playlistId, accessToken) => {
-  let tracks = [];
-  let url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=100`;
-  while (url) {
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    if (!response.ok) throw new Error("Failed to fetch tracks");
-    const data = await response.json();
-    tracks = tracks.concat(data.items.map((item) => item.track));
-    url = data.next;
-  }
-  return tracks;
-};
+const PLAYED_TRACKS_KEY = "playedTracks";
 
-const getRandomTracks = async (accessToken) => {
-  const allTracks = await fetchAllTracks(playlistId, accessToken);
-  const descriptions = getDescriptionHintOptions();
+/**
+ * Returns 6 random tracks from the static tracks.json data,
+ * shaped to match the legacy CoreLogic component's expected format.
+ *
+ * The accessToken parameter is kept for API compatibility but ignored.
+ */
+const getRandomTracks = async (_accessToken) => {
+  // Shape tracks to match the legacy format CoreLogic expects
+  const allTracks = tracksData.map((t) => ({
+    name: t.trackName,
+    artists: [{ name: t.artistName }],
+    album: {
+      images: [{ url: t.albumArtUrl }],
+      name: t.albumName,
+    },
+    id: t.spotifyTrackId,
+    link: t.spotifyLink,
+    preview_url: t.preview_url,
+    location: t.country,
+    description: {
+      country: t.country,
+      description: t.description,
+      link: t.link,
+      hint: t.hint,
+    },
+  }));
 
-  const tracksWithCountries = allTracks.map((track, index) => {
-    const description = descriptions[index % descriptions.length];
-    return {
-      ...track,
-      preview_url: description.preview_url || null,
-      location: description.country,
-      description,
-    };
-  });
-
-  const playedTracksKey = `playedTracks_${playlistId}`;
   let playedTracks = new Set(
-    JSON.parse(localStorage.getItem(playedTracksKey) || "[]")
+    JSON.parse(localStorage.getItem(PLAYED_TRACKS_KEY) || "[]")
   );
 
-  let availableTracks = tracksWithCountries.filter(
+  let availableTracks = allTracks.filter(
     (track) => track.preview_url && !playedTracks.has(track.id)
   );
 
   if (availableTracks.length < 6) {
-    localStorage.removeItem(playedTracksKey);
+    localStorage.removeItem(PLAYED_TRACKS_KEY);
     playedTracks = new Set();
-    availableTracks = tracksWithCountries.filter((track) => track.preview_url);
+    availableTracks = allTracks.filter((track) => track.preview_url);
   }
 
   const selectedTracks = [];
@@ -55,7 +51,7 @@ const getRandomTracks = async (accessToken) => {
     playedTracks.add(selectedTrack.id);
   }
 
-  localStorage.setItem(playedTracksKey, JSON.stringify([...playedTracks]));
+  localStorage.setItem(PLAYED_TRACKS_KEY, JSON.stringify([...playedTracks]));
 
   return selectedTracks;
 };

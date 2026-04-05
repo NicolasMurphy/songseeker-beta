@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import refreshAccessToken from "../api/refreshAccessToken";
 import AudioPlayer from "./AudioPlayer";
 import Map from "../Map/Map";
 import TrackLoader from "./TrackLoader";
@@ -16,7 +15,7 @@ import getFlagUrl from "../utils/getFlagUrl";
 import logo from "../Images/logo.svg";
 import { handleGeocoding } from "../utils/helpers";
 import useStore from "../store";
-import getDescriptionHintOptions from "../NewVersion/utils/DescriptionHintOptions";
+import tracksData from "../data/tracks.json";
 
 const CoreLogic = ({ database }) => {
   const { isCorrectGuess, isSubmitted, setIsSubmitted, setScore } = useStore();
@@ -50,7 +49,7 @@ const CoreLogic = ({ database }) => {
   const handleFiftyFifty = () => {
     if (!usedFiftyFifty && tracks.length > 0 && currentTrackIndex >= 0) {
       const correctTrack = tracks[currentTrackIndex];
-      let allTracks = getDescriptionHintOptions();
+      let allTracks = tracksData;
       let wrongOptions = allTracks.filter(
         (t) => t.country !== correctTrack.description.country
       );
@@ -87,16 +86,13 @@ const CoreLogic = ({ database }) => {
   };
 
   useEffect(() => {
-    const fetchAccessTokenAndTracks = async () => {
-      const token = await refreshAccessToken();
-      if (token) {
-        const fetchedTracks = await getRandomTracks(token);
-        setTracks(fetchedTracks);
-        setIsGameReady(true);
-      }
+    const loadTracks = async () => {
+      const fetchedTracks = await getRandomTracks();
+      setTracks(fetchedTracks);
+      setIsGameReady(true);
     };
 
-    fetchAccessTokenAndTracks();
+    loadTracks();
   }, []);
 
   const handleSubmitButtonClick = () => {
@@ -134,13 +130,9 @@ const CoreLogic = ({ database }) => {
     setIsGameStarted(false);
     setIsGameReady(false);
     setCurrentTrackIndex(-1);
-    refreshAccessToken().then((token) => {
-      if (token) {
-        getRandomTracks(token).then((fetchedTracks) => {
-          setTracks(fetchedTracks);
-          setIsGameReady(true);
-        });
-      }
+    getRandomTracks().then((fetchedTracks) => {
+      setTracks(fetchedTracks);
+      setIsGameReady(true);
     });
     setIsMarkerPlacementAllowed(true);
     setScore(0);

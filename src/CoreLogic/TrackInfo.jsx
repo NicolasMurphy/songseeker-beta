@@ -25,7 +25,7 @@ const TrackInfo = ({ track }) => {
     <div className="text-center my-4 relative">
       <div className="w-36 mx-auto">
         <a
-          href={track.external_urls.spotify}
+          href={track.link}
           target="_blank"
           rel="noopener noreferrer"
         >

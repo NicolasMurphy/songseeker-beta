@@ -1,40 +1,21 @@
 import { ReactNode } from "react";
 
 export interface Track {
-  name: string;
-  preview_url: string | null;
-  artists: Artist[];
-  album: Album;
-  id: string;
-  link: string;
-}
-
-export interface Artist {
-  name: string;
-}
-
-export interface Album {
-  images: Image[];
-  name: string;
-  release_date: string;
-}
-
-export interface Image {
-  url: string;
-}
-
-export interface Description {
-  description: string;
   country: string;
+  description: string;
   link: string;
   hint: string;
+  preview_url: string;
+  trackName: string;
+  artistName: string;
+  albumName: string;
+  albumArtUrl: string;
+  spotifyLink: string;
+  spotifyTrackId: string;
 }
 
 export interface TrackInfoProps {
   track: Track;
-  description: string;
-  link: string;
-  // preview_url: string;
 }
 
 export interface HintInfoProps {

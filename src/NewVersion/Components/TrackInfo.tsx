@@ -3,20 +3,20 @@ import useStore from "../store/useStore";
 import getFlagUrl from "../utils/getFlagUrl";
 import { TrackInfoProps } from "../utils/types";
 
-const TrackInfo: React.FC<TrackInfoProps> = ({ track, description, link }) => {
+const TrackInfo: React.FC<TrackInfoProps> = ({ track }) => {
   const { correctAnswer } = useStore();
   return (
     <div className="card bg-base-300 text-base-content my-4 max-w-xs mx-auto">
       <table className="table max-w-xs text-center my-2 mx-auto">
         <tbody>
           <tr>
-            <td className="text-3xl">{track.name}</td>
+            <td className="text-3xl">{track.trackName}</td>
           </tr>
           <tr>
-            <td className="text-xl">{track.artists[0].name}</td>
+            <td className="text-xl">{track.artistName}</td>
           </tr>
           <tr>
-            <td className="text-lg">{track.album.name}</td>
+            <td className="text-lg">{track.albumName}</td>
           </tr>
         </tbody>
       </table>
@@ -34,24 +34,24 @@ const TrackInfo: React.FC<TrackInfoProps> = ({ track, description, link }) => {
         <tbody>
           <tr>
             <td>
-              <a href={track.link} target="_blank" rel="noopener noreferrer">
+              <a href={track.spotifyLink} target="_blank" rel="noopener noreferrer">
                 <img
                   className="transition duration-300 ease-in-out hover:scale-105 w-48 mx-auto"
-                  src={track.album.images[0].url}
+                  src={track.albumArtUrl}
                   alt="Album Art"
                 />
               </a>
             </td>
           </tr>
           <tr>
-            <td>{description}</td>
+            <td>{track.description}</td>
           </tr>
           <tr>
             <td>
               <a
                 target="_blank"
                 rel="noreferrer"
-                href={link}
+                href={track.link}
                 className="text-info underline hover:no-underline"
               >
                 Read more

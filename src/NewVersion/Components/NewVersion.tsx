@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import useTracks from "../hooks/useTracks";
-import getDescriptionHintOptions from "../utils/DescriptionHintOptions";
 import AudioPlayer from "./AudioPlayer";
-import { Description } from "../utils/types";
 import { BigLoader } from "./Loaders";
 import { RoundOver } from "./RoundOver";
 import useStore from "../store/useStore";
@@ -18,7 +16,6 @@ import HintsTable from "./HintsTable";
 const NewVersion: React.FC = () => {
   const { tracks, loading, error, trackIndices, refetchTracks } = useTracks();
   const [trackKey, setTrackKey] = useState(0); // force re-mount
-  const [descriptions, setDescriptions] = useState<Description[]>([]);
   const [gameStarted, setGameStarted] = useState(false);
 
   const {
@@ -36,25 +33,19 @@ const NewVersion: React.FC = () => {
   } = useStore();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const descriptions = getDescriptionHintOptions();
-      setDescriptions(descriptions);
-      setAvailableCountries(descriptions.map((desc) => desc.country).sort());
-      if (trackIndices.length > 0) {
-        setCorrectAnswer(descriptions[trackIndices[0]].country);
-      }
-    };
-
-    fetchData();
-  }, [trackIndices, setAvailableCountries, setCorrectAnswer]);
+    setAvailableCountries(tracks.map((t) => t.country).sort());
+    if (trackIndices.length > 0) {
+      setCorrectAnswer(tracks[trackIndices[0]].country);
+    }
+  }, [tracks, trackIndices, setAvailableCountries, setCorrectAnswer]);
 
   const handleNextRound = () => {
     const newRound = round + 1;
     setRound(newRound);
     resetRound();
-    if (descriptions.length > 0 && trackIndices.length >= newRound) {
-      setCorrectAnswer(descriptions[trackIndices[newRound - 1]].country);
-      setAvailableCountries(descriptions.map((desc) => desc.country).sort());
+    if (tracks.length > 0 && trackIndices.length >= newRound) {
+      setCorrectAnswer(tracks[trackIndices[newRound - 1]].country);
+      setAvailableCountries(tracks.map((t) => t.country).sort());
     }
     setTrackKey(trackKey + 1); // force re-mount
   };
@@ -117,7 +108,7 @@ const NewVersion: React.FC = () => {
                       {/* Hints Table Card */}
                       <HintsTable
                         track={tracks[trackIndices[round - 1]]}
-                        hint={descriptions[trackIndices[round - 1]].hint}
+                        hint={tracks[trackIndices[round - 1]].hint}
                         index={trackIndices[round - 1]}
                       />
                     </div>
@@ -129,7 +120,7 @@ const NewVersion: React.FC = () => {
                         {tracks[trackIndices[round - 1]]?.preview_url ? (
                           <AudioPlayer
                             key={trackKey}
-                            src={tracks[trackIndices[round - 1]].preview_url || ""}
+                            src={tracks[trackIndices[round - 1]].preview_url}
                           />
                         ) : (
                           <div>No preview available for this track</div>
@@ -161,11 +152,6 @@ const NewVersion: React.FC = () => {
                         tracks[trackIndices[round - 1]] && (
                           <TrackInfo
                             track={tracks[trackIndices[round - 1]]}
-                            description={
-                              descriptions[trackIndices[round - 1]].description
-                            }
-                            link={descriptions[trackIndices[round - 1]].link}
-                            // track={tracks[trackIndices[round - 1]]}
                           />
                         )}
                     </div>

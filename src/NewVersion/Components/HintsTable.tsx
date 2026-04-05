@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useStore from "../store/useStore";
 import { HintInfoProps } from "../utils/types";
 import { censoredWords } from "../utils/censoredWords";
-import getDescriptionHintOptions from "../utils/DescriptionHintOptions";
+import tracksData from "../../data/tracks.json";
 import { CountryData } from "../utils/types";
 
 const censorText = (text: string, words: string[]) => {
@@ -31,8 +31,7 @@ const HintsTable: React.FC<HintInfoProps> = ({ track, index }) => {
 
   useEffect(() => {
     const fetchAllCountries = async () => {
-      const descriptions = getDescriptionHintOptions();
-      const countries = descriptions.map((desc) => desc.country);
+      const countries = tracksData.map((t) => t.country);
 
       const data = await Promise.all(
         countries.map(async (country) => {
@@ -75,9 +74,9 @@ const HintsTable: React.FC<HintInfoProps> = ({ track, index }) => {
     fetchAllCountries();
   }, []);
 
-  const censoredTrackName = censorText(track.name, censoredWords);
-  const censoredArtistName = censorText(track.artists[0].name, censoredWords);
-  const censoredAlbumName = censorText(track.album.name, censoredWords);
+  const censoredTrackName = censorText(track.trackName, censoredWords);
+  const censoredArtistName = censorText(track.artistName, censoredWords);
+  const censoredAlbumName = censorText(track.albumName, censoredWords);
 
   return (
     <>
