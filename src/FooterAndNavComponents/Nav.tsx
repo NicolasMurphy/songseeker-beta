@@ -1,6 +1,5 @@
 import { useState } from "react";
 import HighScoreList from "./Modals/HighScoreList";
-import Donate from "./Modals/Donate";
 import About from "./Modals/About";
 import { Database } from "firebase/database";
 
@@ -11,7 +10,6 @@ interface NavProps {
 const Nav: React.FC<NavProps> = ({ database }) => {
   const [isScoresVisible, setIsScoresVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
-  const [isDonateVisible, setIsDonateVisible] = useState(false);
 
   return (
     <nav className="text-center py-4">
@@ -63,29 +61,6 @@ const Nav: React.FC<NavProps> = ({ database }) => {
         </dialog>
       )}
 
-      <button
-        className="btn btn-outline btn-warning btn-sm mx-2 uppercase"
-        onClick={() => setIsDonateVisible(true)}
-      >
-        Donate
-      </button>
-      {isDonateVisible && (
-        <dialog open className="modal">
-          <div className="modal-box">
-            <button
-              type="button"
-              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-              onClick={() => setIsDonateVisible(false)}
-            >
-              ✕
-            </button>
-            <Donate />
-          </div>
-          <form method="dialog" className="modal-backdrop">
-            <button onClick={() => setIsDonateVisible(false)}>close</button>
-          </form>
-        </dialog>
-      )}
     </nav>
   );
 };
