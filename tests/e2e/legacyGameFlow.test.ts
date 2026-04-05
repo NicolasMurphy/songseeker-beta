@@ -43,3 +43,4 @@ test("Legacy Game Flow Test", async ({ page }) => {
   // expect read more link in info modal to be visible
   await expect(page.getByRole("link", { name: "Read more" })).toBeVisible();
 });
+//test
