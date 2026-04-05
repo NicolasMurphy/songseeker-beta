@@ -4,11 +4,11 @@ import { useJsApiLoader } from "@react-google-maps/api";
 const libraries = ["geometry", "drawing", "places"];
 const GoogleMapsContext = createContext({ isLoaded: false });
 
-const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 if (!googleMapsApiKey) {
   throw new Error(
-    "REACT_APP_GOOGLE_MAPS_API_KEY is not set in the environment variables"
+    "VITE_GOOGLE_MAPS_API_KEY is not set in the environment variables"
   );
 }
 
