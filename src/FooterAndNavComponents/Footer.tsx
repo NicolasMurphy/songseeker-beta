@@ -21,17 +21,18 @@ const Footer: React.FC<FooterProps> = ({ firestore }) => {
           {isAddTrackModalVisible && (
             <dialog open className="modal" id="add_track">
               <div className="modal-box">
-                <form method="dialog">
-                  <button
-                    type="button"
-                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                    onClick={() => setIsAddTrackModalVisible(false)}
-                  >
-                    ✕
-                  </button>
-                </form>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                  onClick={() => setIsAddTrackModalVisible(false)}
+                >
+                  ✕
+                </button>
                 <AddTrack firestore={firestore} />
               </div>
+              <form method="dialog" className="modal-backdrop">
+                <button onClick={() => setIsAddTrackModalVisible(false)}>close</button>
+              </form>
             </dialog>
           )}
         </nav>

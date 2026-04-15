@@ -97,6 +97,9 @@ const TrackInfo = ({ track }) => {
               Read more
             </a>
           </div>
+          <form method="dialog" className="modal-backdrop">
+            <button onClick={() => setShowInfoModal(false)}>close</button>
+          </form>
         </dialog>
       )}
     </div>
