@@ -36,6 +36,7 @@ const Map = ({
     const mapOptions = {
       center: { lat: 20, lng: 0 },
       zoom: 2,
+      mapId: import.meta.env.VITE_GOOGLE_MAPS_MAP_ID,
       gestureHandling: "greedy",
       restriction: {
         latLngBounds: {
@@ -57,7 +58,7 @@ const Map = ({
         return;
       }
       if (markerRef.current) {
-        markerRef.current.setMap(null);
+        markerRef.current.map = null;
       }
 
       const clickedLocation = {
@@ -83,10 +84,9 @@ const Map = ({
             handleCountrySelection("Not a valid country", clickedLocation);
           }
 
-          const newMarker = new window.google.maps.Marker({
+          const newMarker = new window.google.maps.marker.AdvancedMarkerElement({
             position: clickedLocation,
             map: map,
-            clickable: false,
           });
 
           markerRef.current = newMarker;
@@ -109,12 +109,12 @@ const Map = ({
       mapInstance.setZoom(2);
 
       if (markerRef.current) {
-        markerRef.current.setMap(null);
+        markerRef.current.map = null;
         markerRef.current = null;
       }
 
       if (correctMarkerRef.current) {
-        correctMarkerRef.current.setMap(null);
+        correctMarkerRef.current.map = null;
         correctMarkerRef.current = null;
       }
 
@@ -140,13 +140,15 @@ const Map = ({
 
   useEffect(() => {
     if (correctLocation && mapInstance && !isFiftyFifty && isSubmitted) {
-      const correctMarker = new window.google.maps.Marker({
+      const greenPin = new window.google.maps.marker.PinElement({
+        background: "#34A853",
+        borderColor: "#137333",
+        glyphColor: "#137333",
+      });
+      const correctMarker = new window.google.maps.marker.AdvancedMarkerElement({
         position: correctLocation,
         map: mapInstance,
-        clickable: false,
-        icon: {
-          url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
-        },
+        content: greenPin.element,
       });
 
       correctMarkerRef.current = correctMarker;
@@ -173,13 +175,12 @@ const Map = ({
   useEffect(() => {
     if (mapInstance && isFiftyFifty && markerLocation) {
       if (markerRef.current) {
-        markerRef.current.setMap(null);
+        markerRef.current.map = null;
       }
 
-      markerRef.current = new window.google.maps.Marker({
+      markerRef.current = new window.google.maps.marker.AdvancedMarkerElement({
         position: markerLocation,
         map: mapInstance,
-        clickable: false,
       });
 
       mapInstance.panTo(markerLocation);
@@ -195,13 +196,15 @@ const Map = ({
       isFiftyFifty
     ) {
       if (!isCorrectGuess) {
-        const correctMarker = new window.google.maps.Marker({
+        const greenPin = new window.google.maps.marker.PinElement({
+          background: "#34A853",
+          borderColor: "#137333",
+          glyphColor: "#137333",
+        });
+        const correctMarker = new window.google.maps.marker.AdvancedMarkerElement({
           position: correctLocation,
           map: mapInstance,
-          clickable: false,
-          icon: {
-            url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
-          },
+          content: greenPin.element,
         });
 
         correctMarkerRef.current = correctMarker;
