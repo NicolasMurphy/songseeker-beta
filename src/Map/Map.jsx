@@ -148,7 +148,7 @@ const Map = ({
       const correctMarker = new window.google.maps.marker.AdvancedMarkerElement({
         position: correctLocation,
         map: mapInstance,
-        content: greenPin.element,
+        content: greenPin,
       });
 
       correctMarkerRef.current = correctMarker;
@@ -204,7 +204,7 @@ const Map = ({
         const correctMarker = new window.google.maps.marker.AdvancedMarkerElement({
           position: correctLocation,
           map: mapInstance,
-          content: greenPin.element,
+          content: greenPin,
         });
 
         correctMarkerRef.current = correctMarker;
